@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2] - 2025-09-08
+
+### Fixed
+
+- Missing compiled JavaScript files in npm package due to publishing without build step
+- Package now includes proper dist/ folder with compiled TypeScript outputs
+
 ## [0.2.1] - 2025-09-08
 
 ### Fixed
