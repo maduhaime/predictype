@@ -22,11 +22,11 @@ export enum StringSubstringEnum {
 export type StringSubstringOper = StringSubstringEnum | `${StringSubstringEnum}`;
 
 export enum StringSizeEnum {
-  LENGTH_EQUALS = 'length_equals',
-  LENGTH_GREATER_THAN = 'length_greater_than',
-  LENGTH_GREATER_THAN_OR_EQUALS = 'length_greater_than_or_equals',
-  LENGTH_LESS_THAN = 'length_less_than',
-  LENGTH_LESS_THAN_OR_EQUALS = 'length_less_than_or_equals',
+  EQUALS = 'equals',
+  GREATER_THAN = 'greater_than',
+  GREATER_THAN_OR_EQUALS = 'greater_than_or_equals',
+  LESS_THAN = 'less_than',
+  LESS_THAN_OR_EQUALS = 'less_than_or_equals',
 }
 
 export type StringSizeOper = StringSizeEnum | `${StringSizeEnum}`;
