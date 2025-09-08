@@ -4,5 +4,5 @@
  * @module predicates/symbols
  */
 export * from './enums';
-export * from './symbolCompare';
+export * from './symbolComparison';
 export * from './symbolState';

@@ -3,14 +3,14 @@
  *
  * @module strings/enums
  */
-export enum StringCompareEnum {
+export enum StringComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
   GREATER_THAN = 'greater_than',
   LESS_THAN = 'less_than',
 }
 
-export type StringCompareOper = StringCompareEnum | `${StringCompareEnum}`;
+export type StringComparisonOper = StringComparisonEnum | `${StringComparisonEnum}`;
 
 export enum StringSubstringEnum {
   INCLUDES = 'includes',

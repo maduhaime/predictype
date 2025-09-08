@@ -4,7 +4,7 @@
  * @module arrays/enums
  */
 
-export enum ArrayIndexCompareEnum {
+export enum ArrayIndexComparisonEnum {
   VALUE_AT_INDEX_EQUALS = 'value_at_index_equals',
   VALUE_AT_INDEX_NOT_EQUALS = 'value_at_index_not_equals',
   VALUE_AT_INDEX_GREATER_THAN = 'value_at_index_greater_than',
@@ -12,7 +12,7 @@ export enum ArrayIndexCompareEnum {
   VALUE_AT_INDEX_LESS_THAN = 'value_at_index_less_than',
   VALUE_AT_INDEX_LESS_THAN_OR_EQUALS = 'value_at_index_less_than_or_equals',
 }
-export type ArrayIndexCompareOper = ArrayIndexCompareEnum | `${ArrayIndexCompareEnum}`;
+export type ArrayIndexComparisonOper = ArrayIndexComparisonEnum | `${ArrayIndexComparisonEnum}`;
 
 export enum ArrayIndexMembershipEnum {
   VALUE_AT_INDEX_IN = 'value_at_index_in',
@@ -21,12 +21,12 @@ export enum ArrayIndexMembershipEnum {
 
 export type ArrayIndexMembershipOper = ArrayIndexMembershipEnum | `${ArrayIndexMembershipEnum}`;
 
-export enum ArrayCompareEnum {
+export enum ArrayComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
 }
 
-export type ArrayCompareOper = ArrayCompareEnum | `${ArrayCompareEnum}`;
+export type ArrayComparisonOper = ArrayComparisonEnum | `${ArrayComparisonEnum}`;
 
 export enum ArrayIntersectionEnum {
   DISJOINT = 'disjoint',

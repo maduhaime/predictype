@@ -3,8 +3,8 @@
  *
  * @module arrays
  */
-export * from './arrayCompare';
-export * from './arrayIndexCompare';
+export * from './arrayComparison';
+export * from './arrayIndexComparison';
 export * from './arrayIndexMembership';
 export * from './arrayIntersection';
 export * from './arrayMembership';

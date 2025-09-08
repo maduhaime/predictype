@@ -4,7 +4,7 @@
  * @module predicates/sets
  */
 export * from './enums';
-export * from './setCompare';
+export * from './setComparison';
 export * from './setRelation';
 export * from './setSize';
 export * from './setState';

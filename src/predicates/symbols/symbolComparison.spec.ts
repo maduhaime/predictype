@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { symbolCompare } from './symbolCompare';
+import { symbolComparison } from './symbolComparison';
 
-describe('symbolCompare', () => {
+describe('symbolComparison', () => {
   it('should return true for equals', () => {
     const a = Symbol('foo');
-    expect(symbolCompare(a, 'equals', a)).toBe(true);
+    expect(symbolComparison(a, 'equals', a)).toBe(true);
   });
   it('should return true for not_equals', () => {
     const a = Symbol('foo');
     const b = Symbol('foo');
-    expect(symbolCompare(a, 'not_equals', b)).toBe(true);
+    expect(symbolComparison(a, 'not_equals', b)).toBe(true);
   });
 });

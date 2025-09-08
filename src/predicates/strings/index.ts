@@ -4,7 +4,7 @@
  * @module predicates/strings
  */
 export * from './enums';
-export * from './stringCompare';
+export * from './stringComparison';
 export * from './stringMembership';
 export * from './stringPattern';
 export * from './stringSize';

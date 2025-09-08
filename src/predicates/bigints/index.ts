@@ -3,7 +3,7 @@
  *
  * @module bigints
  */
-export * from './bigintCompare';
+export * from './bigintComparison';
 export * from './bigintMembership';
 export * from './bigintRange';
 export * from './bigintState';

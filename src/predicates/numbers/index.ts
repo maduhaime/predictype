@@ -4,6 +4,6 @@
  * @module predicates/numbers
  */
 export * from './enums';
-export * from './numberCompare';
+export * from './numberComparison';
 export * from './numberRange';
 export * from './numberState';

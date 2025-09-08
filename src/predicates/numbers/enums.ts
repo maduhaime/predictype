@@ -3,7 +3,7 @@
  *
  * @module numbers/enums
  */
-export enum NumberCompareEnum {
+export enum NumberComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
   GREATER_THAN = 'greater_than',
@@ -12,7 +12,7 @@ export enum NumberCompareEnum {
   LESS_OR_EQUAL = 'less_or_equal',
 }
 
-export type NumberCompareOper = NumberCompareEnum | `${NumberCompareEnum}`;
+export type NumberComparisonOper = NumberComparisonEnum | `${NumberComparisonEnum}`;
 
 export enum NumberRangeEnum {
   IN_RANGE = 'in_range',

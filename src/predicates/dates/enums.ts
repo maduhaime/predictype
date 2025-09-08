@@ -17,7 +17,7 @@ export enum DateCalendarEnum {
 
 export type DateCalendarOper = DateCalendarEnum | `${DateCalendarEnum}`;
 
-export enum DateCompareEnum {
+export enum DateComparisonEnum {
   AFTER = 'after',
   AFTER_OR_EQUAL = 'after_or_equal',
   BEFORE = 'before',
@@ -29,7 +29,7 @@ export enum DateCompareEnum {
   SAME_YEAR = 'same_year',
 }
 
-export type DateCompareOper = DateCompareEnum | `${DateCompareEnum}`;
+export type DateComparisonOper = DateComparisonEnum | `${DateComparisonEnum}`;
 
 export enum DateRangeEnum {
   IN_RANGE = 'in_range',

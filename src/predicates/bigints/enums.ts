@@ -4,7 +4,7 @@
  * @module bigints/enums
  */
 
-export enum BigIntCompareEnum {
+export enum BigIntComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
   GREATER_THAN = 'greater_than',
@@ -12,7 +12,7 @@ export enum BigIntCompareEnum {
   LESS_THAN = 'less_than',
   LESS_THAN_OR_EQUALS = 'less_than_or_equals',
 }
-export type BigIntCompareOper = BigIntCompareEnum | `${BigIntCompareEnum}`;
+export type BigIntComparisonOper = BigIntComparisonEnum | `${BigIntComparisonEnum}`;
 
 export enum BigIntStateEnum {
   IS_ZERO = 'is_zero',

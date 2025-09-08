@@ -3,11 +3,11 @@
  *
  * @module symbols/enums
  */
-export enum SymbolCompareEnum {
+export enum SymbolComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
 }
-export type SymbolCompareOper = SymbolCompareEnum | `${SymbolCompareEnum}`;
+export type SymbolComparisonOper = SymbolComparisonEnum | `${SymbolComparisonEnum}`;
 
 export enum SymbolStateEnum {
   IS_GLOBAL = 'is_global',

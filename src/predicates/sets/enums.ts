@@ -3,12 +3,12 @@
  *
  * @module sets/enums
  */
-export enum SetCompareEnum {
+export enum SetComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
 }
 
-export type SetCompareOper = SetCompareEnum | `${SetCompareEnum}`;
+export type SetComparisonOper = SetComparisonEnum | `${SetComparisonEnum}`;
 
 export enum SetRelationEnum {
   DISJOINT = 'disjoint',

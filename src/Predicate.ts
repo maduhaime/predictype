@@ -1,7 +1,7 @@
 import {
   arrayMembership,
-  arrayCompare,
-  arrayIndexCompare,
+  arrayComparison,
+  arrayIndexComparison,
   arrayIndexMembership,
   arrayIntersection,
   arrayRelation,
@@ -11,8 +11,8 @@ import {
 } from './predicates/arrays';
 import {
   ArrayMembershipOper,
-  ArrayCompareOper,
-  ArrayIndexCompareOper,
+  ArrayComparisonOper,
+  ArrayIndexComparisonOper,
   ArrayIndexMembershipOper,
   ArrayIntersectionOper,
   ArrayRelationOper,
@@ -21,8 +21,13 @@ import {
   ArrayStateOper,
 } from './predicates/arrays/enums';
 
-import { bigintCompare, bigintMembership, bigintRange, bigintState } from './predicates/bigints';
-import { BigIntCompareOper, BigIntMembershipOper, BigIntRangeOper, BigIntStateOper } from './predicates/bigints/enums';
+import { bigintComparison, bigintMembership, bigintRange, bigintState } from './predicates/bigints';
+import {
+  BigIntComparisonOper,
+  BigIntMembershipOper,
+  BigIntRangeOper,
+  BigIntStateOper,
+} from './predicates/bigints/enums';
 
 import { booleanState } from './predicates/booleans';
 import { BooleanStateOper } from './predicates/booleans/enums';
@@ -41,8 +46,8 @@ import {
 import { mapEntry, mapKey, mapSize, mapState, mapValue } from './predicates/maps';
 import { MapEntryOper, MapKeyOper, MapSizeOper, MapStateOper, MapValueOper } from './predicates/maps/enums';
 
-import { numberCompare, numberRange, numberState } from './predicates/numbers';
-import { NumberCompareOper, NumberRangeOper, NumberStateOper } from './predicates/numbers/enums';
+import { numberComparison, numberRange, numberState } from './predicates/numbers';
+import { NumberComparisonOper, NumberRangeOper, NumberStateOper } from './predicates/numbers/enums';
 
 import { objectAttributes, objectInstance, objectKey, objectKeys } from './predicates/objects';
 import { ObjectAttributesOper, ObjectInstanceOper, ObjectKeyOper, ObjectKeysOper } from './predicates/objects/enums';
@@ -50,28 +55,28 @@ import { ObjectAttributesOper, ObjectInstanceOper, ObjectKeyOper, ObjectKeysOper
 import { promiseState, PromiseWithState } from './predicates/promises/promiseState';
 import { PromiseStateOper } from './predicates/promises/enums';
 
-import { setCompare, setRelation, setSize, setState } from './predicates/sets';
-import { SetCompareOper, SetRelationOper, SetSizeOper, SetStateOper } from './predicates/sets/enums';
+import { setComparison, setRelation, setSize, setState } from './predicates/sets';
+import { SetComparisonOper, SetRelationOper, SetSizeOper, SetStateOper } from './predicates/sets/enums';
 
-import { stringCompare, stringMembership, stringPattern, stringSize, stringState } from './predicates/strings';
+import { stringComparison, stringMembership, stringPattern, stringSize, stringState } from './predicates/strings';
 import {
-  StringCompareOper,
+  StringComparisonOper,
   StringMembershipOper,
   StringPatternOper,
   StringSizeOper,
   StringStateOper,
 } from './predicates/strings/enums';
 
-import { symbolCompare, symbolState } from './predicates/symbols';
-import { SymbolCompareOper, SymbolStateOper } from './predicates/symbols/enums';
+import { symbolComparison, symbolState } from './predicates/symbols';
+import { SymbolComparisonOper, SymbolStateOper } from './predicates/symbols/enums';
 
 export const Predicate = {
   array: {
-    compare: <T>(source: T[], oper: ArrayCompareOper, target: T[]): boolean => {
-      return arrayCompare<T>(source, oper, target);
+    comparison: <T>(source: T[], oper: ArrayComparisonOper, target: T[]): boolean => {
+      return arrayComparison<T>(source, oper, target);
     },
-    indexCompare: <T>(source: T[], oper: ArrayIndexCompareOper, index: number, target: T): boolean => {
-      return arrayIndexCompare<T>(source, oper, index, target);
+    indexComparison: <T>(source: T[], oper: ArrayIndexComparisonOper, index: number, target: T): boolean => {
+      return arrayIndexComparison<T>(source, oper, index, target);
     },
     indexMembership: <T>(source: T[], oper: ArrayIndexMembershipOper, index: number, target: T[]): boolean => {
       return arrayIndexMembership<T>(source, oper, index, target);
@@ -96,8 +101,8 @@ export const Predicate = {
     },
   },
   bigint: {
-    compare: (source: bigint, oper: BigIntCompareOper, target: bigint): boolean => {
-      return bigintCompare(source, oper, target);
+    comparison: (source: bigint, oper: BigIntComparisonOper, target: bigint): boolean => {
+      return bigintComparison(source, oper, target);
     },
     membership: (source: bigint, oper: BigIntMembershipOper, set: bigint[]): boolean => {
       return bigintMembership(source, oper, set);
@@ -157,8 +162,8 @@ export const Predicate = {
     },
   },
   number: {
-    compare: (source: number, oper: NumberCompareOper, target: number): boolean => {
-      return numberCompare(source, oper, target);
+    comparison: (source: number, oper: NumberComparisonOper, target: number): boolean => {
+      return numberComparison(source, oper, target);
     },
     range: (value: number, oper: NumberRangeOper, min: number, max: number): boolean => {
       return numberRange(value, oper, min, max);
@@ -187,8 +192,8 @@ export const Predicate = {
     },
   },
   set: {
-    compare: <T>(source: Set<T>, oper: SetCompareOper, target: Set<T>): boolean => {
-      return setCompare(source, oper, target);
+    comparison: <T>(source: Set<T>, oper: SetComparisonOper, target: Set<T>): boolean => {
+      return setComparison(source, oper, target);
     },
     relation: <T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean => {
       return setRelation(source, oper, target);
@@ -201,8 +206,8 @@ export const Predicate = {
     },
   },
   string: {
-    compare: (source: string, oper: StringCompareOper, target: string): boolean => {
-      return stringCompare(source, oper, target);
+    comparison: (source: string, oper: StringComparisonOper, target: string): boolean => {
+      return stringComparison(source, oper, target);
     },
     membership: (source: string, oper: StringMembershipOper, arr: string[]): boolean => {
       return stringMembership(source, oper, arr);
@@ -218,8 +223,8 @@ export const Predicate = {
     },
   },
   symbol: {
-    compare: (source: symbol, oper: SymbolCompareOper, target: symbol): boolean => {
-      return symbolCompare(source, oper, target);
+    comparison: (source: symbol, oper: SymbolComparisonOper, target: symbol): boolean => {
+      return symbolComparison(source, oper, target);
     },
     state: (source: symbol, oper: SymbolStateOper): boolean => {
       return symbolState(source, oper);
@@ -228,4 +233,18 @@ export const Predicate = {
 };
 
 // Predicate Alias
-export const P = Predicate;
+// export const P = Predicate;
+export const P = {
+  arr: Predicate.array,
+  big: Predicate.bigint,
+  bool: Predicate.boolean,
+  date: Predicate.date,
+  func: Predicate.function,
+  map: Predicate.map,
+  num: Predicate.number,
+  obj: Predicate.object,
+  prom: Predicate.promise,
+  set: Predicate.set,
+  str: Predicate.string,
+  sym: Predicate.symbol,
+};
