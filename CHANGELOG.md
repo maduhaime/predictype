@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1] - 2025-09-08
+
+### Fixed
+
+- Export of P constant from main package entry point, allowing import { P } from 'predictype'
+
 ## [0.2.0] - 2025-09-08
 
 ### Added
