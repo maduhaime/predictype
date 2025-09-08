@@ -4,9 +4,6 @@
   "description": "Predictype is a library of pre-built and tested predicates for TypeScript, covering various data types and operations.",
   "keywords": [
     "typescript",
-    "collection",
-    "filter",
-    "sort",
     "predicate"
   ],
   "license": "MIT",
