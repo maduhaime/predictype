@@ -15,17 +15,18 @@ export enum FunctionArityEnum {
 export type FunctionArityOper = FunctionArityEnum | `${FunctionArityEnum}`;
 
 export enum FunctionNameEnum {
-  NAME_EQUALS = 'name_equals',
-  NAME_STARTS_WITH = 'name_starts_with',
-  NAME_ENDS_WITH = 'name_ends_with',
-  NAME_INCLUDES = 'name_includes',
-  NAME_EXCLUDES = 'name_excludes',
+  EQUALS = 'equals',
+  STARTS_WITH = 'starts_with',
+  ENDS_WITH = 'ends_with',
+  INCLUDES = 'includes',
+  EXCLUDES = 'excludes',
 }
 
 export type FunctionNameOper = FunctionNameEnum | `${FunctionNameEnum}`;
 
 export enum FunctionPatternEnum {
   NAME_MATCHES = 'name_matches',
+  NAME_NOT_MATCHES = 'name_not_matches',
 }
 
 export type FunctionPatternOper = FunctionPatternEnum | `${FunctionPatternEnum}`;

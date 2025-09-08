@@ -20,11 +20,11 @@ export enum SetRelationEnum {
 export type SetRelationOper = SetRelationEnum | `${SetRelationEnum}`;
 
 export enum SetSizeEnum {
-  SIZE_EQUALS = 'size_equals',
-  SIZE_GREATER_THAN = 'size_greater_than',
-  SIZE_GREATER_THAN_OR_EQUALS = 'size_greater_than_or_equals',
-  SIZE_LESS_THAN = 'size_less_than',
-  SIZE_LESS_THAN_OR_EQUALS = 'size_less_than_or_equals',
+  EQUALS = 'equals',
+  GREATER_THAN = 'greater_than',
+  GREATER_THAN_OR_EQUALS = 'greater_than_or_equals',
+  LESS_THAN = 'less_than',
+  LESS_THAN_OR_EQUALS = 'less_than_or_equals',
 }
 
 export type SetSizeOper = SetSizeEnum | `${SetSizeEnum}`;

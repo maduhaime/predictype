@@ -2,18 +2,18 @@ import { describe, it, expect } from 'vitest';
 import { functionName } from './functionName';
 
 describe('functionName', () => {
-  it('should return true for name_equals', () => {
+  it('should return true for equals', () => {
     const fn = function foo() {};
-    expect(functionName(fn, 'name_equals', 'foo')).toBe(true);
+    expect(functionName(fn, 'equals', 'foo')).toBe(true);
   });
 
-  it('should return true for name_starts_with', () => {
+  it('should return true for starts_with', () => {
     const fn = function barTest() {};
-    expect(functionName(fn, 'name_starts_with', 'bar')).toBe(true);
+    expect(functionName(fn, 'starts_with', 'bar')).toBe(true);
   });
 
-  it('should return false for name_equals if not equal', () => {
+  it('should return false for equals if not equal', () => {
     const fn = function baz() {};
-    expect(functionName(fn, 'name_equals', 'foo')).toBe(false);
+    expect(functionName(fn, 'equals', 'foo')).toBe(false);
   });
 });
