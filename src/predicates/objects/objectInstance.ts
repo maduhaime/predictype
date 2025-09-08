@@ -1,0 +1,37 @@
+import { ObjectInstanceEnum, ObjectInstanceOper } from './enums';
+
+/**
+ * Checks object instance/type characteristics using the specified operation.
+ *
+ * @param value The value to check.
+ * @param oper The instance operation to perform (e.g. 'is_class', 'is_instance_of').
+ * @param ctor The constructor to check against (for 'is_instance_of').
+ * @returns True if the instance check is valid according to the operator, otherwise false.
+ *
+ * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * class Foo {}
+ * const foo = new Foo();
+ * function Bar() {}
+ *
+ * objectInstance(foo, 'is_instance_of', Foo); // true
+ * objectInstance(Bar, 'is_class'); // false (not a class)
+ * objectInstance(Bar, 'is_constructor'); // true
+ */
+export function objectInstance(value: any, oper: ObjectInstanceOper, ctor?: Function): boolean {
+  const operators: Record<ObjectInstanceEnum, (v: any, c?: Function) => boolean> = {
+    [ObjectInstanceEnum.IS_CLASS]: (v) =>
+      typeof v === 'function' && /^class\s/.test(Function.prototype.toString.call(v)),
+    [ObjectInstanceEnum.IS_CONSTRUCTOR]: (v) => typeof v === 'function',
+    [ObjectInstanceEnum.IS_FUNCTION_INSTANCE]: (v) => typeof v === 'function',
+    [ObjectInstanceEnum.IS_INSTANCE_OF]: (v, c) => typeof c === 'function' && v instanceof c,
+    [ObjectInstanceEnum.IS_OBJECT_INSTANCE]: (v) => v !== null && typeof v === 'object',
+  };
+
+  const enumOper = typeof oper === 'string' ? (oper as ObjectInstanceEnum) : oper;
+  const fn = operators[enumOper];
+
+  if (!fn) throw new Error(`Unknown ObjectInstance operation: ${oper}`);
+  return fn(value, ctor);
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/**/*.ts"],
+  "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/demo/**", "**/node_modules/**"],
+  "out": "docs",
+  "tsconfig": "tsconfig.json",
+  "hideGenerator": true,
+  "includeVersion": true,
+  "categorizeByGroup": false,
+  "sort": ["source-order"]
+}

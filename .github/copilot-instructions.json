@@ -1,0 +1,34 @@
+{
+  "style": {
+    "language": "TypeScript",
+    "codeConventions": [
+      "Use enums for operation types",
+      "Keep function signatures simple and consistent",
+      "Avoid unions like string | string[] in function parameters",
+      "Always prefer plural for predicate families (arrays, strings, functions, etc.)",
+      "Always use {} and return when an arrow function spans multiple lines"
+    ],
+    "namingConventions": ["snake_case for enum values", "PascalCase for enum names", "camelCase for functions"]
+  },
+  "documentation": {
+    "jsdoc": true,
+    "language": "en",
+    "requirements": [
+      "Always include an @example section in the JSDoc",
+      "Examples should use realistic input and output",
+      "Example code must be TypeScript",
+      "Always create const values for example inputs, except for enum values",
+      "Avoid using enum keys in examples.  Use the actual string value instead.",
+      "Add blank lines between const declarations and their usage.",
+      "Avoid examples for index files and enumeration types."
+    ]
+  },
+  "tests": {
+    "framework": "vitest",
+    "requirements": [
+      "Always use DummyType as the generic when a type parameter is required",
+      "Create tests that cover edge cases",
+      "Prefer simple and readable test cases"
+    ]
+  }
+}
