@@ -27,8 +27,12 @@
     "framework": "vitest",
     "requirements": [
       "Always use DummyType as the generic when a type parameter is required",
+      "Always import vitest functions at the top of the file",
+      "Prefer simple and readable test cases",
       "Create tests that cover edge cases",
-      "Prefer simple and readable test cases"
+      "Always start name in 'it' function by 'should'",
+      "Use .spec.ts file extension for test files",
+      "Always test functions throwing errors"
     ]
   }
 }

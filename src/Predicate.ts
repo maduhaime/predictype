@@ -65,7 +65,7 @@ import {
 import { symbolCompare, symbolState } from './predicates/symbols';
 import { SymbolCompareOper, SymbolStateOper } from './predicates/symbols/enums';
 
-export const PredicType = {
+export const Predicate = {
   array: {
     compare: <T>(source: T[], oper: ArrayCompareOper, target: T[]): boolean => {
       return arrayCompare<T>(source, oper, target);
@@ -95,7 +95,7 @@ export const PredicType = {
       return arrayState(source, oper);
     },
   },
-  bigints: {
+  bigint: {
     compare: (source: bigint, oper: BigIntCompareOper, target: bigint): boolean => {
       return bigintCompare(source, oper, target);
     },
@@ -109,12 +109,12 @@ export const PredicType = {
       return bigintState(source, oper);
     },
   },
-  booleans: {
+  boolean: {
     state: (value: boolean, oper: BooleanStateOper): boolean => {
       return booleanState(value, oper);
     },
   },
-  dates: {
+  date: {
     calendar: (value: Date, oper: DateCalendarOper): boolean => {
       return dateCalendar(value, oper);
     },
@@ -125,7 +125,7 @@ export const PredicType = {
       return dateState(value, oper);
     },
   },
-  functions: {
+  function: {
     arity: (source: Function, oper: FunctionArityOper, arity: number): boolean => {
       return functionArity(source, oper, arity);
     },
@@ -139,7 +139,7 @@ export const PredicType = {
       return functionState(source, oper);
     },
   },
-  maps: {
+  map: {
     entry: <K, V>(source: Map<K, V>, oper: MapEntryOper, entry: [K, V]): boolean => {
       return mapEntry(source, oper, entry);
     },
@@ -156,7 +156,7 @@ export const PredicType = {
       return mapValue(source, oper, value);
     },
   },
-  numbers: {
+  number: {
     compare: (source: number, oper: NumberCompareOper, target: number): boolean => {
       return numberCompare(source, oper, target);
     },
@@ -167,7 +167,7 @@ export const PredicType = {
       return numberState(value, oper);
     },
   },
-  objects: {
+  object: {
     attributes: (obj: object, oper: ObjectAttributesOper, key: string | symbol): boolean => {
       return objectAttributes(obj, oper, key);
     },
@@ -181,12 +181,12 @@ export const PredicType = {
       return objectKeys(obj, oper, keys);
     },
   },
-  promises: {
+  promise: {
     state: <T>(wrapper: PromiseWithState<T>, oper: PromiseStateOper): boolean => {
       return promiseState(wrapper, oper);
     },
   },
-  sets: {
+  set: {
     compare: <T>(source: Set<T>, oper: SetCompareOper, target: Set<T>): boolean => {
       return setCompare(source, oper, target);
     },
@@ -200,7 +200,7 @@ export const PredicType = {
       return setState(source, oper);
     },
   },
-  strings: {
+  string: {
     compare: (source: string, oper: StringCompareOper, target: string): boolean => {
       return stringCompare(source, oper, target);
     },
@@ -217,7 +217,7 @@ export const PredicType = {
       return stringState(source, oper);
     },
   },
-  symbols: {
+  symbol: {
     compare: (source: symbol, oper: SymbolCompareOper, target: symbol): boolean => {
       return symbolCompare(source, oper, target);
     },
@@ -228,4 +228,4 @@ export const PredicType = {
 };
 
 // Predicate Alias
-export const P = PredicType;
+export const P = Predicate;

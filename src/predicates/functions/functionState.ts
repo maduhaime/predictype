@@ -26,7 +26,17 @@ export function functionState(source: Function, oper: FunctionStateOper): boolea
     [FunctionStateEnum.IS_GENERATOR]: (a) => a.constructor.name === 'GeneratorFunction',
     [FunctionStateEnum.IS_CONSTRUCTOR]: (a) => a.prototype !== undefined,
     [FunctionStateEnum.IS_ARROW]: (a) => !a.prototype && !a.hasOwnProperty('prototype'),
-    [FunctionStateEnum.IS_ANONYMOUS]: (a) => !a.name || a.name === '',
+    [FunctionStateEnum.IS_ANONYMOUS]: (a) => {
+      // In Node, anonymous functions may have name '' or 'anonymous'.
+      // In some JS engines, even anonymous functions may have a generated name.
+      // We consider a function anonymous if:
+      // - name is ''
+      // - name is 'anonymous'
+      // - or its string representation starts with 'function (' (no name)
+      if (!a.name || a.name === '' || a.name === 'anonymous') return true;
+      const fnStr = Function.prototype.toString.call(a);
+      return /^function ?\(/.test(fnStr);
+    },
   };
   const enumOper = typeof oper === 'string' ? (oper as FunctionStateEnum) : oper;
   const fn = operators[enumOper];
