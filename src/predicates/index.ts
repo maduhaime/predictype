@@ -3,15 +3,15 @@
  *
  * @module predicates
  */
-export * as arrays from './arrays';
-export * as bigints from './bigints';
-export * as booleans from './booleans';
-export * as dates from './dates';
-export * as functions from './functions';
-export * as maps from './maps';
-export * as numbers from './numbers';
-export * as objects from './objects';
-export * as promises from './promises';
-export * as sets from './sets';
-export * as strings from './strings';
-export * as symbols from './symbols';
+export * from './arrays';
+export * from './bigints';
+export * from './booleans';
+export * from './dates';
+export * from './functions';
+export * from './maps';
+export * from './numbers';
+export * from './objects';
+export * from './promises';
+export * from './sets';
+export * from './strings';
+export * from './symbols';
