@@ -10,3 +10,10 @@ export enum BooleanStateEnum {
 }
 
 export type BooleanStateOper = BooleanStateEnum | `${BooleanStateEnum}`;
+
+export enum BooleanComparisonEnum {
+  EQUALS = 'equals',
+  NOT_EQUALS = 'not_equals',
+}
+
+export type BooleanComparisonOper = BooleanComparisonEnum | `${BooleanComparisonEnum}`;

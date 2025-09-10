@@ -4,4 +4,5 @@
  * @module booleans
  */
 export * from './enums';
+export * from './booleanComparison';
 export * from './booleanState';
