@@ -1,6 +1,6 @@
 {
   "name": "predictype",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "Predictype is a library of pre-built and tested predicates for TypeScript, covering various data types and operations.",
   "keywords": [
     "typescript",
