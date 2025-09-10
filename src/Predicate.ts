@@ -29,8 +29,8 @@ import {
   BigIntStateOper,
 } from './predicates/bigints/enums';
 
-import { booleanState } from './predicates/booleans';
-import { BooleanStateOper } from './predicates/booleans/enums';
+import { booleanComparison, booleanState } from './predicates/booleans';
+import { BooleanComparisonOper, BooleanStateOper } from './predicates/booleans/enums';
 
 import { dateCalendar, dateRange, dateState } from './predicates/dates';
 import { DateCalendarOper, DateRangeOper, DateStateOper } from './predicates/dates/enums';
@@ -115,6 +115,9 @@ export const Predicate = {
     },
   },
   boolean: {
+    comparison: (value: boolean, oper: BooleanComparisonOper, target: boolean): boolean => {
+      return booleanComparison(value, oper, target);
+    },
     state: (value: boolean, oper: BooleanStateOper): boolean => {
       return booleanState(value, oper);
     },
