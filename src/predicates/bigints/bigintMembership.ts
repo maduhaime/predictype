@@ -1,4 +1,4 @@
-import { BigIntMembershipEnum, BigIntMembershipOper } from './enums';
+import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints';
 
 /**
  * Checks if a bigint value is (or is not) a member of a set of bigints using the specified operation.

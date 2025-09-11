@@ -1,4 +1,4 @@
-import { StringSizeEnum, StringSizeOper } from './enums';
+import { StringSizeEnum, StringSizeOper } from '../../enums/strings';
 
 /**
  * Checks the size (length) of a string using the specified operation.

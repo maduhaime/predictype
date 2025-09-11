@@ -1,4 +1,4 @@
-import { MapStateEnum, MapStateOper } from './enums';
+import { MapStateEnum, MapStateOper } from '../../enums/maps';
 
 /**
  * Checks the state of a Map (empty or not) using the specified operation.

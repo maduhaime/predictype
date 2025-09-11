@@ -12,4 +12,3 @@ export * from './arrayRelation';
 export * from './arraySequence';
 export * from './arraySize';
 export * from './arrayState';
-export * from './enums';

@@ -1,4 +1,4 @@
-import { ObjectKeysEnum, ObjectKeysOper } from './enums';
+import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects';
 /**
  * Checks object keys according to the specified operation.
  *

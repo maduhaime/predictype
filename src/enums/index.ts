@@ -1,8 +1,3 @@
-/**
- * Exports all predicate modules for each supported data type.
- *
- * @module predicates
- */
 export * from './arrays';
 export * from './bigints';
 export * from './booleans';

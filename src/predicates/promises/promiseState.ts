@@ -1,12 +1,12 @@
-import { PromiseStateEnum, PromiseStateOper } from './enums';
+import { PromiseStateEnum, PromiseStateOper } from '../../enums/promises';
 
 export type PromiseWithState<T> = {
   promise: Promise<T>;
-  state: PromiseStateEnum;
+  state: PromiseStateOper;
 };
 
 export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
-  let state: PromiseStateEnum = PromiseStateEnum.IS_PENDING;
+  let state: PromiseStateOper = PromiseStateEnum.IS_PENDING;
 
   const wrapped = (async () => {
     try {

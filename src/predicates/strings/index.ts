@@ -3,7 +3,6 @@
  *
  * @module predicates/strings
  */
-export * from './enums';
 export * from './stringComparison';
 export * from './stringMembership';
 export * from './stringPattern';

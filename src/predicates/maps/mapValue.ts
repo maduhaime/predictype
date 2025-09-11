@@ -1,4 +1,4 @@
-import { MapValueEnum, MapValueOper } from './enums';
+import { MapValueEnum, MapValueOper } from '../../enums/maps';
 
 /**
  * Checks if a Map contains (or lacks) a specific value using the specified operation.

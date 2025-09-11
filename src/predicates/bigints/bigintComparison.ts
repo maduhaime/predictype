@@ -1,4 +1,4 @@
-import { BigIntComparisonEnum, BigIntComparisonOper } from './enums';
+import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints';
 
 /**
  * Compares two bigint values using the specified operation.

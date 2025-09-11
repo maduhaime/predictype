@@ -3,7 +3,6 @@
  *
  * @module predicates/maps
  */
-export * from './enums';
 export * from './mapEntry';
 export * from './mapKey';
 export * from './mapSize';

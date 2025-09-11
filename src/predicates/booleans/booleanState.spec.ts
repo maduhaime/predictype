@@ -21,4 +21,9 @@ describe('booleanState', () => {
     const value = true;
     expect(booleanState(value, 'is_false')).toBe(false);
   });
+
+  it('should throw for unknown operation', () => {
+    // @ts-expect-error
+    expect(() => booleanState(true, 'unknown')).toThrow();
+  });
 });

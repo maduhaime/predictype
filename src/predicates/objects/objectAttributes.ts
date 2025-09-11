@@ -1,4 +1,4 @@
-import { ObjectAttributesEnum, ObjectAttributesOper } from './enums';
+import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects';
 /**
  * Checks object property attributes (writable, enumerable, configurable, accessor, data property) using the specified operation.
  *

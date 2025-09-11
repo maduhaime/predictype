@@ -1,4 +1,4 @@
-import { StringPatternEnum, StringPatternOper } from './enums';
+import { StringPatternEnum, StringPatternOper } from '../../enums/strings';
 
 /**
  * Evaluates a string against a pattern operation (matches or not matches a RegExp) using the specified operation.

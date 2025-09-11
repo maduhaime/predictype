@@ -1,4 +1,4 @@
-import { BigIntStateEnum, BigIntStateOper } from './enums';
+import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints';
 
 /**
  * Checks the state of a bigint value (zero, positive, negative, even, odd) using the specified operation.

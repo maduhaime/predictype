@@ -1,4 +1,4 @@
-import { FunctionArityEnum, FunctionArityOper } from './enums';
+import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions';
 
 /**
  * Checks the arity (number of parameters) of a function using the specified operation.

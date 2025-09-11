@@ -1,4 +1,4 @@
-import { NumberComparisonEnum, NumberComparisonOper } from './enums';
+import { NumberComparisonEnum, NumberComparisonOper } from '../../enums/numbers';
 
 /**
  * Compares two numbers using the specified operation.

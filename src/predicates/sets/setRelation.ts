@@ -1,4 +1,4 @@
-import { SetRelationEnum, SetRelationOper } from './enums';
+import { SetRelationEnum, SetRelationOper } from '../../enums/sets';
 
 /**
  * Checks the relation between two sets (disjoint, intersects, subset, superset) using the specified operation.

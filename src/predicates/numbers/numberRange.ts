@@ -1,4 +1,4 @@
-import { NumberRangeEnum, NumberRangeOper } from './enums';
+import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers';
 /**
  * Checks if a number is in or outside a range using the specified operation.
  *

@@ -1,4 +1,4 @@
-import { SetSizeEnum, SetSizeOper } from './enums';
+import { SetSizeEnum, SetSizeOper } from '../../enums/sets';
 
 /**
  * Checks the size of a set using the specified operation.

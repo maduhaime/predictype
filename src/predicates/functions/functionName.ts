@@ -1,4 +1,4 @@
-import { FunctionNameEnum, FunctionNameOper } from './enums';
+import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions';
 
 /**
  * Checks the name of a function using the specified operation.

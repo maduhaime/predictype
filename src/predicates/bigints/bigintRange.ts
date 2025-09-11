@@ -1,4 +1,4 @@
-import { BigIntRangeEnum, BigIntRangeOper } from './enums';
+import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints';
 
 /**
  * Checks if a bigint value falls within or outside a specified range using the given operation.

@@ -1,4 +1,4 @@
-import { MapSizeEnum, MapSizeOper } from './enums';
+import { MapSizeEnum, MapSizeOper } from '../../enums/maps';
 
 /**
  * Checks the size of a Map using the specified operation.

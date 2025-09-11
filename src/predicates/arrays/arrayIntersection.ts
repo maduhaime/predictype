@@ -1,4 +1,4 @@
-import { ArrayIntersectionEnum, ArrayIntersectionOper } from './enums';
+import { ArrayIntersectionEnum, ArrayIntersectionOper } from '../../enums/arrays';
 
 /**
  * Checks if two arrays are disjoint or intersect, using the specified operation.

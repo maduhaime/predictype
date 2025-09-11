@@ -3,7 +3,6 @@
  *
  * @module predicates/objects
  */
-export * from './enums';
 export * from './objectAttributes';
 export * from './objectInstance';
 export * from './objectKey';

@@ -1,4 +1,4 @@
-import { ObjectInstanceEnum, ObjectInstanceOper } from './enums';
+import { ObjectInstanceEnum, ObjectInstanceOper } from '../../enums/objects';
 
 /**
  * Checks object instance/type characteristics using the specified operation.

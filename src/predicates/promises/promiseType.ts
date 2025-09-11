@@ -1,4 +1,4 @@
-import { PromiseTypeEnum, PromiseTypeOper } from './enums';
+import { PromiseTypeEnum, PromiseTypeOper } from '../../enums/promises';
 
 /**
  * Checks if a value is a Promise or an async function using the specified operation.

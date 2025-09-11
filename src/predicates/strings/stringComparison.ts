@@ -1,4 +1,4 @@
-import { StringComparisonEnum, StringComparisonOper } from './enums';
+import { StringComparisonEnum, StringComparisonOper } from '../../enums/strings';
 
 /**
  * Compares two strings using the specified operation.

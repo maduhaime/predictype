@@ -1,4 +1,4 @@
-import { ArrayStateEnum, ArrayStateOper } from './enums';
+import { ArrayStateEnum, ArrayStateOper } from '../../enums/arrays';
 
 /**
  * Checks if an array is empty or not, using the specified operation.

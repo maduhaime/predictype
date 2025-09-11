@@ -1,4 +1,4 @@
-import { SetStateEnum, SetStateOper } from './enums';
+import { SetStateEnum, SetStateOper } from '../../enums/sets';
 
 /**
  * Checks the state of a set (empty or not) using the specified operation.

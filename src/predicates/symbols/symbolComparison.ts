@@ -1,4 +1,4 @@
-import { SymbolComparisonEnum, SymbolComparisonOper } from './enums';
+import { SymbolComparisonEnum, SymbolComparisonOper } from '../../enums/symbols';
 
 /**
  * Compares two symbols for equality or inequality using the specified operation.

@@ -1,4 +1,4 @@
-import { ArrayRelationEnum, ArrayRelationOper } from './enums';
+import { ArrayRelationEnum, ArrayRelationOper } from '../../enums/arrays';
 
 /**
  * Checks if the source array is a subset or superset of the target array, using the specified operation.

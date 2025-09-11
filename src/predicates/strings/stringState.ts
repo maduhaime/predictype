@@ -1,4 +1,4 @@
-import { StringStateEnum, StringStateOper } from './enums';
+import { StringStateEnum, StringStateOper } from '../../enums/strings';
 
 /**
  * Checks the state of a string (empty, not empty, blank, not blank) using the specified operation.

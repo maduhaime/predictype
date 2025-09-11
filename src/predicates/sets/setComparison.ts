@@ -1,4 +1,4 @@
-import { SetComparisonEnum, SetComparisonOper } from './enums';
+import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets';
 
 /**
  * Compares two sets for equality or inequality using the specified operation.

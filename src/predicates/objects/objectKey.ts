@@ -1,4 +1,4 @@
-import { ObjectKeyEnum, ObjectKeyOper } from './enums';
+import { ObjectKeyEnum, ObjectKeyOper } from '../../enums/objects';
 /**
  * Checks if an object has or lacks a specific key (string or symbol) using the specified operation.
  *

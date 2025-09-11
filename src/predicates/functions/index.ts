@@ -3,7 +3,6 @@
  *
  * @module predicates/functions
  */
-export * from './enums';
 export * from './functionArity';
 export * from './functionName';
 export * from './functionPattern';

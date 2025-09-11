@@ -1,4 +1,4 @@
-import { MapKeyEnum, MapKeyOper } from './enums';
+import { MapKeyEnum, MapKeyOper } from '../../enums/maps';
 
 /**
  * Checks if a Map contains (or lacks) a specific key using the specified operation.

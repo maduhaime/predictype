@@ -1,4 +1,4 @@
-import { ArrayMembershipEnum, ArrayMembershipOper } from './enums';
+import { ArrayMembershipEnum, ArrayMembershipOper } from '../../enums/arrays';
 
 /**
  * Checks membership conditions for all or some elements in an array, using the specified operation.

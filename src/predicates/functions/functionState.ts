@@ -1,4 +1,4 @@
-import { FunctionStateEnum, FunctionStateOper } from './enums';
+import { FunctionStateEnum, FunctionStateOper } from '../../enums/functions';
 
 /**
  * Checks the state of a function (e.g. async, generator, constructor, arrow, anonymous, has name) using the specified operation.

@@ -1,4 +1,4 @@
-import { ArrayComparisonEnum, ArrayComparisonOper } from './enums';
+import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays';
 
 /**
  * Compares two arrays for strict equality or inequality based on the specified operation.

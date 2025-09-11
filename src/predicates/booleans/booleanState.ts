@@ -1,4 +1,4 @@
-import { BooleanStateEnum, BooleanStateOper } from './enums';
+import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans';
 
 /**
  * Checks the state of a boolean value (true or false) using the specified operation.
