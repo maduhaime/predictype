@@ -1,11 +1,16 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["src/**/*.ts"],
-  "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/demo/**", "**/node_modules/**"],
+  "entryPoints": ["src/index.ts", "src/**/*.ts"],
+  "entryPointStrategy": "expand",
   "out": "docs",
-  "tsconfig": "tsconfig.json",
+  "exclude": ["src/vite-env.d.ts", "**/*.spec.ts", "**/node_modules/**"],
+  "plugin": ["typedoc-plugin-markdown"],
+  "excludeExternals": true,
+  "categorizeByGroup": false,
+  "excludePrivate": true,
+  "excludeProtected": false,
   "hideGenerator": true,
   "includeVersion": true,
-  "categorizeByGroup": false,
-  "sort": ["source-order"]
+  "sort": ["source-order"],
+  "tsconfig": "tsconfig.json"
 }
