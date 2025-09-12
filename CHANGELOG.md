@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1] - 2025-09-11
+
+### Added
+
+- Documentation : rewrite and improved clarity
+- Documentation : Detailed tables for all predicate families, categories, enums, and operators
+- Documentation : Section on the P alias and enum usage
+
+### Fixed
+
+- Minor bugfixes and improved test coverage
+
+## [0.3.0] - 2025-09-10
+
+### Added
+
+- Major API stabilization: all predicate families and categories now exposed in a unified, consistent way
+- Full enum support for all operators, with type safety and autocompletion
+- Comprehensive test coverage for all predicate families and error branches
+- Initial documentation and usage examples
+- PredicType alias `P` introduced for concise usage
+
+### Breaking Change
+
+- The main API export was renamed from `Predicate` to `Predictype`. Update all imports and usages accordingly.
+
 ## [0.2.2] - 2025-09-08
 
 ### Fixed

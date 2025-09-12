@@ -1,8 +1,8 @@
 {
   "name": "predictype",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "PredicType is a library of pre-built and tested predicates for TypeScript, covering various data types and operations.",
-  "homepage": "https://maduhaime.github.io/collectype/",
+  "homepage": "https://maduhaime.github.io/predictype/",
   "keywords": [
     "predicate",
     "typescript",
