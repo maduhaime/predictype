@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.5] - 2025-09-11
+
+### Fixed
+
+- Fixed packaging issue: the `dist` directory was not included in npm releases due to .gitignore fallback.
+- Added a `.npmignore` file to ensure only built files are published and all dev/config files are excluded.
+
+## [0.3.4] - 2025-09-11
+
+## [0.3.3] - 2025-09-11
+
 ## [0.3.2] - 2025-09-11
 
 ### Fixed
