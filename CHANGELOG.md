@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] - 2025-09-11
+
+### Fixed
+
+- Fixed a documentation error in the README.
+
 ## [0.3.1] - 2025-09-11
 
 ### Added

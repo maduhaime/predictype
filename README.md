@@ -1,18 +1,3 @@
-# Changelog
-
-## v0.3.1
-- Documentation improvements: added detailed tables for all predicate families, categories, enums, and operators
-- English documentation rewrite and improved clarity
-- Added section on the P alias and enum usage
-- Added note about Predictype powering Collectype, with website link
-- Minor bugfixes and test coverage improvements
-
-## v0.3.0
-- Major API stabilization: all predicate families and categories now exposed in a unified, consistent way
-- Full enum support for all operators, with type safety and autocompletion
-- Added comprehensive test coverage for all predicate families and error branches
-- Initial English documentation and usage examples
-- Predicate alias `P` introduced for concise usage
 # PredicType: TypeScript Predicates for Productivity
 
 PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
