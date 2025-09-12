@@ -61,7 +61,7 @@ import {
   SymbolStateOper,
 } from './enums';
 
-export const Predictype = {
+export const PredicType = {
   array: {
     comparison: <T>(source: T[], oper: ArrayComparisonOper, target: T[]): boolean => {
       return arrays.arrayComparison<T>(source, oper, target);
@@ -232,16 +232,16 @@ export const Predictype = {
 // Predicate Alias
 // export const P = Predicate;
 export const P = {
-  arr: Predictype.array,
-  big: Predictype.bigint,
-  bool: Predictype.boolean,
-  date: Predictype.date,
-  func: Predictype.function,
-  map: Predictype.map,
-  num: Predictype.number,
-  obj: Predictype.object,
-  prom: Predictype.promise,
-  set: Predictype.set,
-  str: Predictype.string,
-  sym: Predictype.symbol,
+  arr: PredicType.array,
+  big: PredicType.bigint,
+  bool: PredicType.boolean,
+  date: PredicType.date,
+  func: PredicType.function,
+  map: PredicType.map,
+  num: PredicType.number,
+  obj: PredicType.object,
+  prom: PredicType.promise,
+  set: PredicType.set,
+  str: PredicType.string,
+  sym: PredicType.symbol,
 };
