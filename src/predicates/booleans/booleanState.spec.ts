@@ -24,6 +24,6 @@ describe('booleanState', () => {
 
   it('should throw for unknown operation', () => {
     // @ts-expect-error
-    expect(() => booleanState(true, 'unknown')).toThrow();
+    expect(() => booleanState(true, 'unknown')).toThrow('Unknown BooleanState operation: unknown');
   });
 });

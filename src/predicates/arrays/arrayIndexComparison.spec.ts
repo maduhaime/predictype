@@ -4,35 +4,48 @@ import { arrayIndexComparison } from './arrayIndexComparison';
 type DummyType = number;
 
 describe('arrayIndexComparison', () => {
-  it('should return true when value at index equals target', () => {
+  it('should return true for value_at_index_equals', () => {
     const arr = [10, 20, 30];
-    const idx = 1;
-    const val = 20;
-
-    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_equals', idx, val)).toBe(true);
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_equals', 1, 20)).toBe(true);
   });
 
-  it('should return false when value at index does not equal target', () => {
+  it('should return false for value_at_index_equals', () => {
     const arr = [10, 20, 30];
-    const idx = 2;
-    const val = 25;
-
-    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_equals', idx, val)).toBe(false);
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_equals', 2, 25)).toBe(false);
   });
 
-  it('should return true for greater_than', () => {
+  it('should return true for value_at_index_not_equals', () => {
     const arr = [10, 20, 30];
-    const idx = 2;
-    const val = 25;
-
-    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_greater_than', idx, val)).toBe(true);
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_not_equals', 2, 25)).toBe(true);
   });
 
-  it('should return true for less_than', () => {
+  it('should return true for value_at_index_greater_than', () => {
     const arr = [10, 20, 30];
-    const idx = 0;
-    const val = 15;
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_greater_than', 2, 25)).toBe(true);
+  });
 
-    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_less_than', idx, val)).toBe(true);
+  it('should return true for value_at_index_greater_than_or_equals', () => {
+    const arr = [10, 20, 30];
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_greater_than_or_equals', 2, 30)).toBe(true);
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_greater_than_or_equals', 2, 25)).toBe(true);
+  });
+
+  it('should return true for value_at_index_less_than', () => {
+    const arr = [10, 20, 30];
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_less_than', 0, 15)).toBe(true);
+  });
+
+  it('should return true for value_at_index_less_than_or_equals', () => {
+    const arr = [10, 20, 30];
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_less_than_or_equals', 0, 10)).toBe(true);
+    expect(arrayIndexComparison<DummyType>(arr, 'value_at_index_less_than_or_equals', 0, 15)).toBe(true);
+  });
+
+  it('should throw for unknown operator', () => {
+    const arr = [10, 20, 30];
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => arrayIndexComparison(arr, 'invalid_operator', 0, 10)).toThrow(
+      'Unknown ArrayIndex operation: invalid_operator'
+    );
   });
 });

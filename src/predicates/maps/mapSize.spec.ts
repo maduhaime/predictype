@@ -10,6 +10,11 @@ describe('mapSize', () => {
     expect(mapSize(m, 'equals', 2)).toBe(true);
   });
 
+  it('should return false for equals with wrong size', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, 'equals', 2)).toBe(false);
+  });
+
   it('should return true for greater_than', () => {
     const m = new Map([
       [1, 'a'],
@@ -18,8 +23,52 @@ describe('mapSize', () => {
     expect(mapSize(m, 'greater_than', 1)).toBe(true);
   });
 
+  it('should return false for greater_than with equal size', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, 'greater_than', 1)).toBe(false);
+  });
+
+  it('should return true for greater_than_or_equals', () => {
+    const m = new Map([
+      [1, 'a'],
+      [2, 'b'],
+    ]);
+    expect(mapSize(m, 'greater_than_or_equals', 2)).toBe(true);
+    expect(mapSize(m, 'greater_than_or_equals', 1)).toBe(true);
+  });
+
+  it('should return false for greater_than_or_equals with smaller size', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, 'greater_than_or_equals', 2)).toBe(false);
+  });
+
   it('should return true for less_than', () => {
     const m = new Map([[1, 'a']]);
     expect(mapSize(m, 'less_than', 2)).toBe(true);
+  });
+
+  it('should return false for less_than with equal size', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, 'less_than', 1)).toBe(false);
+  });
+
+  it('should return true for less_than_or_equals', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, 'less_than_or_equals', 1)).toBe(true);
+    expect(mapSize(m, 'less_than_or_equals', 2)).toBe(true);
+  });
+
+  it('should return false for less_than_or_equals with greater size', () => {
+    const m = new Map([
+      [1, 'a'],
+      [2, 'b'],
+    ]);
+    expect(mapSize(m, 'less_than_or_equals', 1)).toBe(false);
+  });
+
+  it('should throw for unknown operation', () => {
+    const m = new Map([[1, 'a']]);
+    // @ts-expect-error
+    expect(() => mapSize(m, 'unknown', 1)).toThrow('Unknown MapSize operation: unknown');
   });
 });

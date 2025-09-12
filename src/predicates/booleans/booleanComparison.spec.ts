@@ -28,6 +28,6 @@ describe('booleanComparison', () => {
 
   it('should throw for unknown operation', () => {
     // @ts-expect-error
-    expect(() => booleanComparison(true, 'unknown', true)).toThrow();
+    expect(() => booleanComparison(true, 'unknown', true)).toThrow('Unknown BooleanComparison operation: unknown');
   });
 });

@@ -11,6 +11,15 @@ describe('arrayComparison', () => {
     expect(arrayComparison<DummyType>(arr1, 'equals', arr2)).toBe(true);
   });
 
+  it('should throw for unknown operator', () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2, 3];
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => arrayComparison(arr1, 'invalid_operator', arr2)).toThrow(
+      'Unknown ArrayComparison operation: invalid_operator'
+    );
+  });
+
   it('should return false for different arrays', () => {
     const arr1 = [1, 2, 3];
     const arr2 = [1, 2, 4];
@@ -23,5 +32,14 @@ describe('arrayComparison', () => {
     const arr2 = [1, 2, 4];
 
     expect(arrayComparison<DummyType>(arr1, 'not_equals', arr2)).toBe(true);
+  });
+
+  it('should throw for unknown operator', () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2, 4];
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => arrayComparison(arr1, 'invalid_operator', arr2)).toThrow(
+      'Unknown ArrayComparison operation: invalid_operator'
+    );
   });
 });

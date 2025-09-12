@@ -50,7 +50,10 @@ export function dateCalendar(value: Date, oper: DateCalendarOper): boolean {
       return d.getUTCDate() === next.getUTCDate();
     },
   };
-  // ...existing code...
+
   const operEnum = typeof oper === 'string' ? (oper as DateCalendarEnum) : oper;
-  return operators[operEnum](d);
+  const fn = operators[operEnum];
+
+  if (!fn) throw new Error(`Unknown DateCalendar operation: ${oper}`);
+  return fn(d);
 }

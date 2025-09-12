@@ -26,4 +26,10 @@ describe('bigintState', () => {
     const value = 7n;
     expect(bigintState(value, 'is_odd')).toBe(true);
   });
+
+  it('should throw for unknown operator', () => {
+    const value = 1n;
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => bigintState(value, 'invalid_operator')).toThrow('Unknown BigIntState operation: invalid_operator');
+  });
 });

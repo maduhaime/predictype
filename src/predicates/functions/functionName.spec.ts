@@ -12,8 +12,31 @@ describe('functionName', () => {
     expect(functionName(fn, 'starts_with', 'bar')).toBe(true);
   });
 
+  it('should return true for ends_with', () => {
+    const fn = function testEnd() {};
+    expect(functionName(fn, 'ends_with', 'End')).toBe(true);
+  });
+
+  it('should return true for includes', () => {
+    const fn = function mySpecialFunction() {};
+    expect(functionName(fn, 'includes', 'Special')).toBe(true);
+  });
+
+  it('should return true for excludes', () => {
+    const fn = function myFunction() {};
+    expect(functionName(fn, 'excludes', 'NotInName')).toBe(true);
+  });
+
   it('should return false for equals if not equal', () => {
     const fn = function baz() {};
     expect(functionName(fn, 'equals', 'foo')).toBe(false);
+  });
+
+  it('should throw for unknown operator', () => {
+    const fn = function foo() {};
+    // @ts-expect-error
+    expect(() => functionName(fn, 'invalid_operator', 'foo')).toThrow(
+      'Unknown FunctionName operation: invalid_operator'
+    );
   });
 });

@@ -6,20 +6,27 @@ export type PromiseWithState<T> = {
 };
 
 export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
-  let state: PromiseStateOper = PromiseStateEnum.IS_PENDING;
+  const stateObj = { value: PromiseStateEnum.IS_PENDING as PromiseStateOper };
 
   const wrapped = (async () => {
     try {
       const result = await p;
-      state = PromiseStateEnum.IS_FULFILLED;
+      stateObj.value = PromiseStateEnum.IS_FULFILLED;
       return result;
     } catch (err) {
-      state = PromiseStateEnum.IS_REJECTED;
+      stateObj.value = PromiseStateEnum.IS_REJECTED;
       throw err;
     }
   })();
 
-  return { promise: wrapped, state };
+  // Use a getter for state so it always reflects the latest value
+  return Object.defineProperty({ promise: wrapped }, 'state', {
+    get() {
+      return stateObj.value;
+    },
+    enumerable: true,
+    configurable: false,
+  }) as PromiseWithState<T>;
 }
 
 /**

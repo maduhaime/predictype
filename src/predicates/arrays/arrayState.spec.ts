@@ -16,4 +16,10 @@ describe('arrayState', () => {
     const arr: number[] = [1];
     expect(arrayState(arr, 'is_empty')).toBe(false);
   });
+
+  it('should throw for unknown operator', () => {
+    const arr: number[] = [1];
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => arrayState(arr, 'invalid_operator')).toThrow('Unknown ArrayState operation: invalid_operator');
+  });
 });

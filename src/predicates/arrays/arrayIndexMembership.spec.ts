@@ -8,7 +8,6 @@ describe('arrayIndexMembership', () => {
     const arr = [10, 20, 30];
     const idx = 1;
     const values = [10, 20];
-
     expect(arrayIndexMembership<DummyType>(arr, 'value_at_index_in', idx, values)).toBe(true);
   });
 
@@ -16,7 +15,6 @@ describe('arrayIndexMembership', () => {
     const arr = [10, 20, 30];
     const idx = 2;
     const values = [10, 20];
-
     expect(arrayIndexMembership<DummyType>(arr, 'value_at_index_in', idx, values)).toBe(false);
   });
 
@@ -24,7 +22,16 @@ describe('arrayIndexMembership', () => {
     const arr = [10, 20, 30];
     const idx = 2;
     const values = [10, 20];
-
     expect(arrayIndexMembership<DummyType>(arr, 'value_at_index_not_in', idx, values)).toBe(true);
+  });
+
+  it('should throw for unknown operator', () => {
+    const arr = [10, 20, 30];
+    const idx = 0;
+    const values = [10, 20];
+    // @ts-expect-error: purposely passing an invalid operator
+    expect(() => arrayIndexMembership(arr, 'invalid_operator', idx, values)).toThrow(
+      'Unknown ArrayIndexMembership operation: invalid_operator'
+    );
   });
 });
