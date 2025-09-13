@@ -30,7 +30,7 @@ Its goal: make working with predicates and validation as productive and reliable
 npm install predictype
 ```
 
-> **Note:** Predictype is the predicate engine powering [Collectype](https://maduhaime.github.io/predictype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
+> **Note:** PredicType is the predicate engine powering [Collectype](https://maduhaime.github.io/predictype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
 
 ---
 
@@ -59,7 +59,7 @@ PredicType.number.range(5, 'between', 1, 10); // true
 
 ### The `P` Alias
 
-For convenience, Predictype also exports a short alias `P` that mirrors the full API. This allows for more concise code, especially in validation chains or functional programming contexts.
+For convenience, PredicType also exports a short alias `P` that mirrors the full API. This allows for more concise code, especially in validation chains or functional programming contexts.
 
 #### Example
 
@@ -75,18 +75,18 @@ The alias maps as follows:
 
 | Full API            | Alias  |
 | ------------------- | ------ |
-| Predictype.array    | P.arr  |
-| Predictype.bigint   | P.big  |
-| Predictype.boolean  | P.bool |
-| Predictype.date     | P.date |
-| Predictype.function | P.func |
-| Predictype.map      | P.map  |
-| Predictype.number   | P.num  |
-| Predictype.object   | P.obj  |
-| Predictype.promise  | P.prom |
-| Predictype.set      | P.set  |
-| Predictype.string   | P.str  |
-| Predictype.symbol   | P.sym  |
+| PredicType.array    | P.arr  |
+| PredicType.bigint   | P.big  |
+| PredicType.boolean  | P.bool |
+| PredicType.date     | P.date |
+| PredicType.function | P.func |
+| PredicType.map      | P.map  |
+| PredicType.number   | P.num  |
+| PredicType.object   | P.obj  |
+| PredicType.promise  | P.prom |
+| PredicType.set      | P.set  |
+| PredicType.string   | P.str  |
+| PredicType.symbol   | P.sym  |
 
 All predicate categories and operators are available through both the full API and the alias.
 
@@ -202,7 +202,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 
 ### Why Use Enums?
 
-Predictype provides enums for all predicate operators. Using enums instead of raw strings offers several advantages:
+PredicType provides enums for all predicate operators. Using enums instead of raw strings offers several advantages:
 
 - **Type safety**: Prevents typos and ensures only valid operators are used.
 - **Autocompletion**: Modern editors suggest available operators, making development faster and less error-prone.
@@ -212,22 +212,22 @@ Predictype provides enums for all predicate operators. Using enums instead of ra
 #### Example: Using Enums vs. Strings
 
 ```ts
-import { Predictype, ArrayMembershipEnum } from 'predictype';
+import { PredicType, ArrayMembershipEnum } from 'predictype';
 
 // Using a string (works, but error-prone):
-Predictype.array.membership([1, 2, 3], 'includes', 2); // true
+PredicType.array.membership([1, 2, 3], 'includes', 2); // true
 
 // Using the enum (type-safe, autocompletion):
-Predictype.array.membership([1, 2, 3], ArrayMembershipEnum.INCLUDES, 2); // true
+PredicType.array.membership([1, 2, 3], ArrayMembershipEnum.INCLUDES, 2); // true
 
 // If you make a typo with a string, TypeScript may not catch it:
-Predictype.array.membership([1, 2, 3], 'incldes', 2); // Error only at runtime!
+PredicType.array.membership([1, 2, 3], 'incldes', 2); // Error only at runtime!
 
 // With enums, typos are caught at compile time:
-Predictype.array.membership([1, 2, 3], ArrayMembershipEnum.INCLDES, 2); // TypeScript error
+PredicType.array.membership([1, 2, 3], ArrayMembershipEnum.INCLDES, 2); // TypeScript error
 ```
 
-You can use either strings or enums with Predictype, but enums are recommended for maximum safety and developer experience.
+You can use either strings or enums with PredicType, but enums are recommended for maximum safety and developer experience.
 
 ## Contributing
 
