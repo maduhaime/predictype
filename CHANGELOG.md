@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2025-09-13
+
+### Added
+
+- **Array comparison enhancements**: Added three new operators for arrays: `same_members` (multiset equality), `set_equals` (set equality), `set_not_equals` (set inequality).
+- **Enriched documentation**:
+  - Usage examples for all new operators in the README.
+  - Added a "Count" column to all reference tables to indicate the number of operators per category.
+- **Comprehensive estimation**: Counted and validated the number of distinct operations supported by the API (detailed table by family and category).
+
+### Changed
+
+- Harmonized and clarified documentation (README, JSDoc, examples).
+- Improved wording and added clarifications about the API and usage.
+
+### Fixed
+
+- Fixed minor omissions or inaccuracies in the documentation following recent changes.
+
+## [0.4.2] - 2025-09-12
+
+### Fixed
+
+- Fixed a typo in documentation: the 'T' in 'PredicType' was incorrectly lowercase in some places.
+
+## [0.4.1] - 2025-09-12
+
+### Fixed
+
+- Improved BigInts compatibility: replaced all BigInt literals (e.g. `1n`, `0n`) with `BigInt(...)` constructor calls throughout the codebase and tests for broader tool and environment support.
+
 ## [0.4.0] - 2025-09-12
 
 ### Major transformation: ESM & CJS dual support

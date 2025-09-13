@@ -24,6 +24,9 @@ export type ArrayIndexMembershipOper = ArrayIndexMembershipEnum | `${ArrayIndexM
 export enum ArrayComparisonEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',
+  SAME_MEMBERS = 'same_members',
+  SET_EQUALS = 'set_equals',
+  SET_NOT_EQUALS = 'set_not_equals',
 }
 
 export type ArrayComparisonOper = ArrayComparisonEnum | `${ArrayComparisonEnum}`;
