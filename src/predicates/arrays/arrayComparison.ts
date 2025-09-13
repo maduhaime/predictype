@@ -1,4 +1,4 @@
-import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays';
+import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays.js';
 
 /**
  * Compares two arrays for strict equality or inequality based on the specified operation.

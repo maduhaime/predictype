@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { dateRange } from './dateRange';
+import { dateRange } from './dateRange.js';
 
 describe('dateRange', () => {
   it('should return true for in_range', () => {

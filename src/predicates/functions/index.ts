@@ -3,7 +3,7 @@
  *
  * @module predicates/functions
  */
-export * from './functionArity';
-export * from './functionName';
-export * from './functionPattern';
-export * from './functionState';
+export * from './functionArity.js';
+export * from './functionName.js';
+export * from './functionPattern.js';
+export * from './functionState.js';

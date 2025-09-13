@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arrayIndexComparison } from './arrayIndexComparison';
+import { arrayIndexComparison } from './arrayIndexComparison.js';
 
 type DummyType = number;
 
@@ -43,7 +43,7 @@ describe('arrayIndexComparison', () => {
 
   it('should throw for unknown operator', () => {
     const arr = [10, 20, 30];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arrayIndexComparison(arr, 'invalid_operator', 0, 10)).toThrow(
       'Unknown ArrayIndex operation: invalid_operator'
     );

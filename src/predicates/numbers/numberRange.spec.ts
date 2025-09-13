@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { numberRange } from './numberRange';
+import { numberRange } from './numberRange.js';
 
 describe('numberRange', () => {
   it('should return true for in_range', () => {

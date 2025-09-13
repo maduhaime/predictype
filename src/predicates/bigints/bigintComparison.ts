@@ -1,4 +1,4 @@
-import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints';
+import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints.js';
 
 /**
  * Compares two bigint values using the specified operation.
@@ -28,6 +28,7 @@ export function bigintComparison(source: bigint, oper: BigIntComparisonOper, tar
     [BigIntComparisonEnum.LESS_THAN]: (a, b) => a < b,
     [BigIntComparisonEnum.LESS_THAN_OR_EQUALS]: (a, b) => a <= b,
   };
+
   const enumOper = typeof oper === 'string' ? (oper as BigIntComparisonEnum) : oper;
   const fn = operators[enumOper];
 

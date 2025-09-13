@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arrayState } from './arrayState';
+import { arrayState } from './arrayState.js';
 
 describe('arrayState', () => {
   it('should return true for is_empty', () => {
@@ -19,7 +19,7 @@ describe('arrayState', () => {
 
   it('should throw for unknown operator', () => {
     const arr: number[] = [1];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arrayState(arr, 'invalid_operator')).toThrow('Unknown ArrayState operation: invalid_operator');
   });
 });

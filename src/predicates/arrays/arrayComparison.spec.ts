@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arrayComparison } from './arrayComparison';
+import { arrayComparison } from './arrayComparison.js';
 
 type DummyType = number;
 
@@ -9,15 +9,6 @@ describe('arrayComparison', () => {
     const arr2 = [1, 2, 3];
 
     expect(arrayComparison<DummyType>(arr1, 'equals', arr2)).toBe(true);
-  });
-
-  it('should throw for unknown operator', () => {
-    const arr1 = [1, 2, 3];
-    const arr2 = [1, 2, 3];
-    // @ts-expect-error: purposely passing an invalid operator
-    expect(() => arrayComparison(arr1, 'invalid_operator', arr2)).toThrow(
-      'Unknown ArrayComparison operation: invalid_operator'
-    );
   });
 
   it('should return false for different arrays', () => {
@@ -37,7 +28,7 @@ describe('arrayComparison', () => {
   it('should throw for unknown operator', () => {
     const arr1 = [1, 2, 3];
     const arr2 = [1, 2, 4];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arrayComparison(arr1, 'invalid_operator', arr2)).toThrow(
       'Unknown ArrayComparison operation: invalid_operator'
     );

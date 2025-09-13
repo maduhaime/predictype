@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { objectAttributes } from './objectAttributes';
+import { objectAttributes } from './objectAttributes.js';
 
 describe('objectAttributes', () => {
   it('should return true for is_writable', () => {

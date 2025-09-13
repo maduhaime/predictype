@@ -3,9 +3,9 @@
  *
  * @module predicates/strings
  */
-export * from './stringComparison';
-export * from './stringMembership';
-export * from './stringPattern';
-export * from './stringSize';
-export * from './stringState';
-export * from './stringSubstring';
+export * from './stringComparison.js';
+export * from './stringMembership.js';
+export * from './stringPattern.js';
+export * from './stringSize.js';
+export * from './stringState.js';
+export * from './stringSubstring.js';

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { functionPattern } from './functionPattern';
+import { functionPattern } from './functionPattern.js';
 
 describe('functionPattern', () => {
   it('should return true for name_matches', () => {

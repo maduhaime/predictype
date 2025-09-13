@@ -1,4 +1,4 @@
-import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions';
+import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions.js';
 
 /**
  * Checks the name of a function using the specified operation.
@@ -27,8 +27,10 @@ export function functionName(source: Function, oper: FunctionNameOper, name: str
     [FunctionNameEnum.INCLUDES]: (a, b) => a.name.includes(b),
     [FunctionNameEnum.EXCLUDES]: (a, b) => !a.name.includes(b),
   };
+
   const enumOper = typeof oper === 'string' ? (oper as FunctionNameEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown FunctionName operation: ${oper}`);
   return fn(source, name);
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringSize } from './stringSize';
+import { stringSize } from './stringSize.js';
 
 describe('stringSize', () => {
   it('should return true for equals', () => {

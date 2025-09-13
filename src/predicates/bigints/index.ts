@@ -3,7 +3,7 @@
  *
  * @module bigints
  */
-export * from './bigintComparison';
-export * from './bigintMembership';
-export * from './bigintRange';
-export * from './bigintState';
+export * from './bigintComparison.js';
+export * from './bigintMembership.js';
+export * from './bigintRange.js';
+export * from './bigintState.js';

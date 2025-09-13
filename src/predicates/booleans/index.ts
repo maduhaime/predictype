@@ -3,5 +3,5 @@
  *
  * @module booleans
  */
-export * from './booleanComparison';
-export * from './booleanState';
+export * from './booleanComparison.js';
+export * from './booleanState.js';

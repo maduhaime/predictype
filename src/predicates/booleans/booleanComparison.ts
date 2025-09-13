@@ -1,4 +1,4 @@
-import { BooleanComparisonEnum, BooleanComparisonOper } from '../../enums/booleans';
+import { BooleanComparisonEnum, BooleanComparisonOper } from '../../enums/booleans.js';
 
 /**
  * Compares a boolean value to a target boolean using the specified comparison operation.

@@ -3,5 +3,5 @@
  *
  * @module predicates/promises
  */
-export * from './promiseState';
-export * from './promiseType';
+export * from './promiseState.js';
+export * from './promiseType.js';

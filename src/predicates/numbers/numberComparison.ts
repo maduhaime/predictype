@@ -1,4 +1,4 @@
-import { NumberComparisonEnum, NumberComparisonOper } from '../../enums/numbers';
+import { NumberComparisonEnum, NumberComparisonOper } from '../../enums/numbers.js';
 
 /**
  * Compares two numbers using the specified operation.

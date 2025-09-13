@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { symbolComparison } from './symbolComparison';
+import { symbolComparison } from './symbolComparison.js';
 
 describe('symbolComparison', () => {
   it('should return true for equals', () => {

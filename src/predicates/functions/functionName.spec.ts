@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { functionName } from './functionName';
+import { functionName } from './functionName.js';
 
 describe('functionName', () => {
   it('should return true for equals', () => {

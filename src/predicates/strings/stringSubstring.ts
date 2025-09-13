@@ -1,4 +1,4 @@
-import { StringSubstringEnum, StringSubstringOper } from '../../enums/strings';
+import { StringSubstringEnum, StringSubstringOper } from '../../enums/strings.js';
 
 /**
  * Checks if a string contains, excludes, starts with, or ends with a substring using the specified operation.

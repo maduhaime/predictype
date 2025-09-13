@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mapState } from './mapState';
+import { mapState } from './mapState.js';
 
 describe('mapState', () => {
   it('should return true for is_empty', () => {

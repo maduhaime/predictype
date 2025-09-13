@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2025-09-12
+
+### Major transformation: ESM & CJS dual support
+
+- **TypeScript configuration**: Added two separate configs (`tsconfig.esm.json` and `tsconfig.cjs.json`) to generate ESM and CJS builds, with appropriate `target` and `module` settings for each environment.
+- **Exports & Entrypoints**: Refactored the `exports` field in `package.json` to explicitly expose ESM (`import`) and CJS (`require`) entrypoints, with correct type definitions for each format. Updated `main`, `module`, and `types` fields to point to the correct generated files.
+- **.js extensions & index usage**: Systematically added the `.js` extension to all local imports/exports in the source code, and used explicit `index.js` files to ensure ESM/CJS compatibility and avoid module resolution errors.
+- **.npmignore**: Adjusted `.npmignore` to only publish necessary files (builds, enums, predicates, types), excluding sources, configs, and tests.
+- **Build scripts**: Updated npm scripts to generate both builds (`dist/esm` and `dist/cjs`) and ensure type and entrypoint consistency.
+- **Tests & CI**: Adapted unit tests and project structure to ensure tests pass in both environments.
+- **BigInt literals removed**: All BigInt literals (e.g. `1n`, `0n`) in tests and code were replaced with `BigInt(...)` constructor calls to improve compatibility with certain tools and environments that do not fully support BigInt literals.
+
+### Fixed
+
+- Resolved CJS import and type resolution issues in Node.js and bundler environments.
+- Fixed errors encountered during unit testing as a dependency (Error: Cannot find module... imported from... ).
+
+### Internal
+
+- Major refactor of project structure for ESM/CJS compatibility.
+- Cleanup and harmonization of imports, exports, and index files.
+
 ## [0.3.5] - 2025-09-11
 
 ### Fixed

@@ -1,4 +1,4 @@
-import { StringComparisonEnum, StringComparisonOper } from '../../enums/strings';
+import { StringComparisonEnum, StringComparisonOper } from '../../enums/strings.js';
 
 /**
  * Compares two strings using the specified operation.

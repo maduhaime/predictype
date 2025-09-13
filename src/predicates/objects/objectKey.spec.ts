@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { objectKey } from './objectKey';
+import { objectKey } from './objectKey.js';
 
 describe('objectKey', () => {
   it('should return true for has_key', () => {

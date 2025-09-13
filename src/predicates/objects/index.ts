@@ -3,7 +3,7 @@
  *
  * @module predicates/objects
  */
-export * from './objectAttributes';
-export * from './objectInstance';
-export * from './objectKey';
-export * from './objectKeys';
+export * from './objectAttributes.js';
+export * from './objectInstance.js';
+export * from './objectKey.js';
+export * from './objectKeys.js';

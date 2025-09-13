@@ -1,4 +1,4 @@
-import { FunctionPatternEnum, FunctionPatternOper } from '../../enums/functions';
+import { FunctionPatternEnum, FunctionPatternOper } from '../../enums/functions.js';
 
 /**
  * Checks if the function name matches a given regular expression pattern using the specified operation.

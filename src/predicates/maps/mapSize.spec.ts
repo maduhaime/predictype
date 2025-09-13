@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mapSize } from './mapSize';
+import { mapSize } from './mapSize.js';
 
 describe('mapSize', () => {
   it('should return true for equals', () => {

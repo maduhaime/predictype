@@ -1,4 +1,4 @@
-import { MapEntryEnum, MapEntryOper } from '../../enums/maps';
+import { MapEntryEnum, MapEntryOper } from '../../enums/maps.js';
 
 /**
  * Checks if a Map contains (or lacks) a specific entry (key-value pair) using the specified operation.

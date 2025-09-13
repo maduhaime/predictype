@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arraySize } from './arraySize';
+import { arraySize } from './arraySize.js';
 
 describe('arraySize', () => {
   it('should return true for equals', () => {
@@ -36,7 +36,7 @@ describe('arraySize', () => {
 
   it('should throw for unknown operator', () => {
     const arr = [1, 2, 3];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arraySize(arr, 'invalid_operator', 3)).toThrow('Unknown ArraySize operation: invalid_operator');
   });
 });

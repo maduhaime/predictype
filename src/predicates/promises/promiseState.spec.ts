@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { promiseState, wrapPromise } from './promiseState';
+import { promiseState, wrapPromise } from './promiseState.js';
 
 describe('promiseState', () => {
   it('should return true for is_pending immediately after wrapping', () => {

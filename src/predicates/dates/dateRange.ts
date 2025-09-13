@@ -1,4 +1,5 @@
-import { DateRangeEnum, DateRangeOper } from '../../enums/dates';
+import { DateRangeEnum, DateRangeOper } from '../../enums/dates.js';
+
 /**
  * Normalize a date to UTC (removes time, keeps only Y/M/D in UTC).
  *
@@ -42,4 +43,3 @@ export function dateRange(value: Date, oper: DateRangeOper, min: Date, max: Date
   if (!fn) throw new Error(`Unknown DateRange operation: ${oper}`);
   return fn(d, dMin, dMax);
 }
-// ...existing code...

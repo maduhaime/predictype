@@ -1,4 +1,4 @@
-import { SymbolStateEnum, SymbolStateOper } from '../../enums/symbols';
+import { SymbolStateEnum, SymbolStateOper } from '../../enums/symbols.js';
 
 /**
  * Checks the state of a symbol (global or local) using the specified operation.

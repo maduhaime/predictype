@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { setSize } from './setSize';
+import { setSize } from './setSize.js';
 
 describe('setSize', () => {
   it('should return true for equals', () => {

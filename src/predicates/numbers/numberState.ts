@@ -1,4 +1,4 @@
-import { NumberStateEnum, NumberStateOper } from '../../enums/numbers';
+import { NumberStateEnum, NumberStateOper } from '../../enums/numbers.js';
 
 /**
  * Checks the state of a number (integer, float, finite, positive, negative, zero) using the specified operation.

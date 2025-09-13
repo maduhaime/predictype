@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { booleanState } from './booleanState';
+import { booleanState } from './booleanState.js';
 
 describe('booleanState', () => {
   it('should return true for is_true', () => {

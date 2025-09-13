@@ -3,6 +3,6 @@
  *
  * @module predicates/dates
  */
-export * from './dateCalendar';
-export * from './dateRange';
-export * from './dateState';
+export * from './dateCalendar.js';
+export * from './dateRange.js';
+export * from './dateState.js';

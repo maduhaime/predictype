@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringSubstring } from './stringSubstring';
+import { stringSubstring } from './stringSubstring.js';
 
 describe('stringSubstring', () => {
   it('should return true for includes', () => {

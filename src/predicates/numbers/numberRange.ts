@@ -1,4 +1,5 @@
-import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers';
+import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
+
 /**
  * Checks if a number is in or outside a range using the specified operation.
  *
@@ -23,8 +24,10 @@ export function numberRange(value: number, oper: NumberRangeOper, min: number, m
     [NumberRangeEnum.STRICT_IN_RANGE]: (v, min, max) => v > min && v < max,
     [NumberRangeEnum.STRICT_OUT_RANGE]: (v, min, max) => v <= min || v >= max,
   };
+
   const enumOper = typeof oper === 'string' ? (oper as NumberRangeEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown NumberRange operation: ${oper}`);
   return fn(value, min, max);
 }

@@ -1,4 +1,4 @@
-import { PromiseStateEnum, PromiseStateOper } from '../../enums/promises';
+import { PromiseStateEnum, PromiseStateOper } from '../../enums/promises.js';
 
 export type PromiseWithState<T> = {
   promise: Promise<T>;

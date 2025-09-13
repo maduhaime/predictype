@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { numberComparison } from './numberComparison';
+import { numberComparison } from './numberComparison.js';
 
 describe('numberComparison', () => {
   it('should return true for equals', () => {

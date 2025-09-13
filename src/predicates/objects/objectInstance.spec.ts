@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { objectInstance } from './objectInstance';
+import { objectInstance } from './objectInstance.js';
 
 describe('objectInstance', () => {
   it('should return true for is_class', () => {

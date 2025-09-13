@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mapKey } from './mapKey';
+import { mapKey } from './mapKey.js';
 
 describe('mapKey', () => {
   it('should return true for has_key', () => {

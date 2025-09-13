@@ -1,4 +1,4 @@
-import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints';
+import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints.js';
 
 /**
  * Checks the state of a bigint value (zero, positive, negative, even, odd) using the specified operation.
@@ -26,6 +26,7 @@ export function bigintState(source: bigint, oper: BigIntStateOper): boolean {
     [BigIntStateEnum.IS_EVEN]: (a) => a % 2n === 0n,
     [BigIntStateEnum.IS_ODD]: (a) => a % 2n !== 0n,
   };
+
   const enumOper = typeof oper === 'string' ? (oper as BigIntStateEnum) : oper;
   const fn = operators[enumOper];
 

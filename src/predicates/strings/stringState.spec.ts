@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringState } from './stringState';
+import { stringState } from './stringState.js';
 
 describe('stringState', () => {
   it('should return true for is_empty', () => {

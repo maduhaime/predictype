@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { functionArity } from './functionArity';
+import { functionArity } from './functionArity.js';
 
 describe('functionArity', () => {
   it('should return true for equals', () => {

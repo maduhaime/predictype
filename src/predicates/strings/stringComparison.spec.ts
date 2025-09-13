@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringComparison } from './stringComparison';
+import { stringComparison } from './stringComparison.js';
 
 describe('stringComparison', () => {
   it('should return true for equals', () => {

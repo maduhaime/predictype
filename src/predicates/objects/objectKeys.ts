@@ -1,4 +1,5 @@
-import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects';
+import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects.js';
+
 /**
  * Checks object keys according to the specified operation.
  *

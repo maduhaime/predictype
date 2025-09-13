@@ -1,4 +1,4 @@
-import { ArraySequenceEnum, ArraySequenceOper } from '../../enums/arrays';
+import { ArraySequenceEnum, ArraySequenceOper } from '../../enums/arrays.js';
 
 /**
  * Checks if the source array contains, starts with, or ends with a given subsequence, using the specified operation.

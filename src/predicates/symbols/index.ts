@@ -3,5 +3,5 @@
  *
  * @module predicates/symbols
  */
-export * from './symbolComparison';
-export * from './symbolState';
+export * from './symbolComparison.js';
+export * from './symbolState.js';

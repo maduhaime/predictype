@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { promiseType } from './promiseType';
+import { promiseType } from './promiseType.js';
 
 describe('promiseType', () => {
   it('should return true for is_promise', () => {

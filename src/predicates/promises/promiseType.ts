@@ -1,4 +1,4 @@
-import { PromiseTypeEnum, PromiseTypeOper } from '../../enums/promises';
+import { PromiseTypeEnum, PromiseTypeOper } from '../../enums/promises.js';
 
 /**
  * Checks if a value is a Promise or an async function using the specified operation.
@@ -21,6 +21,7 @@ export function promiseType(source: unknown, oper: PromiseTypeOper): boolean {
     [PromiseTypeEnum.IS_PROMISE]: (a) => typeof a === 'object' && a !== null && typeof (a as any).then === 'function',
     [PromiseTypeEnum.IS_ASYNC_FUNCTION]: (a) => typeof a === 'function' && a.constructor.name === 'AsyncFunction',
   };
+
   const enumOper = typeof oper === 'string' ? (oper as PromiseTypeEnum) : oper;
   const fn = operators[enumOper];
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringPattern } from './stringPattern';
+import { stringPattern } from './stringPattern.js';
 
 describe('stringPattern', () => {
   it('should return true for matches', () => {

@@ -3,8 +3,8 @@
  *
  * @module predicates/maps
  */
-export * from './mapEntry';
-export * from './mapKey';
-export * from './mapSize';
-export * from './mapState';
-export * from './mapValue';
+export * from './mapEntry.js';
+export * from './mapKey.js';
+export * from './mapSize.js';
+export * from './mapState.js';
+export * from './mapValue.js';

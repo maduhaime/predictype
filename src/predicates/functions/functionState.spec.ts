@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { functionState } from './functionState';
+import { functionState } from './functionState.js';
 
 describe('functionState', () => {
   it('should return true for has_name', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arraySequence } from './arraySequence';
+import { arraySequence } from './arraySequence.js';
 
 type DummyType = number;
 
@@ -43,7 +43,7 @@ describe('arraySequence', () => {
   it('should throw for unknown operator', () => {
     const arr = [1, 2, 3];
     const seq = [2, 3];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arraySequence(arr, 'invalid_operator', seq)).toThrow(
       'Unknown ArraySequence operation: invalid_operator'
     );

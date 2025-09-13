@@ -1,4 +1,4 @@
-import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/arrays';
+import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/arrays.js';
 
 /**
  * Checks if the value at a specific index in an array is (or is not) included in a target array, using the specified operation.

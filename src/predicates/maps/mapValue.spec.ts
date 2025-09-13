@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mapValue } from './mapValue';
+import { mapValue } from './mapValue.js';
 
 describe('mapValue', () => {
   it('should return true for has_value', () => {

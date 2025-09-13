@@ -1,4 +1,4 @@
-import { ArrayMembershipEnum, ArrayMembershipOper } from '../../enums/arrays';
+import { ArrayMembershipEnum, ArrayMembershipOper } from '../../enums/arrays.js';
 
 /**
  * Checks membership conditions for all or some elements in an array, using the specified operation.

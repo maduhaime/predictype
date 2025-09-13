@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { booleanComparison } from './booleanComparison';
-import { BooleanComparisonEnum } from '../../enums/booleans';
+import { booleanComparison } from './booleanComparison.js';
+import { BooleanComparisonEnum } from '../../enums/booleans.js';
 
 describe('booleanComparison', () => {
   it('should return true for equals when value and target are true', () => {

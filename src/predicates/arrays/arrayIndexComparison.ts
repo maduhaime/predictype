@@ -1,4 +1,4 @@
-import { ArrayIndexComparisonEnum, ArrayIndexComparisonOper } from '../../enums/arrays';
+import { ArrayIndexComparisonEnum, ArrayIndexComparisonOper } from '../../enums/arrays.js';
 
 /**
  * Compares the value at a specific index in an array with a target value, using the specified operation.

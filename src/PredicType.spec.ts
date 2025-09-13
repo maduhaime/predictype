@@ -1,7 +1,6 @@
-import { PredicType, P } from '../src/PredicType';
-// enums import removed, we use string operators for tests
+import { PredicType, P } from '../src/PredicType.js';
 import { describe, it, expect } from 'vitest';
-import { PromiseWithState } from './predicates/promises';
+import { PromiseWithState } from './predicates/promises/index.js';
 
 describe('PredicType.array', () => {
   it('should return true for array comparison equals', () => {
@@ -44,20 +43,20 @@ describe('PredicType.array', () => {
 
 describe('PredicType.bigint', () => {
   it('should return true for bigint comparison equals', () => {
-    expect(PredicType.bigint.comparison(1n, 'equals', 1n)).toBe(true);
-    expect(P.big.comparison(1n, 'equals', 1n)).toBe(true);
+    expect(PredicType.bigint.comparison(BigInt(1), 'equals', BigInt(1))).toBe(true);
+    expect(P.big.comparison(BigInt(1), 'equals', BigInt(1))).toBe(true);
   });
   it('should return true for bigint membership is_one_of', () => {
-    expect(PredicType.bigint.membership(1n, 'is_one_of', [1n, 2n])).toBe(true);
-    expect(P.big.membership(1n, 'is_one_of', [1n, 2n])).toBe(true);
+    expect(PredicType.bigint.membership(BigInt(1), 'is_one_of', [BigInt(1), BigInt(2)])).toBe(true);
+    expect(P.big.membership(BigInt(1), 'is_one_of', [BigInt(1), BigInt(2)])).toBe(true);
   });
   it('should return true for bigint range between', () => {
-    expect(PredicType.bigint.range(2n, 'between', 1n, 3n)).toBe(true);
-    expect(P.big.range(2n, 'between', 1n, 3n)).toBe(true);
+    expect(PredicType.bigint.range(BigInt(2), 'between', BigInt(1), BigInt(3))).toBe(true);
+    expect(P.big.range(BigInt(2), 'between', BigInt(1), BigInt(3))).toBe(true);
   });
   it('should return true for bigint state IS_POSITIVE', () => {
-    expect(PredicType.bigint.state(1n, 'is_positive')).toBe(true);
-    expect(P.big.state(1n, 'is_positive')).toBe(true);
+    expect(PredicType.bigint.state(BigInt(1), 'is_positive')).toBe(true);
+    expect(P.big.state(BigInt(1), 'is_positive')).toBe(true);
   });
 });
 

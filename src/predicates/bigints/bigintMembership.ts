@@ -1,4 +1,4 @@
-import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints';
+import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.js';
 
 /**
  * Checks if a bigint value is (or is not) a member of a set of bigints using the specified operation.
@@ -23,6 +23,7 @@ export function bigintMembership(source: bigint, oper: BigIntMembershipOper, set
     [BigIntMembershipEnum.IS_ONE_OF]: (a, b) => b.includes(a),
     [BigIntMembershipEnum.IS_NOT_ONE_OF]: (a, b) => !b.includes(a),
   };
+
   const enumOper = typeof oper === 'string' ? (oper as BigIntMembershipEnum) : oper;
   const fn = operators[enumOper];
 

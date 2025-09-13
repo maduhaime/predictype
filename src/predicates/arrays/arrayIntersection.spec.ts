@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arrayIntersection } from './arrayIntersection';
+import { arrayIntersection } from './arrayIntersection.js';
 
 type DummyType = number;
 
@@ -25,7 +25,7 @@ describe('arrayIntersection', () => {
   it('should throw for unknown operator', () => {
     const arr1 = [1, 2, 3];
     const arr2 = [2, 3, 4];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arrayIntersection(arr1, 'invalid_operator', arr2)).toThrow(
       'Unknown ArrayIntersection operation: invalid_operator'
     );

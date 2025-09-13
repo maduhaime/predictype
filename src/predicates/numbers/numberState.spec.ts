@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { numberState } from './numberState';
+import { numberState } from './numberState.js';
 
 describe('numberState', () => {
   it('should return true for is_integer', () => {

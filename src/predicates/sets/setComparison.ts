@@ -1,4 +1,4 @@
-import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets';
+import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets.js';
 
 /**
  * Compares two sets for equality or inequality using the specified operation.
@@ -26,6 +26,7 @@ export function setComparison<T>(source: Set<T>, oper: SetComparisonOper, target
 
   const enumOper = typeof oper === 'string' ? (oper as SetComparisonEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown SetComparison operation: ${oper}`);
   return fn(source, target);
 }

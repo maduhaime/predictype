@@ -1,4 +1,4 @@
-import { DateCalendarEnum, DateCalendarOper } from '../../enums/dates';
+import { DateCalendarEnum, DateCalendarOper } from '../../enums/dates.js';
 
 /**
  * Normalize a date to UTC (removes time, keeps only Y/M/D in UTC).

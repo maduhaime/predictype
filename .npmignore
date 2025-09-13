@@ -3,6 +3,9 @@ docs/
 node_modules/
 src/
 
+# Test files
+src/**/*.spec.ts
+
 # Config files
 .gitattributes
 .gitignore
@@ -10,8 +13,9 @@ src/
 .nvmrc
 .prettierignore
 .prettierrc.json
+tsconfig.cjs.json
+tsconfig.esm.json
 tsconfig.json
-tsconfig.build.json
 typedoc.json
 vitest.config.ts
 
@@ -22,10 +26,8 @@ vitest.config.ts
 *.local
 
 # Visual Studio Code
-.github/
+.github
 .vscode
-!.vscode/extensions.json
-!.vscode/settings.json
 
 # MacOS
 .DS_Store

@@ -1,4 +1,5 @@
-import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects';
+import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.js';
+
 /**
  * Checks object property attributes (writable, enumerable, configurable, accessor, data property) using the specified operation.
  *

@@ -1,4 +1,4 @@
-import { SymbolComparisonEnum, SymbolComparisonOper } from '../../enums/symbols';
+import { SymbolComparisonEnum, SymbolComparisonOper } from '../../enums/symbols.js';
 
 /**
  * Compares two symbols for equality or inequality using the specified operation.

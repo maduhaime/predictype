@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { setRelation } from './setRelation';
+import { setRelation } from './setRelation.js';
 
 describe('setRelation', () => {
   it('should return true for disjoint', () => {

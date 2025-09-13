@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": false,
     "declaration": true,
-    "declarationDir": "./dist",
-    "emitDeclarationOnly": false,
-    "isolatedModules": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "lib": ["DOM", "DOM.Iterable", "ES2023"],
-    "module": "ESNext",
-    "moduleDetection": "force",
-    "moduleResolution": "bundler",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    // Coding standards
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ES2023",
-    "useDefineForClassFields": true
+    // JSON module support
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": []
 }

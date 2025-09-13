@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mapEntry } from './mapEntry';
+import { mapEntry } from './mapEntry.js';
 
 describe('mapEntry', () => {
   it('should return true for has_entry', () => {

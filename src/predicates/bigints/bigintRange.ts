@@ -1,4 +1,4 @@
-import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints';
+import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints.js';
 
 /**
  * Checks if a bigint value falls within or outside a specified range using the given operation.
@@ -25,6 +25,7 @@ export function bigintRange(source: bigint, oper: BigIntRangeOper, min: bigint, 
     [BigIntRangeEnum.BETWEEN]: (a, min, max) => a >= min && a <= max,
     [BigIntRangeEnum.NOT_BETWEEN]: (a, min, max) => a < min || a > max,
   };
+
   const enumOper = typeof oper === 'string' ? (oper as BigIntRangeEnum) : oper;
   const fn = operators[enumOper];
 

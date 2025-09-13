@@ -1,4 +1,4 @@
-import { SetStateEnum, SetStateOper } from '../../enums/sets';
+import { SetStateEnum, SetStateOper } from '../../enums/sets.js';
 
 /**
  * Checks the state of a set (empty or not) using the specified operation.
@@ -24,6 +24,7 @@ export function setState<T>(source: Set<T>, oper: SetStateOper): boolean {
 
   const enumOper = typeof oper === 'string' ? (oper as SetStateEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown SetState operation: ${oper}`);
   return fn(source);
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { dateCalendar } from './dateCalendar';
+import { dateCalendar } from './dateCalendar.js';
 
 describe('dateCalendar', () => {
   it('should return true for is_today', () => {

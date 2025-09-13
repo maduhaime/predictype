@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { arrayRelation } from './arrayRelation';
+import { arrayRelation } from './arrayRelation.js';
 
 type DummyType = number;
 
@@ -25,7 +25,7 @@ describe('arrayRelation', () => {
   it('should throw for unknown operator', () => {
     const arr1 = [1, 2];
     const arr2 = [1, 2, 3];
-    // @ts-expect-error: purposely passing an invalid operator
+    // @ts-expect-error
     expect(() => arrayRelation(arr1, 'invalid_operator', arr2)).toThrow(
       'Unknown ArrayRelation operation: invalid_operator'
     );

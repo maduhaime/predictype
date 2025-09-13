@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { dateState } from './dateState';
+import { dateState } from './dateState.js';
 
 describe('dateState', () => {
   it('should return true for is_valid', () => {

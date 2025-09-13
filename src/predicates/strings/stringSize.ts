@@ -1,4 +1,4 @@
-import { StringSizeEnum, StringSizeOper } from '../../enums/strings';
+import { StringSizeEnum, StringSizeOper } from '../../enums/strings.js';
 
 /**
  * Checks the size (length) of a string using the specified operation.

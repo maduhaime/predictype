@@ -1,4 +1,4 @@
-import { FunctionStateEnum, FunctionStateOper } from '../../enums/functions';
+import { FunctionStateEnum, FunctionStateOper } from '../../enums/functions.js';
 
 /**
  * Checks the state of a function (e.g. async, generator, constructor, arrow, anonymous, has name) using the specified operation.
@@ -38,8 +38,10 @@ export function functionState(source: Function, oper: FunctionStateOper): boolea
       return /^function ?\(/.test(fnStr);
     },
   };
+
   const enumOper = typeof oper === 'string' ? (oper as FunctionStateEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown FunctionState operation: ${oper}`);
   return fn(source);
 }

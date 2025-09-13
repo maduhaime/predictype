@@ -1,4 +1,4 @@
-import { StringStateEnum, StringStateOper } from '../../enums/strings';
+import { StringStateEnum, StringStateOper } from '../../enums/strings.js';
 
 /**
  * Checks the state of a string (empty, not empty, blank, not blank) using the specified operation.

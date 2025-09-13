@@ -1,4 +1,4 @@
-import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions';
+import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions.js';
 
 /**
  * Checks the arity (number of parameters) of a function using the specified operation.
@@ -27,6 +27,7 @@ export function functionArity(source: Function, oper: FunctionArityOper, arity: 
     [FunctionArityEnum.LESS_THAN]: (a, b) => a.length < b,
     [FunctionArityEnum.LESS_OR_EQUAL]: (a, b) => a.length <= b,
   };
+
   const enumOper = typeof oper === 'string' ? (oper as FunctionArityEnum) : oper;
   const fn = operators[enumOper];
 

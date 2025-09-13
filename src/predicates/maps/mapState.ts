@@ -1,4 +1,4 @@
-import { MapStateEnum, MapStateOper } from '../../enums/maps';
+import { MapStateEnum, MapStateOper } from '../../enums/maps.js';
 
 /**
  * Checks the state of a Map (empty or not) using the specified operation.

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { stringMembership } from './stringMembership';
+import { stringMembership } from './stringMembership.js';
 
 describe('stringMembership', () => {
   it('should return true for is_one_of', () => {

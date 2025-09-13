@@ -3,6 +3,6 @@
  *
  * @module predicates/numbers
  */
-export * from './numberComparison';
-export * from './numberRange';
-export * from './numberState';
+export * from './numberComparison.js';
+export * from './numberRange.js';
+export * from './numberState.js';

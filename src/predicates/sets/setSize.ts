@@ -1,4 +1,4 @@
-import { SetSizeEnum, SetSizeOper } from '../../enums/sets';
+import { SetSizeEnum, SetSizeOper } from '../../enums/sets.js';
 
 /**
  * Checks the size of a set using the specified operation.
@@ -27,6 +27,7 @@ export function setSize<T>(source: Set<T>, oper: SetSizeOper, target: number): b
 
   const enumOper = typeof oper === 'string' ? (oper as SetSizeEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown SetSize operation: ${oper}`);
   return fn(source, target);
 }

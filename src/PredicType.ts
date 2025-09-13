@@ -1,15 +1,15 @@
-import * as arrays from './predicates/arrays';
-import * as bigints from './predicates/bigints';
-import * as booleans from './predicates/booleans';
-import * as dates from './predicates/dates';
-import * as functions from './predicates/functions';
-import * as maps from './predicates/maps';
-import * as numbers from './predicates/numbers';
-import * as objects from './predicates/objects';
-import * as promises from './predicates/promises';
-import * as sets from './predicates/sets';
-import * as strings from './predicates/strings';
-import * as symbols from './predicates/symbols';
+import * as arrays from './predicates/arrays/index.js';
+import * as bigints from './predicates/bigints/index.js';
+import * as booleans from './predicates/booleans/index.js';
+import * as dates from './predicates/dates/index.js';
+import * as functions from './predicates/functions/index.js';
+import * as maps from './predicates/maps/index.js';
+import * as numbers from './predicates/numbers/index.js';
+import * as objects from './predicates/objects/index.js';
+import * as promises from './predicates/promises/index.js';
+import * as sets from './predicates/sets/index.js';
+import * as strings from './predicates/strings/index.js';
+import * as symbols from './predicates/symbols/index.js';
 
 import {
   ArrayComparisonOper,
@@ -59,7 +59,7 @@ import {
   StringStateOper,
   SymbolComparisonOper,
   SymbolStateOper,
-} from './enums';
+} from './enums/index.js';
 
 export const PredicType = {
   array: {

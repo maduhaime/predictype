@@ -1,4 +1,4 @@
-import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans';
+import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans.js';
 
 /**
  * Checks the state of a boolean value (true or false) using the specified operation.

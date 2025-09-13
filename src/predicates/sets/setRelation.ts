@@ -1,4 +1,4 @@
-import { SetRelationEnum, SetRelationOper } from '../../enums/sets';
+import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
 
 /**
  * Checks the relation between two sets (disjoint, intersects, subset, superset) using the specified operation.
@@ -28,6 +28,7 @@ export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Se
 
   const enumOper = typeof oper === 'string' ? (oper as SetRelationEnum) : oper;
   const fn = operators[enumOper];
+
   if (!fn) throw new Error(`Unknown SetRelation operation: ${oper}`);
   return fn(source, target);
 }

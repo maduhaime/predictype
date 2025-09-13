@@ -1,4 +1,4 @@
-import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings';
+import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.js';
 
 /**
  * Checks if a string is (or is not) a member of a set of strings using the specified operation.

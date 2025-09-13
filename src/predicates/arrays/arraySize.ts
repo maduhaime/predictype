@@ -1,4 +1,4 @@
-import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays';
+import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays.js';
 
 /**
  * Checks the size of an array against a target value, using the specified operation.
