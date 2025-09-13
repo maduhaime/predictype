@@ -11,9 +11,9 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  * @throws {Error} If the operation is not recognized.
  *
  * @example
- * const value1 = 5n;
- * const value2 = 3n;
- * const arr = [1n, 2n, 5n];
+ * const value1 = BigInt(5);
+ * const value2 = BigInt(3);
+ * const arr = [BigInt(1), BigInt(2), BigInt(5)];
  *
  * bigintMembership(value1, 'is_one_of', arr); // true
  * bigintMembership(value2, 'is_not_one_of', arr); // true

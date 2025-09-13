@@ -10,9 +10,9 @@ import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints.js';
  * @throws {Error} If the operation is not recognized.
  *
  * @example
- * const zero = 0n;
- * const even = 10n;
- * const negative = -5n;
+ * const zero = BigInt(0);
+ * const even = BigInt(10);
+ * const negative = BigInt(-5);
  *
  * bigintState(zero, 'is_zero'); // true
  * bigintState(even, 'is_even'); // true
@@ -20,11 +20,11 @@ import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints.js';
  */
 export function bigintState(source: bigint, oper: BigIntStateOper): boolean {
   const operators: Record<BigIntStateEnum, (a: bigint) => boolean> = {
-    [BigIntStateEnum.IS_ZERO]: (a) => a === 0n,
-    [BigIntStateEnum.IS_POSITIVE]: (a) => a > 0n,
-    [BigIntStateEnum.IS_NEGATIVE]: (a) => a < 0n,
-    [BigIntStateEnum.IS_EVEN]: (a) => a % 2n === 0n,
-    [BigIntStateEnum.IS_ODD]: (a) => a % 2n !== 0n,
+    [BigIntStateEnum.IS_ZERO]: (a) => a === BigInt(0),
+    [BigIntStateEnum.IS_POSITIVE]: (a) => a > BigInt(0),
+    [BigIntStateEnum.IS_NEGATIVE]: (a) => a < BigInt(0),
+    [BigIntStateEnum.IS_EVEN]: (a) => a % BigInt(2) === BigInt(0),
+    [BigIntStateEnum.IS_ODD]: (a) => a % BigInt(2) !== BigInt(0),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as BigIntStateEnum) : oper;

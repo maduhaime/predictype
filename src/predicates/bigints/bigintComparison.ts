@@ -11,9 +11,9 @@ import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints.
  * @throws {Error} If the operation is not recognized.
  *
  * @example
- * const a = 10n;
- * const b = 5n;
- * const c = 20n;
+ * const a = BigInt(10);
+ * const b = BigInt(5);
+ * const c = BigInt(20);
  *
  * bigintComparison(a, 'equals', a); // true
  * bigintComparison(a, 'greater_than', b); // true

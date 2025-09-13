@@ -12,10 +12,10 @@ import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints.js';
  * @throws {Error} If the operation is not recognized.
  *
  * @example
- * const value1 = 5n;
- * const value2 = 15n;
- * const min = 1n;
- * const max = 10n;
+ * const value1 = BigInt(5);
+ * const value2 = BigInt(15);
+ * const min = BigInt(1);
+ * const max = BigInt(10);
  *
  * bigintRange(value1, 'between', min, max); // true
  * bigintRange(value2, 'not_between', min, max); // true
