@@ -50,6 +50,8 @@ export type ArrayMembershipOper = ArrayMembershipEnum | `${ArrayMembershipEnum}`
 export enum ArrayRelationEnum {
   IS_SUBSET_OF = 'is_subset_of',
   IS_SUPERSET_OF = 'is_superset_of',
+  STRICT_SUBSET = 'strict_subset',
+  STRICT_SUPERSET = 'strict_superset',
 }
 
 export type ArrayRelationOper = ArrayRelationEnum | `${ArrayRelationEnum}`;
