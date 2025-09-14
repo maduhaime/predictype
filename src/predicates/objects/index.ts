@@ -7,3 +7,4 @@ export * from './objectAttributes.js';
 export * from './objectInstance.js';
 export * from './objectKey.js';
 export * from './objectKeys.js';
+export * from './objectState.js';

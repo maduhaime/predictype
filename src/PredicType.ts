@@ -46,6 +46,7 @@ import {
   ObjectInstanceOper,
   ObjectKeyOper,
   ObjectKeysOper,
+  ObjectStateOper,
   PromiseStateOper,
   PromiseTypeOper,
   SetComparisonOper,
@@ -64,47 +65,28 @@ import {
 
 export const PredicType = {
   array: {
-    comparison: <T>(source: T[], oper: ArrayComparisonOper, target: T[]): boolean => {
-      return arrays.arrayComparison<T>(source, oper, target);
-    },
-    indexComparison: <T>(source: T[], oper: ArrayIndexComparisonOper, index: number, target: T): boolean => {
-      return arrays.arrayIndexComparison<T>(source, oper, index, target);
-    },
-    indexMembership: <T>(source: T[], oper: ArrayIndexMembershipOper, index: number, target: T[]): boolean => {
-      return arrays.arrayIndexMembership<T>(source, oper, index, target);
-    },
-    intersection: <T>(source: T[], oper: ArrayIntersectionOper, target: T[]): boolean => {
-      return arrays.arrayIntersection<T>(source, oper, target);
-    },
-    membership: <T>(source: T[], oper: ArrayMembershipOper, target: T): boolean => {
-      return arrays.arrayMembership<T>(source, oper, target);
-    },
-    relation: <T>(source: T[], oper: ArrayRelationOper, target: T[]): boolean => {
-      return arrays.arrayRelation<T>(source, oper, target);
-    },
-    sequence: <T>(source: T[], oper: ArraySequenceOper, target: T[]): boolean => {
-      return arrays.arraySequence<T>(source, oper, target);
-    },
-    size: (source: any[], oper: ArraySizeOper, target: number): boolean => {
-      return arrays.arraySize(source, oper, target);
-    },
-    state: (source: any[], oper: ArrayStateOper): boolean => {
-      return arrays.arrayState(source, oper);
-    },
+    comparison: (source: any[], oper: ArrayComparisonOper, target: any[]) =>
+      arrays.arrayComparison(source, oper, target),
+    indexComparison: (source: any[], oper: ArrayIndexComparisonOper, index: number, value: any) =>
+      arrays.arrayIndexComparison(source, oper, index, value),
+    indexMembership: (source: any[], oper: ArrayIndexMembershipOper, index: number, arr: any[]) =>
+      arrays.arrayIndexMembership(source, oper, index, arr),
+    intersection: (source: any[], oper: ArrayIntersectionOper, arr: any[]) =>
+      arrays.arrayIntersection(source, oper, arr),
+    membership: (source: any[], oper: ArrayMembershipOper, arr: any[]) => arrays.arrayMembership(source, oper, arr),
+    relation: (source: any[], oper: ArrayRelationOper, arr: any[]) => arrays.arrayRelation(source, oper, arr),
+    sequence: (source: any[], oper: ArraySequenceOper, arr: any[]) => arrays.arraySequence(source, oper, arr),
+    size: (source: any[], oper: ArraySizeOper, size: number) => arrays.arraySize(source, oper, size),
+    state: (source: any[], oper: ArrayStateOper) => arrays.arrayState(source, oper),
   },
   bigint: {
-    comparison: (source: bigint, oper: BigIntComparisonOper, target: bigint): boolean => {
-      return bigints.bigintComparison(source, oper, target);
-    },
-    membership: (source: bigint, oper: BigIntMembershipOper, set: bigint[]): boolean => {
-      return bigints.bigintMembership(source, oper, set);
-    },
-    range: (source: bigint, oper: BigIntRangeOper, min: bigint, max: bigint): boolean => {
-      return bigints.bigintRange(source, oper, min, max);
-    },
-    state: (source: bigint, oper: BigIntStateOper): boolean => {
-      return bigints.bigintState(source, oper);
-    },
+    comparison: (source: bigint, oper: BigIntComparisonOper, target: bigint) =>
+      bigints.bigintComparison(source, oper, target),
+    membership: (source: bigint, oper: BigIntMembershipOper, arr: bigint[]) =>
+      bigints.bigintMembership(source, oper, arr),
+    range: (source: bigint, oper: BigIntRangeOper, min: bigint, max: bigint) =>
+      bigints.bigintRange(source, oper, min, max),
+    state: (source: bigint, oper: BigIntStateOper) => bigints.bigintState(source, oper),
   },
   boolean: {
     comparison: (value: boolean, oper: BooleanComparisonOper, target: boolean): boolean => {
@@ -179,6 +161,9 @@ export const PredicType = {
     },
     keys: (obj: object, oper: ObjectKeysOper, keys?: string | string[] | symbol[]): boolean => {
       return objects.objectKeys(obj, oper, keys);
+    },
+    state: (obj: object, oper: ObjectStateOper): boolean => {
+      return objects.objectState(obj, oper);
     },
   },
   promise: {

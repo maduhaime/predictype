@@ -75,6 +75,7 @@ export enum ObjectStateEnum {
   INHERITS_OBJECT = 'inherits_object',
   IS_CLONEABLE = 'is_cloneable', // ajout
   IS_EMPTY = 'is_empty',
+  IS_NOT_EMPTY = 'is_not_empty',
   IS_EXTENSIBLE = 'is_extensible',
   IS_FROZEN = 'is_frozen',
   IS_HOMOGENEOUS = 'is_homogeneous',

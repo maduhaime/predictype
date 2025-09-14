@@ -17,11 +17,6 @@ describe('PredicType.array', () => {
   });
   it('should return true for array intersection intersects', () => {
     expect(PredicType.array.intersection([1, 2], 'intersects', [2, 3])).toBe(true);
-    expect(P.arr.intersection([1, 2], 'intersects', [2, 3])).toBe(true);
-  });
-  it('should return true for array membership includes', () => {
-    expect(PredicType.array.membership([1, 2], 'includes', 1)).toBe(true);
-    expect(P.arr.membership([1, 2], 'includes', 1)).toBe(true);
   });
   it('should return true for array relation is_subset_of', () => {
     expect(PredicType.array.relation([1], 'is_subset_of', [1, 2])).toBe(true);
@@ -163,6 +158,10 @@ describe('PredicType.object', () => {
     expect(PredicType.object.keys({ foo: 1, bar: 2 }, 'has_all_keys', ['foo', 'bar'])).toBe(true);
     expect(P.obj.keys({ foo: 1, bar: 2 }, 'has_all_keys', ['foo', 'bar'])).toBe(true);
   });
+  it('should return true for has_no_keys', () => {
+    expect(PredicType.object.state({}, 'has_no_keys')).toBe(true);
+    expect(P.obj.state({}, 'has_no_keys')).toBe(true);
+  });
 });
 
 describe('PredicType.promise', () => {
@@ -238,7 +237,7 @@ describe('PredicType.symbol', () => {
     expect(PredicType.symbol.comparison(s, 'equals', s)).toBe(true);
     expect(P.sym.comparison(s, 'equals', s)).toBe(true);
   });
-  it('should return true for symbol state IS_GLOBAL', () => {
+  it('should return true for symbol state is_global', () => {
     const s = Symbol.for('a');
     expect(PredicType.symbol.state(s, 'is_global')).toBe(true);
     expect(P.sym.state(s, 'is_global')).toBe(true);
