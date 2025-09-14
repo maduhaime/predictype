@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.6.1] - 2025-09-14
+
+### Added
+
+- **Object instance**: Added `IS_PROTOTYPE_OF` to `ObjectInstanceEnum` and implemented its logic, allowing prototype chain checks via `objectInstance(proto, 'is_prototype_of', obj)`.
+- **Date comparison**: Recreated the `dateComparison` predicate for all operators in `DateComparisonEnum`, with a full test suite.
+
+### Changed
+
+- **Documentation**: Updated the README reference tables and features to reflect the total of distinct predicate operations and documented the new object instance operator.
+
+### Fixed
+
+- **TypeScript compatibility**: Fixed type errors in `objectInstance` and its tests, allowing correct usage with both class instances and functions as arguments.
+
 # [0.6.0] - 2025-09-13
 
 ### Added
