@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.6.2] - 2025-09-14
+
+### Fixed
+
+- **Date comparison exposure**: The `dateComparison` predicate was not exposed in the main API (`PredicType.date.comparison`). It is now properly exported and available through both the main and alias APIs.
+
 # [0.6.1] - 2025-09-14
 
 ### Added
@@ -15,7 +21,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- **TypeScript compatibility**: Fixed type errors in `objectInstance` and its tests, allowing correct usage with both class instances and functions as arguments.
+- **TypeScript compatibility**: Fixed type errors in `objectInstance` and its tests, allowing correct usage with both class instances and functions as arguments. asdcfvbn ,
 
 # [0.6.0] - 2025-09-13
 

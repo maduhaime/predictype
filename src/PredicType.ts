@@ -28,6 +28,7 @@ import {
   BooleanComparisonOper,
   BooleanStateOper,
   DateCalendarOper,
+  DateComparisonOper,
   DateRangeOper,
   DateStateOper,
   FunctionArityOper,
@@ -99,6 +100,9 @@ export const PredicType = {
   date: {
     calendar: (value: Date, oper: DateCalendarOper): boolean => {
       return dates.dateCalendar(value, oper);
+    },
+    comparison: (value: Date, oper: DateComparisonOper, target: Date): boolean => {
+      return dates.dateComparison(value, oper, target);
     },
     range: (value: Date, oper: DateRangeOper, min: Date, max: Date): boolean => {
       return dates.dateRange(value, oper, min, max);

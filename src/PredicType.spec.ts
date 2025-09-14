@@ -71,6 +71,12 @@ describe('PredicType.date', () => {
     expect(PredicType.date.calendar(new Date(), 'is_today')).toBe(true);
     expect(P.date.calendar(new Date(), 'is_today')).toBe(true);
   });
+  it('should compare two dates with all main operators', () => {
+    const d1 = new Date('2025-01-01');
+    const d2 = new Date('2025-01-02');
+    expect(PredicType.date.comparison(d2, 'after', d1)).toBe(true);
+    expect(P.date.comparison(d2, 'after', d1)).toBe(true);
+  });
   it('should return true for date range in_range', () => {
     const d = new Date('2020-01-02');
     expect(PredicType.date.range(d, 'in_range', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);

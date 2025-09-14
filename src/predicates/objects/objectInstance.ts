@@ -5,7 +5,7 @@ import { ObjectInstanceEnum, ObjectInstanceOper } from '../../enums/objects.js';
  *
  * @param value The value to check.
  * @param oper The instance operation to perform (e.g. 'is_class', 'is_instance_of').
- * @param ctor The constructor to check against (for 'is_instance_of').
+ * @param other The second value to compare against (constructor for 'is_instance_of', object for 'is_prototype_of', etc.).
  * @returns True if the instance check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -18,6 +18,7 @@ import { ObjectInstanceEnum, ObjectInstanceOper } from '../../enums/objects.js';
  * objectInstance(foo, 'is_instance_of', Foo); // true
  * objectInstance(Bar, 'is_class'); // false (not a class)
  * objectInstance(Bar, 'is_constructor'); // true
+ * objectInstance(Foo.prototype, 'is_prototype_of', foo); // true
  */
 export function objectInstance(value: any, oper: ObjectInstanceOper, other?: any): boolean {
   const operators: Record<ObjectInstanceEnum, (v: any, c?: any) => boolean> = {
