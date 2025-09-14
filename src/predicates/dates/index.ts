@@ -4,5 +4,6 @@
  * @module predicates/dates
  */
 export * from './dateCalendar.js';
+export * from './dateComparison.js';
 export * from './dateRange.js';
 export * from './dateState.js';
