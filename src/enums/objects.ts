@@ -19,6 +19,7 @@ export enum ObjectInstanceEnum {
   IS_FUNCTION_INSTANCE = 'is_function_instance',
   IS_INSTANCE_OF = 'is_instance_of',
   IS_OBJECT_INSTANCE = 'is_object_instance',
+  IS_PROTOTYPE_OF = 'is_prototype_of',
 }
 
 export type ObjectInstanceOper = ObjectInstanceEnum | `${ObjectInstanceEnum}`;

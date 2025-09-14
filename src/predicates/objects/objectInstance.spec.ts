@@ -2,6 +2,18 @@ import { describe, it, expect } from 'vitest';
 import { objectInstance } from './objectInstance.js';
 
 describe('objectInstance', () => {
+  it('should return true for is_prototype_of', () => {
+    class Foo {}
+    const proto = Foo.prototype;
+    const foo = new Foo();
+    expect(objectInstance(proto, 'is_prototype_of', foo)).toBe(true);
+    // Use a function as dummy for type compatibility
+    function Bar() {}
+    expect(objectInstance({}, 'is_prototype_of', Bar)).toBe(false);
+    expect(objectInstance(proto, 'is_prototype_of', Bar)).toBe(false);
+    expect(objectInstance(proto, 'is_prototype_of', null as any)).toBe(false);
+    expect(objectInstance(null as any, 'is_prototype_of', foo)).toBe(false);
+  });
   it('should return true for is_class', () => {
     class Foo {}
     expect(objectInstance(Foo, 'is_class')).toBe(true);
