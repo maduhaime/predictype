@@ -6,7 +6,7 @@
       "Keep function signatures simple and consistent",
       "Avoid unions like string | string[] in function parameters",
       "Always prefer plural for predicate families (arrays, strings, functions, etc.)",
-      "Always use {} and return when an arrow function spans multiple lines"
+      "Always use braces {} and a return statement when an arrow function spans multiple lines"
     ],
     "namingConventions": ["snake_case for enum values", "PascalCase for enum names", "camelCase for functions"]
   },
