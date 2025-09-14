@@ -17,7 +17,7 @@ Its goal: make working with predicates and validation as productive and reliable
 
 ## Features
 
-- **175 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **224 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -108,20 +108,21 @@ All predicate categories and operators are available through both the full API a
 
 Below is a comprehensive table of all predicate families, their categories, enums, available operators, function signatures, and usage examples.
 
-#### Array
+#### Array (33)
 
-| Category     | Enum                  | Operators                                                                                                                                                                                                                    | Count |
-| ------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| membership   | ArrayMembershipEnum   | INCLUDES, EXCLUDES, SOME_EQUALS, EVERY_EQUALS                                                                                                                                                                                | 4     |
-| comparison   | ArrayComparisonEnum   | EQUALS, NOT_EQUALS, SAME_MEMBERS, SET_EQUALS, SET_NOT_EQUALS                                                                                                                                                                 | 5     |
-| relation     | ArrayRelationEnum     | IS_SUBSET_OF, IS_SUPERSET_OF                                                                                                                                                                                                 | 2     |
-| sequence     | ArraySequenceEnum     | STARTS_WITH, ENDS_WITH, CONTAINS_SUBSEQUENCE                                                                                                                                                                                 | 3     |
-| intersection | ArrayIntersectionEnum | INTERSECTS, DISJOINT                                                                                                                                                                                                         | 2     |
-| size         | ArraySizeEnum         | LENGTH_EQUALS, LENGTH_GREATER_THAN, LENGTH_GREATER_THAN_OR_EQUALS, LENGTH_LESS_THAN, LENGTH_LESS_THAN_OR_EQUALS                                                                                                              | 5     |
-| state        | ArrayStateEnum        | IS_EMPTY, IS_NOT_EMPTY                                                                                                                                                                                                       | 2     |
-| index        | ArrayIndexEnum        | VALUE_AT_INDEX_EQUALS, VALUE_AT_INDEX_NOT_EQUALS, VALUE_AT_INDEX_IN, VALUE_AT_INDEX_NOT_IN, VALUE_AT_INDEX_GREATER_THAN, VALUE_AT_INDEX_GREATER_THAN_OR_EQUALS, VALUE_AT_INDEX_LESS_THAN, VALUE_AT_INDEX_LESS_THAN_OR_EQUALS | 8     |
+| Category        | Enum                     | Operators                                                                                                                                                                          | Count |
+| --------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| comparison      | ArrayComparisonEnum      | EQUALS, NOT_EQUALS, SAME_MEMBERS, SET_EQUALS, SET_NOT_EQUALS                                                                                                                       | 5     |
+| indexComparison | ArrayIndexComparisonEnum | VALUE_AT_INDEX_EQUALS, VALUE_AT_INDEX_NOT_EQUALS, VALUE_AT_INDEX_GREATER_THAN, VALUE_AT_INDEX_GREATER_THAN_OR_EQUALS, VALUE_AT_INDEX_LESS_THAN, VALUE_AT_INDEX_LESS_THAN_OR_EQUALS | 6     |
+| indexMembership | ArrayIndexMembershipEnum | VALUE_AT_INDEX_IN, VALUE_AT_INDEX_NOT_IN                                                                                                                                           | 2     |
+| intersection    | ArrayIntersectionEnum    | DISJOINT, INTERSECTS                                                                                                                                                               | 2     |
+| membership      | ArrayMembershipEnum      | EVERY_EQUALS, EXCLUDES, INCLUDES, SOME_EQUALS                                                                                                                                      | 4     |
+| relation        | ArrayRelationEnum        | IS_SUBSET_OF, IS_SUPERSET_OF, STRICT_SUBSET, STRICT_SUPERSET                                                                                                                       | 4     |
+| sequence        | ArraySequenceEnum        | CONTAINS_SUBSEQUENCE, ENDS_WITH, STARTS_WITH                                                                                                                                       | 3     |
+| size            | ArraySizeEnum            | EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUALS, LESS_THAN, LESS_THAN_OR_EQUALS                                                                                                       | 5     |
+| state           | ArrayStateEnum           | IS_EMPTY, IS_NOT_EMPTY                                                                                                                                                             | 2     |
 
-#### BigInt
+#### BigInt (15)
 
 | Category   | Enum                 | Operators                                                                                | Count |
 | ---------- | -------------------- | ---------------------------------------------------------------------------------------- | ----- |
@@ -130,22 +131,23 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | range      | BigIntRangeEnum      | BETWEEN, NOT_BETWEEN                                                                     | 2     |
 | state      | BigIntStateEnum      | IS_ZERO, IS_POSITIVE, IS_NEGATIVE, IS_EVEN, IS_ODD                                       | 5     |
 
-#### Boolean
+#### Boolean (4)
 
 | Category   | Enum                  | Operators          | Count |
 | ---------- | --------------------- | ------------------ | ----- |
 | comparison | BooleanComparisonEnum | EQUALS, NOT_EQUALS | 2     |
 | state      | BooleanStateEnum      | IS_TRUE, IS_FALSE  | 2     |
 
-#### Date
+#### Date (24)
 
-| Category | Enum             | Operators                                                                                                                    | Count |
-| -------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----- |
-| calendar | DateCalendarEnum | IS_TODAY, IS_YESTERDAY, IS_TOMORROW, IS_WEEKEND, IS_WEEKDAY, IS_PAST, IS_FUTURE, IS_FIRST_DAY_OF_MONTH, IS_LAST_DAY_OF_MONTH | 9     |
-| range    | DateRangeEnum    | IN_RANGE, OUT_RANGE, STRICT_IN_RANGE, STRICT_OUT_RANGE                                                                       | 4     |
-| state    | DateStateEnum    | IS_VALID, IS_INVALID, IS_BEFORE_NOW, IS_AFTER_NOW, IS_SAME_DAY, IS_SAME_MONTH, IS_SAME_YEAR                                  | 7     |
+| Category   | Enum               | Operators                                                                                                                    | Count |
+| ---------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ----- |
+| calendar   | DateCalendarEnum   | IS_TODAY, IS_YESTERDAY, IS_TOMORROW, IS_WEEKEND, IS_WEEKDAY, IS_PAST, IS_FUTURE, IS_FIRST_DAY_OF_MONTH, IS_LAST_DAY_OF_MONTH | 9     |
+| comparison | DateComparisonEnum | AFTER, AFTER_OR_EQUAL, BEFORE, BEFORE_OR_EQUAL, EQUALS, NOT_EQUALS, SAME_DAY, SAME_MONTH, SAME_YEAR                          | 9     |
+| range      | DateRangeEnum      | IN_RANGE, OUT_RANGE, STRICT_IN_RANGE, STRICT_OUT_RANGE                                                                       | 4     |
+| state      | DateStateEnum      | IS_VALID, IS_INVALID                                                                                                         | 2     |
 
-#### Function
+#### Function (19)
 
 | Category | Enum                | Operators                                                                    | Count |
 | -------- | ------------------- | ---------------------------------------------------------------------------- | ----- |
@@ -154,7 +156,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | pattern  | FunctionPatternEnum | NAME_MATCHES, NAME_NOT_MATCHES                                               | 2     |
 | state    | FunctionStateEnum   | HAS_NAME, IS_ASYNC, IS_GENERATOR, IS_CONSTRUCTOR, IS_ARROW, IS_ANONYMOUS     | 6     |
 
-#### Map
+#### Map (13)
 
 | Category | Enum         | Operators                                                                    | Count |
 | -------- | ------------ | ---------------------------------------------------------------------------- | ----- |
@@ -164,7 +166,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | state    | MapStateEnum | IS_EMPTY, IS_NOT_EMPTY                                                       | 2     |
 | value    | MapValueEnum | HAS_VALUE, LACKS_VALUE                                                       | 2     |
 
-#### Number
+#### Number (16)
 
 | Category   | Enum                 | Operators                                                                                | Count |
 | ---------- | -------------------- | ---------------------------------------------------------------------------------------- | ----- |
@@ -172,23 +174,24 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | range      | NumberRangeEnum      | BETWEEN, NOT_BETWEEN                                                                     | 2     |
 | state      | NumberStateEnum      | IS_ZERO, IS_POSITIVE, IS_NEGATIVE, IS_INTEGER, IS_FINITE, IS_NAN                         | 6     |
 
-#### Object
+#### Object (43)
 
-| Category   | Enum                 | Operators                                                                                                                         | Count |
-| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| attributes | ObjectAttributesEnum | IS_ACCESSOR, IS_CONFIGURABLE, IS_DATA_PROPERTY, IS_ENUMERABLE, IS_WRITABLE                                                        | 5     |
-| instance   | ObjectInstanceEnum   | IS_CLASS, IS_CONSTRUCTOR, IS_FUNCTION_INSTANCE, IS_INSTANCE_OF, IS_OBJECT_INSTANCE                                                | 5     |
-| key        | ObjectKeyEnum        | HAS_KEY, LACKS_KEY                                                                                                                | 2     |
-| keys       | ObjectKeysEnum       | HAS_ALL_KEYS, HAS_ANY_KEY, HAS_ANY_PROPERTY, HAS_EXACT_KEYS, HAS_NO_KEYS, HAS_ONLY_KEYS, HAS_SYMBOL_KEYS, MATCHES_KEYS, ONLY_KEYS | 8     |
+| Category   | Enum                 | Operators                                                                                                                                                                                                                                                                                                                                         | Count |
+| ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| attributes | ObjectAttributesEnum | IS_ACCESSOR, IS_CONFIGURABLE, IS_DATA_PROPERTY, IS_ENUMERABLE, IS_WRITABLE                                                                                                                                                                                                                                                                        | 5     |
+| instance   | ObjectInstanceEnum   | IS_CLASS, IS_CONSTRUCTOR, IS_FUNCTION_INSTANCE, IS_INSTANCE_OF, IS_OBJECT_INSTANCE                                                                                                                                                                                                                                                                | 5     |
+| key        | ObjectKeyEnum        | HAS_KEY, LACKS_KEY                                                                                                                                                                                                                                                                                                                                | 2     |
+| keys       | ObjectKeysEnum       | HAS_ALL_KEYS, HAS_ANY_KEY, HAS_ANY_PROPERTY, HAS_EXACT_KEYS, HAS_NO_KEYS, HAS_ONLY_KEYS, HAS_SYMBOL_KEYS, MATCHES_KEYS, ONLY_KEYS                                                                                                                                                                                                                 | 9     |
+| state      | ObjectStateEnum      | HAS_ARRAY_PROP, HAS_CAMELCASE_KEYS, HAS_FUNCTION_PROP, HAS_NESTED_OBJECT, HAS_NO_KEYS, HAS_NO_UNDEFINED, HAS_NULL_PROTO, HAS_NUMERIC_KEYS, HAS_SYMBOL_KEYS, HAS_SYMBOLS, INHERITS_OBJECT, IS_CLONEABLE, IS_EMPTY, IS_NOT_EMPTY, IS_EXTENSIBLE, IS_FROZEN, IS_HOMOGENEOUS, IS_ITERABLE, IS_JSON_SERIALIZABLE, IS_PLAIN, IS_SEALED, IS_TYPED_OBJECT | 22    |
 
-#### Promise
+#### Promise (5)
 
 | Category | Enum             | Operators                             | Count |
 | -------- | ---------------- | ------------------------------------- | ----- |
 | state    | PromiseStateEnum | IS_PENDING, IS_FULFILLED, IS_REJECTED | 3     |
 | type     | PromiseTypeEnum  | IS_PROMISE, IS_NOT_PROMISE            | 2     |
 
-#### Set
+#### Set (13)
 
 | Category   | Enum              | Operators                                                                    | Count |
 | ---------- | ----------------- | ---------------------------------------------------------------------------- | ----- |
@@ -197,17 +200,18 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | size       | SetSizeEnum       | EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUALS, LESS_THAN, LESS_THAN_OR_EQUALS | 5     |
 | state      | SetStateEnum      | IS_EMPTY, IS_NOT_EMPTY                                                       | 2     |
 
-#### String
+#### String (31)
 
-| Category   | Enum                 | Operators                                                                    | Count |
-| ---------- | -------------------- | ---------------------------------------------------------------------------- | ----- |
-| comparison | StringComparisonEnum | EQUALS, NOT_EQUALS, GREATER_THAN, LESS_THAN                                  | 4     |
-| membership | StringMembershipEnum | IS_ONE_OF, IS_NOT_ONE_OF                                                     | 2     |
-| pattern    | StringPatternEnum    | MATCHES, NOT_MATCHES                                                         | 2     |
-| size       | StringSizeEnum       | EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUALS, LESS_THAN, LESS_THAN_OR_EQUALS | 5     |
-| state      | StringStateEnum      | IS_EMPTY, IS_NOT_EMPTY, IS_BLANK, IS_NOT_BLANK                               | 4     |
+| Category   | Enum                 | Operators                                                                                                                                                                                                | Count |
+| ---------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| comparison | StringComparisonEnum | EQUALS, NOT_EQUALS, GREATER_THAN, LESS_THAN                                                                                                                                                              | 4     |
+| membership | StringMembershipEnum | IS_ONE_OF, IS_NOT_ONE_OF                                                                                                                                                                                 | 2     |
+| pattern    | StringPatternEnum    | MATCHES, NOT_MATCHES                                                                                                                                                                                     | 2     |
+| size       | StringSizeEnum       | EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUALS, LESS_THAN, LESS_THAN_OR_EQUALS                                                                                                                             | 5     |
+| substring  | StringSubstringEnum  | INCLUDES, EXCLUDES, STARTS_WITH, ENDS_WITH                                                                                                                                                               | 4     |
+| state      | StringStateEnum      | IS_EMPTY, IS_NOT_EMPTY, IS_BLANK, IS_NOT_BLANK, IS_ALPHA, IS_ALPHANUMERIC, IS_NUMERIC, IS_LOWERCASE, IS_UPPERCASE, IS_TITLECASE, IS_PALINDROME, IS_ASCII, IS_PRINTABLE, IS_WHITESPACE, IS_NOT_WHITESPACE | 14    |
 
-#### Symbol
+#### Symbol (4)
 
 | Category   | Enum                 | Operators                | Count |
 | ---------- | -------------------- | ------------------------ | ----- |

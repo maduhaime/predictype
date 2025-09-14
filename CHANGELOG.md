@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.6.0] - 2025-09-13
+
+### Added
+
+- **Array comparison**: Added `strict_subset` and `strict_superset` operators for arrays, enabling strict set inclusion/exclusion checks.
+- **Date calendar**: All calendar-related functions now accept an optional date parameter, allowing flexible reference date handling.
+- **String**:
+  - Exported the missing `substring` predicate in the main API.
+  - Implemented all missing `string state` functionalities, ensuring full enum and API coverage.
+- **Object state integration tests**: Added comprehensive integration tests for all `PredicType.object.state` operators, covering every value of `ObjectStateEnum` via the main API and its alias, in strict enum order.
+- **Documentation**: The README reference tables have been fully audited, corrected, and expanded. They now exhaustively list all 224 distinct predicates available in PredicType, organized by family, category, and enum, with the exact count for each operator.
+
+### Fixed
+
+- **Test suite cleanup**: Removed a stray/duplicate assertion in the array intersection test, fixed test file structure and block closures, and ensured all tests pass cleanly.
+
+### Internal
+
+- Ensured all object state tests are present, ordered, and compliant with project conventions. Improved test maintainability and reliability for future changes.
+
 ## [0.5.0] - 2025-09-13
 
 ### Added
