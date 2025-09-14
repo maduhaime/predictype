@@ -209,6 +209,7 @@ describe('PredicType.string', () => {
     expect(PredicType.string.pattern('foobar', 'matches', /^foo/)).toBe(true);
     expect(P.str.pattern('foobar', 'matches', /^foo/)).toBe(true);
   });
+
   it('should return true for string size equals', () => {
     expect(PredicType.string.size('abc', 'equals', 3)).toBe(true);
     expect(P.str.size('abc', 'equals', 3)).toBe(true);
@@ -216,6 +217,18 @@ describe('PredicType.string', () => {
   it('should return true for string state IS_NOT_EMPTY', () => {
     expect(PredicType.string.state('a', 'is_not_empty')).toBe(true);
     expect(P.str.state('a', 'is_not_empty')).toBe(true);
+  });
+  it('should return true for string substring includes', () => {
+    expect(PredicType.string.substring('foobar', 'includes', 'foo')).toBe(true);
+    expect(P.str.substring('foobar', 'includes', 'foo')).toBe(true);
+    expect(PredicType.string.substring('foobar', 'includes', 'baz')).toBe(false);
+    expect(P.str.substring('foobar', 'includes', 'baz')).toBe(false);
+  });
+  it('should return true for string substring excludes', () => {
+    expect(PredicType.string.substring('foobar', 'excludes', 'baz')).toBe(true);
+    expect(P.str.substring('foobar', 'excludes', 'baz')).toBe(true);
+    expect(PredicType.string.substring('foobar', 'excludes', 'foo')).toBe(false);
+    expect(P.str.substring('foobar', 'excludes', 'foo')).toBe(false);
   });
 });
 

@@ -57,6 +57,7 @@ import {
   StringPatternOper,
   StringSizeOper,
   StringStateOper,
+  StringSubstringOper,
   SymbolComparisonOper,
   SymbolStateOper,
 } from './enums/index.js';
@@ -212,11 +213,15 @@ export const PredicType = {
     pattern: (source: string, oper: StringPatternOper, pattern: RegExp): boolean => {
       return strings.stringPattern(source, oper, pattern);
     },
+
     size: (source: string, oper: StringSizeOper, target: number): boolean => {
       return strings.stringSize(source, oper, target);
     },
     state: (source: string, oper: StringStateOper): boolean => {
       return strings.stringState(source, oper);
+    },
+    substring: (source: string, oper: StringSubstringOper, target: string): boolean => {
+      return strings.stringSubstring(source, oper, target);
     },
   },
   symbol: {
