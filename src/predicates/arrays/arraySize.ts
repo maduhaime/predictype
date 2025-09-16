@@ -19,7 +19,7 @@ import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays.js';
  * arraySize(arr, 'length_greater_than', len2); // true
  *
  * @remarks
- * @supportedOperators
+ * Supported Operators
  * | Operator                        | Description           |
  * |-------------------------------|----------------------|
  * | SIZE_EQUALS                  | arr.length === target |

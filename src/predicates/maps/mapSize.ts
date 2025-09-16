@@ -20,7 +20,7 @@ import { MapSizeEnum, MapSizeOper } from '../../enums/maps.js';
  * mapSize(m2, 'size_greater_than', size0); // true
  *
  * @remarks
- * @supportedOperators
+ * Supported Operators
  * | Operator                        | Description                        |
  * |-------------------------------|-------------------------------------|
  * | SIZE_EQUALS                    | Map size equals the given value     |

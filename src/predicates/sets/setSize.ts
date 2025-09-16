@@ -17,7 +17,7 @@ import { SetSizeEnum, SetSizeOper } from '../../enums/sets.js';
  * setSize(a, 'size_greater_than', 2); // true
  *
  * @remarks
- * @supportedOperators
+ * Supported Operators
  * | Operator                        | Description                        |
  * |-------------------------------|-------------------------------------|
  * | SIZE_EQUALS                    | Set size equals the given value     |

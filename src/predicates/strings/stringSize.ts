@@ -19,7 +19,7 @@ import { StringSizeEnum, StringSizeOper } from '../../enums/strings.js';
  * stringSize(str, 'length_greater_than', len2); // true
  *
  * @remarks
- * @supportedOperators
+ * Supported Operators
  * | Operator                        | Description                        |
  * |-------------------------------|-------------------------------------|
  * | SIZE_EQUALS                  | String length equals the given value |
