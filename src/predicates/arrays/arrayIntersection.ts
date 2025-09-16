@@ -18,6 +18,14 @@ import { ArrayIntersectionEnum, ArrayIntersectionOper } from '../../enums/arrays
  *
  * arrayIntersection(arr1, 'disjoint', arr2); // true
  * arrayIntersection(arr1, 'intersects', arr3); // true
+ *
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator    | Description                        |
+ * |-------------|------------------------------------|
+ * | DISJOINT    | No common elements                 |
+ * | INTERSECTS  | At least one common element        |
  */
 export function arrayIntersection<T>(source: T[], oper: ArrayIntersectionOper, target: T[]): boolean {
   const operators: Record<ArrayIntersectionEnum, (a: T[], b: T[]) => boolean> = {

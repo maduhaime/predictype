@@ -32,10 +32,10 @@ export enum DateComparisonEnum {
 export type DateComparisonOper = DateComparisonEnum | `${DateComparisonEnum}`;
 
 export enum DateRangeEnum {
-  IN_RANGE = 'in_range',
-  OUT_RANGE = 'out_range',
-  STRICT_IN_RANGE = 'strict_in_range',
-  STRICT_OUT_RANGE = 'strict_out_range',
+  BETWEEN = 'between', // inclusif : min <= x <= max
+  NOT_BETWEEN = 'not_between', // inclusif : x < min || x > max
+  STRICT_BETWEEN = 'strict_between', // exclusif : min < x < max
+  STRICT_NOT_BETWEEN = 'strict_not_between', // exclusif : x <= min || x >= max
 }
 
 export type DateRangeOper = DateRangeEnum | `${DateRangeEnum}`;

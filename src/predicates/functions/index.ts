@@ -5,5 +5,5 @@
  */
 export * from './functionArity.js';
 export * from './functionName.js';
-export * from './functionPattern.js';
+export * from './functionNamePattern.js';
 export * from './functionState.js';

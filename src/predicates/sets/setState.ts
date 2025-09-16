@@ -15,6 +15,13 @@ import { SetStateEnum, SetStateOper } from '../../enums/sets.js';
  *
  * setState(a, 'is_empty'); // true
  * setState(b, 'is_not_empty'); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator        | Description                        |
+ * |-----------------|------------------------------------|
+ * | IS_EMPTY        | Set is empty                        |
+ * | IS_NOT_EMPTY    | Set is not empty                    |
  */
 export function setState<T>(source: Set<T>, oper: SetStateOper): boolean {
   const operators: Record<SetStateEnum, (a: Set<T>) => boolean> = {

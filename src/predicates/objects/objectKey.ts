@@ -19,10 +19,17 @@ import { ObjectKeyEnum, ObjectKeyOper } from '../../enums/objects.js';
  * objectKey(obj, 'has_key', 'foo'); // true
  * objectKey(obj, 'lacks_key', 'bar'); // true
  * objectKey(obj2, 'has_key', sym); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator        | Description                        |
+ * |-----------------|------------------------------------|
+ * | CONTAINS_KEY    | Object has the key                  |
+ * | LACKS_KEY       | Object does not have the key        |
  */
 export function objectKey(obj: object, oper: ObjectKeyOper, key: string | symbol): boolean {
   const operators: Record<ObjectKeyEnum, (k: string | symbol) => boolean> = {
-    [ObjectKeyEnum.HAS_KEY]: (k) => Object.prototype.hasOwnProperty.call(obj, k),
+    [ObjectKeyEnum.CONTAINS_KEY]: (k) => Object.prototype.hasOwnProperty.call(obj, k),
     [ObjectKeyEnum.LACKS_KEY]: (k) => !Object.prototype.hasOwnProperty.call(obj, k),
   };
 

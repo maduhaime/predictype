@@ -15,6 +15,13 @@ import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans.js';
  *
  * booleanState(valueTrue, 'is_true'); // true
  * booleanState(valueFalse, 'is_false'); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator   | Description        |
+ * |------------|-------------------|
+ * | IS_TRUE    | value === true     |
+ * | IS_FALSE   | value === false    |
  */
 export function booleanState(value: boolean, oper: BooleanStateOper): boolean {
   const operators: Record<BooleanStateEnum, (v: boolean) => boolean> = {

@@ -18,6 +18,17 @@ import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints.
  * bigintComparison(a, 'equals', a); // true
  * bigintComparison(a, 'greater_than', b); // true
  * bigintComparison(a, 'less_than', c); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator                  | Description                        |
+ * |---------------------------|------------------------------------|
+ * | EQUALS                    | a === b                            |
+ * | NOT_EQUALS                | a !== b                            |
+ * | GREATER_THAN              | a > b                              |
+ * | GREATER_THAN_OR_EQUALS    | a >= b                             |
+ * | LESS_THAN                 | a < b                              |
+ * | LESS_THAN_OR_EQUALS       | a <= b                             |
  */
 export function bigintComparison(source: bigint, oper: BigIntComparisonOper, target: bigint): boolean {
   const operators: Record<BigIntComparisonEnum, (a: bigint, b: bigint) => boolean> = {

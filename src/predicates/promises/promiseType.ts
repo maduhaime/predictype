@@ -15,6 +15,13 @@ import { PromiseTypeEnum, PromiseTypeOper } from '../../enums/promises.js';
  *
  * promiseType(p, 'is_promise'); // true
  * promiseType(foo, 'is_async_function'); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator            | Description                        |
+ * |---------------------|------------------------------------|
+ * | IS_PROMISE          | Value is a Promise                  |
+ * | IS_ASYNC_FUNCTION   | Value is an async function          |
  */
 export function promiseType(source: unknown, oper: PromiseTypeOper): boolean {
   const operators: Record<PromiseTypeEnum, (a: unknown) => boolean> = {

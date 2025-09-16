@@ -17,6 +17,13 @@ import { StringPatternEnum, StringPatternOper } from '../../enums/strings.js';
  *
  * stringPattern(str, 'matches', pattern1); // true
  * stringPattern(str, 'not_matches', pattern2); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator      | Description                        |
+ * |---------------|------------------------------------|
+ * | MATCHES       | String matches the RegExp pattern   |
+ * | NOT_MATCHES   | String does not match the pattern   |
  */
 export function stringPattern(source: string, oper: StringPatternOper, pattern: RegExp): boolean {
   const operators: Record<StringPatternEnum, (a: string, b: RegExp) => boolean> = {

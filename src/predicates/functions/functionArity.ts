@@ -17,6 +17,17 @@ import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions.js';
  *
  * functionArity(fn1, 'arity_equals', arity2); // true
  * functionArity(fn2, 'arity_greater_than', arity2); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator           | Description                                 |
+ * |--------------------|---------------------------------------------|
+ * | EQUALS             | Function arity equals the given value        |
+ * | NOT_EQUALS         | Function arity does not equal the value      |
+ * | GREATER_THAN       | Function arity is greater than the value     |
+ * | GREATER_OR_EQUAL   | Function arity is greater or equal to value  |
+ * | LESS_THAN          | Function arity is less than the value        |
+ * | LESS_OR_EQUAL      | Function arity is less or equal to value     |
  */
 export function functionArity(source: Function, oper: FunctionArityOper, arity: number): boolean {
   const operators: Record<FunctionArityEnum, (a: Function, b: number) => boolean> = {

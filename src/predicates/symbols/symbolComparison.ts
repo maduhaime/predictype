@@ -16,6 +16,13 @@ import { SymbolComparisonEnum, SymbolComparisonOper } from '../../enums/symbols.
  *
  * symbolComparison(a, 'equals', a); // true
  * symbolComparison(a, 'not_equals', b); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator      | Description                        |
+ * |--------------|------------------------------------|
+ * | EQUALS       | Symbols are equal                   |
+ * | NOT_EQUALS   | Symbols are not equal               |
  */
 export function symbolComparison(source: symbol, oper: SymbolComparisonOper, target: symbol): boolean {
   const operators: Record<SymbolComparisonEnum, (a: symbol, b: symbol) => boolean> = {

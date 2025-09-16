@@ -16,13 +16,22 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  *
  * numberRange(n, 'in_range', 1, 10); // true
  * numberRange(n, 'strict_in_range', 5, 10); // false
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator              | Description                                 |
+ * |-----------------------|---------------------------------------------|
+ * | BETWEEN               | Inclusive: min <= x <= max                  |
+ * | NOT_BETWEEN           | Inclusive: x < min or x > max               |
+ * | STRICT_BETWEEN        | Exclusive: min < x < max                    |
+ * | STRICT_NOT_BETWEEN    | Exclusive: x <= min or x >= max             |
  */
 export function numberRange(value: number, oper: NumberRangeOper, min: number, max: number): boolean {
   const operators: Record<NumberRangeEnum, (v: number, min: number, max: number) => boolean> = {
-    [NumberRangeEnum.IN_RANGE]: (v, min, max) => v >= min && v <= max,
-    [NumberRangeEnum.OUT_RANGE]: (v, min, max) => v < min || v > max,
-    [NumberRangeEnum.STRICT_IN_RANGE]: (v, min, max) => v > min && v < max,
-    [NumberRangeEnum.STRICT_OUT_RANGE]: (v, min, max) => v <= min || v >= max,
+    [NumberRangeEnum.BETWEEN]: (v, min, max) => v >= min && v <= max,
+    [NumberRangeEnum.NOT_BETWEEN]: (v, min, max) => v < min || v > max,
+    [NumberRangeEnum.STRICT_BETWEEN]: (v, min, max) => v > min && v < max,
+    [NumberRangeEnum.STRICT_NOT_BETWEEN]: (v, min, max) => v <= min || v >= max,
   };
 
   const enumOper = typeof oper === 'string' ? (oper as NumberRangeEnum) : oper;

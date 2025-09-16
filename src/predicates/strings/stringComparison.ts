@@ -16,6 +16,15 @@ import { StringComparisonEnum, StringComparisonOper } from '../../enums/strings.
  *
  * stringComparison(a, 'greater_than', b); // true
  * stringComparison(a, 'equals', a); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator        | Description                        |
+ * |-----------------|------------------------------------|
+ * | EQUALS          | a === b                            |
+ * | NOT_EQUALS      | a !== b                            |
+ * | GREATER_THAN    | a > b                              |
+ * | LESS_THAN       | a < b                              |
  */
 export function stringComparison(source: string, oper: StringComparisonOper, target: string): boolean {
   const operators: Record<StringComparisonEnum, (a: string, b: string) => boolean> = {

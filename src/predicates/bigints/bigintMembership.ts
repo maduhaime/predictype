@@ -17,11 +17,18 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  *
  * bigintMembership(value1, 'is_one_of', arr); // true
  * bigintMembership(value2, 'is_not_one_of', arr); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator   | Description                        |
+ * |------------|------------------------------------|
+ * | IN         | value is in the set                |
+ * | NOT_IN     | value is not in the set            |
  */
 export function bigintMembership(source: bigint, oper: BigIntMembershipOper, set: bigint[]): boolean {
   const operators: Record<BigIntMembershipEnum, (a: bigint, b: bigint[]) => boolean> = {
-    [BigIntMembershipEnum.IS_ONE_OF]: (a, b) => b.includes(a),
-    [BigIntMembershipEnum.IS_NOT_ONE_OF]: (a, b) => !b.includes(a),
+    [BigIntMembershipEnum.IN]: (a, b) => b.includes(a),
+    [BigIntMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as BigIntMembershipEnum) : oper;

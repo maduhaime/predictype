@@ -5,7 +5,7 @@ import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/
  *
  * @template T Type of the array elements.
  * @param source The source array.
- * @param oper The membership operation to perform (e.g. 'value_at_index_in').
+ * @param oper The membership operation to perform (e.g. 'at_index_in').
  * @param index The index in the array to check.
  * @param target The array of values to check for inclusion/exclusion.
  * @returns True if the membership check is valid according to the operator, otherwise false.
@@ -18,8 +18,16 @@ import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/
  * const idx2 = 2;
  * const values = [10, 20];
  *
- * arrayIndexMembership(arr, 'value_at_index_in', idx1, values); // true
- * arrayIndexMembership(arr, 'value_at_index_not_in', idx2, values); // true
+ * arrayIndexMembership(arr, 'at_index_in', idx1, values); // true
+ * arrayIndexMembership(arr, 'at_index_not_in', idx2, values); // true
+ *
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator          | Description                        |
+ * |-------------------|------------------------------------|
+ * | AT_INDEX_IN       | arr[index] is in target array       |
+ * | AT_INDEX_NOT_IN   | arr[index] is not in target array   |
  */
 export function arrayIndexMembership<T>(
   source: T[],
@@ -28,8 +36,8 @@ export function arrayIndexMembership<T>(
   target: T[]
 ): boolean {
   const operators: Record<ArrayIndexMembershipEnum, (arr: T[], idx: number, val: T[]) => boolean> = {
-    [ArrayIndexMembershipEnum.VALUE_AT_INDEX_IN]: (arr, i, val) => Array.isArray(val) && val.includes(arr[i]),
-    [ArrayIndexMembershipEnum.VALUE_AT_INDEX_NOT_IN]: (arr, i, val) => Array.isArray(val) && !val.includes(arr[i]),
+    [ArrayIndexMembershipEnum.AT_INDEX_IN]: (arr, i, val) => Array.isArray(val) && val.includes(arr[i]),
+    [ArrayIndexMembershipEnum.AT_INDEX_NOT_IN]: (arr, i, val) => Array.isArray(val) && !val.includes(arr[i]),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as ArrayIndexMembershipOper) : oper;

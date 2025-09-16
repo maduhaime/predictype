@@ -7,28 +7,28 @@ describe('PredicType.array', () => {
     expect(PredicType.array.comparison([1, 2], 'equals', [1, 2])).toBe(true);
     expect(P.arr.comparison([1, 2], 'equals', [1, 2])).toBe(true);
   });
-  it('should return true for array indexComparison value_at_index_equals', () => {
-    expect(PredicType.array.indexComparison([1, 2], 'value_at_index_equals', 0, 1)).toBe(true);
-    expect(P.arr.indexComparison([1, 2], 'value_at_index_equals', 0, 1)).toBe(true);
+  it('should return true for array indexComparison at_index_equals', () => {
+    expect(PredicType.array.indexComparison([1, 2], 'at_index_equals', 0, 1)).toBe(true);
+    expect(P.arr.indexComparison([1, 2], 'at_index_equals', 0, 1)).toBe(true);
   });
-  it('should return true for array indexMembership value_at_index_in', () => {
-    expect(PredicType.array.indexMembership([1, 2], 'value_at_index_in', 0, [1, 3])).toBe(true);
-    expect(P.arr.indexMembership([1, 2], 'value_at_index_in', 0, [1, 3])).toBe(true);
+  it('should return true for array indexMembership at_index_in', () => {
+    expect(PredicType.array.indexMembership([1, 2], 'at_index_in', 0, [1, 3])).toBe(true);
+    expect(P.arr.indexMembership([1, 2], 'at_index_in', 0, [1, 3])).toBe(true);
   });
   it('should return true for array intersection intersects', () => {
     expect(PredicType.array.intersection([1, 2], 'intersects', [2, 3])).toBe(true);
   });
-  it('should return true for array relation is_subset_of', () => {
-    expect(PredicType.array.relation([1], 'is_subset_of', [1, 2])).toBe(true);
-    expect(P.arr.relation([1], 'is_subset_of', [1, 2])).toBe(true);
+  it('should return true for array relation subset_of', () => {
+    expect(PredicType.array.relation([1], 'subset_of', [1, 2])).toBe(true);
+    expect(P.arr.relation([1], 'subset_of', [1, 2])).toBe(true);
   });
   it('should return true for array sequence contains_subsequence', () => {
     expect(PredicType.array.sequence([1, 2], 'contains_subsequence', [1, 2])).toBe(true);
     expect(P.arr.sequence([1, 2], 'contains_subsequence', [1, 2])).toBe(true);
   });
   it('should return true for array size equals', () => {
-    expect(PredicType.array.size([1, 2], 'equals', 2)).toBe(true);
-    expect(P.arr.size([1, 2], 'equals', 2)).toBe(true);
+    expect(PredicType.array.size([1, 2], 'size_equals', 2)).toBe(true);
+    expect(P.arr.size([1, 2], 'size_equals', 2)).toBe(true);
   });
   it('should return true for array state is_not_empty', () => {
     expect(PredicType.array.state([1], 'is_not_empty')).toBe(true);
@@ -41,9 +41,9 @@ describe('PredicType.bigint', () => {
     expect(PredicType.bigint.comparison(BigInt(1), 'equals', BigInt(1))).toBe(true);
     expect(P.big.comparison(BigInt(1), 'equals', BigInt(1))).toBe(true);
   });
-  it('should return true for bigint membership is_one_of', () => {
-    expect(PredicType.bigint.membership(BigInt(1), 'is_one_of', [BigInt(1), BigInt(2)])).toBe(true);
-    expect(P.big.membership(BigInt(1), 'is_one_of', [BigInt(1), BigInt(2)])).toBe(true);
+  it('should return true for bigint membership in', () => {
+    expect(PredicType.bigint.membership(BigInt(1), 'in', [BigInt(1), BigInt(2)])).toBe(true);
+    expect(P.big.membership(BigInt(1), 'in', [BigInt(1), BigInt(2)])).toBe(true);
   });
   it('should return true for bigint range between', () => {
     expect(PredicType.bigint.range(BigInt(2), 'between', BigInt(1), BigInt(3))).toBe(true);
@@ -79,8 +79,8 @@ describe('PredicType.date', () => {
   });
   it('should return true for date range in_range', () => {
     const d = new Date('2020-01-02');
-    expect(PredicType.date.range(d, 'in_range', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
-    expect(P.date.range(d, 'in_range', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
+    expect(PredicType.date.range(d, 'between', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
+    expect(P.date.range(d, 'between', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
   });
   it('should return true for date state IS_VALID', () => {
     expect(PredicType.date.state(new Date('2020-01-01'), 'is_valid')).toBe(true);
@@ -98,10 +98,10 @@ describe('PredicType.function', () => {
     expect(PredicType.function.name(foo, 'equals', 'foo')).toBe(true);
     expect(P.func.name(foo, 'equals', 'foo')).toBe(true);
   });
-  it('should return true for function pattern name_matches', () => {
+  it('should return true for function pattern matches', () => {
     function foo() {}
-    expect(PredicType.function.pattern(foo, 'name_matches', /foo/)).toBe(true);
-    expect(P.func.pattern(foo, 'name_matches', /foo/)).toBe(true);
+    expect(PredicType.function.pattern(foo, 'matches', /foo/)).toBe(true);
+    expect(P.func.pattern(foo, 'matches', /foo/)).toBe(true);
   });
   it('should return true for function state IS_ANONYMOUS', () => {
     expect(PredicType.function.state(() => {}, 'is_anonymous')).toBe(true);
@@ -110,25 +110,25 @@ describe('PredicType.function', () => {
 });
 
 describe('PredicType.map', () => {
-  it('should return true for map entry has_entry', () => {
-    expect(PredicType.map.entry(new Map([[1, 2]]), 'has_entry', [1, 2])).toBe(true);
-    expect(P.map.entry(new Map([[1, 2]]), 'has_entry', [1, 2])).toBe(true);
+  it('should return true for map entry contains_entry', () => {
+    expect(PredicType.map.entry(new Map([[1, 2]]), 'contains_entry', [1, 2])).toBe(true);
+    expect(P.map.entry(new Map([[1, 2]]), 'contains_entry', [1, 2])).toBe(true);
   });
-  it('should return true for map key has_key', () => {
-    expect(PredicType.map.key(new Map([[1, 2]]), 'has_key', 1)).toBe(true);
-    expect(P.map.key(new Map([[1, 2]]), 'has_key', 1)).toBe(true);
+  it('should return true for map key contains_key', () => {
+    expect(PredicType.map.key(new Map([[1, 2]]), 'contains_key', 1)).toBe(true);
+    expect(P.map.key(new Map([[1, 2]]), 'contains_key', 1)).toBe(true);
   });
   it('should return true for map size equals', () => {
-    expect(PredicType.map.size(new Map([[1, 2]]), 'equals', 1)).toBe(true);
-    expect(P.map.size(new Map([[1, 2]]), 'equals', 1)).toBe(true);
+    expect(PredicType.map.size(new Map([[1, 2]]), 'size_equals', 1)).toBe(true);
+    expect(P.map.size(new Map([[1, 2]]), 'size_equals', 1)).toBe(true);
   });
   it('should return true for map state IS_NOT_EMPTY', () => {
     expect(PredicType.map.state(new Map([[1, 2]]), 'is_not_empty')).toBe(true);
     expect(P.map.state(new Map([[1, 2]]), 'is_not_empty')).toBe(true);
   });
-  it('should return true for map value has_value', () => {
-    expect(PredicType.map.value(new Map([[1, 2]]), 'has_value', 2)).toBe(true);
-    expect(P.map.value(new Map([[1, 2]]), 'has_value', 2)).toBe(true);
+  it('should return true for map value contains_value', () => {
+    expect(PredicType.map.value(new Map([[1, 2]]), 'contains_value', 2)).toBe(true);
+    expect(P.map.value(new Map([[1, 2]]), 'contains_value', 2)).toBe(true);
   });
 });
 
@@ -138,8 +138,8 @@ describe('PredicType.number', () => {
     expect(P.num.comparison(1, 'equals', 1)).toBe(true);
   });
   it('should return true for number range in_range', () => {
-    expect(PredicType.number.range(2, 'in_range', 1, 3)).toBe(true);
-    expect(P.num.range(2, 'in_range', 1, 3)).toBe(true);
+    expect(PredicType.number.range(2, 'between', 1, 3)).toBe(true);
+    expect(P.num.range(2, 'between', 1, 3)).toBe(true);
   });
   it('should return true for number state IS_POSITIVE', () => {
     expect(PredicType.number.state(1, 'is_positive')).toBe(true);
@@ -148,25 +148,65 @@ describe('PredicType.number', () => {
 });
 
 describe('PredicType.object', () => {
-  it('should return true for object attributes is_enumerable', () => {
-    expect(PredicType.object.attributes({ foo: 1 }, 'is_enumerable', 'foo')).toBe(true);
-    expect(P.obj.attributes({ foo: 1 }, 'is_enumerable', 'foo')).toBe(true);
+  it('should return true for objectAttributes attr_is_enumerable', () => {
+    expect(PredicType.object.attributes({ foo: 1 }, 'attr_is_enumerable', 'foo')).toBe(true);
+    expect(P.obj.attributes({ foo: 1 }, 'attr_is_enumerable', 'foo')).toBe(true);
   });
-  it('should return true for object instance', () => {
-    expect(PredicType.object.instance({}, 'is_object_instance')).toBe(true);
-    expect(P.obj.instance({}, 'is_object_instance')).toBe(true);
+
+  it('should return true for objectInstanceType instance_of_object', () => {
+    expect(PredicType.object.instanceType({}, 'instance_of_object')).toBe(true);
+    expect(P.obj.instanceType({}, 'instance_of_object')).toBe(true);
   });
-  it('should return true for object key has_key', () => {
-    expect(PredicType.object.key({ foo: 1 }, 'has_key', 'foo')).toBe(true);
-    expect(P.obj.key({ foo: 1 }, 'has_key', 'foo')).toBe(true);
+
+  it('should return true for objectInstanceRelation instance_of', () => {
+    expect(PredicType.object.instanceRelation([], 'instance_of', Array)).toBe(true);
+    expect(P.obj.instanceRelation([], 'instance_of', Array)).toBe(true);
   });
-  it('should return true for object keys has_all_keys', () => {
-    expect(PredicType.object.keys({ foo: 1, bar: 2 }, 'has_all_keys', ['foo', 'bar'])).toBe(true);
-    expect(P.obj.keys({ foo: 1, bar: 2 }, 'has_all_keys', ['foo', 'bar'])).toBe(true);
+
+  it('should return true for objectKey contains_key', () => {
+    expect(PredicType.object.key({ foo: 1 }, 'contains_key', 'foo')).toBe(true);
+    expect(P.obj.key({ foo: 1 }, 'contains_key', 'foo')).toBe(true);
   });
-  it('should return true for has_no_keys', () => {
-    expect(PredicType.object.state({}, 'has_no_keys')).toBe(true);
-    expect(P.obj.state({}, 'has_no_keys')).toBe(true);
+
+  it('should return true for objectKeyMembership in', () => {
+    expect(PredicType.object.keyMembership({ foo: 1 }, 'in', ['foo', 'bar'])).toBe(true);
+    expect(P.obj.keyMembership({ foo: 1 }, 'in', ['foo', 'bar'])).toBe(true);
+  });
+
+  it('should return true for objectKeysCompare contains_all_keys', () => {
+    expect(PredicType.object.keys({ foo: 1, bar: 2 }, 'contains_all_keys', ['foo', 'bar'])).toBe(true);
+    expect(P.obj.keys({ foo: 1, bar: 2 }, 'contains_all_keys', ['foo', 'bar'])).toBe(true);
+  });
+
+  it('should return true for objectKeysState has_symbol_keys', () => {
+    const sym = Symbol('s');
+    const obj = {};
+    Object.defineProperty(obj, sym, { value: 1 });
+    expect(PredicType.object.keysState(obj, 'has_symbol_keys')).toBe(true);
+    expect(P.obj.keysState(obj, 'has_symbol_keys')).toBe(true);
+  });
+
+  it('should return true for objectProperty contains_property', () => {
+    expect(PredicType.object.property({ foo: 1 }, 'contains_property', 'foo')).toBe(true);
+    expect(P.obj.property({ foo: 1 }, 'contains_property', 'foo')).toBe(true);
+  });
+
+  it('should return true for objectPrototypeRelation contains_prototype', () => {
+    class A {}
+    const a = new A();
+    expect(PredicType.object.prototypeRelation(a, 'contains_prototype', A.prototype)).toBe(true);
+    expect(P.obj.prototypeRelation(a, 'contains_prototype', A.prototype)).toBe(true);
+  });
+
+  it('should return true for objectPrototypeState prototype_is_null', () => {
+    const obj = Object.create(null);
+    expect(PredicType.object.prototypeState(obj, 'prototype_is_null')).toBe(true);
+    expect(P.obj.prototypeState(obj, 'prototype_is_null')).toBe(true);
+  });
+
+  it('should return true for objectState is_empty', () => {
+    expect(PredicType.object.state({}, 'is_empty')).toBe(true);
+    expect(P.obj.state({}, 'is_empty')).toBe(true);
   });
 });
 
@@ -187,13 +227,13 @@ describe('PredicType.set', () => {
     expect(PredicType.set.comparison(new Set([1]), 'equals', new Set([1]))).toBe(true);
     expect(P.set.comparison(new Set([1]), 'equals', new Set([1]))).toBe(true);
   });
-  it('should return true for set relation is_subset_of', () => {
-    expect(PredicType.set.relation(new Set([1]), 'is_subset_of', new Set([1, 2]))).toBe(true);
-    expect(P.set.relation(new Set([1]), 'is_subset_of', new Set([1, 2]))).toBe(true);
+  it('should return true for set relation subset_of', () => {
+    expect(PredicType.set.relation(new Set([1]), 'subset_of', new Set([1, 2]))).toBe(true);
+    expect(P.set.relation(new Set([1]), 'subset_of', new Set([1, 2]))).toBe(true);
   });
   it('should return true for set size equals', () => {
-    expect(PredicType.set.size(new Set([1]), 'equals', 1)).toBe(true);
-    expect(P.set.size(new Set([1]), 'equals', 1)).toBe(true);
+    expect(PredicType.set.size(new Set([1]), 'size_equals', 1)).toBe(true);
+    expect(P.set.size(new Set([1]), 'size_equals', 1)).toBe(true);
   });
   it('should return true for set state IS_NOT_EMPTY', () => {
     expect(PredicType.set.state(new Set([1]), 'is_not_empty')).toBe(true);
@@ -206,9 +246,9 @@ describe('PredicType.string', () => {
     expect(PredicType.string.comparison('a', 'equals', 'a')).toBe(true);
     expect(P.str.comparison('a', 'equals', 'a')).toBe(true);
   });
-  it('should return true for string membership is_one_of', () => {
-    expect(PredicType.string.membership('foo', 'is_one_of', ['foo', 'bar'])).toBe(true);
-    expect(P.str.membership('foo', 'is_one_of', ['foo', 'bar'])).toBe(true);
+  it('should return true for string membership in', () => {
+    expect(PredicType.string.membership('foo', 'in', ['foo', 'bar'])).toBe(true);
+    expect(P.str.membership('foo', 'in', ['foo', 'bar'])).toBe(true);
   });
   it('should return true for string pattern matches', () => {
     expect(PredicType.string.pattern('foobar', 'matches', /^foo/)).toBe(true);
@@ -216,8 +256,8 @@ describe('PredicType.string', () => {
   });
 
   it('should return true for string size equals', () => {
-    expect(PredicType.string.size('abc', 'equals', 3)).toBe(true);
-    expect(P.str.size('abc', 'equals', 3)).toBe(true);
+    expect(PredicType.string.size('abc', 'size_equals', 3)).toBe(true);
+    expect(P.str.size('abc', 'size_equals', 3)).toBe(true);
   });
   it('should return true for string state IS_NOT_EMPTY', () => {
     expect(PredicType.string.state('a', 'is_not_empty')).toBe(true);

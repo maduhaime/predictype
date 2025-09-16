@@ -7,12 +7,12 @@ describe('mapValue', () => {
       [1, 'a'],
       [2, 'b'],
     ]);
-    expect(mapValue(m, 'has_value', 'a')).toBe(true);
+    expect(mapValue(m, 'contains_value', 'a')).toBe(true);
   });
 
-  it('should return false for has_value with missing value', () => {
+  it('should return false for contains_value with missing value', () => {
     const m = new Map([[1, 'a']]);
-    expect(mapValue(m, 'has_value', 'b')).toBe(false);
+    expect(mapValue(m, 'contains_value', 'b')).toBe(false);
   });
 
   it('should return true for lacks_value', () => {

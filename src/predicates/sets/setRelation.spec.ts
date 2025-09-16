@@ -14,16 +14,16 @@ describe('setRelation', () => {
     expect(setRelation(a, 'intersects', b)).toBe(true);
   });
 
-  it('should return true for is_subset_of', () => {
+  it('should return true for subset_of', () => {
     const a = new Set([1, 2]);
     const b = new Set([1, 2, 3]);
-    expect(setRelation(a, 'is_subset_of', b)).toBe(true);
+    expect(setRelation(a, 'subset_of', b)).toBe(true);
   });
 
-  it('should return true for is_superset_of', () => {
+  it('should return true for superset_of', () => {
     const a = new Set([1, 2, 3]);
     const b = new Set([1, 2]);
-    expect(setRelation(a, 'is_superset_of', b)).toBe(true);
+    expect(setRelation(a, 'superset_of', b)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

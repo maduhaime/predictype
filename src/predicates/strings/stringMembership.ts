@@ -4,7 +4,7 @@ import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.
  * Checks if a string is (or is not) a member of a set of strings using the specified operation.
  *
  * @param source The string to check.
- * @param oper The membership operation to perform (e.g. 'is_one_of', 'is_not_one_of').
+ * @param oper The membership operation to perform (e.g. 'in', 'not_in').
  * @param arr The array of strings to check membership against.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *
@@ -15,13 +15,20 @@ import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.
  * const value1 = 'foo';
  * const value2 = 'baz';
  *
- * stringMembership(value1, 'is_one_of', arr); // true
- * stringMembership(value2, 'is_not_one_of', arr); // true
+ * stringMembership(value1, 'in', arr); // true
+ * stringMembership(value2, 'not_in', arr); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator   | Description                        |
+ * |------------|------------------------------------|
+ * | IN         | String is in the array              |
+ * | NOT_IN     | String is not in the array          |
  */
 export function stringMembership(source: string, oper: StringMembershipOper, arr: string[]): boolean {
   const operators: Record<StringMembershipEnum, (a: string, b: string[]) => boolean> = {
-    [StringMembershipEnum.IS_ONE_OF]: (a, b) => b.includes(a),
-    [StringMembershipEnum.IS_NOT_ONE_OF]: (a, b) => !b.includes(a),
+    [StringMembershipEnum.IN]: (a, b) => b.includes(a),
+    [StringMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as StringMembershipEnum) : oper;

@@ -27,16 +27,25 @@ function toUTCDate(date: Date): Date {
  * const end = new Date('2025-01-31');
  *
  * dateRange(date, 'in_range', start, end); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator              | Description                                 |
+ * |-----------------------|---------------------------------------------|
+ * | BETWEEN               | Inclusive: min <= date <= max               |
+ * | NOT_BETWEEN           | Inclusive: date < min or date > max         |
+ * | STRICT_BETWEEN        | Exclusive: min < date < max                 |
+ * | STRICT_NOT_BETWEEN    | Exclusive: date <= min or date >= max       |
  */
 export function dateRange(value: Date, oper: DateRangeOper, min: Date, max: Date): boolean {
   const d = toUTCDate(value);
   const dMin = toUTCDate(min);
   const dMax = toUTCDate(max);
   const operators: Record<DateRangeEnum, (d: Date, min: Date, max: Date) => boolean> = {
-    [DateRangeEnum.IN_RANGE]: (d, min, max) => d.getTime() >= min.getTime() && d.getTime() <= max.getTime(),
-    [DateRangeEnum.OUT_RANGE]: (d, min, max) => d.getTime() < min.getTime() || d.getTime() > max.getTime(),
-    [DateRangeEnum.STRICT_IN_RANGE]: (d, min, max) => d.getTime() > min.getTime() && d.getTime() < max.getTime(),
-    [DateRangeEnum.STRICT_OUT_RANGE]: (d, min, max) => d.getTime() <= min.getTime() || d.getTime() >= max.getTime(),
+    [DateRangeEnum.BETWEEN]: (d, min, max) => d.getTime() >= min.getTime() && d.getTime() <= max.getTime(),
+    [DateRangeEnum.NOT_BETWEEN]: (d, min, max) => d.getTime() < min.getTime() || d.getTime() > max.getTime(),
+    [DateRangeEnum.STRICT_BETWEEN]: (d, min, max) => d.getTime() > min.getTime() && d.getTime() < max.getTime(),
+    [DateRangeEnum.STRICT_NOT_BETWEEN]: (d, min, max) => d.getTime() <= min.getTime() || d.getTime() >= max.getTime(),
   };
   const enumOper = typeof oper === 'string' ? (oper as DateRangeEnum) : oper;
   const fn = operators[enumOper];

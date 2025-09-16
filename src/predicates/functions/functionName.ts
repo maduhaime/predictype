@@ -18,6 +18,16 @@ import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions.js';
  *
  * functionName(fn1, 'equals', name1); // true
  * functionName(fn2, 'starts_with', name2); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator      | Description                                 |
+ * |---------------|---------------------------------------------|
+ * | EQUALS        | Function name equals the given string        |
+ * | STARTS_WITH   | Function name starts with the string         |
+ * | ENDS_WITH     | Function name ends with the string           |
+ * | INCLUDES      | Function name includes the string            |
+ * | EXCLUDES      | Function name does not include the string    |
  */
 export function functionName(source: Function, oper: FunctionNameOper, name: string): boolean {
   const operators: Record<FunctionNameEnum, (a: Function, b: string) => boolean> = {

@@ -4,7 +4,7 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  * Checks the relation between two sets (disjoint, intersects, subset, superset) using the specified operation.
  *
  * @param source The first set.
- * @param oper The relation operation to perform (e.g. 'disjoint', 'is_subset_of').
+ * @param oper The relation operation to perform (e.g. 'disjoint', 'subset_of').
  * @param target The second set.
  * @returns True if the relation check is valid according to the operator, otherwise false.
  *
@@ -17,13 +17,24 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  *
  * setRelation(a, 'intersects', b); // true
  * setRelation(a, 'disjoint', c); // true
+ * setRelation(a, 'subset_of', b); // true
+ * setRelation(a, 'superset_of', b); // false
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator      | Description                        |
+ * |--------------|------------------------------------|
+ * | DISJOINT     | Sets have no elements in common     |
+ * | INTERSECTS   | Sets have at least one element in common |
+ * | SUBSET_OF    | First set is a subset of second     |
+ * | SUPERSET_OF  | First set is a superset of second   |
  */
 export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean {
   const operators: Record<SetRelationEnum, (a: Set<T>, b: Set<T>) => boolean> = {
     [SetRelationEnum.DISJOINT]: (a, b) => ![...a].some((v) => b.has(v)),
     [SetRelationEnum.INTERSECTS]: (a, b) => [...a].some((v) => b.has(v)),
-    [SetRelationEnum.IS_SUBSET_OF]: (a, b) => [...a].every((v) => b.has(v)),
-    [SetRelationEnum.IS_SUPERSET_OF]: (a, b) => [...b].every((v) => a.has(v)),
+    [SetRelationEnum.SUBSET_OF]: (a, b) => [...a].every((v) => b.has(v)),
+    [SetRelationEnum.SUPERSET_OF]: (a, b) => [...b].every((v) => a.has(v)),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as SetRelationEnum) : oper;

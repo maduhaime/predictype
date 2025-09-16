@@ -5,11 +5,11 @@
  */
 export enum FunctionArityEnum {
   EQUALS = 'equals',
-  NOT_EQUALS = 'not_equals',
-  GREATER_THAN = 'greater_than',
   GREATER_OR_EQUAL = 'greater_or_equal',
-  LESS_THAN = 'less_than',
+  GREATER_THAN = 'greater_than',
   LESS_OR_EQUAL = 'less_or_equal',
+  LESS_THAN = 'less_than',
+  NOT_EQUALS = 'not_equals',
 }
 
 export type FunctionArityOper = FunctionArityEnum | `${FunctionArityEnum}`;
@@ -24,20 +24,20 @@ export enum FunctionNameEnum {
 
 export type FunctionNameOper = FunctionNameEnum | `${FunctionNameEnum}`;
 
-export enum FunctionPatternEnum {
-  NAME_MATCHES = 'name_matches',
-  NAME_NOT_MATCHES = 'name_not_matches',
+export enum FunctionNamePatternEnum {
+  MATCHES = 'matches',
+  NOT_MATCHES = 'not_matches',
 }
 
-export type FunctionPatternOper = FunctionPatternEnum | `${FunctionPatternEnum}`;
+export type FunctionNamePatternOper = FunctionNamePatternEnum | `${FunctionNamePatternEnum}`;
 
 export enum FunctionStateEnum {
   HAS_NAME = 'has_name',
-  IS_ASYNC = 'is_async',
-  IS_GENERATOR = 'is_generator',
-  IS_CONSTRUCTOR = 'is_constructor',
-  IS_ARROW = 'is_arrow',
   IS_ANONYMOUS = 'is_anonymous',
+  IS_ARROW = 'is_arrow',
+  IS_ASYNC = 'is_async',
+  IS_CONSTRUCTOR = 'is_constructor',
+  IS_GENERATOR = 'is_generator',
 }
 
 export type FunctionStateOper = FunctionStateEnum | `${FunctionStateEnum}`;

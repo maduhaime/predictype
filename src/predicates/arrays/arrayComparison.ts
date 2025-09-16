@@ -3,13 +3,6 @@ import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays.js'
 /**
  * Compares two arrays using a variety of comparison operations.
  *
- * Supported operators:
- * - EQUALS: Strict equality (same order, same values)
- * - NOT_EQUALS: Strict inequality (different order or values)
- * - SAME_MEMBERS: Multiset equality (same values and counts, order ignored)
- * - SET_EQUALS: Set equality (same unique values, order and duplicates ignored)
- * - SET_NOT_EQUALS: Set inequality (different unique values)
- *
  * @template T Type of the array elements.
  * @param source The source array to compare.
  * @param oper The comparison operation to perform (EQUALS, NOT_EQUALS, SAME_MEMBERS, SET_EQUALS, SET_NOT_EQUALS).
@@ -28,6 +21,16 @@ import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays.js'
  * arrayComparison([1, 2, 2], 'set_equals', [2, 1, 3]); // false
  * arrayComparison([1, 2, 2], 'set_not_equals', [2, 1, 3]); // true
  * arrayComparison([1, 2, 2], 'set_not_equals', [2, 1]); // false
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator        | Description                                              |
+ * |-----------------|--------------------------------------------------------|
+ * | EQUALS          | Strict equality (same order, same values)               |
+ * | NOT_EQUALS      | Strict inequality (different order or values)           |
+ * | SAME_MEMBERS    | Multiset equality (same values and counts, order ignored)|
+ * | SET_EQUALS      | Set equality (same unique values, order/dupes ignored)  |
+ * | SET_NOT_EQUALS  | Set inequality (different unique values)                |
  */
 
 export function arrayComparison<T>(source: T[], oper: ArrayComparisonOper, target: T[]): boolean {

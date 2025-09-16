@@ -19,11 +19,22 @@ import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints.js';
  *
  * bigintRange(value1, 'between', min, max); // true
  * bigintRange(value2, 'not_between', min, max); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator              | Description                                 |
+ * |-----------------------|---------------------------------------------|
+ * | BETWEEN               | min <= value <= max                         |
+ * | NOT_BETWEEN           | value < min or value > max                  |
+ * | STRICT_BETWEEN        | min < value < max                           |
+ * | STRICT_NOT_BETWEEN    | value <= min or value >= max                |
  */
 export function bigintRange(source: bigint, oper: BigIntRangeOper, min: bigint, max: bigint): boolean {
   const operators: Record<BigIntRangeEnum, (a: bigint, min: bigint, max: bigint) => boolean> = {
     [BigIntRangeEnum.BETWEEN]: (a, min, max) => a >= min && a <= max,
     [BigIntRangeEnum.NOT_BETWEEN]: (a, min, max) => a < min || a > max,
+    [BigIntRangeEnum.STRICT_BETWEEN]: (a, min, max) => a > min && a < max,
+    [BigIntRangeEnum.STRICT_NOT_BETWEEN]: (a, min, max) => a <= min || a >= max,
   };
 
   const enumOper = typeof oper === 'string' ? (oper as BigIntRangeEnum) : oper;

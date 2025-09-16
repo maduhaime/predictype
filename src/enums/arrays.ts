@@ -5,18 +5,18 @@
  */
 
 export enum ArrayIndexComparisonEnum {
-  VALUE_AT_INDEX_EQUALS = 'value_at_index_equals',
-  VALUE_AT_INDEX_NOT_EQUALS = 'value_at_index_not_equals',
-  VALUE_AT_INDEX_GREATER_THAN = 'value_at_index_greater_than',
-  VALUE_AT_INDEX_GREATER_THAN_OR_EQUALS = 'value_at_index_greater_than_or_equals',
-  VALUE_AT_INDEX_LESS_THAN = 'value_at_index_less_than',
-  VALUE_AT_INDEX_LESS_THAN_OR_EQUALS = 'value_at_index_less_than_or_equals',
+  AT_INDEX_EQUALS = 'at_index_equals',
+  AT_INDEX_NOT_EQUALS = 'at_index_not_equals',
+  AT_INDEX_GREATER_THAN = 'at_index_greater_than',
+  AT_INDEX_GREATER_THAN_OR_EQUALS = 'at_index_greater_than_or_equals',
+  AT_INDEX_LESS_THAN = 'at_index_less_than',
+  AT_INDEX_LESS_THAN_OR_EQUALS = 'at_index_less_than_or_equals',
 }
 export type ArrayIndexComparisonOper = ArrayIndexComparisonEnum | `${ArrayIndexComparisonEnum}`;
 
 export enum ArrayIndexMembershipEnum {
-  VALUE_AT_INDEX_IN = 'value_at_index_in',
-  VALUE_AT_INDEX_NOT_IN = 'value_at_index_not_in',
+  AT_INDEX_IN = 'at_index_in',
+  AT_INDEX_NOT_IN = 'at_index_not_in',
 }
 
 export type ArrayIndexMembershipOper = ArrayIndexMembershipEnum | `${ArrayIndexMembershipEnum}`;
@@ -48,10 +48,10 @@ export enum ArrayMembershipEnum {
 export type ArrayMembershipOper = ArrayMembershipEnum | `${ArrayMembershipEnum}`;
 
 export enum ArrayRelationEnum {
-  IS_SUBSET_OF = 'is_subset_of',
-  IS_SUPERSET_OF = 'is_superset_of',
-  STRICT_SUBSET = 'strict_subset',
-  STRICT_SUPERSET = 'strict_superset',
+  SUBSET_OF = 'subset_of',
+  SUPERSET_OF = 'superset_of',
+  STRICT_SUBSET_OF = 'strict_subset_of',
+  STRICT_SUPERSET_OF = 'strict_superset_of',
 }
 
 export type ArrayRelationOper = ArrayRelationEnum | `${ArrayRelationEnum}`;
@@ -65,11 +65,11 @@ export enum ArraySequenceEnum {
 export type ArraySequenceOper = ArraySequenceEnum | `${ArraySequenceEnum}`;
 
 export enum ArraySizeEnum {
-  EQUALS = 'equals',
-  GREATER_THAN = 'greater_than',
-  GREATER_THAN_OR_EQUALS = 'greater_than_or_equals',
-  LESS_THAN = 'less_than',
-  LESS_THAN_OR_EQUALS = 'less_than_or_equals',
+  SIZE_EQUALS = 'size_equals',
+  SIZE_GREATER_THAN = 'size_greater_than',
+  SIZE_GREATER_THAN_OR_EQUALS = 'size_greater_than_or_equals',
+  SIZE_LESS_THAN = 'size_less_than',
+  SIZE_LESS_THAN_OR_EQUALS = 'size_less_than_or_equals',
 }
 
 export type ArraySizeOper = ArraySizeEnum | `${ArraySizeEnum}`;

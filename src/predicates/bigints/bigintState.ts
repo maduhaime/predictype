@@ -17,6 +17,16 @@ import { BigIntStateEnum, BigIntStateOper } from '../../enums/bigints.js';
  * bigintState(zero, 'is_zero'); // true
  * bigintState(even, 'is_even'); // true
  * bigintState(negative, 'is_negative'); // true
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator      | Description                        |
+ * |--------------|------------------------------------|
+ * | IS_ZERO      | value === 0n                        |
+ * | IS_POSITIVE  | value > 0n                          |
+ * | IS_NEGATIVE  | value < 0n                          |
+ * | IS_EVEN      | value % 2n === 0n                   |
+ * | IS_ODD       | value % 2n !== 0n                   |
  */
 export function bigintState(source: bigint, oper: BigIntStateOper): boolean {
   const operators: Record<BigIntStateEnum, (a: bigint) => boolean> = {

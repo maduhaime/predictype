@@ -11,215 +11,86 @@ import * as sets from './predicates/sets/index.js';
 import * as strings from './predicates/strings/index.js';
 import * as symbols from './predicates/symbols/index.js';
 
-import {
-  ArrayComparisonOper,
-  ArrayIndexComparisonOper,
-  ArrayIndexMembershipOper,
-  ArrayIntersectionOper,
-  ArrayMembershipOper,
-  ArrayRelationOper,
-  ArraySequenceOper,
-  ArraySizeOper,
-  ArrayStateOper,
-  BigIntComparisonOper,
-  BigIntMembershipOper,
-  BigIntRangeOper,
-  BigIntStateOper,
-  BooleanComparisonOper,
-  BooleanStateOper,
-  DateCalendarOper,
-  DateComparisonOper,
-  DateRangeOper,
-  DateStateOper,
-  FunctionArityOper,
-  FunctionNameOper,
-  FunctionPatternOper,
-  FunctionStateOper,
-  MapEntryOper,
-  MapKeyOper,
-  MapSizeOper,
-  MapStateOper,
-  MapValueOper,
-  NumberComparisonOper,
-  NumberRangeOper,
-  NumberStateOper,
-  ObjectAttributesOper,
-  ObjectInstanceOper,
-  ObjectKeyOper,
-  ObjectKeysOper,
-  ObjectStateOper,
-  PromiseStateOper,
-  PromiseTypeOper,
-  SetComparisonOper,
-  SetRelationOper,
-  SetSizeOper,
-  SetStateOper,
-  StringComparisonOper,
-  StringMembershipOper,
-  StringPatternOper,
-  StringSizeOper,
-  StringStateOper,
-  StringSubstringOper,
-  SymbolComparisonOper,
-  SymbolStateOper,
-} from './enums/index.js';
-
 export const PredicType = {
   array: {
-    comparison: (source: any[], oper: ArrayComparisonOper, target: any[]) =>
-      arrays.arrayComparison(source, oper, target),
-    indexComparison: (source: any[], oper: ArrayIndexComparisonOper, index: number, value: any) =>
-      arrays.arrayIndexComparison(source, oper, index, value),
-    indexMembership: (source: any[], oper: ArrayIndexMembershipOper, index: number, arr: any[]) =>
-      arrays.arrayIndexMembership(source, oper, index, arr),
-    intersection: (source: any[], oper: ArrayIntersectionOper, arr: any[]) =>
-      arrays.arrayIntersection(source, oper, arr),
-    membership: (source: any[], oper: ArrayMembershipOper, arr: any[]) => arrays.arrayMembership(source, oper, arr),
-    relation: (source: any[], oper: ArrayRelationOper, arr: any[]) => arrays.arrayRelation(source, oper, arr),
-    sequence: (source: any[], oper: ArraySequenceOper, arr: any[]) => arrays.arraySequence(source, oper, arr),
-    size: (source: any[], oper: ArraySizeOper, size: number) => arrays.arraySize(source, oper, size),
-    state: (source: any[], oper: ArrayStateOper) => arrays.arrayState(source, oper),
+    comparison: arrays.arrayComparison,
+    indexComparison: arrays.arrayIndexComparison,
+    indexMembership: arrays.arrayIndexMembership,
+    intersection: arrays.arrayIntersection,
+    membership: arrays.arrayMembership,
+    relation: arrays.arrayRelation,
+    sequence: arrays.arraySequence,
+    size: arrays.arraySize,
+    state: arrays.arrayState,
   },
   bigint: {
-    comparison: (source: bigint, oper: BigIntComparisonOper, target: bigint) =>
-      bigints.bigintComparison(source, oper, target),
-    membership: (source: bigint, oper: BigIntMembershipOper, arr: bigint[]) =>
-      bigints.bigintMembership(source, oper, arr),
-    range: (source: bigint, oper: BigIntRangeOper, min: bigint, max: bigint) =>
-      bigints.bigintRange(source, oper, min, max),
-    state: (source: bigint, oper: BigIntStateOper) => bigints.bigintState(source, oper),
+    comparison: bigints.bigintComparison,
+    membership: bigints.bigintMembership,
+    range: bigints.bigintRange,
+    state: bigints.bigintState,
   },
   boolean: {
-    comparison: (value: boolean, oper: BooleanComparisonOper, target: boolean): boolean => {
-      return booleans.booleanComparison(value, oper, target);
-    },
-    state: (value: boolean, oper: BooleanStateOper): boolean => {
-      return booleans.booleanState(value, oper);
-    },
+    comparison: booleans.booleanComparison,
+    state: booleans.booleanState,
   },
   date: {
-    calendar: (value: Date, oper: DateCalendarOper): boolean => {
-      return dates.dateCalendar(value, oper);
-    },
-    comparison: (value: Date, oper: DateComparisonOper, target: Date): boolean => {
-      return dates.dateComparison(value, oper, target);
-    },
-    range: (value: Date, oper: DateRangeOper, min: Date, max: Date): boolean => {
-      return dates.dateRange(value, oper, min, max);
-    },
-    state: (value: Date, oper: DateStateOper): boolean => {
-      return dates.dateState(value, oper);
-    },
+    calendar: dates.dateCalendar,
+    comparison: dates.dateComparison,
+    range: dates.dateRange,
+    state: dates.dateState,
   },
   function: {
-    arity: (source: Function, oper: FunctionArityOper, arity: number): boolean => {
-      return functions.functionArity(source, oper, arity);
-    },
-    name: (source: Function, oper: FunctionNameOper, name: string): boolean => {
-      return functions.functionName(source, oper, name);
-    },
-    pattern: (source: Function, oper: FunctionPatternOper, pattern: RegExp): boolean => {
-      return functions.functionPattern(source, oper, pattern);
-    },
-    state: (source: Function, oper: FunctionStateOper): boolean => {
-      return functions.functionState(source, oper);
-    },
+    arity: functions.functionArity,
+    name: functions.functionName,
+    pattern: functions.functionPattern,
+    state: functions.functionState,
   },
   map: {
-    entry: <K, V>(source: Map<K, V>, oper: MapEntryOper, entry: [K, V]): boolean => {
-      return maps.mapEntry(source, oper, entry);
-    },
-    key: <K, V>(source: Map<K, V>, oper: MapKeyOper, key: K): boolean => {
-      return maps.mapKey(source, oper, key);
-    },
-    size: <K, V>(source: Map<K, V>, oper: MapSizeOper, size: number): boolean => {
-      return maps.mapSize(source, oper, size);
-    },
-    state: <K, V>(source: Map<K, V>, oper: MapStateOper): boolean => {
-      return maps.mapState(source, oper);
-    },
-    value: <K, V>(source: Map<K, V>, oper: MapValueOper, value: V): boolean => {
-      return maps.mapValue(source, oper, value);
-    },
+    entry: maps.mapEntry,
+    key: maps.mapKey,
+    size: maps.mapSize,
+    state: maps.mapState,
+    value: maps.mapValue,
   },
   number: {
-    comparison: (source: number, oper: NumberComparisonOper, target: number): boolean => {
-      return numbers.numberComparison(source, oper, target);
-    },
-    range: (value: number, oper: NumberRangeOper, min: number, max: number): boolean => {
-      return numbers.numberRange(value, oper, min, max);
-    },
-    state: (value: number, oper: NumberStateOper): boolean => {
-      return numbers.numberState(value, oper);
-    },
+    comparison: numbers.numberComparison,
+    range: numbers.numberRange,
+    state: numbers.numberState,
   },
   object: {
-    attributes: (obj: object, oper: ObjectAttributesOper, key: string | symbol): boolean => {
-      return objects.objectAttributes(obj, oper, key);
-    },
-    instance: (value: any, oper: ObjectInstanceOper, ctor?: Function): boolean => {
-      return objects.objectInstance(value, oper, ctor);
-    },
-    key: (obj: object, oper: ObjectKeyOper, key: string | symbol): boolean => {
-      return objects.objectKey(obj, oper, key);
-    },
-    keys: (obj: object, oper: ObjectKeysOper, keys?: string | string[] | symbol[]): boolean => {
-      return objects.objectKeys(obj, oper, keys);
-    },
-    state: (obj: object, oper: ObjectStateOper): boolean => {
-      return objects.objectState(obj, oper);
-    },
+    attributes: objects.objectAttributes,
+    instanceType: objects.objectInstanceType,
+    instanceRelation: objects.objectInstanceRelation,
+    key: objects.objectKey,
+    keyMembership: objects.objectKeyMembership,
+    keys: objects.objectKeysCompare,
+    keysState: objects.objectKeysState,
+    property: objects.objectProperty,
+    prototypeRelation: objects.objectPrototypeRelation,
+    prototypeState: objects.objectPrototypeState,
+    state: objects.objectState,
   },
   promise: {
-    state: <T>(wrapper: promises.PromiseWithState<T>, oper: PromiseStateOper): boolean => {
-      return promises.promiseState(wrapper, oper);
-    },
-    type: <T>(source: Promise<T>, oper: PromiseTypeOper): boolean => {
-      return promises.promiseType(source, oper);
-    },
+    state: promises.promiseState,
+    type: promises.promiseType,
   },
   set: {
-    comparison: <T>(source: Set<T>, oper: SetComparisonOper, target: Set<T>): boolean => {
-      return sets.setComparison(source, oper, target);
-    },
-    relation: <T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean => {
-      return sets.setRelation(source, oper, target);
-    },
-    size: <T>(source: Set<T>, oper: SetSizeOper, target: number): boolean => {
-      return sets.setSize(source, oper, target);
-    },
-    state: <T>(source: Set<T>, oper: SetStateOper): boolean => {
-      return sets.setState(source, oper);
-    },
+    comparison: sets.setComparison,
+    relation: sets.setRelation,
+    size: sets.setSize,
+    state: sets.setState,
   },
   string: {
-    comparison: (source: string, oper: StringComparisonOper, target: string): boolean => {
-      return strings.stringComparison(source, oper, target);
-    },
-    membership: (source: string, oper: StringMembershipOper, arr: string[]): boolean => {
-      return strings.stringMembership(source, oper, arr);
-    },
-    pattern: (source: string, oper: StringPatternOper, pattern: RegExp): boolean => {
-      return strings.stringPattern(source, oper, pattern);
-    },
-
-    size: (source: string, oper: StringSizeOper, target: number): boolean => {
-      return strings.stringSize(source, oper, target);
-    },
-    state: (source: string, oper: StringStateOper): boolean => {
-      return strings.stringState(source, oper);
-    },
-    substring: (source: string, oper: StringSubstringOper, target: string): boolean => {
-      return strings.stringSubstring(source, oper, target);
-    },
+    comparison: strings.stringComparison,
+    membership: strings.stringMembership,
+    pattern: strings.stringPattern,
+    size: strings.stringSize,
+    state: strings.stringState,
+    substring: strings.stringSubstring,
   },
   symbol: {
-    comparison: (source: symbol, oper: SymbolComparisonOper, target: symbol): boolean => {
-      return symbols.symbolComparison(source, oper, target);
-    },
-    state: (source: symbol, oper: SymbolStateOper): boolean => {
-      return symbols.symbolState(source, oper);
-    },
+    comparison: symbols.symbolComparison,
+    state: symbols.symbolState,
   },
 };
 

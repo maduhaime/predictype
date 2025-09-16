@@ -1,53 +1,41 @@
 import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects.js';
 
 /**
- * Checks object keys according to the specified operation.
+ * Checks object keys for key-comparison operations (CONTAINS_, LACKS_, EQUALS_, etc.).
  *
  * @param obj The object to check.
- * @param oper The key operation to perform (e.g. 'has_all_keys', 'has_no_keys').
- * @param keys The key(s) to check (string | string[] | symbol[]).
+ * @param oper The key operation to perform (e.g. 'contains_all_keys', 'lacks_all_keys', 'equals_keys', ...).
+ * @param keys The array of keys to check (string[] | symbol[]).
  * @returns True if the key check is valid according to the operator, otherwise false.
  *
- * @throws {Error} If the operation is not recognized.
+ * @throws {Error} If the operation is not recognized or keys is missing.
  *
- * @example
- * const obj = { foo: 1, bar: 2 };
- * const obj2 = { [sym]: 3 };
- * const sym = Symbol('baz');
- *
- * objectKeys(obj, 'has_all_keys', ['foo', 'bar']); // true
- * objectKeys(obj, 'has_no_keys'); // false
- * objectKeys(obj2, 'has_symbol_keys'); // true
+ * @remarks
+ * Supported Operators
+ * | Operator                | Description                                 |
+ * |-------------------------|---------------------------------------------|
+ * | CONTAINS_ALL_KEYS       | Object contains all the given keys           |
+ * | CONTAINS_ANY_KEY        | Object contains at least one of the keys     |
+ * | CONTAINS_ONLY_KEYS      | Object contains only the given keys          |
+ * | CONTAINS_SYMBOL_KEYS    | Object contains at least one symbol key      |
+ * | EQUALS_KEYS             | Object keys equal the given keys             |
+ * | LACKS_ALL_KEYS          | Object lacks all the given keys              |
+ * | ONLY_KEYS               | All object keys are in the given set         |
+ * | STRICT_EQUALS_KEYS      | Object keys strictly equal the given keys    |
  */
-export function objectKeys(obj: object, oper: ObjectKeysOper, keys?: string | string[] | symbol[]): boolean {
+export function objectKeysCompare(obj: object, oper: ObjectKeysOper, keys: string[] | symbol[]): boolean {
   const allKeys = [...Object.getOwnPropertyNames(obj), ...Object.getOwnPropertySymbols(obj)];
-  const asArray = (k: any) => (Array.isArray(k) ? k : [k]);
-  const operators: Record<ObjectKeysEnum, (k?: any) => boolean> = {
-    [ObjectKeysEnum.HAS_ALL_KEYS]: (k) => asArray(k).every((key: any) => allKeys.includes(key)),
-    [ObjectKeysEnum.HAS_ANY_KEY]: (k) => asArray(k).some((key: any) => allKeys.includes(key)),
-    [ObjectKeysEnum.HAS_EXACT_KEYS]: (k) => {
-      const arr = asArray(k);
-      return arr.length === allKeys.length && arr.every((key: any) => allKeys.includes(key));
+  const operators: Record<ObjectKeysEnum, (k: (string | symbol)[]) => boolean> = {
+    [ObjectKeysEnum.CONTAINS_ALL_KEYS]: (k) => k.every((key) => allKeys.includes(key)),
+    [ObjectKeysEnum.CONTAINS_ANY_KEY]: (k) => k.some((key) => allKeys.includes(key)),
+    [ObjectKeysEnum.CONTAINS_ONLY_KEYS]: (k) => {
+      return allKeys.every((key) => k.includes(key)) && k.every((key) => allKeys.includes(key));
     },
-    [ObjectKeysEnum.HAS_NO_KEYS]: () => allKeys.length === 0,
-    [ObjectKeysEnum.HAS_ONLY_KEYS]: (k) => {
-      const arr = asArray(k);
-      return allKeys.every((key) => arr.includes(key)) && arr.every((key) => allKeys.includes(key));
-    },
-    [ObjectKeysEnum.HAS_SYMBOL_KEYS]: () => Object.getOwnPropertySymbols(obj).length > 0,
-    [ObjectKeysEnum.HAS_ANY_PROPERTY]: () => allKeys.length > 0,
-    [ObjectKeysEnum.MATCHES_KEYS]: (k) => {
-      const arr = asArray(k);
-      return (
-        arr.length === allKeys.length &&
-        arr.every((key: any) => allKeys.includes(key)) &&
-        allKeys.every((key: any) => arr.includes(key))
-      );
-    },
-    [ObjectKeysEnum.ONLY_KEYS]: (k) => {
-      const arr = asArray(k);
-      return allKeys.every((key) => arr.includes(key));
-    },
+    [ObjectKeysEnum.CONTAINS_SYMBOL_KEYS]: (_k) => Object.getOwnPropertySymbols(obj).length > 0,
+    [ObjectKeysEnum.EQUALS_KEYS]: (k) => k.length === allKeys.length && k.every((key) => allKeys.includes(key)),
+    [ObjectKeysEnum.ONLY_KEYS]: (k) => allKeys.every((key) => k.includes(key)),
+    [ObjectKeysEnum.LACKS_ALL_KEYS]: (k) => k.every((key) => !allKeys.includes(key)),
+    [ObjectKeysEnum.STRICT_EQUALS_KEYS]: (k) => k.length === allKeys.length && k.every((key, i) => allKeys[i] === key),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as ObjectKeysEnum) : oper;

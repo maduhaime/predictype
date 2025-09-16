@@ -19,17 +19,27 @@ import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.
  *
  * objectAttributes(obj, 'is_writable', 'foo'); // true
  * objectAttributes(obj2, 'is_writable', sym); // false
+ *
+ * @remarks
+ * Supported Operators
+ * | Operator                | Description                                 |
+ * |-------------------------|---------------------------------------------|
+ * | ATTR_IS_WRITABLE        | Property is writable                        |
+ * | ATTR_IS_ENUMERABLE      | Property is enumerable                      |
+ * | ATTR_IS_CONFIGURABLE    | Property is configurable                    |
+ * | ATTR_IS_ACCESSOR        | Property is an accessor (getter/setter)     |
+ * | ATTR_IS_DATA_PROPERTY   | Property is a data property                 |
  */
 export function objectAttributes(obj: object, oper: ObjectAttributesOper, key: string | symbol): boolean {
   const desc = Object.getOwnPropertyDescriptor(obj, key);
   if (!desc) return false;
 
   const operators: Record<ObjectAttributesEnum, (d: PropertyDescriptor) => boolean> = {
-    [ObjectAttributesEnum.IS_WRITABLE]: (d) => !!d.writable,
-    [ObjectAttributesEnum.IS_ENUMERABLE]: (d) => !!d.enumerable,
-    [ObjectAttributesEnum.IS_CONFIGURABLE]: (d) => !!d.configurable,
-    [ObjectAttributesEnum.IS_ACCESSOR]: (d) => typeof d.get === 'function' || typeof d.set === 'function',
-    [ObjectAttributesEnum.IS_DATA_PROPERTY]: (d) => 'value' in d,
+    [ObjectAttributesEnum.ATTR_IS_WRITABLE]: (d) => !!d.writable,
+    [ObjectAttributesEnum.ATTR_IS_ENUMERABLE]: (d) => !!d.enumerable,
+    [ObjectAttributesEnum.ATTR_IS_CONFIGURABLE]: (d) => !!d.configurable,
+    [ObjectAttributesEnum.ATTR_IS_ACCESSOR]: (d) => typeof d.get === 'function' || typeof d.set === 'function',
+    [ObjectAttributesEnum.ATTR_IS_DATA_PROPERTY]: (d) => 'value' in d,
   };
 
   const enumOper = typeof oper === 'string' ? (oper as ObjectAttributesEnum) : oper;
