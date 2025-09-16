@@ -34,5 +34,77 @@
       "Use .spec.ts file extension for test files",
       "Always test functions throwing errors"
     ]
+  },
+  "predicate-enum-naming": {
+    "rules": [
+      {
+        "id": "contains-lacks-prefix",
+        "description": "Use the CONTAINS_ and LACKS_ prefixes for enum members representing predicates that require a target or value parameter (e.g., presence/absence of a key, value, or entry). Reserve HAS_ and IS_ for state or intrinsic property checks that do not require a value parameter.",
+        "examples": {
+          "good": ["CONTAINS_KEY", "LACKS_ENTRY", "CONTAINS_VALUE"],
+          "bad": ["HAS_KEY (when a key must be provided)", "HAS_ENTRY (when an entry must be provided)"]
+        }
+      },
+      {
+        "id": "boolean-prefix",
+        "description": "Enum members for predicates with no target/value parameters must use prefixes IS_, IS_NOT_, HAS_, HAS_NOT_.",
+        "examples": {
+          "good": ["IS_EMPTY", "IS_TODAY", "HAS_VALUE"],
+          "bad": ["EMPTY", "HAS_KEYS"]
+        }
+      },
+      {
+        "id": "unary-vs-multi",
+        "description": "Do not mix enums and predicates that require a single parameter as target/value with those that require an array in the same enum.",
+        "examples": {
+          "good": ["enum Unary { EQUALS, GREATER_THAN }", "enum Multi { IN_LIST, CONTAINS_ALL }"],
+          "bad": ["enum Mixed { EQUALS, IN_LIST }"]
+        }
+      },
+      {
+        "id": "regex-only",
+        "description": "MATCH and MATCHES must be reserved for enums and predicates using regular expressions.",
+        "examples": {
+          "good": ["MATCH", "MATCHES"],
+          "bad": ["MATCH_STRING", "MATCH_NUMBER"]
+        }
+      },
+      {
+        "id": "no-union-types",
+        "description": "Predicate parameters must not use union types. Prefer explicit variants (e.g., EQUALS_STRING, EQUALS_NUMBER).",
+        "examples": {
+          "good": ["EQUALS_STRING(value: string)", "EQUALS_NUMBER(value: number)"],
+          "bad": ["EQUALS(value: string | number)"]
+        }
+      },
+      {
+        "id": "case-style",
+        "description": "Enum keys must be SCREAMING_SNAKE_CASE. Enum values must equal the key, but in snake_case.",
+        "examples": {
+          "good": ["IS_EMPTY = \"is_empty\"", "CONTAINS_ALL = \"contains_all\""],
+          "bad": ["isEmpty = \"IS_EMPTY\"", "ContainsAll = \"containsAll\""]
+        }
+      },
+      {
+        "id": "strict-prefix",
+        "description": "Use the STRICT_ prefix to indicate a stricter, exclusive, or more rigid variant of an existing predicate. STRICT_ versions must remove inclusivity, coercion, or tolerance present in the non-STRICT version.",
+        "examples": {
+          "good": [
+            "EQUALS (allows type coercion) vs STRICT_EQUALS (requires ===)",
+            "BETWEEN (inclusive: a <= x <= b) vs STRICT_BETWEEN (exclusive: a < x < b)",
+            "CONTAINS (case-insensitive) vs STRICT_CONTAINS (case-sensitive)"
+          ],
+          "bad": [
+            "STRICT_IS_EMPTY (no relaxed variant exists, so STRICT_ is meaningless)",
+            "STRICT_MATCH (regex is already strict by design unless flags are added)"
+          ]
+        },
+        "guidelines": [
+          "STRICT_ is only allowed when there is a non-STRICT version of the same predicate.",
+          "Use STRICT_ to explicitly remove tolerance (e.g., inclusivity, case-insensitivity, type coercion).",
+          "Do not invent STRICT_ variants if there is no weaker or more tolerant variant to contrast with."
+        ]
+      }
+    ]
   }
 }
