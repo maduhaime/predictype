@@ -3,7 +3,7 @@ import { ObjectInstanceRelationEnum, ObjectInstanceRelationOper } from '../../en
 /**
  * Checks instance or prototype relation between two values using the specified operation.
  *
- * @param value The value to check.
+ * @param source The value to check.
  * @param oper The relation operation to perform (e.g. 'instance_of', 'prototype_of').
  * @param target The target to compare against.
  * @returns True if the relation check is valid according to the operator, otherwise false.
@@ -17,7 +17,7 @@ import { ObjectInstanceRelationEnum, ObjectInstanceRelationOper } from '../../en
  * | INSTANCE_OF      | value instanceof target                     |
  * | PROTOTYPE_OF     | value is prototype of target                |
  */
-export function objectInstanceRelation(value: any, oper: ObjectInstanceRelationOper, target: any): boolean {
+export function objectInstanceRelation(source: any, oper: ObjectInstanceRelationOper, target: any): boolean {
   const operators: Record<ObjectInstanceRelationEnum, (v: any, t: any) => boolean> = {
     [ObjectInstanceRelationEnum.INSTANCE_OF]: (v, t) => typeof t === 'function' && v instanceof t,
     [ObjectInstanceRelationEnum.PROTOTYPE_OF]: (v, t) => {
@@ -31,5 +31,5 @@ export function objectInstanceRelation(value: any, oper: ObjectInstanceRelationO
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown ObjectInstanceRelation operation: ${oper}`);
-  return fn(value, target);
+  return fn(source, target);
 }

@@ -3,7 +3,7 @@ import { NumberStateEnum, NumberStateOper } from '../../enums/numbers.js';
 /**
  * Checks the state of a number (integer, float, finite, positive, negative, zero) using the specified operation.
  *
- * @param value The number to check.
+ * @param source The number to check.
  * @param oper The state operation to perform (e.g. 'is_integer', 'is_float').
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
@@ -27,7 +27,7 @@ import { NumberStateEnum, NumberStateOper } from '../../enums/numbers.js';
  * | IS_NEGATIVE  | Is negative                        |
  * | IS_ZERO      | Is zero                            |
  */
-export function numberState(value: number, oper: NumberStateOper): boolean {
+export function numberState(source: number, oper: NumberStateOper): boolean {
   const operators: Record<NumberStateEnum, (v: number) => boolean> = {
     [NumberStateEnum.IS_INTEGER]: (v) => Number.isInteger(v),
     [NumberStateEnum.IS_FLOAT]: (v) => Number.isFinite(v) && !Number.isInteger(v),
@@ -41,5 +41,5 @@ export function numberState(value: number, oper: NumberStateOper): boolean {
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown NumberState operation: ${oper}`);
-  return fn(value);
+  return fn(source);
 }

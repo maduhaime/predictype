@@ -5,7 +5,7 @@ import { MapSizeEnum, MapSizeOper } from '../../enums/maps.js';
  *
  * @param source The Map to check.
  * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
- * @param size The size to compare against.
+ * @param target The size to compare against.
  * @returns True if the size check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -29,7 +29,7 @@ import { MapSizeEnum, MapSizeOper } from '../../enums/maps.js';
  * | SIZE_LESS_THAN                 | Map size is less than value         |
  * | SIZE_LESS_THAN_OR_EQUALS       | Map size is less or equal           |
  */
-export function mapSize<K, V>(source: Map<K, V>, oper: MapSizeOper, size: number): boolean {
+export function mapSize<K, V>(source: Map<K, V>, oper: MapSizeOper, target: number): boolean {
   const operators: Record<MapSizeEnum, (a: Map<K, V>, b: number) => boolean> = {
     [MapSizeEnum.SIZE_EQUALS]: (a, b) => a.size === b,
     [MapSizeEnum.SIZE_GREATER_THAN]: (a, b) => a.size > b,
@@ -38,9 +38,9 @@ export function mapSize<K, V>(source: Map<K, V>, oper: MapSizeOper, size: number
     [MapSizeEnum.SIZE_LESS_THAN_OR_EQUALS]: (a, b) => a.size <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapSizeEnum) : oper;
+  const enumOper = typeof oper === 'string' ? (oper as MapSizeOper) : oper;
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown MapSize operation: ${oper}`);
-  return fn(source, size);
+  return fn(source, target);
 }

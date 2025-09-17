@@ -3,7 +3,7 @@ import { ObjectKeyEnum, ObjectKeyOper } from '../../enums/objects.js';
 /**
  * Checks if an object has or lacks a specific key (string or symbol) using the specified operation.
  *
- * @param obj The object to check.
+ * @param source The object to check.
  * @param oper The key operation to perform (e.g. 'has_key', 'lacks_key').
  * @param key The key to check.
  * @returns True if the key check is valid according to the operator, otherwise false.
@@ -27,10 +27,10 @@ import { ObjectKeyEnum, ObjectKeyOper } from '../../enums/objects.js';
  * | CONTAINS_KEY    | Object has the key                  |
  * | LACKS_KEY       | Object does not have the key        |
  */
-export function objectKey(obj: object, oper: ObjectKeyOper, key: string | symbol): boolean {
+export function objectKey(source: object, oper: ObjectKeyOper, key: string | symbol): boolean {
   const operators: Record<ObjectKeyEnum, (k: string | symbol) => boolean> = {
-    [ObjectKeyEnum.CONTAINS_KEY]: (k) => Object.prototype.hasOwnProperty.call(obj, k),
-    [ObjectKeyEnum.LACKS_KEY]: (k) => !Object.prototype.hasOwnProperty.call(obj, k),
+    [ObjectKeyEnum.CONTAINS_KEY]: (k) => Object.prototype.hasOwnProperty.call(source, k),
+    [ObjectKeyEnum.LACKS_KEY]: (k) => !Object.prototype.hasOwnProperty.call(source, k),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as ObjectKeyEnum) : oper;

@@ -13,9 +13,9 @@ function toUTCDate(date: Date): Date {
 /**
  * Compares two dates in UTC using the specified comparison operation.
  *
- * @param value The first date to compare.
+ * @param source The first date to compare.
  * @param oper The comparison operation to perform (e.g. 'after', 'before', 'equals').
- * @param other The second date to compare against.
+ * @param target The second date to compare against.
  * @returns True if the comparison is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -40,9 +40,9 @@ function toUTCDate(date: Date): Date {
  * | SAME_MONTH          | Are the dates in the same month?    |
  * | SAME_YEAR           | Are the dates in the same year?     |
  */
-export function dateComparison(value: Date, oper: DateComparisonOper, other: Date): boolean {
-  const d1 = toUTCDate(value);
-  const d2 = toUTCDate(other);
+export function dateComparison(source: Date, oper: DateComparisonOper, target: Date): boolean {
+  const d1 = toUTCDate(source);
+  const d2 = toUTCDate(target);
   const operators: Record<DateComparisonEnum, (a: Date, b: Date) => boolean> = {
     [DateComparisonEnum.AFTER]: (a, b) => a.getTime() > b.getTime(),
     [DateComparisonEnum.AFTER_OR_EQUAL]: (a, b) => a.getTime() >= b.getTime(),

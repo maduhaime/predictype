@@ -5,7 +5,7 @@ import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.
  *
  * @param source The string to check.
  * @param oper The membership operation to perform (e.g. 'in', 'not_in').
- * @param arr The array of strings to check membership against.
+ * @param target The array of strings to check membership against.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -25,7 +25,7 @@ import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.
  * | IN         | String is in the array              |
  * | NOT_IN     | String is not in the array          |
  */
-export function stringMembership(source: string, oper: StringMembershipOper, arr: string[]): boolean {
+export function stringMembership(source: string, oper: StringMembershipOper, target: string[]): boolean {
   const operators: Record<StringMembershipEnum, (a: string, b: string[]) => boolean> = {
     [StringMembershipEnum.IN]: (a, b) => b.includes(a),
     [StringMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
@@ -35,5 +35,5 @@ export function stringMembership(source: string, oper: StringMembershipOper, arr
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown StringMembership operation: ${oper}`);
-  return fn(source, arr);
+  return fn(source, target);
 }

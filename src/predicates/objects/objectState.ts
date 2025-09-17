@@ -3,7 +3,7 @@ import { ObjectStateEnum, ObjectStateOper } from '../../enums/objects.js';
 /**
  * Checks state-related properties of an object (is_empty, is_not_empty, is_plain, is_frozen, is_sealed).
  *
- * @param obj The object to check.
+ * @param source The object to check.
  * @param oper The state operation to perform.
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
@@ -14,7 +14,7 @@ import { ObjectStateEnum, ObjectStateOper } from '../../enums/objects.js';
  * objectState({ a: 1 }, 'is_not_empty'); // true
  * objectState(Object.freeze({}), 'is_frozen'); // true
  */
-export function objectState(obj: object, oper: ObjectStateOper): boolean {
+export function objectState(source: object, oper: ObjectStateOper): boolean {
   const operators: Record<ObjectStateEnum, (o: object) => boolean> = {
     [ObjectStateEnum.HAS_ARRAY_PROP]: (o) => Object.values(o).some((v) => Array.isArray(v)),
     [ObjectStateEnum.HAS_CAMELCASE_KEYS]: (o) => Object.keys(o).some((k) => /^[a-z]+([A-Z][a-z0-9]*)+$/.test(k)),
@@ -75,5 +75,5 @@ export function objectState(obj: object, oper: ObjectStateOper): boolean {
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown ObjectState operation: ${oper}`);
-  return fn(obj);
+  return fn(source);
 }

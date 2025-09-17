@@ -5,7 +5,7 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  *
  * @param source The source bigint value.
  * @param oper The membership operation to perform (e.g. 'is_one_of', 'is_not_one_of').
- * @param set The array of bigints to check membership against.
+ * @param target The array of bigints to check membership against.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -22,10 +22,10 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  * Supported Operators
  * | Operator   | Description                        |
  * |------------|------------------------------------|
- * | IN         | value is in the set                |
- * | NOT_IN     | value is not in the set            |
+ * | IN         | value is in the target array        |
+ * | NOT_IN     | value is not in the target array    |
  */
-export function bigintMembership(source: bigint, oper: BigIntMembershipOper, set: bigint[]): boolean {
+export function bigintMembership(source: bigint, oper: BigIntMembershipOper, target: bigint[]): boolean {
   const operators: Record<BigIntMembershipEnum, (a: bigint, b: bigint[]) => boolean> = {
     [BigIntMembershipEnum.IN]: (a, b) => b.includes(a),
     [BigIntMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
@@ -35,5 +35,5 @@ export function bigintMembership(source: bigint, oper: BigIntMembershipOper, set
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown BigIntMembership operation: ${oper}`);
-  return fn(source, set);
+  return fn(source, target);
 }

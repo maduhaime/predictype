@@ -3,7 +3,7 @@ import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.
 /**
  * Checks object property attributes (writable, enumerable, configurable, accessor, data property) using the specified operation.
  *
- * @param obj The object to check.
+ * @param source The object to check.
  * @param oper The attribute operation to perform (e.g. 'is_writable', 'is_accessor').
  * @param key The property key to check.
  * @returns True if the attribute check is valid according to the operator, otherwise false.
@@ -30,8 +30,8 @@ import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.
  * | ATTR_IS_ACCESSOR        | Property is an accessor (getter/setter)     |
  * | ATTR_IS_DATA_PROPERTY   | Property is a data property                 |
  */
-export function objectAttributes(obj: object, oper: ObjectAttributesOper, key: string | symbol): boolean {
-  const desc = Object.getOwnPropertyDescriptor(obj, key);
+export function objectAttributes(source: object, oper: ObjectAttributesOper, key: string | symbol): boolean {
+  const desc = Object.getOwnPropertyDescriptor(source, key);
   if (!desc) return false;
 
   const operators: Record<ObjectAttributesEnum, (d: PropertyDescriptor) => boolean> = {

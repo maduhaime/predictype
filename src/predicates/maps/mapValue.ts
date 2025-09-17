@@ -5,7 +5,7 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  *
  * @param source The Map to check.
  * @param oper The value operation to perform (e.g. 'has_value', 'lacks_value').
- * @param value The value to check for.
+ * @param target The value to check for.
  * @returns True if the value check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -26,7 +26,7 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  * | CONTAINS_VALUE   | Map contains the value                      |
  * | LACKS_VALUE      | Map does not contain the value               |
  */
-export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, value: V): boolean {
+export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, target: V): boolean {
   const operators: Record<MapValueEnum, (a: Map<K, V>, b: V) => boolean> = {
     [MapValueEnum.CONTAINS_VALUE]: (a, b) => Array.from(a.values()).includes(b),
     [MapValueEnum.LACKS_VALUE]: (a, b) => !Array.from(a.values()).includes(b),
@@ -36,5 +36,5 @@ export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, value: V):
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown MapValue operation: ${oper}`);
-  return fn(source, value);
+  return fn(source, target);
 }

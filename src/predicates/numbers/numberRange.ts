@@ -3,7 +3,7 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
 /**
  * Checks if a number is in or outside a range using the specified operation.
  *
- * @param value The number to check.
+ * @param source The number to check.
  * @param oper The range operation to perform (e.g. 'in_range', 'strict_in_range').
  * @param min The minimum value (inclusive or exclusive depending on operation).
  * @param max The maximum value (inclusive or exclusive depending on operation).
@@ -26,7 +26,7 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  * | STRICT_BETWEEN        | Exclusive: min < x < max                    |
  * | STRICT_NOT_BETWEEN    | Exclusive: x <= min or x >= max             |
  */
-export function numberRange(value: number, oper: NumberRangeOper, min: number, max: number): boolean {
+export function numberRange(source: number, oper: NumberRangeOper, min: number, max: number): boolean {
   const operators: Record<NumberRangeEnum, (v: number, min: number, max: number) => boolean> = {
     [NumberRangeEnum.BETWEEN]: (v, min, max) => v >= min && v <= max,
     [NumberRangeEnum.NOT_BETWEEN]: (v, min, max) => v < min || v > max,
@@ -38,5 +38,5 @@ export function numberRange(value: number, oper: NumberRangeOper, min: number, m
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown NumberRange operation: ${oper}`);
-  return fn(value, min, max);
+  return fn(source, min, max);
 }

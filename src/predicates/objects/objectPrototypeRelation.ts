@@ -3,7 +3,7 @@ import { ObjectPrototypeRelationEnum, ObjectPrototypeRelationOper } from '../../
 /**
  * Checks prototype relation between objects (contains_prototype, is_prototype_of).
  *
- * @param obj The object to check.
+ * @param source The object to check.
  * @param oper The prototype operation to perform (e.g. 'is_prototype_of', 'prototype_is_null').
  * @param proto The prototype to compare against.
  * @returns True if the relation check is valid according to the operator, otherwise false.
@@ -17,13 +17,13 @@ import { ObjectPrototypeRelationEnum, ObjectPrototypeRelationOper } from '../../
  * | CONTAINS_PROTOTYPE      | Object's prototype is the given prototype    |
  * | IS_PROTOTYPE_OF         | Object is prototype of the given object      |
  */
-export function objectPrototypeRelation(obj: object, oper: ObjectPrototypeRelationOper, proto: any): boolean {
+export function objectPrototypeRelation(source: object, oper: ObjectPrototypeRelationOper, proto: any): boolean {
   const operators: Partial<Record<ObjectPrototypeRelationEnum, (p: any) => boolean>> = {
-    [ObjectPrototypeRelationEnum.CONTAINS_PROTOTYPE]: (p) => Object.getPrototypeOf(obj) === p,
+    [ObjectPrototypeRelationEnum.CONTAINS_PROTOTYPE]: (p) => Object.getPrototypeOf(source) === p,
     [ObjectPrototypeRelationEnum.IS_PROTOTYPE_OF]: (p) => {
-      if (obj == null || (typeof obj !== 'object' && typeof obj !== 'function')) return false;
+      if (source == null || (typeof source !== 'object' && typeof source !== 'function')) return false;
       if (p == null || (typeof p !== 'object' && typeof p !== 'function')) return false;
-      return Object.prototype.isPrototypeOf.call(obj, p);
+      return Object.prototype.isPrototypeOf.call(source, p);
     },
   };
 

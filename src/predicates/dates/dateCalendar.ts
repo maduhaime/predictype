@@ -13,7 +13,7 @@ function toUTCDate(date: Date): Date {
 /**
  * Checks calendar-based properties of a date (UTC) using the specified operation.
  *
- * @param value The date to check.
+ * @param source The date to check.
  * @param oper The calendar operation to perform (e.g. 'is_today', 'is_weekend', 'is_past').
  * @param today (optional) The reference date to use as "today" (defaults to new Date()). Useful for testing.
  * @returns True if the calendar check is valid according to the operator, otherwise false.
@@ -41,8 +41,8 @@ function toUTCDate(date: Date): Date {
  * | IS_FIRST_DAY_OF_MONTH         | Is the date the 1st of the month? |
  * | IS_LAST_DAY_OF_MONTH          | Is the date the last of the month?|
  */
-export function dateCalendar(value: Date, oper: DateCalendarOper, today: Date = new Date()): boolean {
-  const d = toUTCDate(value);
+export function dateCalendar(source: Date, oper: DateCalendarOper, today: Date = new Date()): boolean {
+  const d = toUTCDate(source);
   const now = toUTCDate(today);
 
   const isWeekend = (date: Date) => {

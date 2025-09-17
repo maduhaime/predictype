@@ -3,7 +3,7 @@ import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans.js';
 /**
  * Checks the state of a boolean value (true or false) using the specified operation.
  *
- * @param value The boolean value to check.
+ * @param source The boolean value to check.
  * @param oper The operation to perform (e.g. 'is_true', 'is_false').
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
@@ -20,10 +20,10 @@ import { BooleanStateEnum, BooleanStateOper } from '../../enums/booleans.js';
  * Supported Operators
  * | Operator   | Description        |
  * |------------|-------------------|
- * | IS_TRUE    | value === true     |
- * | IS_FALSE   | value === false    |
+ * | IS_TRUE    | source === true     |
+ * | IS_FALSE   | source === false    |
  */
-export function booleanState(value: boolean, oper: BooleanStateOper): boolean {
+export function booleanState(source: boolean, oper: BooleanStateOper): boolean {
   const operators: Record<BooleanStateEnum, (v: boolean) => boolean> = {
     [BooleanStateEnum.IS_FALSE]: (v) => v === false,
     [BooleanStateEnum.IS_TRUE]: (v) => v === true,
@@ -33,5 +33,5 @@ export function booleanState(value: boolean, oper: BooleanStateOper): boolean {
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown BooleanState operation: ${oper}`);
-  return fn(value);
+  return fn(source);
 }

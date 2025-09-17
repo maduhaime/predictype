@@ -13,7 +13,7 @@ function toUTCDate(date: Date): Date {
 /**
  * Checks the state of a date (valid or invalid) in UTC using the specified operation.
  *
- * @param value The date to check.
+ * @param source The date to check.
  * @param oper The state operation to perform (e.g. 'is_valid', 'is_invalid').
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
@@ -33,8 +33,8 @@ function toUTCDate(date: Date): Date {
  * | IS_VALID     | Is the date valid?         |
  * | IS_INVALID   | Is the date invalid?       |
  */
-export function dateState(value: Date, oper: DateStateOper): boolean {
-  const d = toUTCDate(value);
+export function dateState(source: Date, oper: DateStateOper): boolean {
+  const d = toUTCDate(source);
   const operators: Record<DateStateEnum, (d: Date) => boolean> = {
     [DateStateEnum.IS_VALID]: (d) => !isNaN(d.getTime()),
     [DateStateEnum.IS_INVALID]: (d) => isNaN(d.getTime()),

@@ -3,7 +3,7 @@ import { ObjectKeyMembershipEnum, ObjectKeyMembershipOper } from '../../enums/ob
 /**
  * Checks if a key is (or is not) in a list of possible keys using the specified operation.
  *
- * @param obj The object to check.
+ * @param source The object to check.
  * @param oper The membership operation to perform (e.g. 'key_in', 'key_not_in').
  * @param keys The array of possible keys.
  * @returns True if the membership check is valid according to the operator, otherwise false.
@@ -17,8 +17,8 @@ import { ObjectKeyMembershipEnum, ObjectKeyMembershipOper } from '../../enums/ob
  * | IN         | At least one key is present         |
  * | NOT_IN     | No keys are present                |
  */
-export function objectKeyMembership(obj: object, oper: ObjectKeyMembershipOper, keys: (string | symbol)[]): boolean {
-  const allKeys = [...Object.getOwnPropertyNames(obj), ...Object.getOwnPropertySymbols(obj)];
+export function objectKeyMembership(source: object, oper: ObjectKeyMembershipOper, keys: (string | symbol)[]): boolean {
+  const allKeys = [...Object.getOwnPropertyNames(source), ...Object.getOwnPropertySymbols(source)];
   const operators: Record<ObjectKeyMembershipEnum, (k: (string | symbol)[]) => boolean> = {
     [ObjectKeyMembershipEnum.IN]: (k) => allKeys.some((key) => k.includes(key)),
     [ObjectKeyMembershipEnum.NOT_IN]: (k) => allKeys.every((key) => !k.includes(key)),

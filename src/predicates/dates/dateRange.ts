@@ -13,7 +13,7 @@ function toUTCDate(date: Date): Date {
 /**
  * Checks if a date is in or outside a UTC date range using the specified operation.
  *
- * @param value The date to check.
+ * @param source The date to check.
  * @param oper The range operation to perform (e.g. 'in_range', 'strict_in_range').
  * @param min The minimum date (inclusive or exclusive depending on operation).
  * @param max The maximum date (inclusive or exclusive depending on operation).
@@ -37,8 +37,8 @@ function toUTCDate(date: Date): Date {
  * | STRICT_BETWEEN        | Exclusive: min < date < max                 |
  * | STRICT_NOT_BETWEEN    | Exclusive: date <= min or date >= max       |
  */
-export function dateRange(value: Date, oper: DateRangeOper, min: Date, max: Date): boolean {
-  const d = toUTCDate(value);
+export function dateRange(source: Date, oper: DateRangeOper, min: Date, max: Date): boolean {
+  const d = toUTCDate(source);
   const dMin = toUTCDate(min);
   const dMax = toUTCDate(max);
   const operators: Record<DateRangeEnum, (d: Date, min: Date, max: Date) => boolean> = {

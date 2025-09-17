@@ -5,7 +5,7 @@ import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions.js';
  *
  * @param source The function to check.
  * @param oper The name operation to perform (e.g. 'equals', 'starts_with').
- * @param name The string to compare the function name against.
+ * @param target The string to compare the function name against.
  * @returns True if the name check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
@@ -29,7 +29,7 @@ import { FunctionNameEnum, FunctionNameOper } from '../../enums/functions.js';
  * | INCLUDES      | Function name includes the string            |
  * | EXCLUDES      | Function name does not include the string    |
  */
-export function functionName(source: Function, oper: FunctionNameOper, name: string): boolean {
+export function functionName(source: Function, oper: FunctionNameOper, target: string): boolean {
   const operators: Record<FunctionNameEnum, (a: Function, b: string) => boolean> = {
     [FunctionNameEnum.EQUALS]: (a, b) => a.name === b,
     [FunctionNameEnum.STARTS_WITH]: (a, b) => a.name.startsWith(b),
@@ -42,5 +42,5 @@ export function functionName(source: Function, oper: FunctionNameOper, name: str
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown FunctionName operation: ${oper}`);
-  return fn(source, name);
+  return fn(source, target);
 }

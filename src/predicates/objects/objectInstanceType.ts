@@ -3,7 +3,7 @@ import { ObjectInstanceTypeEnum, ObjectInstanceTypeOper } from '../../enums/obje
 /**
  * Checks the type of an instance using the specified operation.
  *
- * @param value The value to check.
+ * @param source The value to check.
  * @param oper The type operation to perform.
  * @returns True if the type check is valid according to the operator, otherwise false.
  *
@@ -18,7 +18,7 @@ import { ObjectInstanceTypeEnum, ObjectInstanceTypeOper } from '../../enums/obje
  * | INSTANCE_OF_FUNCTION      | Is a function                               |
  * | INSTANCE_OF_OBJECT        | Is an object                                |
  */
-export function objectInstanceType(value: any, oper: ObjectInstanceTypeOper): boolean {
+export function objectInstanceType(source: any, oper: ObjectInstanceTypeOper): boolean {
   const operators: Record<ObjectInstanceTypeEnum, (v: any) => boolean> = {
     [ObjectInstanceTypeEnum.INSTANCE_OF_CLASS]: (v) => {
       return typeof v === 'function' && /^class\s/.test(Function.prototype.toString.call(v));
@@ -32,5 +32,5 @@ export function objectInstanceType(value: any, oper: ObjectInstanceTypeOper): bo
   const fn = operators[enumOper];
 
   if (!fn) throw new Error(`Unknown ObjectInstanceType operation: ${oper}`);
-  return fn(value);
+  return fn(source);
 }

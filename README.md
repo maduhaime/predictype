@@ -1,9 +1,8 @@
 # PredicType: TypeScript Predicates for Productivity
 
 PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
-PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
 
-Its goal: make working with predicates and validation as productive and reliable as possible, with full type safety and a clean, extensible API.
+Its goal is to make working with predicates and validation as productive and reliable as possible, with full type safety and a clean, extensible API.
 
 ---
 
@@ -40,7 +39,7 @@ npm install predictype
 
 ### Families and Predicate Categories
 
-`PredicType` organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, function, map, number, object, promise, set, string, symbol.
+PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, function, map, number, object, promise, set, string, or symbol.
 
 Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for example: size, membership, comparison, state, etc.).
 
@@ -52,15 +51,15 @@ import { PredicType } from 'predictype';
 // Family: array, Category: comparison
 PredicType.array.comparison([1, 2], 'equals', [1, 2]); // true
 
-// New: SAME_MEMBERS (multiset equality, ignores order)
+// New: `SAME_MEMBERS` (multiset equality, ignores order)
 PredicType.array.comparison([1, 2, 2], 'same_members', [2, 1, 2]); // true
 PredicType.array.comparison([1, 2, 2], 'same_members', [2, 1]); // false
 
-// New: SET_EQUALS (set equality, ignores order and duplicates)
+// New: `SET_EQUALS` (set equality, ignores order and duplicates)
 PredicType.array.comparison([1, 2, 2], 'set_equals', [2, 1]); // true
 PredicType.array.comparison([1, 2, 2], 'set_equals', [2, 1, 3]); // false
 
-// New: SET_NOT_EQUALS (set inequality)
+// New: `SET_NOT_EQUALS` (set inequality)
 PredicType.array.comparison([1, 2, 2], 'set_not_equals', [2, 1, 3]); // true
 PredicType.array.comparison([1, 2, 2], 'set_not_equals', [2, 1]); // false
 
@@ -85,7 +84,7 @@ P.str.state('foo', 'is_not_empty'); // true
 P.num.range(5, 'between', 1, 10); // true
 ```
 
-The alias maps as follows:
+The alias mapping is as follows:
 
 | Full API            | Alias  | Categories                                                                                              |
 | ------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
@@ -102,7 +101,7 @@ The alias maps as follows:
 | PredicType.string   | P.str  | comparison, membership, pattern, size, substring, state                                                 |
 | PredicType.symbol   | P.sym  | comparison, state                                                                                       |
 
-All predicate categories and operators are available through both the full API and the alias.
+All predicate categories and operators are available via both the full API and the alias.
 
 ---
 
@@ -241,9 +240,9 @@ PredicType provides enums for all predicate operators. You can use either enums 
 - **Conciseness**: You can use the operator directly as a string, which can be more concise in some cases.
 - **No import needed**: You don't need to import the enum, just use the string value.
 
-**Type safety and autocompletion:**
+**Type safety and auto-completion:**
 
-Both enums and string literal values provide type safety and autocompletion in modern editors, as long as the function signature is properly typed (e.g., as a string union or enum type).
+Both enums and string literal values provide type safety and auto-completion in modern editors, as long as the function signature is properly typed (e.g., as a string union or enum type).
 
 #### Example: Using Enums vs. Strings
 
@@ -265,54 +264,56 @@ You can use either strings or enums with PredicType. Enums are recommended for l
 
 ---
 
-## Naming convention
+## Predicate Parameter Naming Convention
 
-PredicType uses strict, explicit naming conventions for all predicate enums and operators to ensure clarity, consistency, and type safety. The following choices have been made throughout the library:
+PredicType uses strict, explicit naming conventions for all predicate functions, enums and operators to ensure clarity, consistency, and type safety. The following choices have been made throughout the library:
+
+### Enums Names
 
 1. **IS* and HAS* Prefixes**
 
-- The `IS_` prefix is used for state or boolean property checks (e.g., `IS_EMPTY`, `IS_VALID`, `IS_TRUE`).
-- The `HAS_` prefix is used for presence or attribute checks (e.g., `HAS_KEY`, `HAS_SYMBOL_KEYS`).
-- These forms are chosen when the predicate does not require a target value for comparison, or for calendar-like/date state operations (e.g., `IS_TODAY`).
+   - The `IS_` prefix is used for state or boolean property checks (e.g., `IS_EMPTY`, `IS_VALID`, `IS_TRUE`).
+   - The `HAS_` prefix is used for presence or attribute checks (e.g., `HAS_KEY`, `HAS_SYMBOL_KEYS`).
+   - These forms are chosen when the predicate does not require a target value for comparison, or for calendar-like/date state operations (e.g., `IS_TODAY`).
 
 2. **CONTAINS* and LACKS* Prefixes**
 
-- The `CONTAINS_` prefix is used for membership or inclusion (e.g., `CONTAINS_SUBSEQUENCE`).
-- The `LACKS_` prefix is used for explicit absence (e.g., `LACKS_ENTRY`).
+   - The `CONTAINS_` prefix is used for membership or inclusion (e.g., `CONTAINS_SUBSEQUENCE`).
+   - The `LACKS_` prefix is used for explicit absence (e.g., `LACKS_ENTRY`).
 
 3. **STRICT\_ Prefix**
 
-- The `STRICT_` prefix indicates a strict version of a relation or range.
-- For relations, `STRICT_` means the relation is true only if the two sets are not equal (e.g., `STRICT_SUBSET_OF` means "is a subset of, but not equal to").
-- For ranges, `STRICT_` means strict inequality (e.g., `STRICT_IN_RANGE` means strictly between, i.e., `<` and `>`, not `<=` or `>=`).
-- Examples: `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`, `STRICT_IN_RANGE`, `STRICT_OUT_RANGE`.
+   - The `STRICT_` prefix indicates a strict version of a relation or range.
+   - For relations, `STRICT_` means the relation is true only if the two sets are not equal (e.g., `STRICT_SUBSET_OF` means "is a subset of, but not equal to").
+   - For ranges, `STRICT_` means strict inequality (e.g., `STRICT_IN_RANGE` means strictly between, i.e., `<` and `>`, not `<=` or `>=`).
+   - Examples: `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`, `STRICT_IN_RANGE`, `STRICT_OUT_RANGE`.
 
 4. **\_OF Suffix for Relations**
 
-- The `_OF` suffix is used for all relation operators that express a relationship to another collection or value (e.g., `SUBSET_OF`, `SUPERSET_OF`, `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`).
-- This clarifies the directionality and target of the relation, and harmonizes with common mathematical and programming conventions.
-- Examples: `SUBSET_OF` means "is a subset of", `SUPERSET_OF` means "is a superset of".
+   - The `_OF` suffix is used for all relation operators that express a relationship to another collection or value (e.g., `SUBSET_OF`, `SUPERSET_OF`, `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`).
+   - This clarifies the directionality and target of the relation, and harmonizes with common mathematical and programming conventions.
+   - Examples: `SUBSET_OF` means "is a subset of", `SUPERSET_OF` means "is a superset of".
 
 5. **MATCHES keyword reserved for RegExp**
 
-- The `MATCHES` and `NOT_MATCHES` keywords are reserved for RegExp or pattern matching (e.g., `NAME_MATCHES`, `MATCHES`).
+   - The `MATCHES` and `NOT_MATCHES` keywords are reserved for RegExp or pattern matching (e.g., `NAME_MATCHES`, `MATCHES`).
 
 6. **Collection verbs**
 
-- Verbs like `IN`, `NOT_IN`, `CONTAINS_ANY`, `CONTAINS_ALL` are used for membership and collection operations.
-- Example: `IN` for "is one of", `NOT_IN` for "is not one of".
+   - Verbs like `IN`, `NOT_IN`, `CONTAINS_ANY`, `CONTAINS_ALL` are used for membership and collection operations.
+   - Example: `IN` for "is one of", `NOT_IN` for "is not one of".
 
 7. **\_KEY and \_VALUE Suffixes**
 
-- The `_KEY` and `_VALUE` suffixes clarify the target of the predicate (e.g., `HAS_KEY`, `HAS_VALUE`).
+   - The `_KEY` and `_VALUE` suffixes clarify the target of the predicate (e.g., `HAS_KEY`, `HAS_VALUE`).
 
 8. **NOT and _NOT_**
 
-- The `NOT_` prefix or `_NOT_` infix is used to indicate negation (e.g., `NOT_EQUALS`, `IS_NOT_EMPTY`, `VALUE_AT_INDEX_NOT_IN`).
+   - The `NOT_` prefix or `_NOT_` infix is used to indicate negation (e.g., `NOT_EQUALS`, `IS_NOT_EMPTY`, `VALUE_AT_INDEX_NOT_IN`).
 
 9. **BETWEEN and NOT_BETWEEN for Range Operations**
 
-- The `BETWEEN` and `NOT_BETWEEN` keywords are used for range checks (e.g., `BETWEEN`, `NOT_BETWEEN`).
+   - The `BETWEEN` and `NOT_BETWEEN` keywords are used for range checks (e.g., `BETWEEN`, `NOT_BETWEEN`).
 
 10. **SIZE\_ Prefix for Dimension Measurement**
 
@@ -333,64 +334,69 @@ PredicType uses strict, explicit naming conventions for all predicate enums and 
 - Abbreviations are avoided unless they are standard and unambiguous.
 - The positive form is preferred by default; a negative/negated form is provided if it is a common use case.
 
-**Examples:**
-
-- `IS_EMPTY`, `IS_NOT_EMPTY`, `HAS_KEY`, `HAS_SYMBOL_KEYS`, `CONTAINS_SUBSEQUENCE`, `STRICT_SUBSET_OF`, `MATCHES`, `NOT_MATCHES`, `IN`, `NOT_IN`, `BETWEEN`, `NOT_BETWEEN`
-
-### Predicate conventions
+### Predicate Function Argument Names
 
 PredicType enforces strict conventions for predicate function signatures to ensure clarity, type safety, and API predictability.
 
-1. **No union types in parameters**
+1. **Standard Parameter Names**
 
-- Avoid signatures like `(value: string | number)` or `(target: string | string[])`.
-- Each predicate must target a specific type and arity.
-- Example: prefer two distinct functions for `isString` and `isNumber` rather than a single one with a union parameter.
+   - `source`: The primary value or collection being tested (always the first parameter).
+   - `oper`: The operation or enum/operator to apply (always the second parameter).
+   - `target`: The value, collection, or set to compare against (typically the third parameter).
 
-2. **No parameters accepting both singular and plural**
+2. **Specialized Parameter Names**
 
-- Avoid signatures like `(target: string | string[])`.
-- A predicate should always expect a unique type for each parameter (never "one or many").
-- Example: for membership tests, use `IN` (for "is in the array") and not a function that would accept both a value and an array of values.
+   - `index`: Used when the predicate targets a specific position in a collection (e.g., arrays).
+   - `key`, `keys`: Used when the predicate targets a specific key(s) in an object, map, or similar structure.
+   - `min`, `max`: Used for range predicates to indicate lower and upper bounds.
+   - `pattern`: Used for pattern-matching predicates.
+   - `entry`: Used for map entry predicates ([key, value] tuples).
+   - `arity`: Used for function signature.
 
-3. **Strict and explicit signature**
+3. **No Union Types in Parameters**
 
-- Each predicate must have a clear signature, without optional or overloaded parameters except in very justified cases.
-- Parameters must be typed as precisely as possible.
+   - Avoid signatures like `(value: string | number)` or `(target: string | string[])`.
+   - Each predicate must target a specific type and arity.
+   - Example: prefer two distinct functions for `isString` and `isNumber` rather than a single one with a union parameter.
 
-4. **No over-generalization**
+4. **No Parameters Accepting Both Singular and Plural**
 
-- A predicate should not cover multiple concepts at once (e.g., do not mix "is empty" and "has size greater than N" in the same function).
+   - Avoid signatures like `(target: string | string[])`.
+   - A predicate should always expect a unique type for each parameter (never "one or many").
+   - Example: for membership tests, use `IN` (for "is in the array") and not a function that would accept both a value and an array of values.
 
-5. **Always returns a boolean**
+5. **Strict and Explicit Signature**
 
-- All predicates must return `true` or `false`.
+   - Each predicate must have a clear signature, without optional or overloaded parameters except in very justified cases.
+   - Parameters must be typed as precisely as possible.
 
-#### Examples
+6. **No Over-Generalization**
 
-- Bad: `(value: string | number)`
-- Bad: `(target: string | string[])`
-- Good: `(value: string)`
-- Good: `(target: string[])`
-- Good: `(arr: any[], oper: ArraySizeOper, target: number): boolean`
+   - A predicate should not cover multiple concepts at once (e.g., do not mix "is empty" and "has size greater than N" in the same function).
+
+7. **Always returns a boolean**
+
+   - All predicates must return `true` or `false`.
 
 ### Predicate Category Naming Convention
 
-| Category     | Description                                                                         |
-| ------------ | ----------------------------------------------------------------------------------- |
-| Comparison   | Compares values for equality, inequality, or ordering (e.g., equals, greater than). |
-| Intersection | Checks for overlap or disjointness between collections.                             |
-| Membership   | Tests if a value is a member of a collection or set.                                |
-| Pattern      | Matches values against patterns, such as regular expressions or string patterns.    |
-| Range        | Checks if a value falls within a specified range.                                   |
-| Relation     | Expresses set or collection relationships (e.g., subset, superset).                 |
-| Sequence     | Checks for subsequences, order, or sequence-related properties in collections.      |
-| Size         | Measures the dimension or length of a value (e.g., array length, string length).    |
-| State        | Checks the state or property of a value (e.g., is empty, is valid, is true).        |
-| Substring    | Checks for the presence or position of substrings within strings.                   |
-| Type         | Checks the type or constructor of a value.                                          |
+| Category        | Description                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| Comparison      | Compares two values or collections for equality, inequality, or membership equivalence (strict, set, multiset). |
+| IndexComparison | Compares the value at a specific index in a collection to a target value using comparison operators.            |
+| IndexMembership | Checks if the value at a specific index in a collection is (or is not) a member of a set of values.             |
+| Intersection    | Checks whether two collections share any elements (intersect) or are completely disjoint.                       |
+| Membership      | Checks if all, some, or none of the elements in a collection match a target value or are included/excluded.     |
+| Pattern         | Matches values against patterns, such as regular expressions or string patterns.                                |
+| Range           | Checks if a value falls within a specified range (inclusive or exclusive).                                      |
+| Relation        | Determines set relationships between collections (subset, superset, strict subset, strict superset, etc.).      |
+| Sequence        | Checks for the presence, position, or order of a subsequence within a collection.                               |
+| Size            | Compares the size (length, count) of a collection to a target value using relational operators.                 |
+| State           | Checks for simple state properties of a value or collection (e.g., is empty, is not empty, is valid).           |
+| Substring       | Checks for the presence or position of substrings within strings.                                               |
+| Type            | Checks the type or constructor of a value.                                                                      |
 
-### Enums conventions
+### Enum Conventions
 
 1. **Case style:**
    - Enum keys must be SCREAMING_SNAKE_CASE.
