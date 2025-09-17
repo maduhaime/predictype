@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.7.1] - 2025-09-16
+
+### Changed
+
+- **Documentation**: Major improvements to English, typo fixes, clarification of phrasing, and harmonization of section titles in the README. Parameter and enum naming conventions are now illustrated with real examples from the codebase.
+- **Changelog**: Detailed recent changes and clarified enum standards.
+
+### Fixed
+
+- **Parameter naming consistency**: All predicate functions now strictly use the parameter names `source`, `oper`, `target` (or specialized names like `index`, `key`, `min`, `max`, `pattern`, etc.), as documented.
+- **Object predicates**: Systematic correction of parameter names and references in all object predicate files (`objectAttributes`, `objectKey`, `objectKeyMembership`, `objectKeysCompare`, etc.), with updated JSDoc.
+
+### Internal
+
+- **Refactor**: Complete review and refactor of all predicate files to ensure compliance with naming conventions, improving maintainability and API predictability.
+
+# [0.7.0] - 2025-09-15
+
+### Added
+
+- **Parameter naming convention**: Introduced and documented a strict convention for all predicate function parameters and enums. A dedicated section in the README explains the logic and rules.
+
+- **Predicate specialization**: Several predicate functions were split into more specific variants to eliminate optional parameters and union types (e.g., `target: string | string[]`). Each predicate now targets a single, well-defined signature (no more "one or many" or optional arguments), improving type safety and clarity.
+
+### Changed
+
+- **Documentation**: Added the new naming convention to the README, with detailed explanations and examples. Reference tables improved for clarity and accuracy.
+- **Tests**: Updated and expanded test suites to reflect the new parameter names and ensure full coverage of all predicate families and categories.
+
+### Fixed
+
+- **Bug fixes**: Fixed reference bugs and inconsistencies in object predicate files, especially in `objectKeysCompare` and related functions.
+
+### Internal
+
+- **Code review**: Systematic, file-by-file review of all predicate families (arrays, bigints, booleans, dates, functions, maps, numbers, objects, promises, sets, strings, symbols) to enforce the new conventions and document all changes.
+
+### Enum Standards
+
+- **Enum naming conventions**: Predicate operation enums are at the core of the PredicType API. The following standards are strictly enforced:
+  - Enum keys are in SCREAMING_SNAKE_CASE, values in snake_case.
+  - Enums are named by operation category: e.g., `ArraySizeEnum` with keys like `SIZE_EQUALS`, `SIZE_GREATER_THAN`, etc.
+  - Prefixes are unified for similar operations across families (`SIZE_`, `AT_INDEX_`, `STATE_`, etc.).
+  - Enums and their usage are documented in the README with concrete examples.
+  - Real examples: `ArraySizeEnum.SIZE_EQUALS`, `SetRelationEnum.SUBSET_OF`, `StringMembershipEnum.IN`, `ObjectKeyMembershipEnum.NOT_IN`.
+
 # [0.6.2] - 2025-09-14
 
 ### Fixed
