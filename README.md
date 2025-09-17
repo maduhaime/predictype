@@ -48,25 +48,12 @@ Each family exposes several **predicate categories** (also called "methods" or "
 ```ts
 import { PredicType } from 'predictype';
 
-// Family: array, Category: comparison
 PredicType.array.comparison([1, 2], 'equals', [1, 2]); // true
-
-// New: `SAME_MEMBERS` (multiset equality, ignores order)
 PredicType.array.comparison([1, 2, 2], 'same_members', [2, 1, 2]); // true
-PredicType.array.comparison([1, 2, 2], 'same_members', [2, 1]); // false
-
-// New: `SET_EQUALS` (set equality, ignores order and duplicates)
 PredicType.array.comparison([1, 2, 2], 'set_equals', [2, 1]); // true
-PredicType.array.comparison([1, 2, 2], 'set_equals', [2, 1, 3]); // false
 
-// New: `SET_NOT_EQUALS` (set inequality)
-PredicType.array.comparison([1, 2, 2], 'set_not_equals', [2, 1, 3]); // true
-PredicType.array.comparison([1, 2, 2], 'set_not_equals', [2, 1]); // false
-
-// Family: string, Category: state
 PredicType.string.state('foo', 'is_not_empty'); // true
 
-// Family: number, Category: range
 PredicType.number.range(5, 'between', 1, 10); // true
 ```
 
@@ -270,16 +257,16 @@ PredicType uses strict, explicit naming conventions for all predicate functions,
 
 ### Enums Names
 
-1. **IS* and HAS* Prefixes**
+1. **IS\_ and HAS\_ Prefixes**
 
    - The `IS_` prefix is used for state or boolean property checks (e.g., `IS_EMPTY`, `IS_VALID`, `IS_TRUE`).
    - The `HAS_` prefix is used for presence or attribute checks (e.g., `HAS_KEY`, `HAS_SYMBOL_KEYS`).
    - These forms are chosen when the predicate does not require a target value for comparison, or for calendar-like/date state operations (e.g., `IS_TODAY`).
 
-2. **CONTAINS* and LACKS* Prefixes**
+2. **CONTAINS\_ and LACKS\_ Prefixes**
 
-   - The `CONTAINS_` prefix is used for membership or inclusion (e.g., `CONTAINS_SUBSEQUENCE`).
-   - The `LACKS_` prefix is used for explicit absence (e.g., `LACKS_ENTRY`).
+- The `CONTAINS_` prefix is used for membership or inclusion (e.g., `CONTAINS_SUBSEQUENCE`).
+- The `LACKS_` prefix is used for explicit absence (e.g., `LACKS_ENTRY`).
 
 3. **STRICT\_ Prefix**
 
@@ -307,7 +294,7 @@ PredicType uses strict, explicit naming conventions for all predicate functions,
 
    - The `_KEY` and `_VALUE` suffixes clarify the target of the predicate (e.g., `HAS_KEY`, `HAS_VALUE`).
 
-8. **NOT and _NOT_**
+8. **NOT\_ and \_NOT\_**
 
    - The `NOT_` prefix or `_NOT_` infix is used to indicate negation (e.g., `NOT_EQUALS`, `IS_NOT_EMPTY`, `VALUE_AT_INDEX_NOT_IN`).
 
