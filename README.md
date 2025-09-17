@@ -85,7 +85,7 @@ The alias mapping is as follows:
 | PredicType.object   | P.obj  | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
 | PredicType.promise  | P.prom | state, type                                                                                             |
 | PredicType.set      | P.set  | comparison, relation, size, state                                                                       |
-| PredicType.string   | P.str  | comparison, membership, pattern, size, substring, state                                                 |
+| PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring,                                                |
 | PredicType.symbol   | P.sym  | comparison, state                                                                                       |
 
 All predicate categories and operators are available via both the full API and the alias.

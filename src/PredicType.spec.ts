@@ -98,10 +98,10 @@ describe('PredicType.function', () => {
     expect(PredicType.function.name(foo, 'equals', 'foo')).toBe(true);
     expect(P.func.name(foo, 'equals', 'foo')).toBe(true);
   });
-  it('should return true for function pattern matches', () => {
+  it('should return true for function name pattern matches', () => {
     function foo() {}
-    expect(PredicType.function.pattern(foo, 'matches', /foo/)).toBe(true);
-    expect(P.func.pattern(foo, 'matches', /foo/)).toBe(true);
+    expect(PredicType.function.namePattern(foo, 'matches', /foo/)).toBe(true);
+    expect(P.func.namePattern(foo, 'matches', /foo/)).toBe(true);
   });
   it('should return true for function state IS_ANONYMOUS', () => {
     expect(PredicType.function.state(() => {}, 'is_anonymous')).toBe(true);
@@ -152,32 +152,26 @@ describe('PredicType.object', () => {
     expect(PredicType.object.attributes({ foo: 1 }, 'attr_is_enumerable', 'foo')).toBe(true);
     expect(P.obj.attributes({ foo: 1 }, 'attr_is_enumerable', 'foo')).toBe(true);
   });
-
   it('should return true for objectInstanceType instance_of_object', () => {
     expect(PredicType.object.instanceType({}, 'instance_of_object')).toBe(true);
     expect(P.obj.instanceType({}, 'instance_of_object')).toBe(true);
   });
-
   it('should return true for objectInstanceRelation instance_of', () => {
     expect(PredicType.object.instanceRelation([], 'instance_of', Array)).toBe(true);
     expect(P.obj.instanceRelation([], 'instance_of', Array)).toBe(true);
   });
-
   it('should return true for objectKey contains_key', () => {
     expect(PredicType.object.key({ foo: 1 }, 'contains_key', 'foo')).toBe(true);
     expect(P.obj.key({ foo: 1 }, 'contains_key', 'foo')).toBe(true);
   });
-
   it('should return true for objectKeyMembership in', () => {
     expect(PredicType.object.keyMembership({ foo: 1 }, 'in', ['foo', 'bar'])).toBe(true);
     expect(P.obj.keyMembership({ foo: 1 }, 'in', ['foo', 'bar'])).toBe(true);
   });
-
   it('should return true for objectKeysCompare contains_all_keys', () => {
     expect(PredicType.object.keys({ foo: 1, bar: 2 }, 'contains_all_keys', ['foo', 'bar'])).toBe(true);
     expect(P.obj.keys({ foo: 1, bar: 2 }, 'contains_all_keys', ['foo', 'bar'])).toBe(true);
   });
-
   it('should return true for objectKeysState has_symbol_keys', () => {
     const sym = Symbol('s');
     const obj = {};
@@ -185,25 +179,21 @@ describe('PredicType.object', () => {
     expect(PredicType.object.keysState(obj, 'has_symbol_keys')).toBe(true);
     expect(P.obj.keysState(obj, 'has_symbol_keys')).toBe(true);
   });
-
   it('should return true for objectProperty contains_property', () => {
     expect(PredicType.object.property({ foo: 1 }, 'contains_property', 'foo')).toBe(true);
     expect(P.obj.property({ foo: 1 }, 'contains_property', 'foo')).toBe(true);
   });
-
   it('should return true for objectPrototypeRelation contains_prototype', () => {
     class A {}
     const a = new A();
     expect(PredicType.object.prototypeRelation(a, 'contains_prototype', A.prototype)).toBe(true);
     expect(P.obj.prototypeRelation(a, 'contains_prototype', A.prototype)).toBe(true);
   });
-
   it('should return true for objectPrototypeState prototype_is_null', () => {
     const obj = Object.create(null);
     expect(PredicType.object.prototypeState(obj, 'prototype_is_null')).toBe(true);
     expect(P.obj.prototypeState(obj, 'prototype_is_null')).toBe(true);
   });
-
   it('should return true for objectState is_empty', () => {
     expect(PredicType.object.state({}, 'is_empty')).toBe(true);
     expect(P.obj.state({}, 'is_empty')).toBe(true);
@@ -254,7 +244,6 @@ describe('PredicType.string', () => {
     expect(PredicType.string.pattern('foobar', 'matches', /^foo/)).toBe(true);
     expect(P.str.pattern('foobar', 'matches', /^foo/)).toBe(true);
   });
-
   it('should return true for string size equals', () => {
     expect(PredicType.string.size('abc', 'size_equals', 3)).toBe(true);
     expect(P.str.size('abc', 'size_equals', 3)).toBe(true);

@@ -42,7 +42,7 @@ export const PredicType = {
   function: {
     arity: functions.functionArity,
     name: functions.functionName,
-    pattern: functions.functionPattern,
+    namePattern: functions.functionNamePattern,
     state: functions.functionState,
   },
   map: {
