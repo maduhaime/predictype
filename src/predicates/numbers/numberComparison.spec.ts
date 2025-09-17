@@ -41,4 +41,31 @@ describe('numberComparison', () => {
       'Unknown NumberComparison operation: invalid_operator'
     );
   });
+
+  describe('special values (NaN, Infinity, -Infinity)', () => {
+    it('should return false for any comparison with NaN', () => {
+      expect(numberComparison(NaN, 'equals', 5)).toBe(false);
+      expect(numberComparison(5, 'equals', NaN)).toBe(false);
+      expect(numberComparison(NaN, 'not_equals', 5)).toBe(true);
+      expect(numberComparison(5, 'not_equals', NaN)).toBe(true);
+      expect(numberComparison(NaN, 'greater_than', 5)).toBe(false);
+      expect(numberComparison(5, 'greater_than', NaN)).toBe(false);
+      expect(numberComparison(NaN, 'less_than', 5)).toBe(false);
+      expect(numberComparison(5, 'less_than', NaN)).toBe(false);
+      expect(numberComparison(NaN, 'greater_or_equal', 5)).toBe(false);
+      expect(numberComparison(5, 'greater_or_equal', NaN)).toBe(false);
+      expect(numberComparison(NaN, 'less_or_equal', 5)).toBe(false);
+      expect(numberComparison(5, 'less_or_equal', NaN)).toBe(false);
+    });
+    it('should handle Infinity and -Infinity as expected', () => {
+      expect(numberComparison(Infinity, 'greater_than', 1)).toBe(true);
+      expect(numberComparison(-Infinity, 'less_than', 1)).toBe(true);
+      expect(numberComparison(Infinity, 'equals', Infinity)).toBe(true);
+      expect(numberComparison(-Infinity, 'equals', -Infinity)).toBe(true);
+      expect(numberComparison(Infinity, 'not_equals', -Infinity)).toBe(true);
+      expect(numberComparison(-Infinity, 'not_equals', Infinity)).toBe(true);
+      expect(numberComparison(Infinity, 'less_than', 1)).toBe(false);
+      expect(numberComparison(-Infinity, 'greater_than', 1)).toBe(false);
+    });
+  });
 });

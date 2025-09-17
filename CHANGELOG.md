@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.7.3] - 2025-09-17
+
+### Fixed
+
+- **NaN and numeric edge cases**: Improved handling of `NaN`, `Infinity`, and `-Infinity` in all number predicates (`numberRange`, `numberComparison`, `numberState`). Added comprehensive tests to ensure correct and predictable behavior for these special values and edge cases.
+
 # [0.7.2] - 2025-09-17
 
 ### Fixed

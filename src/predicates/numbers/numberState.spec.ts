@@ -37,4 +37,27 @@ describe('numberState', () => {
     // @ts-expect-error
     expect(() => numberState(n, 'invalid_operator')).toThrow('Unknown NumberState operation: invalid_operator');
   });
+
+  describe('special values (NaN, Infinity, -Infinity)', () => {
+    it('should handle NaN correctly', () => {
+      expect(numberState(NaN, 'is_integer')).toBe(false);
+      expect(numberState(NaN, 'is_float')).toBe(false);
+      expect(numberState(NaN, 'is_finite')).toBe(false);
+      expect(numberState(NaN, 'is_positive')).toBe(false);
+      expect(numberState(NaN, 'is_negative')).toBe(false);
+      expect(numberState(NaN, 'is_zero')).toBe(false);
+    });
+    it('should handle Infinity and -Infinity correctly', () => {
+      expect(numberState(Infinity, 'is_integer')).toBe(false);
+      expect(numberState(-Infinity, 'is_integer')).toBe(false);
+      expect(numberState(Infinity, 'is_float')).toBe(false);
+      expect(numberState(-Infinity, 'is_float')).toBe(false);
+      expect(numberState(Infinity, 'is_finite')).toBe(false);
+      expect(numberState(-Infinity, 'is_finite')).toBe(false);
+      expect(numberState(Infinity, 'is_positive')).toBe(true);
+      expect(numberState(-Infinity, 'is_negative')).toBe(true);
+      expect(numberState(Infinity, 'is_zero')).toBe(false);
+      expect(numberState(-Infinity, 'is_zero')).toBe(false);
+    });
+  });
 });
