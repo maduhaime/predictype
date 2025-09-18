@@ -23,14 +23,12 @@ import { ArrayComparisonEnum, ArrayComparisonOper } from '../../enums/arrays.js'
  * arrayComparison([1, 2, 2], 'set_not_equals', [2, 1]); // false
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                                              |
- * |-----------------|--------------------------------------------------------|
- * | EQUALS          | Strict equality (same order, same values)               |
- * | NOT_EQUALS      | Strict inequality (different order or values)           |
- * | SAME_MEMBERS    | Multiset equality (same values and counts, order ignored)|
- * | SET_EQUALS      | Set equality (same unique values, order/dupes ignored)  |
- * | SET_NOT_EQUALS  | Set inequality (different unique values)                |
+ * Supported operators:
+ * - EQUALS: Strict equality (same order, same values)
+ * - NOT_EQUALS: Strict inequality (different order or values)
+ * - SAME_MEMBERS: Multiset equality (same values and counts, order ignored)
+ * - SET_EQUALS: Set equality (same unique values, order/dupes ignored)
+ * - SET_NOT_EQUALS: Set inequality (different unique values)
  */
 
 export function arrayComparison<T>(source: T[], oper: ArrayComparisonOper, target: T[]): boolean {

@@ -23,15 +23,13 @@ import { ArrayIndexComparisonEnum, ArrayIndexComparisonOper } from '../../enums/
  * arrayIndexComparison(arr, 'at_index_greater_than', idx2, val2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                      | Description                        |
- * |-------------------------------|------------------------------------|
- * | AT_INDEX_EQUALS               | arr[index] === value               |
- * | AT_INDEX_NOT_EQUALS           | arr[index] !== value               |
- * | AT_INDEX_GREATER_THAN         | arr[index] > value                 |
- * | AT_INDEX_GREATER_THAN_OR_EQUALS| arr[index] >= value                |
- * | AT_INDEX_LESS_THAN            | arr[index] < value                 |
- * | AT_INDEX_LESS_THAN_OR_EQUALS  | arr[index] <= value                |
+ * Supported Operators:
+ * - **AT_INDEX_EQUALS**: arr[index] === value
+ * - **AT_INDEX_NOT_EQUALS**: arr[index] !== value
+ * - **AT_INDEX_GREATER_THAN**: arr[index] > value
+ * - **AT_INDEX_GREATER_THAN_OR_EQUALS**: arr[index] >= value
+ * - **AT_INDEX_LESS_THAN**: arr[index] < value
+ * - **AT_INDEX_LESS_THAN_OR_EQUALS**: arr[index] <= value
  */
 export function arrayIndexComparison<T>(
   source: T[],

@@ -20,11 +20,9 @@ import { BooleanComparisonEnum, BooleanComparisonOper } from '../../enums/boolea
  * booleanComparison(valueFalse, 'not_equals', false); // false
  *
  * @remarks
- * Supported Operators
- * | Operator     | Description           |
- * |--------------|----------------------|
- * | EQUALS       | value === target      |
- * | NOT_EQUALS   | value !== target      |
+ * Supported Operators:
+ * - **EQUALS**: value === target
+ * - **NOT_EQUALS**: value !== target
  */
 export function booleanComparison(value: boolean, oper: BooleanComparisonOper, target: boolean): boolean {
   const operators: Record<BooleanComparisonEnum, (v: boolean) => boolean> = {

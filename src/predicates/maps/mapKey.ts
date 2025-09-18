@@ -19,11 +19,9 @@ import { MapKeyEnum, MapKeyOper } from '../../enums/maps.js';
  * mapKey(m, 'lacks_key', key2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | CONTAINS_KEY    | Map contains the key                |
- * | LACKS_KEY       | Map does not contain the key         |
+ * Supported Operators:
+ * - **CONTAINS_KEY**: Map contains the key
+ * - **LACKS_KEY**: Map does not contain the key
  */
 export function mapKey<K, V>(source: Map<K, V>, oper: MapKeyOper, key: K): boolean {
   const operators: Record<MapKeyEnum, (a: Map<K, V>, b: K) => boolean> = {

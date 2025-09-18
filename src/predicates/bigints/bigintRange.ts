@@ -21,13 +21,11 @@ import { BigIntRangeEnum, BigIntRangeOper } from '../../enums/bigints.js';
  * bigintRange(value2, 'not_between', min, max); // true
  *
  * @remarks
- * Supported Operators
- * | Operator              | Description                                 |
- * |-----------------------|---------------------------------------------|
- * | BETWEEN               | min <= value <= max                         |
- * | NOT_BETWEEN           | value < min or value > max                  |
- * | STRICT_BETWEEN        | min < value < max                           |
- * | STRICT_NOT_BETWEEN    | value <= min or value >= max                |
+ * Supported Operators:
+ * - **BETWEEN**: min <= value <= max
+ * - **NOT_BETWEEN**: value < min or value > max
+ * - **STRICT_BETWEEN**: min < value < max
+ * - **STRICT_NOT_BETWEEN**: value <= min or value >= max
  */
 export function bigintRange(source: bigint, oper: BigIntRangeOper, min: bigint, max: bigint): boolean {
   const operators: Record<BigIntRangeEnum, (a: bigint, min: bigint, max: bigint) => boolean> = {

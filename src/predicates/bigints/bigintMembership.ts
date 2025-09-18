@@ -19,11 +19,9 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  * bigintMembership(value2, 'is_not_one_of', arr); // true
  *
  * @remarks
- * Supported Operators
- * | Operator   | Description                        |
- * |------------|------------------------------------|
- * | IN         | value is in the target array        |
- * | NOT_IN     | value is not in the target array    |
+ * Supported Operators:
+ * - **IN**: value is in the target array
+ * - **NOT_IN**: value is not in the target array
  */
 export function bigintMembership(source: bigint, oper: BigIntMembershipOper, target: bigint[]): boolean {
   const operators: Record<BigIntMembershipEnum, (a: bigint, b: bigint[]) => boolean> = {

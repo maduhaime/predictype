@@ -21,13 +21,11 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  * setRelation(a, 'superset_of', b); // false
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                        |
- * |--------------|------------------------------------|
- * | DISJOINT     | Sets have no elements in common     |
- * | INTERSECTS   | Sets have at least one element in common |
- * | SUBSET_OF    | First set is a subset of second     |
- * | SUPERSET_OF  | First set is a superset of second   |
+ * Supported Operators:
+ * - **DISJOINT**: Sets have no elements in common
+ * - **INTERSECTS**: Sets have at least one element in common
+ * - **SUBSET_OF**: First set is a subset of second
+ * - **SUPERSET_OF**: First set is a superset of second
  */
 export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean {
   const operators: Record<SetRelationEnum, (a: Set<T>, b: Set<T>) => boolean> = {

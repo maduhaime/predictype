@@ -11,11 +11,9 @@ import { ObjectKeyMembershipEnum, ObjectKeyMembershipOper } from '../../enums/ob
  * @throws {Error} If the operation is not recognized or keys is missing.
  *
  * @remarks
- * Supported Operators
- * | Operator   | Description                        |
- * |------------|------------------------------------|
- * | IN         | At least one key is present         |
- * | NOT_IN     | No keys are present                |
+ * Supported Operators:
+ * - **IN**: At least one key is present
+ * - **NOT_IN**: No keys are present
  */
 export function objectKeyMembership(source: object, oper: ObjectKeyMembershipOper, keys: (string | symbol)[]): boolean {
   const allKeys = [...Object.getOwnPropertyNames(source), ...Object.getOwnPropertySymbols(source)];

@@ -29,13 +29,11 @@ function toUTCDate(date: Date): Date {
  * dateRange(date, 'in_range', start, end); // true
  *
  * @remarks
- * Supported Operators
- * | Operator              | Description                                 |
- * |-----------------------|---------------------------------------------|
- * | BETWEEN               | Inclusive: min <= date <= max               |
- * | NOT_BETWEEN           | Inclusive: date < min or date > max         |
- * | STRICT_BETWEEN        | Exclusive: min < date < max                 |
- * | STRICT_NOT_BETWEEN    | Exclusive: date <= min or date >= max       |
+ * Supported Operators:
+ * - **BETWEEN**: Inclusive: min <= date <= max
+ * - **NOT_BETWEEN**: Inclusive: date < min or date > max
+ * - **STRICT_BETWEEN**: Exclusive: min < date < max
+ * - **STRICT_NOT_BETWEEN**: Exclusive: date <= min or date >= max
  */
 export function dateRange(source: Date, oper: DateRangeOper, min: Date, max: Date): boolean {
   const d = toUTCDate(source);

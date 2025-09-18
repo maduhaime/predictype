@@ -19,15 +19,13 @@ import { NumberComparisonEnum, NumberComparisonOper } from '../../enums/numbers.
  * numberComparison(a, 'equals', 5); // true
  *
  * @remarks
- * Supported Operators
- * | Operator           | Description                                 |
- * |--------------------|---------------------------------------------|
- * | EQUALS             | a === b                                     |
- * | NOT_EQUALS         | a !== b                                     |
- * | GREATER_THAN       | a > b                                       |
- * | GREATER_OR_EQUAL   | a >= b                                      |
- * | LESS_THAN          | a < b                                       |
- * | LESS_OR_EQUAL      | a <= b                                      |
+ * Supported Operators:
+ * - **EQUALS**: a === b
+ * - **NOT_EQUALS**: a !== b
+ * - **GREATER_THAN**: a > b
+ * - **GREATER_OR_EQUAL**: a >= b
+ * - **LESS_THAN**: a < b
+ * - **LESS_OR_EQUAL**: a <= b
  */
 export function numberComparison(source: number, oper: NumberComparisonOper, target: number): boolean {
   const operators: Record<NumberComparisonEnum, (a: number, b: number) => boolean> = {

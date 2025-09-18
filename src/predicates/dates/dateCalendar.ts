@@ -28,18 +28,16 @@ function toUTCDate(date: Date): Date {
  * dateCalendar(janFirst, 'is_first_day_of_month'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                      | Description                       |
- * |-------------------------------|-----------------------------------|
- * | IS_TODAY                      | Is the date today (UTC)?          |
- * | IS_YESTERDAY                  | Is the date yesterday (UTC)?      |
- * | IS_TOMORROW                   | Is the date tomorrow (UTC)?       |
- * | IS_WEEKEND                    | Is the date a weekend?            |
- * | IS_WEEKDAY                    | Is the date a weekday?            |
- * | IS_PAST                       | Is the date before today?         |
- * | IS_FUTURE                     | Is the date after today?          |
- * | IS_FIRST_DAY_OF_MONTH         | Is the date the 1st of the month? |
- * | IS_LAST_DAY_OF_MONTH          | Is the date the last of the month?|
+ * Supported Operators:
+ * - **IS_TODAY**: Is the date today (UTC)?
+ * - **IS_YESTERDAY**: Is the date yesterday (UTC)?
+ * - **IS_TOMORROW**: Is the date tomorrow (UTC)?
+ * - **IS_WEEKEND**: Is the date a weekend?
+ * - **IS_WEEKDAY**: Is the date a weekday?
+ * - **IS_PAST**: Is the date before today?
+ * - **IS_FUTURE**: Is the date after today?
+ * - **IS_FIRST_DAY_OF_MONTH**: Is the date the 1st of the month?
+ * - **IS_LAST_DAY_OF_MONTH**: Is the date the last of the month?
  */
 export function dateCalendar(source: Date, oper: DateCalendarOper, today: Date = new Date()): boolean {
   const d = toUTCDate(source);

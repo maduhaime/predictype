@@ -27,11 +27,9 @@ function toUTCDate(date: Date): Date {
  * dateState(invalidDate, 'is_invalid'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator     | Description                |
- * |--------------|----------------------------|
- * | IS_VALID     | Is the date valid?         |
- * | IS_INVALID   | Is the date invalid?       |
+ * Supported Operators:
+ * - **IS_VALID**: Is the date valid?
+ * - **IS_INVALID**: Is the date invalid?
  */
 export function dateState(source: Date, oper: DateStateOper): boolean {
   const d = toUTCDate(source);

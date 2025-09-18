@@ -19,11 +19,9 @@ import { MapEntryEnum, MapEntryOper } from '../../enums/maps.js';
  * mapEntry(m, 'lacks_entry', entry2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator         | Description                                 |
- * |------------------|---------------------------------------------|
- * | CONTAINS_ENTRY   | Map contains the [key, value] entry         |
- * | LACKS_ENTRY      | Map does not contain the [key, value] entry |
+ * Supported Operators:
+ * - **CONTAINS_ENTRY**: Map contains the [key, value] entry
+ * - **LACKS_ENTRY**: Map does not contain the [key, value] entry
  */
 export function mapEntry<K, V>(source: Map<K, V>, oper: MapEntryOper, entry: [K, V]): boolean {
   const operators: Record<MapEntryEnum, (a: Map<K, V>, b: [K, V]) => boolean> = {

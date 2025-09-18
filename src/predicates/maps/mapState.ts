@@ -17,11 +17,9 @@ import { MapStateEnum, MapStateOper } from '../../enums/maps.js';
  * mapState(m2, 'is_not_empty'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | IS_EMPTY        | Map is empty                        |
- * | IS_NOT_EMPTY    | Map is not empty                    |
+ * Supported Operators:
+ * - **IS_EMPTY**: Map is empty
+ * - **IS_NOT_EMPTY**: Map is not empty
  */
 export function mapState<K, V>(source: Map<K, V>, oper: MapStateOper): boolean {
   const operators: Record<MapStateEnum, (a: Map<K, V>) => boolean> = {

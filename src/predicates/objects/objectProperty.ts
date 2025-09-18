@@ -11,13 +11,11 @@ import { ObjectPropertyEnum, ObjectPropertyOper } from '../../enums/objects.js';
  * @throws {Error} If the operation is not recognized.
  *
  * @remarks
- * Supported Operators
- * | Operator                | Description                                 |
- * |-------------------------|---------------------------------------------|
- * | CONTAINS_PROPERTY       | Object has the property (own or inherited)   |
- * | LACKS_PROPERTY          | Object lacks the property (own or inherited) |
- * | CONTAINS_OWN_PROPERTY   | Object has the property as own property      |
- * | LACKS_OWN_PROPERTY      | Object lacks the property as own property    |
+ * Supported Operators:
+ * - **CONTAINS_PROPERTY**: Object has the property (own or inherited)
+ * - **LACKS_PROPERTY**: Object lacks the property (own or inherited)
+ * - **CONTAINS_OWN_PROPERTY**: Object has the property as own property
+ * - **LACKS_OWN_PROPERTY**: Object lacks the property as own property
  */
 export function objectProperty(source: object, oper: ObjectPropertyOper, key: string | symbol): boolean {
   const operators: Record<ObjectPropertyEnum, (k: string | symbol) => boolean> = {

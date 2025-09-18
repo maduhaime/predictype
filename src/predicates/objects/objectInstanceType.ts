@@ -10,13 +10,11 @@ import { ObjectInstanceTypeEnum, ObjectInstanceTypeOper } from '../../enums/obje
  * @throws {Error} If the operation is not recognized.
  *
  * @remarks
- * Supported Operators
- * | Operator                  | Description                                 |
- * |---------------------------|---------------------------------------------|
- * | INSTANCE_OF_CLASS         | Is a class constructor                      |
- * | INSTANCE_OF_CONSTRUCTOR   | Is a constructor function                   |
- * | INSTANCE_OF_FUNCTION      | Is a function                               |
- * | INSTANCE_OF_OBJECT        | Is an object                                |
+ * Supported Operators:
+ * - **INSTANCE_OF_CLASS**: Is a class constructor
+ * - **INSTANCE_OF_CONSTRUCTOR**: Is a constructor function
+ * - **INSTANCE_OF_FUNCTION**: Is a function
+ * - **INSTANCE_OF_OBJECT**: Is an object
  */
 export function objectInstanceType(source: any, oper: ObjectInstanceTypeOper): boolean {
   const operators: Record<ObjectInstanceTypeEnum, (v: any) => boolean> = {

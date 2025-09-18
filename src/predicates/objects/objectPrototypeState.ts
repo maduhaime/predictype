@@ -10,10 +10,8 @@ import { ObjectPrototypeStateEnum, ObjectPrototypeStateOper } from '../../enums/
  * @throws {Error} If the operation is not recognized.
  *
  * @remarks
- * Supported Operators
- * | Operator              | Description                                 |
- * |-----------------------|---------------------------------------------|
- * | PROTOTYPE_IS_NULL     | Object's prototype is null                   |
+ * Supported Operators:
+ * - **PROTOTYPE_IS_NULL**: Object's prototype is null
  */
 export function objectPrototypeState(source: object, oper: ObjectPrototypeStateOper): boolean {
   const operators: Record<ObjectPrototypeStateEnum, (o: object) => boolean> = {

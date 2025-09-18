@@ -24,13 +24,11 @@ import { ArrayRelationEnum, ArrayRelationOper } from '../../enums/arrays.js';
  * arrayRelation([1, 2], 'strict_superset_of', [1, 2]); // false (equality not allowed)
  *
  * @remarks
- * Supported Operators
- * | Operator            | Description                                        |
- * |---------------------|----------------------------------------------------|
- * | SUBSET_OF           | Every element of source is in target (equality allowed) |
- * | SUPERSET_OF         | Every element of target is in source (equality allowed) |
- * | STRICT_SUBSET_OF    | Every element of source is in target, and source.length < target.length |
- * | STRICT_SUPERSET_OF  | Every element of target is in source, and source.length > target.length |
+ * Supported Operators:
+ * - **SUBSET_OF**: Every element of source is in target (equality allowed)
+ * - **SUPERSET_OF**: Every element of target is in source (equality allowed)
+ * - **STRICT_SUBSET_OF**: Every element of source is in target, and source.length < target.length
+ * - **STRICT_SUPERSET_OF**: Every element of target is in source, and source.length > target.length
  */
 export function arrayRelation<T>(source: T[], oper: ArrayRelationOper, target: T[]): boolean {
   const operators: Record<ArrayRelationEnum, (a: T[], b: T[]) => boolean> = {

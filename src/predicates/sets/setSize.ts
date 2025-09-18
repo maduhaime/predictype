@@ -17,14 +17,12 @@ import { SetSizeEnum, SetSizeOper } from '../../enums/sets.js';
  * setSize(a, 'size_greater_than', 2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                        | Description                        |
- * |-------------------------------|-------------------------------------|
- * | SIZE_EQUALS                    | Set size equals the given value     |
- * | SIZE_GREATER_THAN              | Set size is greater than value      |
- * | SIZE_GREATER_THAN_OR_EQUALS    | Set size is greater or equal        |
- * | SIZE_LESS_THAN                 | Set size is less than value         |
- * | SIZE_LESS_THAN_OR_EQUALS       | Set size is less or equal           |
+ * Supported Operators:
+ * - **SIZE_EQUALS**: Set size equals the given value
+ * - **SIZE_GREATER_THAN**: Set size is greater than value
+ * - **SIZE_GREATER_THAN_OR_EQUALS**: Set size is greater or equal
+ * - **SIZE_LESS_THAN**: Set size is less than value
+ * - **SIZE_LESS_THAN_OR_EQUALS**: Set size is less or equal
  */
 export function setSize<T>(source: Set<T>, oper: SetSizeOper, target: number): boolean {
   const operators: Record<SetSizeEnum, (a: Set<T>, b: number) => boolean> = {

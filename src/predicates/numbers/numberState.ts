@@ -17,15 +17,13 @@ import { NumberStateEnum, NumberStateOper } from '../../enums/numbers.js';
  * numberState(0, 'is_zero'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                        |
- * |--------------|------------------------------------|
- * | IS_INTEGER   | Is an integer                      |
- * | IS_FLOAT     | Is a finite float (not integer)    |
- * | IS_FINITE    | Is a finite number                 |
- * | IS_POSITIVE  | Is positive                        |
- * | IS_NEGATIVE  | Is negative                        |
- * | IS_ZERO      | Is zero                            |
+ * Supported Operators:
+ * - **IS_INTEGER**: Is an integer
+ * - **IS_FLOAT**: Is a finite float (not integer)
+ * - **IS_FINITE**: Is a finite number
+ * - **IS_POSITIVE**: Is positive
+ * - **IS_NEGATIVE**: Is negative
+ * - **IS_ZERO**: Is zero
  */
 export function numberState(source: number, oper: NumberStateOper): boolean {
   const operators: Record<NumberStateEnum, (v: number) => boolean> = {

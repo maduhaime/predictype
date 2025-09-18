@@ -21,13 +21,11 @@ import { ArrayMembershipEnum, ArrayMembershipOper } from '../../enums/arrays.js'
  * arrayMembership(arr2, 'includes', value2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | EVERY_EQUALS    | Every element equals target         |
- * | SOME_EQUALS     | At least one element equals target  |
- * | INCLUDES        | Array includes target               |
- * | EXCLUDES        | Array does not include target       |
+ * Supported Operators:
+ * - **EVERY_EQUALS**: Every element equals target
+ * - **SOME_EQUALS**: At least one element equals target
+ * - **INCLUDES**: Array includes target
+ * - **EXCLUDES**: Array does not include target
  */
 export function arrayMembership<T>(source: T[], oper: ArrayMembershipOper, target: T): boolean {
   const operators: Record<ArrayMembershipEnum, (arr: T[], val: T) => boolean> = {

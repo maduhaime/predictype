@@ -17,13 +17,11 @@ import { StringSubstringEnum, StringSubstringOper } from '../../enums/strings.js
  * stringSubstring(str, 'starts_with', sub); // true
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                        |
- * |--------------|------------------------------------|
- * | INCLUDES     | String includes the substring        |
- * | EXCLUDES     | String does not include the substring|
- * | STARTS_WITH  | String starts with the substring     |
- * | ENDS_WITH    | String ends with the substring       |
+ * Supported Operators:
+ * - **INCLUDES**: String includes the substring
+ * - **EXCLUDES**: String does not include the substring
+ * - **STARTS_WITH**: String starts with the substring
+ * - **ENDS_WITH**: String ends with the substring
  */
 export function stringSubstring(source: string, oper: StringSubstringOper, target: string): boolean {
   const operators: Record<StringSubstringEnum, (a: string, b: string) => boolean> = {

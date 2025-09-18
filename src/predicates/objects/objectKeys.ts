@@ -11,17 +11,15 @@ import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects.js';
  * @throws {Error} If the operation is not recognized or keys is missing.
  *
  * @remarks
- * Supported Operators
- * | Operator                | Description                                 |
- * |-------------------------|---------------------------------------------|
- * | CONTAINS_ALL_KEYS       | Object contains all the given keys           |
- * | CONTAINS_ANY_KEY        | Object contains at least one of the keys     |
- * | CONTAINS_ONLY_KEYS      | Object contains only the given keys          |
- * | CONTAINS_SYMBOL_KEYS    | Object contains at least one symbol key      |
- * | EQUALS_KEYS             | Object keys equal the given keys             |
- * | LACKS_ALL_KEYS          | Object lacks all the given keys              |
- * | ONLY_KEYS               | All object keys are in the given set         |
- * | STRICT_EQUALS_KEYS      | Object keys strictly equal the given keys    |
+ * Supported Operators:
+ * - **CONTAINS_ALL_KEYS**: Object contains all the given keys
+ * - **CONTAINS_ANY_KEY**: Object contains at least one of the keys
+ * - **CONTAINS_ONLY_KEYS**: Object contains only the given keys
+ * - **CONTAINS_SYMBOL_KEYS**: Object contains at least one symbol key
+ * - **EQUALS_KEYS**: Object keys equal the given keys
+ * - **LACKS_ALL_KEYS**: Object lacks all the given keys
+ * - **ONLY_KEYS**: All object keys are in the given set
+ * - **STRICT_EQUALS_KEYS**: Object keys strictly equal the given keys
  */
 export function objectKeysCompare(source: object, oper: ObjectKeysOper, keys: string[] | symbol[]): boolean {
   const allKeys = [...Object.getOwnPropertyNames(source), ...Object.getOwnPropertySymbols(source)];

@@ -19,14 +19,12 @@ import { StringSizeEnum, StringSizeOper } from '../../enums/strings.js';
  * stringSize(str, 'length_greater_than', len2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                        | Description                        |
- * |-------------------------------|-------------------------------------|
- * | SIZE_EQUALS                  | String length equals the given value |
- * | SIZE_GREATER_THAN            | String length is greater than value  |
- * | SIZE_GREATER_THAN_OR_EQUALS  | String length is greater or equal    |
- * | SIZE_LESS_THAN               | String length is less than value     |
- * | SIZE_LESS_THAN_OR_EQUALS     | String length is less or equal       |
+ * Supported Operators:
+ * - **SIZE_EQUALS**: String length equals the given value
+ * - **SIZE_GREATER_THAN**: String length is greater than value
+ * - **SIZE_GREATER_THAN_OR_EQUALS**: String length is greater or equal
+ * - **SIZE_LESS_THAN**: String length is less than value
+ * - **SIZE_LESS_THAN_OR_EQUALS**: String length is less or equal
  */
 export function stringSize(source: string, oper: StringSizeOper, target: number): boolean {
   const operators: Record<StringSizeEnum, (a: string, b: number) => boolean> = {

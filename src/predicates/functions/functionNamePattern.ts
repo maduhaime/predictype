@@ -17,11 +17,9 @@ import { FunctionNamePatternEnum, FunctionNamePatternOper } from '../../enums/fu
  * functionPattern(fn, 'matches', pattern); // true
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                                 |
- * |---------------|---------------------------------------------|
- * | MATCHES       | Function name matches the RegExp pattern     |
- * | NOT_MATCHES   | Function name does not match the pattern     |
+ * Supported Operators:
+ * - **MATCHES**: Function name matches the RegExp pattern
+ * - **NOT_MATCHES**: Function name does not match the pattern
  */
 export function functionNamePattern(source: Function, oper: FunctionNamePatternOper, pattern: RegExp): boolean {
   const operators: Record<FunctionNamePatternEnum, (a: Function, b: RegExp) => boolean> = {

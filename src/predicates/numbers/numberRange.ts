@@ -18,13 +18,11 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  * numberRange(n, 'strict_in_range', 5, 10); // false
  *
  * @remarks
- * Supported Operators
- * | Operator              | Description                                 |
- * |-----------------------|---------------------------------------------|
- * | BETWEEN               | Inclusive: min <= x <= max                  |
- * | NOT_BETWEEN           | Inclusive: x < min or x > max               |
- * | STRICT_BETWEEN        | Exclusive: min < x < max                    |
- * | STRICT_NOT_BETWEEN    | Exclusive: x <= min or x >= max             |
+ * Supported Operators:
+ * - **BETWEEN**: Inclusive: min <= x <= max
+ * - **NOT_BETWEEN**: Inclusive: x < min or x > max
+ * - **STRICT_BETWEEN**: Exclusive: min < x < max
+ * - **STRICT_NOT_BETWEEN**: Exclusive: x <= min or x >= max
  */
 export function numberRange(source: number, oper: NumberRangeOper, min: number, max: number): boolean {
   const enumOper = typeof oper === 'string' ? (oper as NumberRangeEnum) : oper;

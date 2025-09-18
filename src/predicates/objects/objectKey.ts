@@ -21,11 +21,9 @@ import { ObjectKeyEnum, ObjectKeyOper } from '../../enums/objects.js';
  * objectKey(obj2, 'has_key', sym); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | CONTAINS_KEY    | Object has the key                  |
- * | LACKS_KEY       | Object does not have the key        |
+ * Supported Operators:
+ * - **CONTAINS_KEY**: Object has the key
+ * - **LACKS_KEY**: Object does not have the key
  */
 export function objectKey(source: object, oper: ObjectKeyOper, key: string | symbol): boolean {
   const operators: Record<ObjectKeyEnum, (k: string | symbol) => boolean> = {

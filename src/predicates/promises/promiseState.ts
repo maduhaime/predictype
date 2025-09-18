@@ -47,12 +47,10 @@ export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
  * promiseState(wrapped, 'is_pending'); // true (immediately after wrapping)
  *
  * @remarks
- * Supported Operators
- * | Operator         | Description                        |
- * |------------------|------------------------------------|
- * | IS_PENDING       | Promise is pending                  |
- * | IS_FULFILLED     | Promise is fulfilled                |
- * | IS_REJECTED      | Promise is rejected                 |
+ * Supported Operators:
+ * - **IS_PENDING**: Promise is pending
+ * - **IS_FULFILLED**: Promise is fulfilled
+ * - **IS_REJECTED**: Promise is rejected
  */
 export function promiseState<T>(wrapper: PromiseWithState<T>, oper: PromiseStateOper): boolean {
   const operators: Record<PromiseStateEnum, (w: PromiseWithState<T>) => boolean> = {

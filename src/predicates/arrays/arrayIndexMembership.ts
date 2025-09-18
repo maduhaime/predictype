@@ -23,11 +23,9 @@ import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/
  *
  *
  * @remarks
- * Supported Operators
- * | Operator          | Description                        |
- * |-------------------|------------------------------------|
- * | AT_INDEX_IN       | arr[index] is in target array       |
- * | AT_INDEX_NOT_IN   | arr[index] is not in target array   |
+ * Supported Operators:
+ * - **AT_INDEX_IN**: arr[index] is in target array
+ * - **AT_INDEX_NOT_IN**: arr[index] is not in target array
  */
 export function arrayIndexMembership<T>(
   source: T[],

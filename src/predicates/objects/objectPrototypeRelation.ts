@@ -11,11 +11,9 @@ import { ObjectPrototypeRelationEnum, ObjectPrototypeRelationOper } from '../../
  * @throws {Error} If the operation is not recognized.
  *
  * @remarks
- * Supported Operators
- * | Operator                | Description                                 |
- * |-------------------------|---------------------------------------------|
- * | CONTAINS_PROTOTYPE      | Object's prototype is the given prototype    |
- * | IS_PROTOTYPE_OF         | Object is prototype of the given object      |
+ * Supported Operators:
+ * - **CONTAINS_PROTOTYPE**: Object's prototype is the given prototype
+ * - **IS_PROTOTYPE_OF**: Object is prototype of the given object
  */
 export function objectPrototypeRelation(source: object, oper: ObjectPrototypeRelationOper, proto: any): boolean {
   const operators: Partial<Record<ObjectPrototypeRelationEnum, (p: any) => boolean>> = {

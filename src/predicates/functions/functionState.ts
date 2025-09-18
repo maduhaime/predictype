@@ -20,15 +20,13 @@ import { FunctionStateEnum, FunctionStateOper } from '../../enums/functions.js';
  * functionState(function named() {}, 'has_name'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator         | Description                                 |
- * |------------------|---------------------------------------------|
- * | HAS_NAME         | Function has a name                         |
- * | IS_ANONYMOUS     | Function is anonymous                       |
- * | IS_ARROW         | Function is an arrow function               |
- * | IS_ASYNC         | Function is async                           |
- * | IS_CONSTRUCTOR   | Function is a constructor                   |
- * | IS_GENERATOR     | Function is a generator function            |
+ * Supported Operators:
+ * - **HAS_NAME**: Function has a name
+ * - **IS_ANONYMOUS**: Function is anonymous
+ * - **IS_ARROW**: Function is an arrow function
+ * - **IS_ASYNC**: Function is async
+ * - **IS_CONSTRUCTOR**: Function is a constructor
+ * - **IS_GENERATOR**: Function is a generator function
  */
 export function functionState(source: Function, oper: FunctionStateOper): boolean {
   const operators: Record<FunctionStateEnum, (a: Function) => boolean> = {

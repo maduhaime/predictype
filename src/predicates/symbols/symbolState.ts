@@ -17,11 +17,9 @@ import { SymbolStateEnum, SymbolStateOper } from '../../enums/symbols.js';
  * symbolState(localSym, 'is_local'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                        |
- * |--------------|------------------------------------|
- * | IS_GLOBAL    | Symbol is global (Symbol.for)       |
- * | IS_LOCAL     | Symbol is local (not Symbol.for)    |
+ * Supported Operators:
+ * - **IS_GLOBAL**: Symbol is global (Symbol.for)
+ * - **IS_LOCAL**: Symbol is local (not Symbol.for)
  */
 export function symbolState(source: symbol, oper: SymbolStateOper): boolean {
   const operators: Record<SymbolStateEnum, (a: symbol) => boolean> = {

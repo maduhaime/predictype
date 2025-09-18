@@ -11,11 +11,9 @@ import { ObjectInstanceRelationEnum, ObjectInstanceRelationOper } from '../../en
  * @throws {Error} If the operation is not recognized.
  *
  * @remarks
- * Supported Operators
- * | Operator         | Description                                 |
- * |------------------|---------------------------------------------|
- * | INSTANCE_OF      | value instanceof target                     |
- * | PROTOTYPE_OF     | value is prototype of target                |
+ * Supported Operators:
+ * - **INSTANCE_OF**: value instanceof target
+ * - **PROTOTYPE_OF**: value is prototype of target
  */
 export function objectInstanceRelation(source: any, oper: ObjectInstanceRelationOper, target: any): boolean {
   const operators: Record<ObjectInstanceRelationEnum, (v: any, t: any) => boolean> = {

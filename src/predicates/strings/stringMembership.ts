@@ -19,11 +19,9 @@ import { StringMembershipEnum, StringMembershipOper } from '../../enums/strings.
  * stringMembership(value2, 'not_in', arr); // true
  *
  * @remarks
- * Supported Operators
- * | Operator   | Description                        |
- * |------------|------------------------------------|
- * | IN         | String is in the array              |
- * | NOT_IN     | String is not in the array          |
+ * Supported Operators:
+ * - **IN**: String is in the array
+ * - **NOT_IN**: String is not in the array
  */
 export function stringMembership(source: string, oper: StringMembershipOper, target: string[]): boolean {
   const operators: Record<StringMembershipEnum, (a: string, b: string[]) => boolean> = {

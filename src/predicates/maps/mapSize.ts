@@ -20,14 +20,12 @@ import { MapSizeEnum, MapSizeOper } from '../../enums/maps.js';
  * mapSize(m2, 'size_greater_than', size0); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                        | Description                        |
- * |-------------------------------|-------------------------------------|
- * | SIZE_EQUALS                    | Map size equals the given value     |
- * | SIZE_GREATER_THAN              | Map size is greater than value      |
- * | SIZE_GREATER_THAN_OR_EQUALS    | Map size is greater or equal        |
- * | SIZE_LESS_THAN                 | Map size is less than value         |
- * | SIZE_LESS_THAN_OR_EQUALS       | Map size is less or equal           |
+ * Supported Operators:
+ * - **SIZE_EQUALS**: Map size equals the given value
+ * - **SIZE_GREATER_THAN**: Map size is greater than value
+ * - **SIZE_GREATER_THAN_OR_EQUALS**: Map size is greater or equal
+ * - **SIZE_LESS_THAN**: Map size is less than value
+ * - **SIZE_LESS_THAN_OR_EQUALS**: Map size is less or equal
  */
 export function mapSize<K, V>(source: Map<K, V>, oper: MapSizeOper, target: number): boolean {
   const operators: Record<MapSizeEnum, (a: Map<K, V>, b: number) => boolean> = {

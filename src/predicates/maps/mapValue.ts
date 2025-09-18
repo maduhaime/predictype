@@ -20,11 +20,9 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  * mapValue(m2, 'lacks_value', valueB); // true
  *
  * @remarks
- * Supported Operators
- * | Operator         | Description                                 |
- * |------------------|---------------------------------------------|
- * | CONTAINS_VALUE   | Map contains the value                      |
- * | LACKS_VALUE      | Map does not contain the value               |
+ * Supported Operators:
+ * - **CONTAINS_VALUE**: Map contains the value
+ * - **LACKS_VALUE**: Map does not contain the value
  */
 export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, target: V): boolean {
   const operators: Record<MapValueEnum, (a: Map<K, V>, b: V) => boolean> = {

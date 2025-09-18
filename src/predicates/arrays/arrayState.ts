@@ -17,11 +17,9 @@ import { ArrayStateEnum, ArrayStateOper } from '../../enums/arrays.js';
  * arrayState(arr2, 'is_not_empty'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | IS_EMPTY        | arr.length === 0                    |
- * | IS_NOT_EMPTY    | arr.length > 0                      |
+ * Supported Operators:
+ * - **IS_EMPTY**: arr.length === 0
+ * - **IS_NOT_EMPTY**: arr.length > 0
  */
 export function arrayState(source: any[], oper: ArrayStateOper): boolean {
   const operators: Record<ArrayStateEnum, (arr: any[]) => boolean> = {

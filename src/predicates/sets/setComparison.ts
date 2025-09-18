@@ -19,11 +19,9 @@ import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets.js';
  * setComparison(a, 'not_equals', c); // true
  *
  * @remarks
- * Supported Operators
- * | Operator      | Description                        |
- * |--------------|------------------------------------|
- * | EQUALS       | Sets are equal                      |
- * | NOT_EQUALS   | Sets are not equal                  |
+ * Supported Operators:
+ * - **EQUALS**: Sets are equal
+ * - **NOT_EQUALS**: Sets are not equal
  */
 export function setComparison<T>(source: Set<T>, oper: SetComparisonOper, target: Set<T>): boolean {
   const operators: Record<SetComparisonEnum, (a: Set<T>, b: Set<T>) => boolean> = {

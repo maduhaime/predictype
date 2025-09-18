@@ -21,14 +21,12 @@ import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.
  * objectAttributes(obj2, 'is_writable', sym); // false
  *
  * @remarks
- * Supported Operators
- * | Operator                | Description                                 |
- * |-------------------------|---------------------------------------------|
- * | ATTR_IS_WRITABLE        | Property is writable                        |
- * | ATTR_IS_ENUMERABLE      | Property is enumerable                      |
- * | ATTR_IS_CONFIGURABLE    | Property is configurable                    |
- * | ATTR_IS_ACCESSOR        | Property is an accessor (getter/setter)     |
- * | ATTR_IS_DATA_PROPERTY   | Property is a data property                 |
+ * Supported Operators:
+ * - **ATTR_IS_WRITABLE**: Property is writable
+ * - **ATTR_IS_ENUMERABLE**: Property is enumerable
+ * - **ATTR_IS_CONFIGURABLE**: Property is configurable
+ * - **ATTR_IS_ACCESSOR**: Property is an accessor (getter/setter)
+ * - **ATTR_IS_DATA_PROPERTY**: Property is a data property
  */
 export function objectAttributes(source: object, oper: ObjectAttributesOper, key: string | symbol): boolean {
   const desc = Object.getOwnPropertyDescriptor(source, key);

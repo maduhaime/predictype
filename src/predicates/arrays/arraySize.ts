@@ -19,14 +19,12 @@ import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays.js';
  * arraySize(arr, 'length_greater_than', len2); // true
  *
  * @remarks
- * Supported Operators
- * | Operator                        | Description           |
- * |-------------------------------|----------------------|
- * | SIZE_EQUALS                  | arr.length === target |
- * | SIZE_GREATER_THAN            | arr.length > target  |
- * | SIZE_GREATER_THAN_OR_EQUALS  | arr.length >= target |
- * | SIZE_LESS_THAN               | arr.length < target  |
- * | SIZE_LESS_THAN_OR_EQUALS     | arr.length <= target |
+ * Supported Operators:
+ * - **SIZE_EQUALS**: arr.length === target
+ * - **SIZE_GREATER_THAN**: arr.length > target
+ * - **SIZE_GREATER_THAN_OR_EQUALS**: arr.length >= target
+ * - **SIZE_LESS_THAN**: arr.length < target
+ * - **SIZE_LESS_THAN_OR_EQUALS**: arr.length <= target
  */
 export function arraySize(source: any[], oper: ArraySizeOper, target: number): boolean {
   const operators: Record<ArraySizeEnum, (arr: any[], val: number) => boolean> = {

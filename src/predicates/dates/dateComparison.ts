@@ -27,18 +27,16 @@ function toUTCDate(date: Date): Date {
  * dateComparison(d1, 'equals', d1); // true
  *
  * @remarks
- * Supported Operators
- * | Operator            | Description                        |
- * |---------------------|------------------------------------|
- * | AFTER               | Is the first date after the second? |
- * | AFTER_OR_EQUAL      | After or equal to the second date?  |
- * | BEFORE              | Is the first date before the second?|
- * | BEFORE_OR_EQUAL     | Before or equal to the second date? |
- * | EQUALS              | Are the dates equal?                |
- * | NOT_EQUALS          | Are the dates not equal?            |
- * | SAME_DAY            | Are the dates on the same day?      |
- * | SAME_MONTH          | Are the dates in the same month?    |
- * | SAME_YEAR           | Are the dates in the same year?     |
+ * Supported Operators:
+ * - **AFTER**: Is the first date after the second?
+ * - **AFTER_OR_EQUAL**: After or equal to the second date?
+ * - **BEFORE**: Is the first date before the second?
+ * - **BEFORE_OR_EQUAL**: Before or equal to the second date?
+ * - **EQUALS**: Are the dates equal?
+ * - **NOT_EQUALS**: Are the dates not equal?
+ * - **SAME_DAY**: Are the dates on the same day?
+ * - **SAME_MONTH**: Are the dates in the same month?
+ * - **SAME_YEAR**: Are the dates in the same year?
  */
 export function dateComparison(source: Date, oper: DateComparisonOper, target: Date): boolean {
   const d1 = toUTCDate(source);

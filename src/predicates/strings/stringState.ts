@@ -17,13 +17,11 @@ import { StringStateEnum, StringStateOper } from '../../enums/strings.js';
  * stringState(str2, 'is_blank'); // true
  *
  * @remarks
- * Supported Operators
- * | Operator        | Description                        |
- * |-----------------|------------------------------------|
- * | IS_EMPTY        | String is empty                     |
- * | IS_NOT_EMPTY    | String is not empty                 |
- * | IS_BLANK        | String is blank (only whitespace)   |
- * | IS_NOT_BLANK    | String is not blank                 |
+ * Supported Operators:
+ * - **IS_EMPTY**: String is empty
+ * - **IS_NOT_EMPTY**: String is not empty
+ * - **IS_BLANK**: String is blank (only whitespace)
+ * - **IS_NOT_BLANK**: String is not blank
  */
 export function stringState(source: string, oper: StringStateOper): boolean {
   const operators: Record<StringStateEnum, (a: string) => boolean> = {
