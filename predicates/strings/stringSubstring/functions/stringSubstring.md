@@ -1,0 +1,60 @@
+[**predictype v0.7.4**](../../../../README.md)
+
+***
+
+[predictype](../../../../modules.md) / [predicates/strings/stringSubstring](../README.md) / stringSubstring
+
+# Function: stringSubstring()
+
+> **stringSubstring**(`source`, `oper`, `target`): `boolean`
+
+Defined in: [predicates/strings/stringSubstring.ts:26](https://github.com/maduhaime/predictype/blob/a31e64bd1ddebd7ac4985de7a7c77139c8ac958d/src/predicates/strings/stringSubstring.ts#L26)
+
+Checks if a string contains, excludes, starts with, or ends with a substring using the specified operation.
+
+## Parameters
+
+### source
+
+`string`
+
+The string to check.
+
+### oper
+
+[`StringSubstringOper`](../../../../strings/enums/type-aliases/StringSubstringOper.md)
+
+The substring operation to perform (e.g. 'includes', 'starts_with').
+
+### target
+
+`string`
+
+The substring to check for.
+
+## Returns
+
+`boolean`
+
+True if the substring check is valid according to the operator, otherwise false.
+
+## Throws
+
+If the operation is not recognized.
+
+## Example
+
+```ts
+const str = 'foobar';
+
+stringSubstring(str, 'includes', sub); // true
+stringSubstring(str, 'starts_with', sub); // true
+```
+
+## Remarks
+
+Supported Operators:
+- **INCLUDES**: String includes the substring
+- **EXCLUDES**: String does not include the substring
+- **STARTS_WITH**: String starts with the substring
+- **ENDS_WITH**: String ends with the substring
