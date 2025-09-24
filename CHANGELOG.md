@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.7.5] - 2025-09-23
+
+### Fixed
+
+- **Dependency**: PredicType incorrectly listed itself as a dependency.
+
+# [0.7.4] - 2025-09-23
+
+### Fixed
+
+- **Documentation rendering**: Replaced all markdown tables in JSDoc `@remarks` blocks with bullet lists for all predicate files (arrays, bigints, booleans, dates, functions, maps, numbers, objects, promises, sets, strings, symbols). This ensures correct rendering in generated documentation and improves compatibility with TypeDoc and other tools.
+
 # [0.7.3] - 2025-09-17
 
 ### Fixed

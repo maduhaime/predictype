@@ -1,6 +1,6 @@
 {
   "name": "predictype",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "PredicType is a library of pre-built and tested predicates for TypeScript, covering various data types and operations.",
   "homepage": "https://maduhaime.github.io/predictype/",
   "keywords": [
@@ -56,8 +56,5 @@
     "typedoc-plugin-markdown": "^4.8.1",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
-  },
-  "dependencies": {
-    "predictype": "^0.7.1"
   }
 }
