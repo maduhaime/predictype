@@ -1,0 +1,11 @@
+[**predictype v0.7.5**](../../../README.md)
+
+***
+
+[predictype](../../../modules.md) / [dates/enums](../README.md) / DateStateOper
+
+# Type Alias: DateStateOper
+
+> **DateStateOper** = [`DateStateEnum`](../enumerations/DateStateEnum.md) \| `` `${DateStateEnum}` ``
+
+Defined in: [enums/dates.ts:48](https://github.com/maduhaime/predictype/blob/ef4bbbc6b35bbd00ea6de27b270da1255f7cee6b/src/enums/dates.ts#L48)
