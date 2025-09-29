@@ -41,7 +41,7 @@
     "build": "rimraf dist && npm run build:cjs && npm run build:esm",
     "code:check": "npm run lint && npm run format:check",
     "code:pack": "npm run build && npm pack",
-    "code:prepublish": "npm run code:check && npm run test && npm build",
+    "code:prepublish": "npm run code:check && npm run test && npm run build",
     "code:publish": "npm publish --access public",
     "docs": "rimraf docs && typedoc",
     "docs:deploy": "npm run docs && gh-pages -d docs -f",
