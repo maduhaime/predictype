@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.7.6] - 2025-09-29
+
+### Added
+
+- **Code quality tools**: Added ESLint and Prettier to the project for consistent code formatting and linting.
+  - ESLint configuration with TypeScript support and recommended rules
+  - Prettier configuration for automated code formatting
+  - Integration scripts for linting and formatting in package.json
+  - Pre-commit hooks setup to ensure code quality standards
+
+### Changed
+
+- **Code formatting**: Applied Prettier formatting across the entire codebase for consistent style and readability.
+
+### Internal
+
+- **Development workflow**: Enhanced development experience with automated code quality checks and formatting.
+
 # [0.7.5] - 2025-09-23
 
 ### Fixed

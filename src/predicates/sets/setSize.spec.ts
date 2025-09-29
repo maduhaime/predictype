@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { setSize } from './setSize.js';
 
 describe('setSize', () => {

@@ -37,7 +37,7 @@ export function arrayComparison<T>(source: T[], oper: ArrayComparisonOper, targe
     [ArrayComparisonEnum.NOT_EQUALS]: (a, b) => a.length !== b.length || a.some((v, i) => v !== b[i]),
     [ArrayComparisonEnum.SAME_MEMBERS]: (a, b) => {
       if (a.length !== b.length) return false;
-      const count = (arr: T[]) =>
+      const count = (arr: T[]): Map<T, number> =>
         arr.reduce((acc, val) => {
           acc.set(val, (acc.get(val) ?? 0) + 1);
           return acc;

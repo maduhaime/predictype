@@ -1,7 +1,8 @@
 import { ArrayRelationEnum, ArrayRelationOper } from '../../enums/arrays.js';
 
 /**
- * Checks if the source array is a subset, strict subset, superset, or strict superset of the target array, using the specified operation.
+ * Checks if the source array is a subset, strict subset, superset, or strict superset of the target array, using the
+ * specified operation.
  *
  * @template T Type of the array elements.
  * @param source The source array.

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { dateComparison } from './dateComparison.js';
 
 describe('dateComparison', () => {
@@ -49,7 +50,7 @@ describe('dateComparison', () => {
   it('should throw for unknown operator', () => {
     // @ts-expect-error
     expect(() => dateComparison(d1, 'invalid_operator', d2)).toThrow(
-      'Unknown DateComparison operation: invalid_operator'
+      'Unknown DateComparison operation: invalid_operator',
     );
   });
 });

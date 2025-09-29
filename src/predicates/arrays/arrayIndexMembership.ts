@@ -1,7 +1,8 @@
 import { ArrayIndexMembershipEnum, ArrayIndexMembershipOper } from '../../enums/arrays.js';
 
 /**
- * Checks if the value at a specific index in an array is (or is not) included in a target array, using the specified operation.
+ * Checks if the value at a specific index in an array is (or is not) included in a target array, using the specified
+ * operation.
  *
  * @template T Type of the array elements.
  * @param source The source array.
@@ -31,7 +32,7 @@ export function arrayIndexMembership<T>(
   source: T[],
   oper: ArrayIndexMembershipOper,
   index: number,
-  target: T[]
+  target: T[],
 ): boolean {
   const operators: Record<ArrayIndexMembershipEnum, (arr: T[], idx: number, val: T[]) => boolean> = {
     [ArrayIndexMembershipEnum.AT_INDEX_IN]: (arr, i, val) => Array.isArray(val) && val.includes(arr[i]),

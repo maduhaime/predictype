@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { dateRange } from './dateRange.js';
 
 describe('dateRange', () => {
@@ -43,7 +44,7 @@ describe('dateRange', () => {
     const end = new Date('2025-01-31');
     // @ts-expect-error
     expect(() => dateRange(date, 'invalid_operator', start, end)).toThrow(
-      'Unknown DateRange operation: invalid_operator'
+      'Unknown DateRange operation: invalid_operator',
     );
   });
 });

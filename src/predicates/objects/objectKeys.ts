@@ -26,6 +26,7 @@ export function objectKeysCompare(source: object, oper: ObjectKeysOper, keys: st
   const operators: Record<ObjectKeysEnum, (k: (string | symbol)[]) => boolean> = {
     [ObjectKeysEnum.CONTAINS_ALL_KEYS]: (k) => k.every((key) => allKeys.includes(key)),
     [ObjectKeysEnum.CONTAINS_ANY_KEY]: (k) => k.some((key) => allKeys.includes(key)),
+    // eslint-disable-next-line arrow-body-style
     [ObjectKeysEnum.CONTAINS_ONLY_KEYS]: (k) => {
       return allKeys.every((key) => k.includes(key)) && k.every((key) => allKeys.includes(key));
     },

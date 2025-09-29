@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { setComparison } from './setComparison.js';
 
 describe('setComparison', () => {

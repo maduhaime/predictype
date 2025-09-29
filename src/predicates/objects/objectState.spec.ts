@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectState } from './objectState.js';
 
 describe('objectState', () => {
@@ -15,7 +16,7 @@ describe('objectState', () => {
   });
 
   it('should return true for has_function_prop when object has a function property', () => {
-    const obj = { fn: () => 1 };
+    const obj = { fn: (): number => 1 };
     expect(objectState(obj, 'has_function_prop')).toBe(true);
     expect(objectState({ a: 1 }, 'has_function_prop')).toBe(false);
   });

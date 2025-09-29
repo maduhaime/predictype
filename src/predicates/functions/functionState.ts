@@ -1,7 +1,8 @@
 import { FunctionStateEnum, FunctionStateOper } from '../../enums/functions.js';
 
 /**
- * Checks the state of a function (e.g. async, generator, constructor, arrow, anonymous, has name) using the specified operation.
+ * Checks the state of a function (e.g. async, generator, constructor, arrow, anonymous, has name) using the specified
+ * operation.
  *
  * @param source The function to check.
  * @param oper The state operation to perform (e.g. 'is_async', 'is_arrow').

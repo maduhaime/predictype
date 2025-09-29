@@ -8,7 +8,7 @@ export type PromiseWithState<T> = {
 export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
   const stateObj = { value: PromiseStateEnum.IS_PENDING as PromiseStateOper };
 
-  const wrapped = (async () => {
+  const wrapped = (async (): Promise<T> => {
     try {
       const result = await p;
       stateObj.value = PromiseStateEnum.IS_FULFILLED;
@@ -32,7 +32,8 @@ export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
 /**
  * Checks the state of a wrapped Promise using the specified operation.
  *
- * Note: This predicate requires a wrapper or custom Promise implementation that exposes state. Standard JS Promises do not expose their state synchronously.
+ * Note: This predicate requires a wrapper or custom Promise implementation that exposes state.
+ * Standard JS Promises do not expose their state synchronously.
  *
  * @param wrapper The wrapped Promise with state.
  * @param oper The state operation to perform (e.g. 'is_pending', 'is_fulfilled').

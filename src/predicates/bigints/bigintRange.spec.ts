@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { bigintRange } from './bigintRange.js';
 
 describe('bigintRange', () => {
@@ -40,7 +41,7 @@ describe('bigintRange', () => {
     const max = BigInt(10);
     // @ts-expect-error
     expect(() => bigintRange(value, 'invalid_operator', min, max)).toThrow(
-      'Unknown BigIntRange operation: invalid_operator'
+      'Unknown BigIntRange operation: invalid_operator',
     );
   });
 });

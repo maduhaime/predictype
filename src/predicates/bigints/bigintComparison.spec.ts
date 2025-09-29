@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { bigintComparison } from './bigintComparison.js';
 
 describe('bigintComparison', () => {
@@ -47,7 +48,7 @@ describe('bigintComparison', () => {
     const b = BigInt(10);
     // @ts-expect-error: purposely passing an invalid operator
     expect(() => bigintComparison(a, 'invalid_operator', b)).toThrow(
-      'Unknown BigIntComparison operation: invalid_operator'
+      'Unknown BigIntComparison operation: invalid_operator',
     );
   });
 });

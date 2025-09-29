@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectInstanceRelation } from './objectInstanceRelation.js';
 
 describe('objectInstanceRelation', () => {
@@ -40,7 +41,7 @@ describe('objectInstanceRelation', () => {
     const foo = new Foo();
     // @ts-expect-error
     expect(() => objectInstanceRelation(foo, 'invalid_operator', Foo)).toThrow(
-      'Unknown ObjectInstanceRelation operation: invalid_operator'
+      'Unknown ObjectInstanceRelation operation: invalid_operator',
     );
   });
 });

@@ -43,11 +43,11 @@ export function dateCalendar(source: Date, oper: DateCalendarOper, today: Date =
   const d = toUTCDate(source);
   const now = toUTCDate(today);
 
-  const isWeekend = (date: Date) => {
+  const isWeekend = (date: Date): boolean => {
     const day = date.getUTCDay();
     return day === 0 || day === 6;
   };
-  const isWeekday = (date: Date) => !isWeekend(date);
+  const isWeekday = (date: Date): boolean => !isWeekend(date);
 
   const operators: Record<DateCalendarEnum, (d: Date) => boolean> = {
     [DateCalendarEnum.IS_TODAY]: (d) => d.getTime() === now.getTime(),

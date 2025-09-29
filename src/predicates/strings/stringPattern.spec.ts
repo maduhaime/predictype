@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { stringPattern } from './stringPattern.js';
 
 describe('stringPattern', () => {

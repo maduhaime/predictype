@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectKeysCompare } from './objectKeys.js';
 
 describe('objectKeys', () => {
@@ -46,7 +47,7 @@ describe('objectKeys', () => {
     const obj = { foo: 1 };
     // @ts-expect-error
     expect(() => objectKeysCompare(obj, 'invalid_operator', ['foo'])).toThrow(
-      'Unknown ObjectKeys operation: invalid_operator'
+      'Unknown ObjectKeys operation: invalid_operator',
     );
   });
 });

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { arrayIndexMembership } from './arrayIndexMembership.js';
 
 type DummyType = number;
@@ -31,7 +32,7 @@ describe('arrayIndexMembership', () => {
     const values = [10, 20];
     // @ts-expect-error
     expect(() => arrayIndexMembership(arr, 'invalid_operator', idx, values)).toThrow(
-      'Unknown ArrayIndexMembership operation: invalid_operator'
+      'Unknown ArrayIndexMembership operation: invalid_operator',
     );
   });
 });

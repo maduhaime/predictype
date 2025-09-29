@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { promiseType } from './promiseType.js';
 
 describe('promiseType', () => {
@@ -13,12 +14,12 @@ describe('promiseType', () => {
   });
 
   it('should return true for is_async_function', () => {
-    async function foo() {}
+    async function foo(): Promise<void> {}
     expect(promiseType(foo, 'is_async_function')).toBe(true);
   });
 
   it('should return false for is_async_function with non-async', () => {
-    function bar() {}
+    function bar(): void {}
     expect(promiseType(bar, 'is_async_function')).toBe(false);
   });
 

@@ -18,6 +18,7 @@ import { ObjectInstanceTypeEnum, ObjectInstanceTypeOper } from '../../enums/obje
  */
 export function objectInstanceType(source: any, oper: ObjectInstanceTypeOper): boolean {
   const operators: Record<ObjectInstanceTypeEnum, (v: any) => boolean> = {
+    // eslint-disable-next-line arrow-body-style
     [ObjectInstanceTypeEnum.INSTANCE_OF_CLASS]: (v) => {
       return typeof v === 'function' && /^class\s/.test(Function.prototype.toString.call(v));
     },

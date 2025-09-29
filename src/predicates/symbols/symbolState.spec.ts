@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { symbolState } from './symbolState.js';
 
 describe('symbolState', () => {

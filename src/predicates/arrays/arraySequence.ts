@@ -34,12 +34,11 @@ export function arraySequence<T>(source: T[], oper: ArraySequenceOper, target: T
       }
       return false;
     },
+    // eslint-disable-next-line arrow-body-style
     [ArraySequenceEnum.ENDS_WITH]: (a, b) => {
       return a.length >= b.length && a.slice(a.length - b.length).every((v, i) => v === b[i]);
     },
-    [ArraySequenceEnum.STARTS_WITH]: (a, b) => {
-      return a.length >= b.length && a.slice(0, b.length).every((v, i) => v === b[i]);
-    },
+    [ArraySequenceEnum.STARTS_WITH]: (a, b) => a.length >= b.length && a.slice(0, b.length).every((v, i) => v === b[i]),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as ArraySequenceOper) : oper;

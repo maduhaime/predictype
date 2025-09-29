@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectKey } from './objectKey.js';
 
 describe('objectKey', () => {

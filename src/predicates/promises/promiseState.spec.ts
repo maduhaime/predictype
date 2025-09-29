@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { promiseState, wrapPromise } from './promiseState.js';
 
 describe('promiseState', () => {

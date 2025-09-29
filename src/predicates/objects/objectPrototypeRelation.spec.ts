@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectPrototypeRelation } from './objectPrototypeRelation.js';
 
 describe('objectPrototypeRelation', () => {
@@ -31,7 +32,7 @@ describe('objectPrototypeRelation', () => {
     const obj = {};
     // @ts-expect-error
     expect(() => objectPrototypeRelation(obj, 'invalid_operator', {})).toThrow(
-      'Unknown ObjectPrototypeRelation operation: invalid_operator'
+      'Unknown ObjectPrototypeRelation operation: invalid_operator',
     );
   });
 });

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { arraySequence } from './arraySequence.js';
 
 type DummyType = number;
@@ -45,7 +46,7 @@ describe('arraySequence', () => {
     const seq = [2, 3];
     // @ts-expect-error
     expect(() => arraySequence(arr, 'invalid_operator', seq)).toThrow(
-      'Unknown ArraySequence operation: invalid_operator'
+      'Unknown ArraySequence operation: invalid_operator',
     );
   });
 });

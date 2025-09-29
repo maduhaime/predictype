@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { bigintMembership } from './bigintMembership.js';
 
 describe('bigintMembership', () => {
@@ -19,7 +20,7 @@ describe('bigintMembership', () => {
     const arr = [BigInt(1), BigInt(2), BigInt(3)];
     // @ts-expect-error
     expect(() => bigintMembership(value, 'invalid_operator', arr)).toThrow(
-      'Unknown BigIntMembership operation: invalid_operator'
+      'Unknown BigIntMembership operation: invalid_operator',
     );
   });
 });

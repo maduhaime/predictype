@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { stringComparison } from './stringComparison.js';
 
 describe('stringComparison', () => {
@@ -26,7 +27,7 @@ describe('stringComparison', () => {
     const a = 'foo';
     // @ts-expect-error
     expect(() => stringComparison(a, 'invalid_operator', 'bar')).toThrow(
-      'Unknown StringComparison operation: invalid_operator'
+      'Unknown StringComparison operation: invalid_operator',
     );
   });
 });

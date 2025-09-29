@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { numberRange } from './numberRange.js';
 
 describe('numberRange', () => {
@@ -30,19 +31,21 @@ describe('numberRange', () => {
     expect(() => numberRange(n, 'invalid_operator', 1, 10)).toThrow('Unknown NumberRange operation: invalid_operator');
   });
 
-  describe('special values (NaN, Infinity, -Infinity)', () => {
+  describe('numberRange: special values (NaN, Infinity, -Infinity)', () => {
     it('should return false for NaN as source', () => {
       expect(numberRange(NaN, 'between', 1, 10)).toBe(false);
       expect(numberRange(NaN, 'not_between', 1, 10)).toBe(true);
       expect(numberRange(NaN, 'strict_between', 1, 10)).toBe(false);
       expect(numberRange(NaN, 'strict_not_between', 1, 10)).toBe(true);
     });
+
     it('should return false for NaN as min or max', () => {
       expect(numberRange(5, 'between', NaN, 10)).toBe(false);
       expect(numberRange(5, 'between', 1, NaN)).toBe(false);
       expect(numberRange(5, 'strict_between', NaN, 10)).toBe(false);
       expect(numberRange(5, 'strict_between', 1, NaN)).toBe(false);
     });
+
     it('should handle Infinity and -Infinity as expected', () => {
       expect(numberRange(Infinity, 'between', 1, 10)).toBe(false);
       expect(numberRange(-Infinity, 'between', 1, 10)).toBe(false);

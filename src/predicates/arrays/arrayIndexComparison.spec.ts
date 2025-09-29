@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { arrayIndexComparison } from './arrayIndexComparison.js';
 
 type DummyType = number;
@@ -45,7 +46,7 @@ describe('arrayIndexComparison', () => {
     const arr = [10, 20, 30];
     // @ts-expect-error
     expect(() => arrayIndexComparison(arr, 'invalid_operator', 0, 10)).toThrow(
-      'Unknown ArrayIndex operation: invalid_operator'
+      'Unknown ArrayIndex operation: invalid_operator',
     );
   });
 });

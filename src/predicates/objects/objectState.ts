@@ -19,9 +19,8 @@ export function objectState(source: object, oper: ObjectStateOper): boolean {
     [ObjectStateEnum.HAS_ARRAY_PROP]: (o) => Object.values(o).some((v) => Array.isArray(v)),
     [ObjectStateEnum.HAS_CAMELCASE_KEYS]: (o) => Object.keys(o).some((k) => /^[a-z]+([A-Z][a-z0-9]*)+$/.test(k)),
     [ObjectStateEnum.HAS_FUNCTION_PROP]: (o) => Object.values(o).some((v) => typeof v === 'function'),
-    [ObjectStateEnum.HAS_NESTED_OBJECT]: (o) => {
-      return Object.values(o).some((v) => typeof v === 'object' && v !== null && !Array.isArray(v));
-    },
+    [ObjectStateEnum.HAS_NESTED_OBJECT]: (o) =>
+      Object.values(o).some((v) => typeof v === 'object' && v !== null && !Array.isArray(v)),
     [ObjectStateEnum.HAS_NO_KEYS]: (o) => Object.keys(o).length === 0,
     [ObjectStateEnum.HAS_NO_UNDEFINED]: (o) => !Object.values(o).includes(undefined),
     [ObjectStateEnum.HAS_NULL_PROTO]: (o) => Object.getPrototypeOf(o) === null,
@@ -61,9 +60,8 @@ export function objectState(source: object, oper: ObjectStateOper): boolean {
         return false;
       }
     },
-    [ObjectStateEnum.IS_PLAIN]: (o) => {
-      return Object.getPrototypeOf(o) === Object.prototype || Object.getPrototypeOf(o) === null;
-    },
+    [ObjectStateEnum.IS_PLAIN]: (o) =>
+      Object.getPrototypeOf(o) === Object.prototype || Object.getPrototypeOf(o) === null,
     [ObjectStateEnum.IS_SEALED]: (o) => Object.isSealed(o),
     [ObjectStateEnum.IS_TYPED_OBJECT]: (o) => {
       const proto = Object.getPrototypeOf(o);

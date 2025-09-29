@@ -1,7 +1,8 @@
 import { ObjectAttributesEnum, ObjectAttributesOper } from '../../enums/objects.js';
 
 /**
- * Checks object property attributes (writable, enumerable, configurable, accessor, data property) using the specified operation.
+ * Checks object property attributes (writable, enumerable, configurable, accessor, data property) using the specified
+ * operation.
  *
  * @param source The object to check.
  * @param oper The attribute operation to perform (e.g. 'is_writable', 'is_accessor').

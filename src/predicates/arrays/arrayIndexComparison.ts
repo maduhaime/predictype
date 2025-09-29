@@ -35,7 +35,7 @@ export function arrayIndexComparison<T>(
   source: T[],
   oper: ArrayIndexComparisonOper,
   index: number,
-  target: T
+  target: T,
 ): boolean {
   const operators: Record<ArrayIndexComparisonEnum, (arr: T[], idx: number, val: T) => boolean> = {
     [ArrayIndexComparisonEnum.AT_INDEX_EQUALS]: (arr, i, val) => arr[i] === val,

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { numberState } from './numberState.js';
 
 describe('numberState', () => {
@@ -38,7 +39,7 @@ describe('numberState', () => {
     expect(() => numberState(n, 'invalid_operator')).toThrow('Unknown NumberState operation: invalid_operator');
   });
 
-  describe('special values (NaN, Infinity, -Infinity)', () => {
+  describe('numberState: special values (NaN, Infinity, -Infinity)', () => {
     it('should handle NaN correctly', () => {
       expect(numberState(NaN, 'is_integer')).toBe(false);
       expect(numberState(NaN, 'is_float')).toBe(false);
@@ -47,6 +48,7 @@ describe('numberState', () => {
       expect(numberState(NaN, 'is_negative')).toBe(false);
       expect(numberState(NaN, 'is_zero')).toBe(false);
     });
+
     it('should handle Infinity and -Infinity correctly', () => {
       expect(numberState(Infinity, 'is_integer')).toBe(false);
       expect(numberState(-Infinity, 'is_integer')).toBe(false);

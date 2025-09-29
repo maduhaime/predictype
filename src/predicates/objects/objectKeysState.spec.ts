@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectKeysState } from './objectKeysState.js';
 
 describe('objectKeysState', () => {
@@ -10,7 +11,7 @@ describe('objectKeysState', () => {
   });
 
   it('should return true for HAS_NUMERIC_KEYS if object has numeric string keys', () => {
-    const obj = { '123': 1, foo: 2 };
+    const obj = { '123': 1, 'foo': 2 };
     expect(objectKeysState(obj, 'has_numeric_keys')).toBe(true);
     expect(objectKeysState({ foo: 1 }, 'has_numeric_keys')).toBe(false);
   });
@@ -34,7 +35,7 @@ describe('objectKeysState', () => {
     const obj = { foo: 1 };
     // @ts-expect-error
     expect(() => objectKeysState(obj, 'invalid_operator')).toThrow(
-      'Unknown ObjectKeysState operation: invalid_operator'
+      'Unknown ObjectKeysState operation: invalid_operator',
     );
   });
 });

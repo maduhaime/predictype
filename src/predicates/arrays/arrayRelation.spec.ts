@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { arrayRelation } from './arrayRelation.js';
 
 describe('arrayRelation', () => {
@@ -31,7 +32,7 @@ describe('arrayRelation', () => {
   it('should throw for unknown operator', () => {
     // @ts-expect-error
     expect(() => arrayRelation([1, 2], 'invalid_operator', [1, 2, 3])).toThrow(
-      'Unknown ArrayRelation operation: invalid_operator'
+      'Unknown ArrayRelation operation: invalid_operator',
     );
   });
 });

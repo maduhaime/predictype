@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { numberComparison } from './numberComparison.js';
 
 describe('numberComparison', () => {
@@ -38,11 +39,11 @@ describe('numberComparison', () => {
     const a = 1;
     // @ts-expect-error
     expect(() => numberComparison(a, 'invalid_operator', 2)).toThrow(
-      'Unknown NumberComparison operation: invalid_operator'
+      'Unknown NumberComparison operation: invalid_operator',
     );
   });
 
-  describe('special values (NaN, Infinity, -Infinity)', () => {
+  describe('numberComparison: special values (NaN, Infinity, -Infinity)', () => {
     it('should return false for any comparison with NaN', () => {
       expect(numberComparison(NaN, 'equals', 5)).toBe(false);
       expect(numberComparison(5, 'equals', NaN)).toBe(false);
@@ -57,6 +58,7 @@ describe('numberComparison', () => {
       expect(numberComparison(NaN, 'less_or_equal', 5)).toBe(false);
       expect(numberComparison(5, 'less_or_equal', NaN)).toBe(false);
     });
+
     it('should handle Infinity and -Infinity as expected', () => {
       expect(numberComparison(Infinity, 'greater_than', 1)).toBe(true);
       expect(numberComparison(-Infinity, 'less_than', 1)).toBe(true);

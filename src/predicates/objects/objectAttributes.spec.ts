@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectAttributes } from './objectAttributes.js';
 
 describe('objectAttributes', () => {
@@ -44,7 +45,7 @@ describe('objectAttributes', () => {
     const obj = { foo: 1 };
     // @ts-expect-error
     expect(() => objectAttributes(obj, 'invalid_operator', 'foo')).toThrow(
-      'Unknown ObjectAttributes operation: invalid_operator'
+      'Unknown ObjectAttributes operation: invalid_operator',
     );
   });
 });

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { objectKeyMembership } from './objectKeyMembership.js';
 
 describe('objectKeyMembership', () => {
@@ -25,7 +26,7 @@ describe('objectKeyMembership', () => {
     const obj = { foo: 1 };
     // @ts-expect-error
     expect(() => objectKeyMembership(obj, 'invalid_operator', ['foo'])).toThrow(
-      'Unknown ObjectKeyMembership operation: invalid_operator'
+      'Unknown ObjectKeyMembership operation: invalid_operator',
     );
   });
 });

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { stringSubstring } from './stringSubstring.js';
 
 describe('stringSubstring', () => {
@@ -26,7 +27,7 @@ describe('stringSubstring', () => {
     const str = 'foobar';
     // @ts-expect-error
     expect(() => stringSubstring(str, 'invalid_operator', 'foo')).toThrow(
-      'Unknown StringSubstring operation: invalid_operator'
+      'Unknown StringSubstring operation: invalid_operator',
     );
   });
 });

@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { arrayMembership } from './arrayMembership.js';
 
 type DummyType = number;
@@ -57,7 +58,7 @@ describe('arrayMembership', () => {
     const value = 1;
     // @ts-expect-error
     expect(() => arrayMembership(arr, 'invalid_operator', value)).toThrow(
-      'Unknown ArrayMembership operation: invalid_operator'
+      'Unknown ArrayMembership operation: invalid_operator',
     );
   });
 });
