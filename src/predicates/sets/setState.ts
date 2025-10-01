@@ -33,17 +33,15 @@ export function setState<T>(source: Set<T>, oper: SetStateOper): boolean {
     [SetStateEnum.HAS_PRIMITIVES]: (a) => {
       for (const value of a) {
         const type = typeof value;
-        if (type === 'string' || type === 'number' || type === 'boolean' || 
-            type === 'symbol' || type === 'bigint' || value === null || value === undefined) {
-          return true;
-        }
+        if (['string', 'number', 'boolean', 'symbol', 'bigint'].includes(type)) return true;
+        if (value === null || value === undefined) return true;
       }
       return false;
     },
     [SetStateEnum.HAS_OBJECTS]: (a) => {
       for (const value of a) {
         const type = typeof value;
-        if (type === 'object' && value !== null || type === 'function') {
+        if ((type === 'object' && value !== null) || type === 'function') {
           return true;
         }
       }
