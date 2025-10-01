@@ -248,9 +248,24 @@ describe('PredicType.promise', () => {
 });
 
 describe('PredicType.set', () => {
+  it('should return true for set arrayMembership contains_all', () => {
+    expect(PredicType.set.arrayMembership(new Set([1, 2, 3]), 'contains_all', [1, 2])).toBe(true);
+    expect(P.set.arrayMembership(new Set([1, 2, 3]), 'contains_all', [1, 2])).toBe(true);
+  });
+
   it('should return true for set comparison equals', () => {
     expect(PredicType.set.comparison(new Set([1]), 'equals', new Set([1]))).toBe(true);
     expect(P.set.comparison(new Set([1]), 'equals', new Set([1]))).toBe(true);
+  });
+
+  it('should return true for set intersection intersects', () => {
+    expect(PredicType.set.intersection(new Set([1, 2]), 'intersects', new Set([2, 3]))).toBe(true);
+    expect(P.set.intersection(new Set([1, 2]), 'intersects', new Set([2, 3]))).toBe(true);
+  });
+
+  it('should return true for set membership includes', () => {
+    expect(PredicType.set.membership(new Set([1, 2]), 'includes', 1)).toBe(true);
+    expect(P.set.membership(new Set([1, 2]), 'includes', 1)).toBe(true);
   });
 
   it('should return true for set relation subset_of', () => {

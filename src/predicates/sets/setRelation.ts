@@ -26,6 +26,8 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  * - **INTERSECTS**: Sets have at least one element in common
  * - **SUBSET_OF**: First set is a subset of second
  * - **SUPERSET_OF**: First set is a superset of second
+ * - **STRICT_SUBSET_OF**: First set is a strict subset of second
+ * - **STRICT_SUPERSET_OF**: First set is a strict superset of second
  */
 export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean {
   const operators: Record<SetRelationEnum, (a: Set<T>, b: Set<T>) => boolean> = {
@@ -33,6 +35,8 @@ export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Se
     [SetRelationEnum.INTERSECTS]: (a, b) => [...a].some((v) => b.has(v)),
     [SetRelationEnum.SUBSET_OF]: (a, b) => [...a].every((v) => b.has(v)),
     [SetRelationEnum.SUPERSET_OF]: (a, b) => [...b].every((v) => a.has(v)),
+    [SetRelationEnum.STRICT_SUBSET_OF]: (a, b) => a.size < b.size && [...a].every((v) => b.has(v)),
+    [SetRelationEnum.STRICT_SUPERSET_OF]: (a, b) => a.size > b.size && [...b].every((v) => a.has(v)),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as SetRelationEnum) : oper;

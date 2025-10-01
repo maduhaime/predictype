@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **199 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **237 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -84,7 +84,7 @@ The alias mapping is as follows:
 | PredicType.number   | P.num  | comparison, range, state                                                                                |
 | PredicType.object   | P.obj  | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
 | PredicType.promise  | P.prom | state, type                                                                                             |
-| PredicType.set      | P.set  | comparison, relation, size, state                                                                       |
+| PredicType.set      | P.set  | arrayMembership, comparison, membership, relation, size, state                                          |
 | PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring,                                                |
 | PredicType.symbol   | P.sym  | comparison, state                                                                                       |
 
@@ -162,21 +162,21 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | range      | NumberRangeEnum      | BETWEEN, NOT_BETWEEN, STRICT_BETWEEN, STRICT_NOT_BETWEEN                     | 4     |
 | state      | NumberStateEnum      | IS_FINITE, IS_FLOAT, IS_INTEGER, IS_NEGATIVE, IS_POSITIVE, IS_ZERO           | 6     |
 
-#### Object (46)
+#### Object (56)
 
-| Category       | Enum                        | Operators                                                                                                                                                                                              | Count |
-| -------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| attributes     | ObjectAttributesEnum        | ATTR_IS_ACCESSOR, ATTR_IS_CONFIGURABLE, ATTR_IS_DATA_PROPERTY, ATTR_IS_ENUMERABLE, ATTR_IS_WRITABLE                                                                                                    | 5     |
-| instance       | ObjectInstanceRelationEnum  | INSTANCE_OF, PROTOTYPE_OF                                                                                                                                                                              | 2     |
-| instance       | ObjectInstanceTypeEnum      | INSTANCE_OF_CLASS, INSTANCE_OF_CONSTRUCTOR, INSTANCE_OF_FUNCTION, INSTANCE_OF_OBJECT                                                                                                                   | 4     |
-| key            | ObjectKeyEnum               | CONTAINS_KEY, LACKS_KEY                                                                                                                                                                                | 2     |
-| keyMembership  | ObjectKeyMembershipEnum     | IN, NOT_IN                                                                                                                                                                                             | 2     |
-| keys           | ObjectKeysEnum              | CONTAINS_ALL_KEYS, CONTAINS_ANY_KEY, CONTAINS_ONLY_KEYS, CONTAINS_SYMBOL_KEYS, EQUALS_KEYS, LACKS_ALL_KEYS, ONLY_KEYS, STRICT_EQUALS_KEYS                                                              | 8     |
-| keysState      | ObjectKeysStateEnum         | HAS_CAMELCASE_KEYS, HAS_HOMOGENEOUS_KEYS, HAS_NUMERIC_KEYS, HAS_SYMBOL_KEYS                                                                                                                            | 4     |
-| property       | ObjectPropertyEnum          | CONTAINS_OWN_PROPERTY, CONTAINS_PROPERTY, LACKS_OWN_PROPERTY, LACKS_PROPERTY                                                                                                                           | 4     |
-| prototype      | ObjectPrototypeRelationEnum | CONTAINS_PROTOTYPE, IS_PROTOTYPE_OF                                                                                                                                                                    | 2     |
-| prototypeState | ObjectPrototypeStateEnum    | PROTOTYPE_IS_NULL                                                                                                                                                                                      | 1     |
-| state          | ObjectStateEnum             | HAS_ARRAY_PROP, HAS_CAMELCASE_KEYS, HAS_FUNCTION_PROP, HAS_NESTED_OBJECT, HAS_NO_KEYS, HAS_NO_UNDEFINED, HAS_NULL_PROTO, HAS_NUMERIC_KEYS, HAS_SYMBOL_KEYS, HAS_SYMBOLS, INHERITS_OBJECT, IS_CLONEABLE | 12    |
+| Category       | Enum                        | Operators                                                                                                                                                                                                                                                                                                                                         | Count |
+| -------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| attributes     | ObjectAttributesEnum        | ATTR_IS_ACCESSOR, ATTR_IS_CONFIGURABLE, ATTR_IS_DATA_PROPERTY, ATTR_IS_ENUMERABLE, ATTR_IS_WRITABLE                                                                                                                                                                                                                                               | 5     |
+| instance       | ObjectInstanceRelationEnum  | INSTANCE_OF, PROTOTYPE_OF                                                                                                                                                                                                                                                                                                                         | 2     |
+| instance       | ObjectInstanceTypeEnum      | INSTANCE_OF_CLASS, INSTANCE_OF_CONSTRUCTOR, INSTANCE_OF_FUNCTION, INSTANCE_OF_OBJECT                                                                                                                                                                                                                                                              | 4     |
+| key            | ObjectKeyEnum               | CONTAINS_KEY, LACKS_KEY                                                                                                                                                                                                                                                                                                                           | 2     |
+| keyMembership  | ObjectKeyMembershipEnum     | IN, NOT_IN                                                                                                                                                                                                                                                                                                                                        | 2     |
+| keys           | ObjectKeysEnum              | CONTAINS_ALL_KEYS, CONTAINS_ANY_KEY, CONTAINS_ONLY_KEYS, CONTAINS_SYMBOL_KEYS, EQUALS_KEYS, LACKS_ALL_KEYS, ONLY_KEYS, STRICT_EQUALS_KEYS                                                                                                                                                                                                         | 8     |
+| keysState      | ObjectKeysStateEnum         | HAS_CAMELCASE_KEYS, HAS_HOMOGENEOUS_KEYS, HAS_NUMERIC_KEYS, HAS_SYMBOL_KEYS                                                                                                                                                                                                                                                                       | 4     |
+| property       | ObjectPropertyEnum          | CONTAINS_OWN_PROPERTY, CONTAINS_PROPERTY, LACKS_OWN_PROPERTY, LACKS_PROPERTY                                                                                                                                                                                                                                                                      | 4     |
+| prototype      | ObjectPrototypeRelationEnum | CONTAINS_PROTOTYPE, IS_PROTOTYPE_OF                                                                                                                                                                                                                                                                                                               | 2     |
+| prototypeState | ObjectPrototypeStateEnum    | PROTOTYPE_IS_NULL                                                                                                                                                                                                                                                                                                                                 | 1     |
+| state          | ObjectStateEnum             | HAS_ARRAY_PROP, HAS_CAMELCASE_KEYS, HAS_FUNCTION_PROP, HAS_NESTED_OBJECT, HAS_NO_KEYS, HAS_NO_UNDEFINED, HAS_NULL_PROTO, HAS_NUMERIC_KEYS, HAS_SYMBOL_KEYS, HAS_SYMBOLS, INHERITS_OBJECT, IS_CLONEABLE, IS_EMPTY, IS_EXTENSIBLE, IS_FROZEN, IS_HOMOGENEOUS, IS_ITERABLE, IS_JSON_SERIALIZABLE, IS_NOT_EMPTY, IS_PLAIN, IS_SEALED, IS_TYPED_OBJECT | 22    |
 
 #### Promise (5)
 
@@ -185,14 +185,17 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | state    | PromiseStateEnum | IS_PENDING, IS_FULFILLED, IS_REJECTED | 3     |
 | type     | PromiseTypeEnum  | IS_PROMISE, IS_ASYNC_FUNCTION         | 2     |
 
-#### Set (13)
+#### Set (25)
 
-| Category   | Enum              | Operators                                                                                             | Count |
-| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------- | ----- |
-| comparison | SetComparisonEnum | EQUALS, NOT_EQUALS                                                                                    | 2     |
-| relation   | SetRelationEnum   | DISJOINT, INTERSECTS, SUBSET_OF, SUPERSET_OF                                                          | 4     |
-| size       | SetSizeEnum       | SIZE_EQUALS, SIZE_GREATER_THAN, SIZE_GREATER_THAN_OR_EQUALS, SIZE_LESS_THAN, SIZE_LESS_THAN_OR_EQUALS | 5     |
-| state      | SetStateEnum      | IS_EMPTY, IS_NOT_EMPTY                                                                                | 2     |
+| Category        | Enum                   | Operators                                                                                             | Count |
+| --------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- | ----- |
+| arrayMembership | SetArrayMembershipEnum | CONTAINS_ALL, CONTAINS_ANY, EXCLUDES_ALL                                                              | 3     |
+| comparison      | SetComparisonEnum      | EQUALS, NOT_EQUALS, SAME_ELEMENTS                                                                     | 3     |
+| intersection    | SetIntersectionEnum    | DISJOINT, INTERSECTS                                                                                  | 2     |
+| membership      | SetMembershipEnum      | INCLUDES, EXCLUDES                                                                                    | 2     |
+| relation        | SetRelationEnum        | DISJOINT, INTERSECTS, SUBSET_OF, SUPERSET_OF, STRICT_SUBSET_OF, STRICT_SUPERSET_OF                    | 6     |
+| size            | SetSizeEnum            | SIZE_EQUALS, SIZE_GREATER_THAN, SIZE_GREATER_THAN_OR_EQUALS, SIZE_LESS_THAN, SIZE_LESS_THAN_OR_EQUALS | 5     |
+| state           | SetStateEnum           | IS_EMPTY, IS_NOT_EMPTY, HAS_PRIMITIVES, HAS_OBJECTS                                                   | 4     |
 
 #### String (21)
 
@@ -258,7 +261,6 @@ PredicType uses strict, explicit naming conventions for all predicate functions,
 ### Enums Names
 
 1. **IS\_ and HAS\_ Prefixes**
-
    - The `IS_` prefix is used for state or boolean property checks (e.g., `IS_EMPTY`, `IS_VALID`, `IS_TRUE`).
    - The `HAS_` prefix is used for presence or attribute checks (e.g., `HAS_KEY`, `HAS_SYMBOL_KEYS`).
    - These forms are chosen when the predicate does not require a target value for comparison, or for calendar-like/date state operations (e.g., `IS_TODAY`).
@@ -269,37 +271,30 @@ PredicType uses strict, explicit naming conventions for all predicate functions,
 - The `LACKS_` prefix is used for explicit absence (e.g., `LACKS_ENTRY`).
 
 3. **STRICT\_ Prefix**
-
    - The `STRICT_` prefix indicates a strict version of a relation or range.
    - For relations, `STRICT_` means the relation is true only if the two sets are not equal (e.g., `STRICT_SUBSET_OF` means "is a subset of, but not equal to").
    - For ranges, `STRICT_` means strict inequality (e.g., `STRICT_IN_RANGE` means strictly between, i.e., `<` and `>`, not `<=` or `>=`).
    - Examples: `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`, `STRICT_IN_RANGE`, `STRICT_OUT_RANGE`.
 
 4. **\_OF Suffix for Relations**
-
    - The `_OF` suffix is used for all relation operators that express a relationship to another collection or value (e.g., `SUBSET_OF`, `SUPERSET_OF`, `STRICT_SUBSET_OF`, `STRICT_SUPERSET_OF`).
    - This clarifies the directionality and target of the relation, and harmonizes with common mathematical and programming conventions.
    - Examples: `SUBSET_OF` means "is a subset of", `SUPERSET_OF` means "is a superset of".
 
 5. **MATCHES keyword reserved for RegExp**
-
    - The `MATCHES` and `NOT_MATCHES` keywords are reserved for RegExp or pattern matching (e.g., `NAME_MATCHES`, `MATCHES`).
 
 6. **Collection verbs**
-
    - Verbs like `IN`, `NOT_IN`, `CONTAINS_ANY`, `CONTAINS_ALL` are used for membership and collection operations.
    - Example: `IN` for "is one of", `NOT_IN` for "is not one of".
 
 7. **\_KEY and \_VALUE Suffixes**
-
    - The `_KEY` and `_VALUE` suffixes clarify the target of the predicate (e.g., `HAS_KEY`, `HAS_VALUE`).
 
 8. **NOT\_ and \_NOT\_**
-
    - The `NOT_` prefix or `_NOT_` infix is used to indicate negation (e.g., `NOT_EQUALS`, `IS_NOT_EMPTY`, `VALUE_AT_INDEX_NOT_IN`).
 
 9. **BETWEEN and NOT_BETWEEN for Range Operations**
-
    - The `BETWEEN` and `NOT_BETWEEN` keywords are used for range checks (e.g., `BETWEEN`, `NOT_BETWEEN`).
 
 10. **SIZE\_ Prefix for Dimension Measurement**
@@ -326,13 +321,11 @@ PredicType uses strict, explicit naming conventions for all predicate functions,
 PredicType enforces strict conventions for predicate function signatures to ensure clarity, type safety, and API predictability.
 
 1. **Standard Parameter Names**
-
    - `source`: The primary value or collection being tested (always the first parameter).
    - `oper`: The operation or enum/operator to apply (always the second parameter).
    - `target`: The value, collection, or set to compare against (typically the third parameter).
 
 2. **Specialized Parameter Names**
-
    - `index`: Used when the predicate targets a specific position in a collection (e.g., arrays).
    - `key`, `keys`: Used when the predicate targets a specific key(s) in an object, map, or similar structure.
    - `min`, `max`: Used for range predicates to indicate lower and upper bounds.
@@ -341,28 +334,23 @@ PredicType enforces strict conventions for predicate function signatures to ensu
    - `arity`: Used for function signature.
 
 3. **No Union Types in Parameters**
-
    - Avoid signatures like `(value: string | number)` or `(target: string | string[])`.
    - Each predicate must target a specific type and arity.
    - Example: prefer two distinct functions for `isString` and `isNumber` rather than a single one with a union parameter.
 
 4. **No Parameters Accepting Both Singular and Plural**
-
    - Avoid signatures like `(target: string | string[])`.
    - A predicate should always expect a unique type for each parameter (never "one or many").
    - Example: for membership tests, use `IN` (for "is in the array") and not a function that would accept both a value and an array of values.
 
 5. **Strict and Explicit Signature**
-
    - Each predicate must have a clear signature, without optional or overloaded parameters except in very justified cases.
    - Parameters must be typed as precisely as possible.
 
 6. **No Over-Generalization**
-
    - A predicate should not cover multiple concepts at once (e.g., do not mix "is empty" and "has size greater than N" in the same function).
 
 7. **Always returns a boolean**
-
    - All predicates must return `true` or `false`.
 
 ### Predicate Category Naming Convention

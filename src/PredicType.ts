@@ -75,7 +75,10 @@ export const PredicType = {
     type: promises.promiseType,
   },
   set: {
+    arrayMembership: sets.setArrayMembership,
     comparison: sets.setComparison,
+    intersection: sets.setIntersection,
+    membership: sets.setMembership,
     relation: sets.setRelation,
     size: sets.setSize,
     state: sets.setState,

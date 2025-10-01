@@ -22,11 +22,13 @@ import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets.js';
  * Supported Operators:
  * - **EQUALS**: Sets are equal
  * - **NOT_EQUALS**: Sets are not equal
+ * - **SAME_ELEMENTS**: Sets contain the same elements (alias for EQUALS)
  */
 export function setComparison<T>(source: Set<T>, oper: SetComparisonOper, target: Set<T>): boolean {
   const operators: Record<SetComparisonEnum, (a: Set<T>, b: Set<T>) => boolean> = {
     [SetComparisonEnum.EQUALS]: (a, b) => a.size === b.size && [...a].every((v) => b.has(v)),
     [SetComparisonEnum.NOT_EQUALS]: (a, b) => !(a.size === b.size && [...a].every((v) => b.has(v))),
+    [SetComparisonEnum.SAME_ELEMENTS]: (a, b) => a.size === b.size && [...a].every((v) => b.has(v)),
   };
 
   const enumOper = typeof oper === 'string' ? (oper as SetComparisonEnum) : oper;

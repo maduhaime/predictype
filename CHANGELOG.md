@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.8.0] - 2025-10-01
+
+### Added
+
+- **Set predicates expansion**: Major enhancement to Set predicate functionality with 12 new predicate operations, expanding from 13 to 25 total set operations.
+  - **New `setIntersection` predicate**: Added support for intersection operations with `DISJOINT` and `INTERSECTS` operators to test whether sets share common elements.
+  - **New `setMembership` and `setArrayMembership` predicates**:
+    - `setMembership` supports single-value membership checks with the operators `INCLUDES` and `EXCLUDES`.
+    - `setArrayMembership` supports array-based membership checks with the operators `CONTAINS_ALL`, `CONTAINS_ANY`, and `EXCLUDES_ALL`.
+  - **Enhanced `setComparison` predicate**: Added `SAME_ELEMENTS` operator for semantic equality testing that ignores insertion order.
+  - **Enhanced `setRelation` predicate**: Added strict subset/superset operations with `STRICT_SUBSET_OF` and `STRICT_SUPERSET_OF` operators for proper subset relationships.
+  - **Enhanced `setState` predicate**: Added content-based state testing with `HAS_PRIMITIVES` and `HAS_OBJECTS` operators.
+
+### Enhanced
+
+- **Test coverage**: Added comprehensive unit tests for all new Set predicate functionality ensuring reliability and correctness.
+
+### Changed
+
+- **Documentation**: Updated README.md to reflect the expanded Set predicate capabilities.
+
 # [0.7.6] - 2025-09-29
 
 ### Added
