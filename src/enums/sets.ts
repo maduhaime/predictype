@@ -34,8 +34,6 @@ export enum SetArrayMembershipEnum {
 export type SetArrayMembershipOper = SetArrayMembershipEnum | `${SetArrayMembershipEnum}`;
 
 export enum SetRelationEnum {
-  DISJOINT = 'disjoint',
-  INTERSECTS = 'intersects',
   SUBSET_OF = 'subset_of',
   SUPERSET_OF = 'superset_of',
   STRICT_SUBSET_OF = 'strict_subset_of',

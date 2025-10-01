@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **237 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **235 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -84,7 +84,7 @@ The alias mapping is as follows:
 | PredicType.number   | P.num  | comparison, range, state                                                                                |
 | PredicType.object   | P.obj  | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
 | PredicType.promise  | P.prom | state, type                                                                                             |
-| PredicType.set      | P.set  | arrayMembership, comparison, membership, relation, size, state                                          |
+| PredicType.set      | P.set  | arrayMembership, comparison, intersection, membership, relation, size, state                            |
 | PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring,                                                |
 | PredicType.symbol   | P.sym  | comparison, state                                                                                       |
 
@@ -185,7 +185,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | state    | PromiseStateEnum | IS_PENDING, IS_FULFILLED, IS_REJECTED | 3     |
 | type     | PromiseTypeEnum  | IS_PROMISE, IS_ASYNC_FUNCTION         | 2     |
 
-#### Set (25)
+#### Set (23)
 
 | Category        | Enum                   | Operators                                                                                             | Count |
 | --------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- | ----- |
@@ -193,7 +193,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | comparison      | SetComparisonEnum      | EQUALS, NOT_EQUALS, SAME_ELEMENTS                                                                     | 3     |
 | intersection    | SetIntersectionEnum    | DISJOINT, INTERSECTS                                                                                  | 2     |
 | membership      | SetMembershipEnum      | INCLUDES, EXCLUDES                                                                                    | 2     |
-| relation        | SetRelationEnum        | DISJOINT, INTERSECTS, SUBSET_OF, SUPERSET_OF, STRICT_SUBSET_OF, STRICT_SUPERSET_OF                    | 6     |
+| relation        | SetRelationEnum        | SUBSET_OF, SUPERSET_OF, STRICT_SUBSET_OF, STRICT_SUPERSET_OF                                          | 4     |
 | size            | SetSizeEnum            | SIZE_EQUALS, SIZE_GREATER_THAN, SIZE_GREATER_THAN_OR_EQUALS, SIZE_LESS_THAN, SIZE_LESS_THAN_OR_EQUALS | 5     |
 | state           | SetStateEnum           | IS_EMPTY, IS_NOT_EMPTY, HAS_PRIMITIVES, HAS_OBJECTS                                                   | 4     |
 

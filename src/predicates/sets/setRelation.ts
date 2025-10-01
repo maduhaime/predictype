@@ -31,8 +31,6 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  */
 export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Set<T>): boolean {
   const operators: Record<SetRelationEnum, (a: Set<T>, b: Set<T>) => boolean> = {
-    [SetRelationEnum.DISJOINT]: (a, b) => ![...a].some((v) => b.has(v)),
-    [SetRelationEnum.INTERSECTS]: (a, b) => [...a].some((v) => b.has(v)),
     [SetRelationEnum.SUBSET_OF]: (a, b) => [...a].every((v) => b.has(v)),
     [SetRelationEnum.SUPERSET_OF]: (a, b) => [...b].every((v) => a.has(v)),
     [SetRelationEnum.STRICT_SUBSET_OF]: (a, b) => a.size < b.size && [...a].every((v) => b.has(v)),

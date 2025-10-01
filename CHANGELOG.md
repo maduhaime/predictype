@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.8.1] - 2025-10-01
+
+### Fixed
+
+- **Set predicate duplication**: Resolved operator duplication between `setIntersection` and `setRelation` predicates.
+- **Corrected documentation**: Updated README.md operator counts and total predicate operations from 237 to 235.
+
 # [0.8.0] - 2025-10-01
 
 ### Added
