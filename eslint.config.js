@@ -29,15 +29,16 @@ export default [
       // Max line length
       'max-len': ['warn', { code: 120, ignoreUrls: true }],
 
-      // Imports
-      'import/no-duplicates': 'error',
-      'import/order': [
-        'error',
-        {
-          'groups': ['builtin', 'external', 'internal'],
-          'newlines-between': 'always',
-        },
-      ],
+      // Configure import plugin rules (ordering, duplicates, etc.)
+      // Disabled for now, since eslint-plugin-import (2.32.0) does not support eslint 10+
+      // 'import/no-duplicates': 'error',
+      // 'import/order': [
+      //   'error',
+      //   {
+      //     'groups': ['builtin', 'external', 'internal'],
+      //     'newlines-between': 'always',
+      //   },
+      // ],
 
       // Ignore unused args that start with _
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
