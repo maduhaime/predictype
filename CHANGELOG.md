@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.9.0] - 2026-06-25
+
+### Fixed
+
+- **High severity vulnerabilities**: Updated dependencies (`flatted`, `picomatch`) to resolve security vulnerabilities.
+- **Tests**: Fixed broken import in `PredicType.spec.ts`.
+
+### Changed
+
+- **Configuration**: Removed deprecated `downlevelIteration` option from `tsconfig.json`.
+- **Dependencies**: Updated several development dependencies, including `@typescript-eslint/eslint-plugin`, `@typescript/parser`, `@vitest/coverage-v8`, `eslint`, `eslint-plugin-prettier`, `prettier`, `rimraf`, `typedoc`, `typedoc-plugin-markdown`, `typescript`, and `vitest`.
+- **Plugins**: Temporarily removed `importPlugin` due to lack of support for ESLint 10+.
+
+### Internal
+
+- **Package update**: Performed routine updates of development dependencies.
+
 # [0.8.1] - 2025-10-01
 
 ### Fixed

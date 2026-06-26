@@ -1,4 +1,4 @@
-import importPlugin from 'eslint-plugin-import';
+// import importPlugin from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
@@ -16,7 +16,7 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      'import': importPlugin,
+      // 'import': importPlugin,
       'prettier': prettierPlugin,
     },
     rules: {
