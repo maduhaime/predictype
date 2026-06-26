@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import { PredicType, P } from '../src/PredicType.js';
+import { PredicType, P } from './PredicType.js';
 import { PromiseWithState } from './predicates/promises/index.js';
 
 describe('PredicType.array', () => {
