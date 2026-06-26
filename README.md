@@ -31,7 +31,7 @@ Its goal is to make working with predicates and validation as productive and rel
 npm install predictype
 ```
 
-> **Note:** PredicType is the predicate engine powering [Collectype](https://maduhaime.github.io/predictype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
+> **Note:** PredicType is the predicate engine powering [Collectype](https://maduhaime.github.io/collectype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
 
 ---
 
