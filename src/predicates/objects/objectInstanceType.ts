@@ -27,8 +27,7 @@ export function objectInstanceType(source: any, oper: ObjectInstanceTypeOper): b
     [ObjectInstanceTypeEnum.INSTANCE_OF_OBJECT]: (v) => v !== null && typeof v === 'object',
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectInstanceTypeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectInstanceType operation: ${oper}`);
   return fn(source);

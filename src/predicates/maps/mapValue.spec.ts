@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { MapValueEnum } from '../../enums/maps.js';
 import { mapValue } from './mapValue.js';
 
 describe('mapValue', () => {
@@ -24,6 +25,11 @@ describe('mapValue', () => {
   it('should return false for lacks_value with present value', () => {
     const m = new Map([[1, 'a']]);
     expect(mapValue(m, 'lacks_value', 'a')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapValue(m, MapValueEnum.CONTAINS_VALUE, 'a')).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

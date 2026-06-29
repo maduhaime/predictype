@@ -74,6 +74,9 @@ describe('objectState', () => {
   it('should return true for is_cloneable when object is JSON serializable', () => {
     expect(objectState({ a: 1 }, 'is_cloneable')).toBe(true);
     expect(objectState({ a: () => 1 }, 'is_cloneable')).toBe(false);
+    const circular: Record<string, unknown> = {};
+    circular.self = circular;
+    expect(objectState(circular, 'is_cloneable')).toBe(false);
   });
 
   it('should return true for is_empty on empty object', () => {
@@ -112,6 +115,7 @@ describe('objectState', () => {
   });
 
   it('should return true for is_homogeneous when all values have same type', () => {
+    expect(objectState({}, 'is_homogeneous')).toBe(true);
     expect(objectState({ a: 1, b: 2 }, 'is_homogeneous')).toBe(true);
     expect(objectState({ a: 1, b: 'x' }, 'is_homogeneous')).toBe(false);
   });
@@ -125,6 +129,9 @@ describe('objectState', () => {
     expect(objectState({ a: 1 }, 'is_json_serializable')).toBe(true);
     expect(objectState({ a: undefined, b: 2 }, 'is_json_serializable')).toBe(true);
     expect(objectState({ a: () => 1 }, 'is_json_serializable')).toBe(false);
+    const circular: Record<string, unknown> = {};
+    circular.self = circular;
+    expect(objectState(circular, 'is_json_serializable')).toBe(false);
   });
 
   it('should return true for is_plain on plain object', () => {

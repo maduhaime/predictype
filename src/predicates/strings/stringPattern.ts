@@ -29,8 +29,7 @@ export function stringPattern(source: string, oper: StringPatternOper, pattern: 
     [StringPatternEnum.NOT_MATCHES]: (a, b) => !b.test(a),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringPatternEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringPattern operation: ${oper}`);
   return fn(source, pattern);

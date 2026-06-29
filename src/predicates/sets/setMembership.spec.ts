@@ -22,6 +22,10 @@ describe('setMembership', () => {
       expect(setMembership(s, 'includes', 2)).toBe(true);
       expect(setMembership(s, 'includes', 4)).toBe(false);
     });
+
+    it('should accept enum operators directly', () => {
+      expect(setMembership(s, SetMembershipEnum.INCLUDES, 2)).toBe(true);
+    });
   });
 
   describe('EXCLUDES', () => {

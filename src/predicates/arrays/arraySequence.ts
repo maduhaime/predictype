@@ -41,8 +41,7 @@ export function arraySequence<T>(source: T[], oper: ArraySequenceOper, target: T
     [ArraySequenceEnum.STARTS_WITH]: (a, b) => a.length >= b.length && a.slice(0, b.length).every((v, i) => v === b[i]),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArraySequenceOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArraySequence operation: ${oper}`);
   return fn(source, target);

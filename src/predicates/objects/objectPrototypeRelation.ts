@@ -25,8 +25,7 @@ export function objectPrototypeRelation(source: object, oper: ObjectPrototypeRel
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectPrototypeRelationEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectPrototypeRelation operation: ${oper}`);
   return fn(proto);

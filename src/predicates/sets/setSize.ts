@@ -33,8 +33,7 @@ export function setSize<T>(source: Set<T>, oper: SetSizeOper, target: number): b
     [SetSizeEnum.SIZE_LESS_THAN_OR_EQUALS]: (a, b) => a.size <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetSizeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetSize operation: ${oper}`);
   return fn(source, target);

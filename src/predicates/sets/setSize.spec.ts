@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SetSizeEnum } from '../../enums/sets.js';
 import { setSize } from './setSize.js';
 
 describe('setSize', () => {
@@ -26,6 +27,11 @@ describe('setSize', () => {
   it('should return true for size_less_than_or_equals', () => {
     const a = new Set([1, 2, 3]);
     expect(setSize(a, 'size_less_than_or_equals', 3)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const a = new Set([1, 2, 3]);
+    expect(setSize(a, SetSizeEnum.SIZE_EQUALS, 3)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

@@ -30,8 +30,7 @@ export function objectKeysState(obj: object, oper: ObjectKeysStateOper): boolean
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectKeysStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectKeysState operation: ${oper}`);
   return fn();

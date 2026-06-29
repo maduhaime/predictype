@@ -49,8 +49,7 @@ export function setState<T>(source: Set<T>, oper: SetStateOper): boolean {
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetState operation: ${oper}`);
   return fn(source);

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { MapStateEnum } from '../../enums/maps.js';
 import { mapState } from './mapState.js';
 
 describe('mapState', () => {
@@ -21,6 +22,11 @@ describe('mapState', () => {
   it('should return false for is_not_empty with empty map', () => {
     const m = new Map();
     expect(mapState(m, 'is_not_empty')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const m = new Map();
+    expect(mapState(m, MapStateEnum.IS_EMPTY)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

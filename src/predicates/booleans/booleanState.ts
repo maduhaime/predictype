@@ -27,8 +27,7 @@ export function booleanState(source: boolean, oper: BooleanStateOper): boolean {
     [BooleanStateEnum.IS_TRUE]: (v) => v === true,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BooleanStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BooleanState operation: ${oper}`);
   return fn(source);

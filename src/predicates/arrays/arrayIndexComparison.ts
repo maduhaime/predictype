@@ -50,8 +50,7 @@ export function arrayIndexComparison<T>(
     [ArrayIndexComparisonEnum.AT_INDEX_NOT_EQUALS]: (arr, i, val) => arr[i] !== val,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayIndexComparisonOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayIndex operation: ${oper}`);
   return fn(source, index, target);

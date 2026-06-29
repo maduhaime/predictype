@@ -29,8 +29,7 @@ export function mapKey<K, V>(source: Map<K, V>, oper: MapKeyOper, key: K): boole
     [MapKeyEnum.LACKS_KEY]: (a, b) => !a.has(b),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapKeyEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown MapKey operation: ${oper}`);
   return fn(source, key);

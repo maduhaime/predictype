@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SetRelationEnum } from '../../enums/sets.js';
 import { setRelation } from './setRelation.js';
 
 describe('setRelation', () => {
@@ -71,6 +72,12 @@ describe('setRelation', () => {
     expect(setRelation(empty, 'strict_subset_of', nonempty)).toBe(true);
     expect(setRelation(nonempty, 'superset_of', empty)).toBe(true);
     expect(setRelation(nonempty, 'strict_superset_of', empty)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const a = new Set([1, 2]);
+    const b = new Set([1, 2, 3]);
+    expect(setRelation(a, SetRelationEnum.SUBSET_OF, b)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

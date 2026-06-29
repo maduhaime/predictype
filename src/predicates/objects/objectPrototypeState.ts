@@ -18,8 +18,7 @@ export function objectPrototypeState(source: object, oper: ObjectPrototypeStateO
     [ObjectPrototypeStateEnum.PROTOTYPE_IS_NULL]: (o) => Object.getPrototypeOf(o) === null,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectPrototypeStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectPrototypeState operation: ${oper}`);
   return fn(source);

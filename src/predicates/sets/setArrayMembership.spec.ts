@@ -22,6 +22,10 @@ describe('setArrayMembership', () => {
       expect(setArrayMembership(s, 'contains_all', [1, 2, 3])).toBe(true);
       expect(setArrayMembership(s, 'contains_all', [1, 4])).toBe(false);
     });
+
+    it('should accept enum operators directly', () => {
+      expect(setArrayMembership(s, SetArrayMembershipEnum.CONTAINS_ALL, [1, 2])).toBe(true);
+    });
   });
 
   describe('CONTAINS_ANY', () => {

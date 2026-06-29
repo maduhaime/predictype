@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { FunctionNamePatternEnum } from '../../enums/functions.js';
 import { functionNamePattern } from './functionNamePattern.js';
 
 describe('functionNamePattern', () => {
@@ -25,6 +26,12 @@ describe('functionNamePattern', () => {
     const fn = function fooBar(): void {};
     const pattern = /^foo/;
     expect(functionNamePattern(fn, 'not_matches', pattern)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const fn = function fooBar(): void {};
+    const pattern = /^foo/;
+    expect(functionNamePattern(fn, FunctionNamePatternEnum.MATCHES, pattern)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

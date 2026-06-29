@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayComparisonEnum } from '../../enums/arrays.js';
 import { arrayComparison } from './arrayComparison.js';
 
 type DummyType = number;
@@ -85,6 +86,22 @@ describe('arrayComparison', () => {
     const arr1 = [1, 2, 2];
     const arr2 = [2, 1, 1];
     expect(arrayComparison(arr1, 'same_members', arr2)).toBe(false);
+  });
+
+  it('should return false for same_members with different lengths', () => {
+    const arr1 = [1, 2, 2];
+    const arr2 = [1, 2];
+    expect(arrayComparison(arr1, 'same_members', arr2)).toBe(false);
+  });
+
+  it('should return false for same_members with different unique member counts', () => {
+    const arr1 = [1, 1, 1];
+    const arr2 = [1, 1, 2];
+    expect(arrayComparison(arr1, 'same_members', arr2)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arrayComparison([1, 2, 3], ArrayComparisonEnum.EQUALS, [1, 2, 3])).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

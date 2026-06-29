@@ -35,8 +35,7 @@ export function arrayMembership<T>(source: T[], oper: ArrayMembershipOper, targe
     [ArrayMembershipEnum.SOME_EQUALS]: (arr, val) => arr.some((v) => v === val),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayMembership operation: ${oper}`);
   return fn(source, target);

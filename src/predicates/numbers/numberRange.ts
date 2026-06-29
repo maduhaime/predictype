@@ -25,8 +25,6 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  * - **STRICT_NOT_BETWEEN**: Exclusive: x <= min or x >= max
  */
 export function numberRange(source: number, oper: NumberRangeOper, min: number, max: number): boolean {
-  const enumOper = typeof oper === 'string' ? (oper as NumberRangeEnum) : oper;
-
   if (Number.isNaN(min) || Number.isNaN(max)) return false;
 
   const operators: Record<NumberRangeEnum, (v: number, min: number, max: number) => boolean> = {
@@ -42,7 +40,7 @@ export function numberRange(source: number, oper: NumberRangeOper, min: number, 
     },
   };
 
-  const fn = operators[enumOper];
+  const fn = operators[oper];
   if (!fn) throw new Error(`Unknown NumberRange operation: ${oper}`);
   return fn(source, min, max);
 }

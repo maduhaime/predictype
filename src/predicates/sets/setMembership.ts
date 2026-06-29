@@ -27,8 +27,7 @@ export function setMembership<T>(source: Set<T>, oper: SetMembershipOper, target
     [SetMembershipEnum.EXCLUDES]: (s, val) => !s.has(val),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetMembership operation: ${oper}`);
   return fn(source, target);

@@ -35,8 +35,7 @@ export function stringSize(source: string, oper: StringSizeOper, target: number)
     [StringSizeEnum.SIZE_LESS_THAN_OR_EQUALS]: (a, b) => a.length <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringSizeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringSize operation: ${oper}`);
   return fn(source, target);

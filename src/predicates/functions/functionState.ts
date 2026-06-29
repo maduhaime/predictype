@@ -49,8 +49,7 @@ export function functionState(source: Function, oper: FunctionStateOper): boolea
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as FunctionStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown FunctionState operation: ${oper}`);
   return fn(source);

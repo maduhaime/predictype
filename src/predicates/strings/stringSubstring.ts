@@ -31,8 +31,7 @@ export function stringSubstring(source: string, oper: StringSubstringOper, targe
     [StringSubstringEnum.ENDS_WITH]: (a, b) => a.endsWith(b),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringSubstringEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringSubstring operation: ${oper}`);
   return fn(source, target);

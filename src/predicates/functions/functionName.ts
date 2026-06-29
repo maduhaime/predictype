@@ -36,8 +36,7 @@ export function functionName(source: Function, oper: FunctionNameOper, target: s
     [FunctionNameEnum.EXCLUDES]: (a, b) => !a.name.includes(b),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as FunctionNameEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown FunctionName operation: ${oper}`);
   return fn(source, target);

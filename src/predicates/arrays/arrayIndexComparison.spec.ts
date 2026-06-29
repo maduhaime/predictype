@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayIndexComparisonEnum } from '../../enums/arrays.js';
 import { arrayIndexComparison } from './arrayIndexComparison.js';
 
 type DummyType = number;
@@ -51,6 +52,11 @@ describe('arrayIndexComparison', () => {
     expect(() => arrayIndexComparison(arr, 'at_index_equals', 3, 10)).toThrow(
       'Index 3 is out of bounds for array of length 3',
     );
+  });
+
+  it('should accept enum operators directly', () => {
+    const arr = [10, 20, 30];
+    expect(arrayIndexComparison(arr, ArrayIndexComparisonEnum.AT_INDEX_EQUALS, 1, 20)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

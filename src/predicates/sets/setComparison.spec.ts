@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SetComparisonEnum } from '../../enums/sets.js';
 import { setComparison } from './setComparison.js';
 
 describe('setComparison', () => {
@@ -44,6 +45,12 @@ describe('setComparison', () => {
     const b = new Set();
     expect(setComparison(a, 'equals', b)).toBe(true);
     expect(setComparison(a, 'same_elements', b)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const a = new Set([1, 2, 3]);
+    const b = new Set([1, 2, 3]);
+    expect(setComparison(a, SetComparisonEnum.EQUALS, b)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayIntersectionEnum } from '../../enums/arrays.js';
 import { arrayIntersection } from './arrayIntersection.js';
 
 type DummyType = number;
@@ -21,6 +22,10 @@ describe('arrayIntersection', () => {
     const arr1 = [1, 2, 3];
     const arr2 = [2, 3, 4];
     expect(arrayIntersection<DummyType>(arr1, 'disjoint', arr2)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arrayIntersection([1, 2, 3], ArrayIntersectionEnum.INTERSECTS, [3, 4])).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

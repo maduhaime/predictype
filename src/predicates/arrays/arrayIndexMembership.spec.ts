@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayIndexMembershipEnum } from '../../enums/arrays.js';
 import { arrayIndexMembership } from './arrayIndexMembership.js';
 
 type DummyType = number;
@@ -24,6 +25,11 @@ describe('arrayIndexMembership', () => {
     const idx = 2;
     const values = [10, 20];
     expect(arrayIndexMembership<DummyType>(arr, 'at_index_not_in', idx, values)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const arr = [10, 20, 30];
+    expect(arrayIndexMembership(arr, ArrayIndexMembershipEnum.AT_INDEX_IN, 1, [10, 20])).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

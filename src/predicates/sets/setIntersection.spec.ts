@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SetIntersectionEnum } from '../../enums/sets.js';
 import { setIntersection } from './setIntersection.js';
 
 describe('setIntersection', () => {
@@ -43,6 +44,12 @@ describe('setIntersection', () => {
 
     expect(setIntersection(a, 'intersects', b)).toBe(true);
     expect(setIntersection(a, 'disjoint', b)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const a = new Set([1, 2]);
+    const b = new Set([2, 3]);
+    expect(setIntersection(a, SetIntersectionEnum.INTERSECTS, b)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

@@ -45,8 +45,7 @@ export function dateRange(source: Date, oper: DateRangeOper, min: Date, max: Dat
     [DateRangeEnum.STRICT_BETWEEN]: (d, min, max) => d.getTime() > min.getTime() && d.getTime() < max.getTime(),
     [DateRangeEnum.STRICT_NOT_BETWEEN]: (d, min, max) => d.getTime() <= min.getTime() || d.getTime() >= max.getTime(),
   };
-  const enumOper = typeof oper === 'string' ? (oper as DateRangeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
   if (!fn) throw new Error(`Unknown DateRange operation: ${oper}`);
   return fn(d, dMin, dMax);
 }

@@ -108,6 +108,13 @@ describe('setState', () => {
     });
   });
 
+  describe('enum operators', () => {
+    it('should accept enum operators directly', () => {
+      const a = new Set();
+      expect(setState(a, SetStateEnum.IS_EMPTY)).toBe(true);
+    });
+  });
+
   describe('error handling', () => {
     it('should throw for unknown operator', () => {
       const a = new Set();

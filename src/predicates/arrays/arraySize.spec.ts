@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArraySizeEnum } from '../../enums/arrays.js';
 import { arraySize } from './arraySize.js';
 
 describe('arraySize', () => {
@@ -33,6 +34,10 @@ describe('arraySize', () => {
   it('should return true for size_less_than', () => {
     const arr = [1, 2, 3];
     expect(arraySize(arr, 'size_less_than', 4)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arraySize([1, 2, 3], ArraySizeEnum.SIZE_EQUALS, 3)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

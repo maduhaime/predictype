@@ -31,8 +31,7 @@ export function arrayIntersection<T>(source: T[], oper: ArrayIntersectionOper, t
     [ArrayIntersectionEnum.INTERSECTS]: (a, b) => a.some((v) => b.includes(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayIntersectionOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayIntersection operation: ${oper}`);
   return fn(source, target);

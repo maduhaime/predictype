@@ -35,8 +35,7 @@ export function bigintRange(source: bigint, oper: BigIntRangeOper, min: bigint, 
     [BigIntRangeEnum.STRICT_NOT_BETWEEN]: (a, min, max) => a <= min || a >= max,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BigIntRangeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BigIntRange operation: ${oper}`);
   return fn(source, min, max);

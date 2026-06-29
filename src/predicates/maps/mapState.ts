@@ -27,8 +27,7 @@ export function mapState<K, V>(source: Map<K, V>, oper: MapStateOper): boolean {
     [MapStateEnum.IS_NOT_EMPTY]: (a) => a.size > 0,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown MapState operation: ${oper}`);
   return fn(source);

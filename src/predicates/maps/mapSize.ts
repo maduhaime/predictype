@@ -36,8 +36,7 @@ export function mapSize<K, V>(source: Map<K, V>, oper: MapSizeOper, target: numb
     [MapSizeEnum.SIZE_LESS_THAN_OR_EQUALS]: (a, b) => a.size <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapSizeOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown MapSize operation: ${oper}`);
   return fn(source, target);

@@ -31,8 +31,7 @@ export function setComparison<T>(source: Set<T>, oper: SetComparisonOper, target
     [SetComparisonEnum.SAME_ELEMENTS]: (a, b) => a.size === b.size && [...a].every((v) => b.has(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetComparison operation: ${oper}`);
   return fn(source, target);

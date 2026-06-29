@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { FunctionStateEnum } from '../../enums/functions.js';
 import { functionState } from './functionState.js';
 
 describe('functionState', () => {
@@ -40,6 +41,11 @@ describe('functionState', () => {
     expect(functionState(fn, 'is_anonymous')).toBe(false);
   });
 
+  it('should accept enum operators directly', () => {
+    const fn = function named(): void {};
+    expect(functionState(fn, FunctionStateEnum.HAS_NAME)).toBe(true);
+  });
+
   it('should detect anonymous function in all environments', () => {
     // This test is robust: it passes if the function is detected as anonymous by the implementation
     const fn = function (): void {};
@@ -47,6 +53,11 @@ describe('functionState', () => {
     const result = functionState(fn, 'is_anonymous');
     // Accept both true and false, but prefer true for Node/Vitest
     expect([true, false]).toContain(result);
+  });
+
+  it('should return true for is_anonymous when the function name is anonymous', () => {
+    const fn = new Function('return 1;');
+    expect(functionState(fn, 'is_anonymous')).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

@@ -25,8 +25,7 @@ export function objectProperty(source: object, oper: ObjectPropertyOper, key: st
     [ObjectPropertyEnum.LACKS_OWN_PROPERTY]: (k) => !Object.prototype.hasOwnProperty.call(source, k),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectPropertyEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectProperty operation: ${oper}`);
   return fn(key);

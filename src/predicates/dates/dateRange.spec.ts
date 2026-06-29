@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { DateRangeEnum } from '../../enums/dates.js';
 import { dateRange } from './dateRange.js';
 
 describe('dateRange', () => {
@@ -36,6 +37,20 @@ describe('dateRange', () => {
     const start = new Date('2025-01-10');
     const end = new Date('2025-01-31');
     expect(dateRange(date, 'strict_not_between', start, end)).toBe(true);
+  });
+
+  it('should return false for strict_not_between when inside the range', () => {
+    const date = new Date('2025-01-15');
+    const start = new Date('2025-01-10');
+    const end = new Date('2025-01-31');
+    expect(dateRange(date, 'strict_not_between', start, end)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const date = new Date('2025-01-10');
+    const start = new Date('2025-01-01');
+    const end = new Date('2025-01-31');
+    expect(dateRange(date, DateRangeEnum.BETWEEN, start, end)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

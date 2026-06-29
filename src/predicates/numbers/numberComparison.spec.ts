@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { NumberComparisonEnum } from '../../enums/numbers.js';
 import { numberComparison } from './numberComparison.js';
 
 describe('numberComparison', () => {
@@ -33,6 +34,10 @@ describe('numberComparison', () => {
     const a = 3;
     expect(numberComparison(a, 'less_or_equal', 3)).toBe(true);
     expect(numberComparison(a, 'less_or_equal', 5)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(numberComparison(5, NumberComparisonEnum.EQUALS, 5)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {
