@@ -26,6 +26,13 @@ describe('arrayComparison', () => {
     expect(arrayComparison<DummyType>(arr1, 'not_equals', arr2)).toBe(true);
   });
 
+  it('should return true for not_equals with different array lengths', () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2];
+
+    expect(arrayComparison<DummyType>(arr1, 'not_equals', arr2)).toBe(true);
+  });
+
   it('should return true for set_equals with same unique elements (ignores order and duplicates)', () => {
     const arr1 = [1, 2, 3, 2];
     const arr2 = [3, 1, 2, 1];

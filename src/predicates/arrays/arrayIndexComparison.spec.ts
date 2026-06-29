@@ -42,6 +42,17 @@ describe('arrayIndexComparison', () => {
     expect(arrayIndexComparison<DummyType>(arr, 'at_index_less_than_or_equals', 0, 15)).toBe(true);
   });
 
+  it('should throw for out of bounds index', () => {
+    const arr = [10, 20, 30];
+    expect(() => arrayIndexComparison(arr, 'at_index_equals', -1, 10)).toThrow(
+      'Index -1 is out of bounds for array of length 3',
+    );
+
+    expect(() => arrayIndexComparison(arr, 'at_index_equals', 3, 10)).toThrow(
+      'Index 3 is out of bounds for array of length 3',
+    );
+  });
+
   it('should throw for unknown operator', () => {
     const arr = [10, 20, 30];
     // @ts-expect-error
