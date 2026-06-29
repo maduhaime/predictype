@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.10.0] - 2026-06-29
+
+### Enhanced
+
+- **Test coverage**: Expanded and aligned the predicate test suite across all families and categories, reaching 100% coverage on statements, branches, and declarations.
+- **API consistency**: Removed redundant operator normalization in predicate implementations to match the established enum/string contract and keep the codebase uniform.
+
 # [0.9.0] - 2026-06-25
 
 ### Fixed
