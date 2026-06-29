@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { MapKeyEnum } from '../../enums/maps.js';
 import { mapKey } from './mapKey.js';
 
 describe('mapKey', () => {
@@ -21,6 +22,11 @@ describe('mapKey', () => {
   it('should return false for lacks_key with present key', () => {
     const m = new Map([[1, 'a']]);
     expect(mapKey(m, 'lacks_key', 1)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapKey(m, MapKeyEnum.CONTAINS_KEY, 1)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

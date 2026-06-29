@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { MapSizeEnum } from '../../enums/maps.js';
 import { mapSize } from './mapSize.js';
 
 describe('mapSize', () => {
@@ -65,6 +66,11 @@ describe('mapSize', () => {
       [2, 'b'],
     ]);
     expect(mapSize(m, 'size_less_than_or_equals', 1)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const m = new Map([[1, 'a']]);
+    expect(mapSize(m, MapSizeEnum.SIZE_EQUALS, 1)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

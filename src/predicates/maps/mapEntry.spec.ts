@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { MapEntryEnum } from '../../enums/maps.js';
 import { mapEntry } from './mapEntry.js';
 
 describe('mapEntry', () => {
@@ -25,6 +26,12 @@ describe('mapEntry', () => {
     const m = new Map([[1, 'a']]);
     const entry = [1, 'a'] as [number, string];
     expect(mapEntry(m, 'lacks_entry', entry)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const m = new Map([[1, 'a']]);
+    const entry = [1, 'a'] as [number, string];
+    expect(mapEntry(m, MapEntryEnum.CONTAINS_ENTRY, entry)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

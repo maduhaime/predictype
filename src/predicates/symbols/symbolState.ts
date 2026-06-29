@@ -27,8 +27,7 @@ export function symbolState(source: symbol, oper: SymbolStateOper): boolean {
     [SymbolStateEnum.IS_LOCAL]: (a) => typeof Symbol.keyFor === 'function' && Symbol.keyFor(a) === undefined,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SymbolStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SymbolState operation: ${oper}`);
   return fn(source);

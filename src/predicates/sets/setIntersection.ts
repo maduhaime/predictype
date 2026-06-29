@@ -29,8 +29,7 @@ export function setIntersection<T>(source: Set<T>, oper: SetIntersectionOper, ta
     [SetIntersectionEnum.INTERSECTS]: (a, b) => [...a].some((v) => b.has(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetIntersectionEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetIntersection operation: ${oper}`);
   return fn(source, target);

@@ -57,8 +57,7 @@ export function dateComparison(source: Date, oper: DateComparisonOper, target: D
     [DateComparisonEnum.SAME_YEAR]: (a, b) => a.getUTCFullYear() === b.getUTCFullYear(),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as DateComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown DateComparison operation: ${oper}`);
   return fn(d1, d2);

@@ -29,8 +29,7 @@ export function stringMembership(source: string, oper: StringMembershipOper, tar
     [StringMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringMembership operation: ${oper}`);
   return fn(source, target);

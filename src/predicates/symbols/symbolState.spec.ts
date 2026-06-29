@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SymbolStateEnum } from '../../enums/symbols.js';
 import { symbolState } from './symbolState.js';
 
 describe('symbolState', () => {
@@ -11,6 +12,11 @@ describe('symbolState', () => {
   it('should return true for is_local', () => {
     const localSym = Symbol('bar');
     expect(symbolState(localSym, 'is_local')).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const globalSym = Symbol.for('foo');
+    expect(symbolState(globalSym, SymbolStateEnum.IS_GLOBAL)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

@@ -28,8 +28,7 @@ export function symbolComparison(source: symbol, oper: SymbolComparisonOper, tar
     [SymbolComparisonEnum.NOT_EQUALS]: (a, b) => a !== b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SymbolComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SymbolComparison operation: ${oper}`);
   return fn(source, target);

@@ -30,8 +30,7 @@ export function booleanComparison(value: boolean, oper: BooleanComparisonOper, t
     [BooleanComparisonEnum.NOT_EQUALS]: (v) => v !== target,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BooleanComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BooleanComparison operation: ${oper}`);
   return fn(value);

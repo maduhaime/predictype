@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringStateEnum } from '../../enums/strings.js';
 import { stringState } from './stringState.js';
 
 describe('stringState', () => {
@@ -27,5 +28,9 @@ describe('stringState', () => {
     const str = 'foo';
     // @ts-expect-error
     expect(() => stringState(str, 'invalid')).toThrow('Unknown StringState operation: invalid');
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringState('foo', StringStateEnum.IS_NOT_EMPTY)).toBe(true);
   });
 });

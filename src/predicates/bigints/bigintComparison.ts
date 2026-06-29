@@ -38,8 +38,7 @@ export function bigintComparison(source: bigint, oper: BigIntComparisonOper, tar
     [BigIntComparisonEnum.LESS_THAN_OR_EQUALS]: (a, b) => a <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BigIntComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BigIntComparison operation: ${oper}`);
   return fn(source, target);

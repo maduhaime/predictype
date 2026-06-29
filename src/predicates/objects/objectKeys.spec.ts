@@ -43,6 +43,17 @@ describe('objectKeys', () => {
     expect(objectKeysCompare(obj, 'only_keys', ['foo', 'bar'])).toBe(true);
   });
 
+  it('should return false for contains_only_keys when keys differ', () => {
+    const obj = { foo: 1, bar: 2 };
+    expect(objectKeysCompare(obj, 'contains_only_keys', ['foo'])).toBe(false);
+  });
+
+  it('should return true for strict_equals_keys with exact order', () => {
+    const obj = { foo: 1, bar: 2 };
+    expect(objectKeysCompare(obj, 'strict_equals_keys', ['foo', 'bar'])).toBe(true);
+    expect(objectKeysCompare(obj, 'strict_equals_keys', ['bar', 'foo'])).toBe(false);
+  });
+
   it('should throw for unknown operator', () => {
     const obj = { foo: 1 };
     // @ts-expect-error

@@ -27,8 +27,7 @@ export function functionNamePattern(source: Function, oper: FunctionNamePatternO
     [FunctionNamePatternEnum.NOT_MATCHES]: (a, b) => !b.test(a.name),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as FunctionNamePatternOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown FunctionNamePattern operation: ${oper}`);
   return fn(source, pattern);

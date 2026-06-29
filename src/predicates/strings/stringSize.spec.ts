@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringSizeEnum } from '../../enums/strings.js';
 import { stringSize } from './stringSize.js';
 
 describe('stringSize', () => {
@@ -26,6 +27,10 @@ describe('stringSize', () => {
   it('should return true for size_less_than_or_equals', () => {
     const str = 'hello';
     expect(stringSize(str, 'size_less_than_or_equals', 5)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringSize('hello', StringSizeEnum.SIZE_EQUALS, 5)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

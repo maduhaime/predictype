@@ -31,8 +31,7 @@ export function setArrayMembership<T>(source: Set<T>, oper: SetArrayMembershipOp
     [SetArrayMembershipEnum.EXCLUDES_ALL]: (s, val) => val.every((v) => !s.has(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetArrayMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetArrayMembership operation: ${oper}`);
   return fn(source, target);

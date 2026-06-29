@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { BooleanStateEnum } from '../../enums/booleans.js';
 import { booleanState } from './booleanState.js';
 
 describe('booleanState', () => {
@@ -21,6 +22,10 @@ describe('booleanState', () => {
   it('should return false for is_false if value is true', () => {
     const value = true;
     expect(booleanState(value, 'is_false')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(booleanState(true, BooleanStateEnum.IS_TRUE)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArraySequenceEnum } from '../../enums/arrays.js';
 import { arraySequence } from './arraySequence.js';
 
 type DummyType = number;
@@ -39,6 +40,10 @@ describe('arraySequence', () => {
     const arr = [1, 2, 3];
     const start = [2, 3];
     expect(arraySequence<DummyType>(arr, 'starts_with', start)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arraySequence([1, 2, 3, 4], ArraySequenceEnum.CONTAINS_SUBSEQUENCE, [2, 3])).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

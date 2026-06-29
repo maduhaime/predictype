@@ -25,8 +25,7 @@ export function objectInstanceRelation(source: any, oper: ObjectInstanceRelation
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectInstanceRelationEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectInstanceRelation operation: ${oper}`);
   return fn(source, target);

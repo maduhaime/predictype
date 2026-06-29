@@ -31,8 +31,7 @@ export function stringState(source: string, oper: StringStateOper): boolean {
     [StringStateEnum.IS_NOT_BLANK]: (a) => !/^\s*$/.test(a),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringState operation: ${oper}`);
   return fn(source);

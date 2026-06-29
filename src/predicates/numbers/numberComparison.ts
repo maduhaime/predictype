@@ -37,8 +37,7 @@ export function numberComparison(source: number, oper: NumberComparisonOper, tar
     [NumberComparisonEnum.LESS_OR_EQUAL]: (a, b) => a <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as NumberComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown NumberComparison operation: ${oper}`);
   return fn(source, target);

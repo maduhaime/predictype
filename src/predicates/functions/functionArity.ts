@@ -37,8 +37,7 @@ export function functionArity(source: Function, oper: FunctionArityOper, arity: 
     [FunctionArityEnum.LESS_OR_EQUAL]: (a, b) => a.length <= b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as FunctionArityEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown FunctionArity operation: ${oper}`);
   return fn(source, arity);

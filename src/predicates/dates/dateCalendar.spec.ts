@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { DateCalendarEnum } from '../../enums/dates.js';
 import { dateCalendar } from './dateCalendar.js';
 
 describe('dateCalendar', () => {
@@ -52,6 +53,10 @@ describe('dateCalendar', () => {
   it('should return true for is_last_day_of_month', () => {
     const lastJan = new Date('2025-01-31');
     expect(dateCalendar(lastJan, 'is_last_day_of_month', ref)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(dateCalendar(new Date(Date.UTC(2025, 0, 15)), DateCalendarEnum.IS_TODAY, ref)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

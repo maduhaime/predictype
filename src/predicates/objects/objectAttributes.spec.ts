@@ -41,6 +41,11 @@ describe('objectAttributes', () => {
     expect(objectAttributes(obj, 'attr_is_writable', sym)).toBe(false);
   });
 
+  it('should return false for a missing property', () => {
+    const obj = { foo: 1 };
+    expect(objectAttributes(obj, 'attr_is_writable', 'missing')).toBe(false);
+  });
+
   it('should throw for unknown operator', () => {
     const obj = { foo: 1 };
     // @ts-expect-error

@@ -32,8 +32,7 @@ export function stringComparison(source: string, oper: StringComparisonOper, tar
     [StringComparisonEnum.LESS_THAN]: (a, b) => a < b,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as StringComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown StringComparison operation: ${oper}`);
   return fn(source, target);

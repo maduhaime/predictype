@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringPatternEnum } from '../../enums/strings.js';
 import { stringPattern } from './stringPattern.js';
 
 describe('stringPattern', () => {
@@ -20,5 +21,9 @@ describe('stringPattern', () => {
     const pattern = /^foo/;
     // @ts-expect-error
     expect(() => stringPattern(str, 'invalid', pattern)).toThrow('Unknown StringPattern operation: invalid');
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringPattern('foobar', StringPatternEnum.MATCHES, /^foo/)).toBe(true);
   });
 });

@@ -64,8 +64,7 @@ export function dateCalendar(source: Date, oper: DateCalendarOper, today: Date =
     },
   };
 
-  const operEnum = typeof oper === 'string' ? (oper as DateCalendarEnum) : oper;
-  const fn = operators[operEnum];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown DateCalendar operation: ${oper}`);
   return fn(d);

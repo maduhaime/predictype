@@ -41,8 +41,7 @@ export function objectAttributes(source: object, oper: ObjectAttributesOper, key
     [ObjectAttributesEnum.ATTR_IS_DATA_PROPERTY]: (d) => 'value' in d,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectAttributesEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectAttributes operation: ${oper}`);
   return fn(desc);

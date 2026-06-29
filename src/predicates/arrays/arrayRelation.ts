@@ -39,8 +39,7 @@ export function arrayRelation<T>(source: T[], oper: ArrayRelationOper, target: T
     [ArrayRelationEnum.STRICT_SUPERSET_OF]: (a, b) => a.length > b.length && b.every((v) => a.includes(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayRelationOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayRelation operation: ${oper}`);
   return fn(source, target);

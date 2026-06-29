@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayRelationEnum } from '../../enums/arrays.js';
 import { arrayRelation } from './arrayRelation.js';
 
 describe('arrayRelation', () => {
@@ -27,6 +28,10 @@ describe('arrayRelation', () => {
     expect(arrayRelation([1, 2, 3], 'strict_superset_of', [2, 3])).toBe(true);
     expect(arrayRelation([1, 2], 'strict_superset_of', [1, 2])).toBe(false);
     expect(arrayRelation([1, 2], 'strict_superset_of', [1, 2, 3])).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arrayRelation([1, 2], ArrayRelationEnum.SUBSET_OF, [1, 2, 3])).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

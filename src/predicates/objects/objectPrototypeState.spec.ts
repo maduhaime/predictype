@@ -13,4 +13,11 @@ describe('objectPrototypeState', () => {
     class Foo {}
     expect(objectPrototypeState(new Foo(), 'prototype_is_null')).toBe(false);
   });
+
+  it('should throw for unknown operation', () => {
+    // @ts-expect-error
+    expect(() => objectPrototypeState({}, 'invalid_operator')).toThrow(
+      'Unknown ObjectPrototypeState operation: invalid_operator',
+    );
+  });
 });

@@ -22,8 +22,7 @@ export function objectKeyMembership(source: object, oper: ObjectKeyMembershipOpe
     [ObjectKeyMembershipEnum.NOT_IN]: (k) => allKeys.every((key) => !k.includes(key)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectKeyMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectKeyMembership operation: ${oper}`);
   return fn(keys);

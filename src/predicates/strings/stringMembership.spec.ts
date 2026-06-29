@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringMembershipEnum } from '../../enums/strings.js';
 import { stringMembership } from './stringMembership.js';
 
 describe('stringMembership', () => {
@@ -20,5 +21,9 @@ describe('stringMembership', () => {
     const value = 'foo';
     // @ts-expect-error
     expect(() => stringMembership(value, 'invalid', arr)).toThrow('Unknown StringMembership operation: invalid');
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringMembership('foo', StringMembershipEnum.IN, ['foo', 'bar'])).toBe(true);
   });
 });

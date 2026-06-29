@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringComparisonEnum } from '../../enums/strings.js';
 import { stringComparison } from './stringComparison.js';
 
 describe('stringComparison', () => {
@@ -29,5 +30,9 @@ describe('stringComparison', () => {
     expect(() => stringComparison(a, 'invalid_operator', 'bar')).toThrow(
       'Unknown StringComparison operation: invalid_operator',
     );
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringComparison('foo', StringComparisonEnum.EQUALS, 'foo')).toBe(true);
   });
 });

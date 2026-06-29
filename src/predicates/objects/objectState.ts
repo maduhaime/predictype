@@ -69,8 +69,7 @@ export function objectState(source: object, oper: ObjectStateOper): boolean {
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectState operation: ${oper}`);
   return fn(source);

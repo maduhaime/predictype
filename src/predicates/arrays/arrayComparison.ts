@@ -70,8 +70,7 @@ export function arrayComparison<T>(source: T[], oper: ArrayComparisonOper, targe
     },
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayComparisonEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayComparison operation: ${oper}`);
   return fn(source, target);

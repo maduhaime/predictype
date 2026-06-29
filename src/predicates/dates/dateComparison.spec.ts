@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { DateComparisonEnum } from '../../enums/dates.js';
 import { dateComparison } from './dateComparison.js';
 
 describe('dateComparison', () => {
@@ -45,6 +46,10 @@ describe('dateComparison', () => {
   it('should compare SAME_YEAR', () => {
     expect(dateComparison(d1, 'same_year', d3)).toBe(true);
     expect(dateComparison(d1, 'same_year', d5)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(dateComparison(d1, DateComparisonEnum.EQUALS, d3)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { NumberRangeEnum } from '../../enums/numbers.js';
 import { numberRange } from './numberRange.js';
 
 describe('numberRange', () => {
@@ -23,6 +24,10 @@ describe('numberRange', () => {
     const n = 1;
     expect(numberRange(n, 'strict_not_between', 1, 10)).toBe(true);
     expect(numberRange(10, 'strict_not_between', 1, 10)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(numberRange(5, NumberRangeEnum.BETWEEN, 1, 10)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

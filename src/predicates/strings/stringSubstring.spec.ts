@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { StringSubstringEnum } from '../../enums/strings.js';
 import { stringSubstring } from './stringSubstring.js';
 
 describe('stringSubstring', () => {
@@ -21,6 +22,10 @@ describe('stringSubstring', () => {
   it('should return true for ends_with', () => {
     const str = 'foobar';
     expect(stringSubstring(str, 'ends_with', 'bar')).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(stringSubstring('foobar', StringSubstringEnum.INCLUDES, 'foo')).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

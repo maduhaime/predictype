@@ -37,6 +37,10 @@ export function arrayIndexComparison<T>(
   index: number,
   target: T,
 ): boolean {
+  if (index < 0 || index >= source.length) {
+    throw new Error(`Index ${index} is out of bounds for array of length ${source.length}`);
+  }
+
   const operators: Record<ArrayIndexComparisonEnum, (arr: T[], idx: number, val: T) => boolean> = {
     [ArrayIndexComparisonEnum.AT_INDEX_EQUALS]: (arr, i, val) => arr[i] === val,
     [ArrayIndexComparisonEnum.AT_INDEX_GREATER_THAN_OR_EQUALS]: (arr, i, val) => arr[i] >= val,
@@ -46,8 +50,7 @@ export function arrayIndexComparison<T>(
     [ArrayIndexComparisonEnum.AT_INDEX_NOT_EQUALS]: (arr, i, val) => arr[i] !== val,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayIndexComparisonOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayIndex operation: ${oper}`);
   return fn(source, index, target);

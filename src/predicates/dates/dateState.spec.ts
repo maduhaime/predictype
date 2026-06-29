@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { DateStateEnum } from '../../enums/dates.js';
 import { dateState } from './dateState.js';
 
 describe('dateState', () => {
@@ -21,6 +22,11 @@ describe('dateState', () => {
   it('should return false for is_invalid if date is valid', () => {
     const validDate = new Date('2025-01-01');
     expect(dateState(validDate, 'is_invalid')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const validDate = new Date('2025-01-01');
+    expect(dateState(validDate, DateStateEnum.IS_VALID)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

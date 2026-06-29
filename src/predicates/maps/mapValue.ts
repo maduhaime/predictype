@@ -30,8 +30,7 @@ export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, target: V)
     [MapValueEnum.LACKS_VALUE]: (a, b) => !Array.from(a.values()).includes(b),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapValueEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown MapValue operation: ${oper}`);
   return fn(source, target);

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { ArrayMembershipEnum } from '../../enums/arrays.js';
 import { arrayMembership } from './arrayMembership.js';
 
 type DummyType = number;
@@ -51,6 +52,10 @@ describe('arrayMembership', () => {
     const arr = [1, 2, 3];
     const value = 4;
     expect(arrayMembership<DummyType>(arr, 'some_equals', value)).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(arrayMembership([1, 2, 3], ArrayMembershipEnum.INCLUDES, 2)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

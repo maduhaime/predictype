@@ -39,8 +39,7 @@ export function arrayIndexMembership<T>(
     [ArrayIndexMembershipEnum.AT_INDEX_NOT_IN]: (arr, i, val) => Array.isArray(val) && !val.includes(arr[i]),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayIndexMembershipOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayIndexMembership operation: ${oper}`);
   return fn(source, index, target);

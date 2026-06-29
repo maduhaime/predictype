@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { SymbolComparisonEnum } from '../../enums/symbols.js';
 import { symbolComparison } from './symbolComparison.js';
 
 describe('symbolComparison', () => {
@@ -12,6 +13,11 @@ describe('symbolComparison', () => {
     const a = Symbol('foo');
     const b = Symbol('foo');
     expect(symbolComparison(a, 'not_equals', b)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const a = Symbol('foo');
+    expect(symbolComparison(a, SymbolComparisonEnum.EQUALS, a)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

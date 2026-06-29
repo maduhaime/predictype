@@ -27,8 +27,7 @@ export function promiseType(source: unknown, oper: PromiseTypeOper): boolean {
     [PromiseTypeEnum.IS_ASYNC_FUNCTION]: (a) => typeof a === 'function' && a.constructor.name === 'AsyncFunction',
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as PromiseTypeEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown PromiseType operation: ${oper}`);
   return fn(source);

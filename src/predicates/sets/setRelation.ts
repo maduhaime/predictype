@@ -37,8 +37,7 @@ export function setRelation<T>(source: Set<T>, oper: SetRelationOper, target: Se
     [SetRelationEnum.STRICT_SUPERSET_OF]: (a, b) => a.size > b.size && [...b].every((v) => a.has(v)),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as SetRelationEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown SetRelation operation: ${oper}`);
   return fn(source, target);

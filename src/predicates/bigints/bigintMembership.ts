@@ -29,8 +29,7 @@ export function bigintMembership(source: bigint, oper: BigIntMembershipOper, tar
     [BigIntMembershipEnum.NOT_IN]: (a, b) => !b.includes(a),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BigIntMembershipEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BigIntMembership operation: ${oper}`);
   return fn(source, target);

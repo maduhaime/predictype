@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { NumberStateEnum } from '../../enums/numbers.js';
 import { numberState } from './numberState.js';
 
 describe('numberState', () => {
@@ -31,6 +32,10 @@ describe('numberState', () => {
   it('should return true for is_zero', () => {
     const n = 0;
     expect(numberState(n, 'is_zero')).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    expect(numberState(5, NumberStateEnum.IS_INTEGER)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

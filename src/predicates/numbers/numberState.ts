@@ -35,8 +35,7 @@ export function numberState(source: number, oper: NumberStateOper): boolean {
     [NumberStateEnum.IS_ZERO]: (v) => v === 0,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as NumberStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown NumberState operation: ${oper}`);
   return fn(source);

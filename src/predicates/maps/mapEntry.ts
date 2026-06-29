@@ -29,8 +29,7 @@ export function mapEntry<K, V>(source: Map<K, V>, oper: MapEntryOper, entry: [K,
     [MapEntryEnum.LACKS_ENTRY]: (a, b) => !a.has(b[0]) || a.get(b[0]) !== b[1],
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as MapEntryEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown MapEntry operation: ${oper}`);
   return fn(source, entry);

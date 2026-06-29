@@ -35,8 +35,7 @@ export function bigintState(source: bigint, oper: BigIntStateOper): boolean {
     [BigIntStateEnum.IS_ODD]: (a) => a % BigInt(2) !== BigInt(0),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as BigIntStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown BigIntState operation: ${oper}`);
   return fn(source);

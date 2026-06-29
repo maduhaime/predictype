@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { FunctionArityEnum } from '../../enums/functions.js';
 import { functionArity } from './functionArity.js';
 
 describe('functionArity', () => {
@@ -35,6 +36,11 @@ describe('functionArity', () => {
     expect(functionArity(fn, 'less_or_equal', 2)).toBe(true);
     const fn2 = (_a: any, _b: any): void => {};
     expect(functionArity(fn2, 'less_or_equal', 2)).toBe(true);
+  });
+
+  it('should accept enum operators directly', () => {
+    const fn = (_a: any, _b: any): void => {};
+    expect(functionArity(fn, FunctionArityEnum.EQUALS, 2)).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

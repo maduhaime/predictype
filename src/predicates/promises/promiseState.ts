@@ -60,8 +60,7 @@ export function promiseState<T>(wrapper: PromiseWithState<T>, oper: PromiseState
     [PromiseStateEnum.IS_REJECTED]: (w) => w.state === PromiseStateEnum.IS_REJECTED,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as PromiseStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown PromiseState operation: ${oper}`);
   return fn(wrapper);

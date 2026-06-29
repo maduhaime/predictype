@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { FunctionNameEnum } from '../../enums/functions.js';
 import { functionName } from './functionName.js';
 
 describe('functionName', () => {
@@ -31,6 +32,11 @@ describe('functionName', () => {
   it('should return false for equals if not equal', () => {
     const fn = function baz(): void {};
     expect(functionName(fn, 'equals', 'foo')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const fn = function foo(): void {};
+    expect(functionName(fn, FunctionNameEnum.EQUALS, 'foo')).toBe(true);
   });
 
   it('should throw for unknown operator', () => {

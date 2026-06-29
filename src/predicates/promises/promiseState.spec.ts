@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { PromiseStateEnum } from '../../enums/promises.js';
 import { promiseState, wrapPromise } from './promiseState.js';
 
 describe('promiseState', () => {
@@ -35,6 +36,12 @@ describe('promiseState', () => {
     const p = Promise.resolve(42);
     const wrapped = wrapPromise(p);
     expect(promiseState(wrapped, 'is_rejected')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const p = Promise.resolve(42);
+    const wrapped = wrapPromise(p);
+    expect(promiseState(wrapped, PromiseStateEnum.IS_PENDING)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

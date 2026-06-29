@@ -27,8 +27,7 @@ export function arrayState(source: any[], oper: ArrayStateOper): boolean {
     [ArrayStateEnum.IS_NOT_EMPTY]: (arr) => arr.length > 0,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArrayStateOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArrayState operation: ${oper}`);
   return fn(source);

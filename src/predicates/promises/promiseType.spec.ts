@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
+import { PromiseTypeEnum } from '../../enums/promises.js';
 import { promiseType } from './promiseType.js';
 
 describe('promiseType', () => {
@@ -21,6 +22,11 @@ describe('promiseType', () => {
   it('should return false for is_async_function with non-async', () => {
     function bar(): void {}
     expect(promiseType(bar, 'is_async_function')).toBe(false);
+  });
+
+  it('should accept enum operators directly', () => {
+    const p = Promise.resolve(42);
+    expect(promiseType(p, PromiseTypeEnum.IS_PROMISE)).toBe(true);
   });
 
   it('should throw for unknown operation', () => {

@@ -35,8 +35,7 @@ export function arraySize(source: any[], oper: ArraySizeOper, target: number): b
     [ArraySizeEnum.SIZE_LESS_THAN]: (arr, val) => arr.length < val,
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ArraySizeOper) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ArraySize operation: ${oper}`);
   return fn(source, target);

@@ -37,8 +37,7 @@ export function objectKeysCompare(source: object, oper: ObjectKeysOper, keys: st
     [ObjectKeysEnum.STRICT_EQUALS_KEYS]: (k) => k.length === allKeys.length && k.every((key, i) => allKeys[i] === key),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as ObjectKeysEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown ObjectKeys operation: ${oper}`);
   return fn(keys);

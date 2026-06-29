@@ -38,8 +38,7 @@ export function dateState(source: Date, oper: DateStateOper): boolean {
     [DateStateEnum.IS_INVALID]: (d) => isNaN(d.getTime()),
   };
 
-  const enumOper = typeof oper === 'string' ? (oper as DateStateEnum) : oper;
-  const fn = operators[enumOper];
+  const fn = operators[oper];
 
   if (!fn) throw new Error(`Unknown DateState operation: ${oper}`);
   return fn(d);
