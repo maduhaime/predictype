@@ -2,6 +2,7 @@ import * as arrays from './predicates/arrays/index.js';
 import * as bigints from './predicates/bigints/index.js';
 import * as booleans from './predicates/booleans/index.js';
 import * as dates from './predicates/dates/index.js';
+import * as errors from './predicates/errors/index.js';
 import * as functions from './predicates/functions/index.js';
 import * as maps from './predicates/maps/index.js';
 import * as numbers from './predicates/numbers/index.js';
@@ -38,6 +39,13 @@ export const PredicType = {
     comparison: dates.dateComparison,
     range: dates.dateRange,
     state: dates.dateState,
+  },
+  error: {
+    message: errors.errorMessage,
+    messagePattern: errors.errorMessagePattern,
+    name: errors.errorName,
+    namePattern: errors.errorNamePattern,
+    state: errors.errorState,
   },
   function: {
     arity: functions.functionArity,
@@ -104,6 +112,7 @@ export const P = {
   big: PredicType.bigint,
   bool: PredicType.boolean,
   date: PredicType.date,
+  err: PredicType.error,
   func: PredicType.function,
   map: PredicType.map,
   num: PredicType.number,
