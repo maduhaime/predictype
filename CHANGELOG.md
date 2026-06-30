@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.11.0] - 2026-06-30
+
+### Added
+
+- **Error predicates**: Added a complete `error` family with dedicated categories for message, message pattern, name, name pattern, and state operators.
+- **RegExp predicates**: Added a complete `regexp` family split into focused categories for pattern, result, result size, result range, and state.
+- **URL predicates**: Added a full `url` family with modular predicates for `href`, `origin`, `protocol`, `host`, `hostname`, `port`, `pathname`, `search`, `hash`, and URL state.
+- **Query predicates**: Added a dedicated `query` family (URLSearchParams-focused) with modular predicates for entry, key, value, size, and state.
+
+### Enhanced
+
+- **Architecture consistency**: Standardized the new families with one-predicate-per-file and one-spec-per-file structure for better maintainability.
+- **API expansion**: Exposed new `error`, `regexp`, `url`, and `query` families in `PredicType` and alias namespaces.
+- **Documentation harmonization**: Updated operator wording and examples to align with enum values across docs and tests.
+
+### Fixed
+
+- **RegExp semantics**: Corrected empty pattern behavior to handle both `''` and `'(?:)'` consistently.
+- **Cross-runtime compatibility**: Improved `hasIndices` testing compatibility for environments that do not support the RegExp `d` flag.
+- **Test naming consistency**: Harmonized remaining spec labels to match enum operator names (`contains_value`, `in`, `between`).
+- **Lint compliance**: Fixed query entry counting helpers in `querySize` and `queryState` to satisfy `@typescript-eslint/no-unused-vars`.
+
+### Internal
+
+- **Merges integrated**: Included work from merged branches `more-coverage` (PR #1), `Error-Predicates` (PR #2), `RegExp-Predicates` (PR #3), and `Url-Predicates` (PR #4), plus post-merge stabilization commits.
+
 # [0.10.0] - 2026-06-29
 
 ### Enhanced
