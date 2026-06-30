@@ -279,6 +279,34 @@ describe('PredicType.promise', () => {
   });
 });
 
+describe('PredicType.query', () => {
+  it('should return true for query entry contains_entry', () => {
+    const params = new URLSearchParams('foo=bar&foo=baz');
+    expect(PredicType.query.entry(params, 'contains_entry', ['foo', 'bar'])).toBe(true);
+    expect(P.query.entry(params, 'contains_entry', ['foo', 'bar'])).toBe(true);
+  });
+
+  it('should return true for query state is_not_empty', () => {
+    const params = new URLSearchParams('foo=bar');
+    expect(PredicType.query.state(params, 'is_not_empty')).toBe(true);
+    expect(P.query.state(params, 'is_not_empty')).toBe(true);
+  });
+});
+
+describe('PredicType.url', () => {
+  it('should return true for url href equals', () => {
+    const url = new URL('https://user:pass@example.com:8080/path/name?foo=bar#hash');
+    expect(PredicType.url.href(url, 'equals', url.href)).toBe(true);
+    expect(P.url.href(url, 'equals', url.href)).toBe(true);
+  });
+
+  it('should return true for url state has_search', () => {
+    const url = new URL('https://example.com/path?foo=bar');
+    expect(PredicType.url.state(url, 'has_search')).toBe(true);
+    expect(P.url.state(url, 'has_search')).toBe(true);
+  });
+});
+
 describe('PredicType.regexp', () => {
   it('should return true for regexp pattern equals', () => {
     expect(PredicType.regexp.pattern(/foo/, 'equals', 'foo')).toBe(true);
