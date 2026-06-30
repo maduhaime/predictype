@@ -8,6 +8,7 @@ import * as maps from './predicates/maps/index.js';
 import * as numbers from './predicates/numbers/index.js';
 import * as objects from './predicates/objects/index.js';
 import * as promises from './predicates/promises/index.js';
+import * as regexps from './predicates/regexps/index.js';
 import * as sets from './predicates/sets/index.js';
 import * as strings from './predicates/strings/index.js';
 import * as symbols from './predicates/symbols/index.js';
@@ -82,6 +83,13 @@ export const PredicType = {
     state: promises.promiseState,
     type: promises.promiseType,
   },
+  regexp: {
+    pattern: regexps.regexpPattern,
+    result: regexps.regexpResult,
+    resultRange: regexps.regexpResultRange,
+    resultSize: regexps.regexpResultSize,
+    state: regexps.regexpState,
+  },
   set: {
     arrayMembership: sets.setArrayMembership,
     comparison: sets.setComparison,
@@ -118,6 +126,7 @@ export const P = {
   num: PredicType.number,
   obj: PredicType.object,
   prom: PredicType.promise,
+  reg: PredicType.regexp,
   set: PredicType.set,
   str: PredicType.string,
   sym: PredicType.symbol,

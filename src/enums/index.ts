@@ -8,6 +8,7 @@ export * from './maps.js';
 export * from './numbers.js';
 export * from './objects.js';
 export * from './promises.js';
+export * from './regexps.js';
 export * from './sets.js';
 export * from './strings.js';
 export * from './symbols.js';
