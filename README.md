@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **235 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **252 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -39,7 +39,7 @@ npm install predictype
 
 ### Families and Predicate Categories
 
-PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, function, map, number, object, promise, set, string, or symbol.
+PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, set, string, or symbol.
 
 Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for example: size, membership, comparison, state, etc.).
 
@@ -53,6 +53,10 @@ PredicType.array.comparison([1, 2, 2], 'same_members', [2, 1, 2]); // true
 PredicType.array.comparison([1, 2, 2], 'set_equals', [2, 1]); // true
 
 PredicType.string.state('foo', 'is_not_empty'); // true
+
+PredicType.error.state(new Error('boom'), 'has_stack'); // true
+PredicType.error.messagePattern(new Error('boom'), 'matches', /boom/); // true
+PredicType.error.namePattern(new TypeError('boom'), 'matches', /Type/); // true
 
 PredicType.number.range(5, 'between', 1, 10); // true
 ```
@@ -79,6 +83,7 @@ The alias mapping is as follows:
 | PredicType.bigint   | P.big  | comparison, membership, range, state                                                                    |
 | PredicType.boolean  | P.bool | comparison, state                                                                                       |
 | PredicType.date     | P.date | calendar, comparison, range, state                                                                      |
+| PredicType.error    | P.err  | message, messagePattern, name, namePattern, state                                                       |
 | PredicType.function | P.func | arity, name, pattern, state                                                                             |
 | PredicType.map      | P.map  | entry, key, size, state, value                                                                          |
 | PredicType.number   | P.num  | comparison, range, state                                                                                |
@@ -134,6 +139,16 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | comparison | DateComparisonEnum | AFTER, AFTER_OR_EQUAL, BEFORE, BEFORE_OR_EQUAL, EQUALS, NOT_EQUALS, SAME_DAY, SAME_MONTH, SAME_YEAR                          | 9     |
 | range      | DateRangeEnum      | BETWEEN, NOT_BETWEEN, STRICT_BETWEEN, STRICT_NOT_BETWEEN                                                                     | 4     |
 | state      | DateStateEnum      | IS_INVALID, IS_VALID                                                                                                         | 2     |
+
+#### Error (17)
+
+| Category       | Enum                    | Operators                                          | Count |
+| -------------- | ----------------------- | -------------------------------------------------- | ----- |
+| message        | ErrorMessageEnum        | EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES | 5     |
+| messagePattern | ErrorMessagePatternEnum | MATCHES, NOT_MATCHES                               | 2     |
+| name           | ErrorNameEnum           | EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES | 5     |
+| namePattern    | ErrorNamePatternEnum    | MATCHES, NOT_MATCHES                               | 2     |
+| state          | ErrorStateEnum          | HAS_CAUSE, HAS_STACK, IS_AGGREGATE_ERROR           | 3     |
 
 #### Function (19)
 

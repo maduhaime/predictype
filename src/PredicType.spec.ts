@@ -103,6 +103,38 @@ describe('PredicType.date', () => {
   });
 });
 
+describe('PredicType.error', () => {
+  it('should return true for error message includes', () => {
+    expect(PredicType.error.message(new Error('Network timeout'), 'includes', 'timeout')).toBe(true);
+    expect(P.err.message(new Error('Network timeout'), 'includes', 'timeout')).toBe(true);
+  });
+
+  it('should return true for error messagePattern matches', () => {
+    expect(PredicType.error.messagePattern(new Error('Network timeout'), 'matches', /timeout$/)).toBe(true);
+    expect(P.err.messagePattern(new Error('Network timeout'), 'matches', /timeout$/)).toBe(true);
+  });
+
+  it('should return true for error name equals', () => {
+    expect(PredicType.error.name(new TypeError('boom'), 'equals', 'TypeError')).toBe(true);
+    expect(P.err.name(new TypeError('boom'), 'equals', 'TypeError')).toBe(true);
+  });
+
+  it('should return true for error name starts_with', () => {
+    expect(PredicType.error.name(new TypeError('boom'), 'starts_with', 'Type')).toBe(true);
+    expect(P.err.name(new TypeError('boom'), 'starts_with', 'Type')).toBe(true);
+  });
+
+  it('should return true for error namePattern matches', () => {
+    expect(PredicType.error.namePattern(new TypeError('boom'), 'matches', /Type/)).toBe(true);
+    expect(P.err.namePattern(new TypeError('boom'), 'matches', /Type/)).toBe(true);
+  });
+
+  it('should return true for error state has_stack', () => {
+    expect(PredicType.error.state(new Error('boom'), 'has_stack')).toBe(true);
+    expect(P.err.state(new Error('boom'), 'has_stack')).toBe(true);
+  });
+});
+
 describe('PredicType.function', () => {
   it('should return true for function arity equals', () => {
     expect(PredicType.function.arity((a: any) => a, 'equals', 1)).toBe(true);

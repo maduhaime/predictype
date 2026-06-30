@@ -2,6 +2,7 @@ export * from './arrays.js';
 export * from './bigints.js';
 export * from './booleans.js';
 export * from './dates.js';
+export * from './errors.js';
 export * from './functions.js';
 export * from './maps.js';
 export * from './numbers.js';
