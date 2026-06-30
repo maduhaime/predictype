@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **252 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **278 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -39,7 +39,7 @@ npm install predictype
 
 ### Families and Predicate Categories
 
-PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, set, string, or symbol.
+PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, regexp, set, string, or symbol.
 
 Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for example: size, membership, comparison, state, etc.).
 
@@ -84,13 +84,14 @@ The alias mapping is as follows:
 | PredicType.boolean  | P.bool | comparison, state                                                                                       |
 | PredicType.date     | P.date | calendar, comparison, range, state                                                                      |
 | PredicType.error    | P.err  | message, messagePattern, name, namePattern, state                                                       |
-| PredicType.function | P.func | arity, name, pattern, state                                                                             |
+| PredicType.function | P.func | arity, name, namePattern, state                                                                         |
 | PredicType.map      | P.map  | entry, key, size, state, value                                                                          |
 | PredicType.number   | P.num  | comparison, range, state                                                                                |
 | PredicType.object   | P.obj  | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
 | PredicType.promise  | P.prom | state, type                                                                                             |
+| PredicType.regexp   | P.reg  | pattern, result, resultRange, resultSize, state                                                         |
 | PredicType.set      | P.set  | arrayMembership, comparison, intersection, membership, relation, size, state                            |
-| PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring,                                                |
+| PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring                                                 |
 | PredicType.symbol   | P.sym  | comparison, state                                                                                       |
 
 All predicate categories and operators are available via both the full API and the alias.
@@ -152,12 +153,12 @@ Below is a comprehensive table of all predicate families, their categories, enum
 
 #### Function (19)
 
-| Category | Enum                    | Operators                                                                    | Count |
-| -------- | ----------------------- | ---------------------------------------------------------------------------- | ----- |
-| arity    | FunctionArityEnum       | EQUALS, GREATER_OR_EQUAL, GREATER_THAN, LESS_OR_EQUAL, LESS_THAN, NOT_EQUALS | 6     |
-| name     | FunctionNameEnum        | EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                           | 5     |
-| pattern  | FunctionNamePatternEnum | MATCHES, NOT_MATCHES                                                         | 2     |
-| state    | FunctionStateEnum       | HAS_NAME, IS_ANONYMOUS, IS_ARROW, IS_ASYNC, IS_CONSTRUCTOR, IS_GENERATOR     | 6     |
+| Category    | Enum                    | Operators                                                                    | Count |
+| ----------- | ----------------------- | ---------------------------------------------------------------------------- | ----- |
+| arity       | FunctionArityEnum       | EQUALS, GREATER_OR_EQUAL, GREATER_THAN, LESS_OR_EQUAL, LESS_THAN, NOT_EQUALS | 6     |
+| name        | FunctionNameEnum        | EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                           | 5     |
+| namePattern | FunctionNamePatternEnum | MATCHES, NOT_MATCHES                                                         | 2     |
+| state       | FunctionStateEnum       | HAS_NAME, IS_ANONYMOUS, IS_ARROW, IS_ASYNC, IS_CONSTRUCTOR, IS_GENERATOR     | 6     |
 
 #### Map (13)
 
@@ -199,6 +200,16 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | -------- | ---------------- | ------------------------------------- | ----- |
 | state    | PromiseStateEnum | IS_PENDING, IS_FULFILLED, IS_REJECTED | 3     |
 | type     | PromiseTypeEnum  | IS_PROMISE, IS_ASYNC_FUNCTION         | 2     |
+
+#### RegExp (26)
+
+| Category    | Enum                  | Operators                                                                                                 | Count |
+| ----------- | --------------------- | --------------------------------------------------------------------------------------------------------- | ----- |
+| pattern     | RegExpPatternEnum     | EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                                        | 5     |
+| result      | RegExpResultEnum      | TESTS, NOT_TESTS, MATCHES, NOT_MATCHES                                                                    | 4     |
+| resultRange | RegExpResultRangeEnum | BETWEEN, NOT_BETWEEN, STRICT_BETWEEN, STRICT_NOT_BETWEEN                                                  | 4     |
+| resultSize  | RegExpResultSizeEnum  | SIZE_EQUALS, SIZE_GREATER_THAN, SIZE_GREATER_THAN_OR_EQUALS, SIZE_LESS_THAN, SIZE_LESS_THAN_OR_EQUALS     | 5     |
+| state       | RegExpStateEnum       | IS_GLOBAL, IS_IGNORE_CASE, IS_MULTILINE, IS_DOT_ALL, IS_UNICODE, IS_STICKY, HAS_INDICES, IS_EMPTY_PATTERN | 8     |
 
 #### Set (23)
 

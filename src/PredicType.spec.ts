@@ -279,6 +279,33 @@ describe('PredicType.promise', () => {
   });
 });
 
+describe('PredicType.regexp', () => {
+  it('should return true for regexp pattern equals', () => {
+    expect(PredicType.regexp.pattern(/foo/, 'equals', 'foo')).toBe(true);
+    expect(P.reg.pattern(/foo/, 'equals', 'foo')).toBe(true);
+  });
+
+  it('should return true for regexp result tests', () => {
+    expect(PredicType.regexp.result(/^foo/, 'tests', 'foobar')).toBe(true);
+    expect(P.reg.result(/^foo/, 'tests', 'foobar')).toBe(true);
+  });
+
+  it('should return true for regexp resultSize size_equals', () => {
+    expect(PredicType.regexp.resultSize(/a/g, 'size_equals', 'banana', 3)).toBe(true);
+    expect(P.reg.resultSize(/a/g, 'size_equals', 'banana', 3)).toBe(true);
+  });
+
+  it('should return true for regexp resultRange between', () => {
+    expect(PredicType.regexp.resultRange(/a/g, 'between', 'banana', 2, 3)).toBe(true);
+    expect(P.reg.resultRange(/a/g, 'between', 'banana', 2, 3)).toBe(true);
+  });
+
+  it('should return true for regexp state is_global', () => {
+    expect(PredicType.regexp.state(/foo/g, 'is_global')).toBe(true);
+    expect(P.reg.state(/foo/g, 'is_global')).toBe(true);
+  });
+});
+
 describe('PredicType.set', () => {
   it('should return true for set arrayMembership contains_all', () => {
     expect(PredicType.set.arrayMembership(new Set([1, 2, 3]), 'contains_all', [1, 2])).toBe(true);
