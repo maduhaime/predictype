@@ -4,7 +4,7 @@ import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions.js';
  * Checks the arity (number of parameters) of a function using the specified operation.
  *
  * @param source The function to check.
- * @param oper The arity operation to perform (e.g. 'arity_equals', 'arity_greater_than').
+ * @param oper The arity operation to perform (e.g. 'equals', 'greater_than').
  * @param arity The arity (number of parameters) to compare against.
  * @returns True if the arity check is valid according to the operator, otherwise false.
  *
@@ -15,8 +15,8 @@ import { FunctionArityEnum, FunctionArityOper } from '../../enums/functions.js';
  * const fn2 = function(a, b, c) {};
  * const arity2 = 2;
  *
- * functionArity(fn1, 'arity_equals', arity2); // true
- * functionArity(fn2, 'arity_greater_than', arity2); // true
+ * functionArity(fn1, 'equals', arity2); // true
+ * functionArity(fn2, 'greater_than', arity2); // true
  *
  * @remarks
  * Supported Operators:

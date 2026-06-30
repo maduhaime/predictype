@@ -4,7 +4,7 @@ import { MapKeyEnum, MapKeyOper } from '../../enums/maps.js';
  * Checks if a Map contains (or lacks) a specific key using the specified operation.
  *
  * @param source The Map to check.
- * @param oper The key operation to perform (e.g. 'has_key', 'lacks_key').
+ * @param oper The key operation to perform (e.g. 'contains_key', 'lacks_key').
  * @param key The key to check for.
  * @returns True if the key check is valid according to the operator, otherwise false.
  *
@@ -15,7 +15,7 @@ import { MapKeyEnum, MapKeyOper } from '../../enums/maps.js';
  * const key1 = 1;
  * const key2 = 2;
  *
- * mapKey(m, 'has_key', key1); // true
+ * mapKey(m, 'contains_key', key1); // true
  * mapKey(m, 'lacks_key', key2); // true
  *
  * @remarks

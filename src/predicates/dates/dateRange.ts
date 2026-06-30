@@ -14,7 +14,7 @@ function toUTCDate(date: Date): Date {
  * Checks if a date is in or outside a UTC date range using the specified operation.
  *
  * @param source The date to check.
- * @param oper The range operation to perform (e.g. 'in_range', 'strict_in_range').
+ * @param oper The range operation to perform (e.g. 'between', 'strict_between').
  * @param min The minimum date (inclusive or exclusive depending on operation).
  * @param max The maximum date (inclusive or exclusive depending on operation).
  * @returns True if the range check is valid according to the operator, otherwise false.
@@ -26,7 +26,7 @@ function toUTCDate(date: Date): Date {
  * const start = new Date('2025-01-01');
  * const end = new Date('2025-01-31');
  *
- * dateRange(date, 'in_range', start, end); // true
+ * dateRange(date, 'between', start, end); // true
  *
  * @remarks
  * Supported Operators:

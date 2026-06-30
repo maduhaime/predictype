@@ -4,7 +4,7 @@ import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays.js';
  * Checks the size of an array against a target value, using the specified operation.
  *
  * @param source The source array.
- * @param oper The size operation to perform (e.g. 'length_equals', 'length_greater_than').
+ * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
  * @param target The target size to compare against the array's length.
  * @returns True if the size check is valid according to the operator, otherwise false.
  *
@@ -15,8 +15,8 @@ import { ArraySizeEnum, ArraySizeOper } from '../../enums/arrays.js';
  * const len1 = 3;
  * const len2 = 2;
  *
- * arraySize(arr, 'length_equals', len1); // true
- * arraySize(arr, 'length_greater_than', len2); // true
+ * arraySize(arr, 'size_equals', len1); // true
+ * arraySize(arr, 'size_greater_than', len2); // true
  *
  * @remarks
  * Supported Operators:

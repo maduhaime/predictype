@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { objectKeyMembership } from './objectKeyMembership.js';
 
 describe('objectKeyMembership', () => {
-  it('should return true for key_in when at least one key matches', () => {
+  it('should return true for in when at least one key matches', () => {
     const obj = { foo: 1, bar: 2 };
     expect(objectKeyMembership(obj, 'in', ['foo', 'baz'])).toBe(true);
     expect(objectKeyMembership(obj, 'in', ['baz'])).toBe(false);

@@ -91,7 +91,7 @@ describe('PredicType.date', () => {
     expect(P.date.comparison(d2, 'after', d1)).toBe(true);
   });
 
-  it('should return true for date range in_range', () => {
+  it('should return true for date range between', () => {
     const d = new Date('2020-01-02');
     expect(PredicType.date.range(d, 'between', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
     expect(P.date.range(d, 'between', new Date('2020-01-01'), new Date('2020-01-03'))).toBe(true);
@@ -192,7 +192,7 @@ describe('PredicType.number', () => {
     expect(P.num.comparison(1, 'equals', 1)).toBe(true);
   });
 
-  it('should return true for number range in_range', () => {
+  it('should return true for number range between', () => {
     expect(PredicType.number.range(2, 'between', 1, 3)).toBe(true);
     expect(P.num.range(2, 'between', 1, 3)).toBe(true);
   });

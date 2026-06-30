@@ -4,7 +4,7 @@ import { StringSizeEnum, StringSizeOper } from '../../enums/strings.js';
  * Checks the size (length) of a string using the specified operation.
  *
  * @param source The string to check.
- * @param oper The size operation to perform (e.g. 'length_equals', 'length_greater_than').
+ * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
  * @param target The length to compare against.
  * @returns True if the size check is valid according to the operator, otherwise false.
  *
@@ -15,8 +15,8 @@ import { StringSizeEnum, StringSizeOper } from '../../enums/strings.js';
  * const len1 = 5;
  * const len2 = 3;
  *
- * stringSize(str, 'length_equals', len1); // true
- * stringSize(str, 'length_greater_than', len2); // true
+ * stringSize(str, 'size_equals', len1); // true
+ * stringSize(str, 'size_greater_than', len2); // true
  *
  * @remarks
  * Supported Operators:

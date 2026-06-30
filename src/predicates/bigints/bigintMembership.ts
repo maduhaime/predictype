@@ -4,7 +4,7 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  * Checks if a bigint value is (or is not) a member of a set of bigints using the specified operation.
  *
  * @param source The source bigint value.
- * @param oper The membership operation to perform (e.g. 'is_one_of', 'is_not_one_of').
+ * @param oper The membership operation to perform (e.g. 'in', 'not_in').
  * @param target The array of bigints to check membership against.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *
@@ -15,8 +15,8 @@ import { BigIntMembershipEnum, BigIntMembershipOper } from '../../enums/bigints.
  * const value2 = BigInt(3);
  * const arr = [BigInt(1), BigInt(2), BigInt(5)];
  *
- * bigintMembership(value1, 'is_one_of', arr); // true
- * bigintMembership(value2, 'is_not_one_of', arr); // true
+ * bigintMembership(value1, 'in', arr); // true
+ * bigintMembership(value2, 'not_in', arr); // true
  *
  * @remarks
  * Supported Operators:

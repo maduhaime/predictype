@@ -4,7 +4,7 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  * Checks if a Map contains (or lacks) a specific value using the specified operation.
  *
  * @param source The Map to check.
- * @param oper The value operation to perform (e.g. 'has_value', 'lacks_value').
+ * @param oper The value operation to perform (e.g. 'contains_value', 'lacks_value').
  * @param target The value to check for.
  * @returns True if the value check is valid according to the operator, otherwise false.
  *
@@ -16,7 +16,7 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  * const valueA = 'a';
  * const valueB = 'b';
  *
- * mapValue(m1, 'has_value', valueA); // true
+ * mapValue(m1, 'contains_value', valueA); // true
  * mapValue(m2, 'lacks_value', valueB); // true
  *
  * @remarks

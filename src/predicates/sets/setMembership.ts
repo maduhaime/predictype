@@ -4,7 +4,7 @@ import { SetMembershipEnum, SetMembershipOper } from '../../enums/sets.js';
  * Checks membership conditions for elements in a set using the specified operation.
  *
  * @param source The set to check.
- * @param oper The membership operation to perform (e.g. 'contains', 'excludes').
+ * @param oper The membership operation to perform (e.g. 'includes', 'excludes').
  * @param target The value to check for membership.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *
@@ -13,7 +13,7 @@ import { SetMembershipEnum, SetMembershipOper } from '../../enums/sets.js';
  * @example
  * const s = new Set([1, 2, 3]);
  *
- * setMembership(s, 'contains', 2); // true
+ * setMembership(s, 'includes', 2); // true
  * setMembership(s, 'excludes', 4); // true
  *
  * @remarks

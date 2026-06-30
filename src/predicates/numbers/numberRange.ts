@@ -4,7 +4,7 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  * Checks if a number is in or outside a range using the specified operation.
  *
  * @param source The number to check.
- * @param oper The range operation to perform (e.g. 'in_range', 'strict_in_range').
+ * @param oper The range operation to perform (e.g. 'between', 'strict_between').
  * @param min The minimum value (inclusive or exclusive depending on operation).
  * @param max The maximum value (inclusive or exclusive depending on operation).
  * @returns True if the range check is valid according to the operator, otherwise false.
@@ -14,8 +14,8 @@ import { NumberRangeEnum, NumberRangeOper } from '../../enums/numbers.js';
  * @example
  * const n = 5;
  *
- * numberRange(n, 'in_range', 1, 10); // true
- * numberRange(n, 'strict_in_range', 5, 10); // false
+ * numberRange(n, 'between', 1, 10); // true
+ * numberRange(n, 'strict_between', 5, 10); // false
  *
  * @remarks
  * Supported Operators:

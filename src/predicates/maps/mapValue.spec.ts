@@ -4,7 +4,7 @@ import { MapValueEnum } from '../../enums/maps.js';
 import { mapValue } from './mapValue.js';
 
 describe('mapValue', () => {
-  it('should return true for has_value', () => {
+  it('should return true for contains_value', () => {
     const m = new Map([
       [1, 'a'],
       [2, 'b'],
