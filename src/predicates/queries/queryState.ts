@@ -3,7 +3,9 @@ import { QueryStateEnum, QueryStateOper } from '../../enums/queries.js';
 function countEntries(source: URLSearchParams): number {
   let count = 0;
 
-  for (const _entry of source) count += 1;
+  source.forEach(() => {
+    count += 1;
+  });
   return count;
 }
 
