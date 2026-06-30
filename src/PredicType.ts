@@ -8,9 +8,11 @@ import * as maps from './predicates/maps/index.js';
 import * as numbers from './predicates/numbers/index.js';
 import * as objects from './predicates/objects/index.js';
 import * as promises from './predicates/promises/index.js';
+import * as queries from './predicates/queries/index.js';
 import * as regexps from './predicates/regexps/index.js';
 import * as sets from './predicates/sets/index.js';
 import * as strings from './predicates/strings/index.js';
+import * as urls from './predicates/urls/index.js';
 import * as symbols from './predicates/symbols/index.js';
 
 export const PredicType = {
@@ -83,12 +85,31 @@ export const PredicType = {
     state: promises.promiseState,
     type: promises.promiseType,
   },
+  query: {
+    entry: queries.queryEntry,
+    key: queries.queryKey,
+    size: queries.querySize,
+    state: queries.queryState,
+    value: queries.queryValue,
+  },
   regexp: {
     pattern: regexps.regexpPattern,
     result: regexps.regexpResult,
     resultRange: regexps.regexpResultRange,
     resultSize: regexps.regexpResultSize,
     state: regexps.regexpState,
+  },
+  url: {
+    hash: urls.urlHash,
+    host: urls.urlHost,
+    href: urls.urlHref,
+    hostname: urls.urlHostname,
+    origin: urls.urlOrigin,
+    pathname: urls.urlPathname,
+    port: urls.urlPort,
+    protocol: urls.urlProtocol,
+    search: urls.urlSearch,
+    state: urls.urlState,
   },
   set: {
     arrayMembership: sets.setArrayMembership,
@@ -126,8 +147,10 @@ export const P = {
   num: PredicType.number,
   obj: PredicType.object,
   prom: PredicType.promise,
+  query: PredicType.query,
   reg: PredicType.regexp,
   set: PredicType.set,
   str: PredicType.string,
+  url: PredicType.url,
   sym: PredicType.symbol,
 };

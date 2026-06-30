@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **278 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **355 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -39,9 +39,11 @@ npm install predictype
 
 ### Families and Predicate Categories
 
-PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, regexp, set, string, or symbol.
+PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, query, regexp, set, string, symbol, or url.
 
 Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for example: size, membership, comparison, state, etc.).
+
+For URL query parameters, PredicType uses the shorter `query` family name instead of `URLSearchParams`. The intent stays clear for the user while keeping the API concise.
 
 #### General Example
 
@@ -77,22 +79,24 @@ P.num.range(5, 'between', 1, 10); // true
 
 The alias mapping is as follows:
 
-| Full API            | Alias  | Categories                                                                                              |
-| ------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
-| PredicType.array    | P.arr  | comparison, indexComparison, indexMembership, intersection, membership, relation, sequence, size, state |
-| PredicType.bigint   | P.big  | comparison, membership, range, state                                                                    |
-| PredicType.boolean  | P.bool | comparison, state                                                                                       |
-| PredicType.date     | P.date | calendar, comparison, range, state                                                                      |
-| PredicType.error    | P.err  | message, messagePattern, name, namePattern, state                                                       |
-| PredicType.function | P.func | arity, name, namePattern, state                                                                         |
-| PredicType.map      | P.map  | entry, key, size, state, value                                                                          |
-| PredicType.number   | P.num  | comparison, range, state                                                                                |
-| PredicType.object   | P.obj  | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
-| PredicType.promise  | P.prom | state, type                                                                                             |
-| PredicType.regexp   | P.reg  | pattern, result, resultRange, resultSize, state                                                         |
-| PredicType.set      | P.set  | arrayMembership, comparison, intersection, membership, relation, size, state                            |
-| PredicType.string   | P.str  | comparison, membership, pattern, size, state, substring                                                 |
-| PredicType.symbol   | P.sym  | comparison, state                                                                                       |
+| Full API            | Alias   | Categories                                                                                              |
+| ------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
+| PredicType.array    | P.arr   | comparison, indexComparison, indexMembership, intersection, membership, relation, sequence, size, state |
+| PredicType.bigint   | P.big   | comparison, membership, range, state                                                                    |
+| PredicType.boolean  | P.bool  | comparison, state                                                                                       |
+| PredicType.date     | P.date  | calendar, comparison, range, state                                                                      |
+| PredicType.error    | P.err   | message, messagePattern, name, namePattern, state                                                       |
+| PredicType.function | P.func  | arity, name, namePattern, state                                                                         |
+| PredicType.map      | P.map   | entry, key, size, state, value                                                                          |
+| PredicType.number   | P.num   | comparison, range, state                                                                                |
+| PredicType.object   | P.obj   | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
+| PredicType.promise  | P.prom  | state, type                                                                                             |
+| PredicType.query    | P.query | entry, key, size, state, value                                                                          |
+| PredicType.regexp   | P.reg   | pattern, result, resultRange, resultSize, state                                                         |
+| PredicType.set      | P.set   | arrayMembership, comparison, intersection, membership, relation, size, state                            |
+| PredicType.string   | P.str   | comparison, membership, pattern, size, state, substring                                                 |
+| PredicType.url      | P.url   | hash, host, href, hostname, origin, pathname, port, protocol, search, state                             |
+| PredicType.symbol   | P.sym   | comparison, state                                                                                       |
 
 All predicate categories and operators are available via both the full API and the alias.
 
@@ -200,6 +204,31 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | -------- | ---------------- | ------------------------------------- | ----- |
 | state    | PromiseStateEnum | IS_PENDING, IS_FULFILLED, IS_REJECTED | 3     |
 | type     | PromiseTypeEnum  | IS_PROMISE, IS_ASYNC_FUNCTION         | 2     |
+
+#### Query (13)
+
+| Category | Enum           | Operators                                                                                             | Count |
+| -------- | -------------- | ----------------------------------------------------------------------------------------------------- | ----- |
+| entry    | QueryEntryEnum | CONTAINS_ENTRY, LACKS_ENTRY                                                                           | 2     |
+| key      | QueryKeyEnum   | CONTAINS_KEY, LACKS_KEY                                                                               | 2     |
+| size     | QuerySizeEnum  | SIZE_EQUALS, SIZE_GREATER_THAN, SIZE_GREATER_THAN_OR_EQUALS, SIZE_LESS_THAN, SIZE_LESS_THAN_OR_EQUALS | 5     |
+| state    | QueryStateEnum | IS_EMPTY, IS_NOT_EMPTY                                                                                | 2     |
+| value    | QueryValueEnum | CONTAINS_VALUE, LACKS_VALUE                                                                           | 2     |
+
+#### URL (64)
+
+| Category | Enum            | Operators                                                                                             | Count |
+| -------- | --------------- | ----------------------------------------------------------------------------------------------------- | ----- |
+| hash     | UrlHashEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| host     | UrlHostEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| href     | UrlHrefEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| hostname | UrlHostnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| origin   | UrlOriginEnum   | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| pathname | UrlPathnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| port     | UrlPortEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| protocol | UrlProtocolEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| search   | UrlSearchEnum   | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
+| state    | UrlStateEnum    | HAS_HASH, HAS_PASSWORD, HAS_PORT, HAS_SEARCH, HAS_USERNAME, IS_FILE, IS_HTTP, IS_HTTPS, IS_WS, IS_WSS | 10    |
 
 #### RegExp (26)
 
