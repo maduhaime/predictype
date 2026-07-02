@@ -300,8 +300,14 @@ describe('PredicType.url', () => {
     expect(P.url.href(url, 'equals', url.href)).toBe(true);
   });
 
+  it('should return true for url state has_hash', () => {
+    const url = new URL('https://example.com/path?foo=bar#hash');
+    expect(PredicType.url.state(url, 'has_hash')).toBe(true);
+    expect(P.url.state(url, 'has_hash')).toBe(true);
+  });
+
   it('should return true for url state has_search', () => {
-    const url = new URL('https://example.com/path?foo=bar');
+    const url = new URL('https://example.com/path?foo=bar#hash');
     expect(PredicType.url.state(url, 'has_search')).toBe(true);
     expect(P.url.state(url, 'has_search')).toBe(true);
   });

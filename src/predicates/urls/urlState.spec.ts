@@ -5,6 +5,7 @@ import { urlState } from './urlState.js';
 
 describe('urlState', () => {
   const httpsUrl = new URL('https://user:pass@example.com:8080/path?foo=bar#hash');
+  const noSearchUrl = new URL('https://example.com/path#hash');
   const wsUrl = new URL('ws://example.com/socket');
 
   it('should return true for has_hash', () => {
@@ -13,6 +14,7 @@ describe('urlState', () => {
 
   it('should return true for has_search', () => {
     expect(urlState(httpsUrl, 'has_search')).toBe(true);
+    expect(urlState(noSearchUrl, 'has_search')).toBe(false);
   });
 
   it('should return true for has_port', () => {

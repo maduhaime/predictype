@@ -16,7 +16,7 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ## Features
 
-- **355 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
+- **348 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
 - **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
 - **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
 - **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
@@ -215,20 +215,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | state    | QueryStateEnum | IS_EMPTY, IS_NOT_EMPTY                                                                                | 2     |
 | value    | QueryValueEnum | CONTAINS_VALUE, LACKS_VALUE                                                                           | 2     |
 
-#### URL (64)
-
-| Category | Enum            | Operators                                                                                             | Count |
-| -------- | --------------- | ----------------------------------------------------------------------------------------------------- | ----- |
-| hash     | UrlHashEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| host     | UrlHostEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| href     | UrlHrefEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| hostname | UrlHostnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| origin   | UrlOriginEnum   | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| pathname | UrlPathnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| port     | UrlPortEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| protocol | UrlProtocolEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| search   | UrlSearchEnum   | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                                        | 6     |
-| state    | UrlStateEnum    | HAS_HASH, HAS_PASSWORD, HAS_PORT, HAS_SEARCH, HAS_USERNAME, IS_FILE, IS_HTTP, IS_HTTPS, IS_WS, IS_WSS | 10    |
+Note: Query predicates are designed to operate on URL query parameters through URLSearchParams (for example, `url.searchParams`).
 
 #### RegExp (26)
 
@@ -269,6 +256,22 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | ---------- | -------------------- | ------------------- | ----- |
 | comparison | SymbolComparisonEnum | EQUALS, NOT_EQUALS  | 2     |
 | state      | SymbolStateEnum      | IS_GLOBAL, IS_LOCAL | 2     |
+
+#### URL (57)
+
+| Category | Enum            | Operators                                                                                    | Count |
+| -------- | --------------- | -------------------------------------------------------------------------------------------- | ----- |
+| hash     | UrlHashEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| host     | UrlHostEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| href     | UrlHrefEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| hostname | UrlHostnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| origin   | UrlOriginEnum   | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| pathname | UrlPathnameEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| port     | UrlPortEnum     | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| protocol | UrlProtocolEnum | EQUALS, NOT_EQUALS, STARTS_WITH, ENDS_WITH, INCLUDES, EXCLUDES                               | 6     |
+| state    | UrlStateEnum    | HAS_HASH, HAS_SEARCH, HAS_PASSWORD, HAS_PORT, HAS_USERNAME, IS_HTTP, IS_HTTPS, IS_WS, IS_WSS | 9     |
+
+Note: For operations on the URL search parameters, use the Query family.
 
 ### Why Use Enums?
 

@@ -80,17 +80,6 @@ export enum UrlPathnameEnum {
 
 export type UrlPathnameOper = UrlPathnameEnum | `${UrlPathnameEnum}`;
 
-export enum UrlSearchEnum {
-  EQUALS = 'equals',
-  NOT_EQUALS = 'not_equals',
-  STARTS_WITH = 'starts_with',
-  ENDS_WITH = 'ends_with',
-  INCLUDES = 'includes',
-  EXCLUDES = 'excludes',
-}
-
-export type UrlSearchOper = UrlSearchEnum | `${UrlSearchEnum}`;
-
 export enum UrlHashEnum {
   EQUALS = 'equals',
   NOT_EQUALS = 'not_equals',

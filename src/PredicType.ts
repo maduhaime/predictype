@@ -108,7 +108,6 @@ export const PredicType = {
     pathname: urls.urlPathname,
     port: urls.urlPort,
     protocol: urls.urlProtocol,
-    search: urls.urlSearch,
     state: urls.urlState,
   },
   set: {

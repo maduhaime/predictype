@@ -11,5 +11,4 @@ export * from './urlOrigin.js';
 export * from './urlPathname.js';
 export * from './urlPort.js';
 export * from './urlProtocol.js';
-export * from './urlSearch.js';
 export * from './urlState.js';
