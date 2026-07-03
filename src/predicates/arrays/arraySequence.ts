@@ -22,9 +22,9 @@ import { ArraySequenceEnum, ArraySequenceOper } from '../../enums/arrays.js';
  *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_SUBSEQUENCE**: Source contains target as a contiguous subsequence
- * - **STARTS_WITH**: Source starts with target
- * - **ENDS_WITH**: Source ends with target
+ * - **contains_subsequence**: source contains target as a contiguous subsequence
+ * - **starts_with**: source starts with target
+ * - **ends_with**: source ends with target
  */
 export function arraySequence<T>(source: T[], oper: ArraySequenceOper, target: T[]): boolean {
   const operators: Record<ArraySequenceEnum, (a: T[], b: T[]) => boolean> = {

@@ -5,6 +5,7 @@ import { SetMembershipEnum, SetMembershipOper } from '../../enums/sets.js';
  *
  * @param source The set to check.
  * @param oper The membership operation to perform (e.g. 'includes', 'excludes').
+ * @template T Type of the Set elements.
  * @param target The value to check for membership.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *

@@ -9,9 +9,16 @@ import { ObjectPrototypeStateEnum, ObjectPrototypeStateOper } from '../../enums/
  *
  * @throws {Error} If the operation is not recognized.
  *
+ * @example
+ * const sourceA = Object.create(null);
+ * const sourceB = { id: 1 };
+ *
+ * objectPrototypeState(sourceA, 'prototype_is_null'); // true
+ * objectPrototypeState(sourceB, 'prototype_is_null'); // false
+ *
  * @remarks
  * Supported Operators:
- * - **PROTOTYPE_IS_NULL**: Object's prototype is null
+ * - **prototype_is_null**: Object prototype is null
  */
 export function objectPrototypeState(source: object, oper: ObjectPrototypeStateOper): boolean {
   const operators: Record<ObjectPrototypeStateEnum, (o: object) => boolean> = {

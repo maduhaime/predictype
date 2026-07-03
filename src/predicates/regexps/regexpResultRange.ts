@@ -32,6 +32,24 @@ function countMatches(pattern: RegExp, target: string): number {
  * @returns True if the range comparison is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const pattern = /item/g;
+ * const target = 'item,item,item';
+ * const minA = 2;
+ * const maxA = 4;
+ * const minB = 3;
+ * const maxB = 5;
+ *
+ * regexpResultRange(pattern, 'between', target, minA, maxA); // true
+ * regexpResultRange(pattern, 'strict_between', target, minB, maxB); // false
+ *
+ * @remarks
+ * Supported Operators:
+ * - **between**
+ * - **not_between**
+ * - **strict_between**
+ * - **strict_not_between**
  */
 export function regexpResultRange(
   pattern: RegExp,

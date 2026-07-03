@@ -21,8 +21,8 @@ import { BooleanComparisonEnum, BooleanComparisonOper } from '../../enums/boolea
  *
  * @remarks
  * Supported Operators:
- * - **EQUALS**: value === target
- * - **NOT_EQUALS**: value !== target
+ * - **equals**: value equals target
+ * - **not_equals**: value does not equal target
  */
 export function booleanComparison(value: boolean, oper: BooleanComparisonOper, target: boolean): boolean {
   const operators: Record<BooleanComparisonEnum, (v: boolean) => boolean> = {

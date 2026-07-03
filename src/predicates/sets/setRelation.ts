@@ -6,6 +6,7 @@ import { SetRelationEnum, SetRelationOper } from '../../enums/sets.js';
  * @param source The first set.
  * @param oper The relation operation to perform (e.g. 'disjoint', 'subset_of').
  * @param target The second set.
+ * @template T Type of the Set elements.
  * @returns True if the relation check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.

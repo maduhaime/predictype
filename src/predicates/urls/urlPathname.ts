@@ -1,7 +1,31 @@
 import { UrlPathnameEnum, UrlPathnameOper } from '../../enums/urls.js';
 
 /**
- * Checks the pathname string of a URL using the specified operation.
+ * Checks the pathname component of a URL against a string operation.
+ *
+ * @param source The URL to inspect.
+ * @param oper The pathname operation to perform (e.g. 'starts_with', 'includes').
+ * @param target The string to compare against source.pathname.
+ * @returns True if the pathname comparison is valid according to the operator, otherwise false.
+ *
+ * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const source = new URL('https://example.com/products/books/42');
+ * const targetA = '/products';
+ * const targetB = '/42';
+ *
+ * urlPathname(source, 'starts_with', targetA); // true
+ * urlPathname(source, 'ends_with', targetB); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **equals**
+ * - **not_equals**
+ * - **starts_with**
+ * - **ends_with**
+ * - **includes**
+ * - **excludes**
  */
 export function urlPathname(source: URL, oper: UrlPathnameOper, target: string): boolean {
   const operators: Record<UrlPathnameEnum, (a: URL, b: string) => boolean> = {

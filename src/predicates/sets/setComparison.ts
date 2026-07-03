@@ -3,6 +3,7 @@ import { SetComparisonEnum, SetComparisonOper } from '../../enums/sets.js';
 /**
  * Compares two sets for equality or inequality using the specified operation.
  *
+ * @template T Type of the Set elements.
  * @param source The first set to compare.
  * @param oper The comparison operation to perform (e.g. 'equals', 'not_equals').
  * @param target The second set to compare.

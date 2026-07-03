@@ -3,6 +3,8 @@ import { MapKeyEnum, MapKeyOper } from '../../enums/maps.js';
 /**
  * Checks if a Map contains (or lacks) a specific key using the specified operation.
  *
+ * @template K Type of the Map keys.
+ * @template V Type of the Map values.
  * @param source The Map to check.
  * @param oper The key operation to perform (e.g. 'contains_key', 'lacks_key').
  * @param key The key to check for.
@@ -20,8 +22,8 @@ import { MapKeyEnum, MapKeyOper } from '../../enums/maps.js';
  *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_KEY**: Map contains the key
- * - **LACKS_KEY**: Map does not contain the key
+ * - **contains_key**: map contains the key
+ * - **lacks_key**: map does not contain the key
  */
 export function mapKey<K, V>(source: Map<K, V>, oper: MapKeyOper, key: K): boolean {
   const operators: Record<MapKeyEnum, (a: Map<K, V>, b: K) => boolean> = {

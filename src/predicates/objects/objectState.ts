@@ -10,9 +10,36 @@ import { ObjectStateEnum, ObjectStateOper } from '../../enums/objects.js';
  * @throws {Error} If the operation is not recognized.
  *
  * @example
- * objectState({}, 'is_empty'); // true
- * objectState({ a: 1 }, 'is_not_empty'); // true
- * objectState(Object.freeze({}), 'is_frozen'); // true
+ * const empty = {};
+ * const frozen = Object.freeze({ a: 1 });
+ *
+ * objectState(empty, 'is_empty'); // true
+ * objectState(frozen, 'is_frozen'); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **has_array_prop**: object has at least one array property value
+ * - **has_camelcase_keys**: object has at least one camelCase key
+ * - **has_function_prop**: object has at least one function property value
+ * - **has_nested_object**: object has at least one nested object value
+ * - **has_no_keys**: object has no own string keys
+ * - **has_no_undefined**: object has no undefined own values
+ * - **has_null_proto**: object prototype is null
+ * - **has_numeric_keys**: object has at least one numeric key
+ * - **has_symbol_keys**: object has at least one symbol key
+ * - **has_symbols**: object has at least one symbol key
+ * - **inherits_object**: object inherits from a custom prototype
+ * - **is_cloneable**: object can be cloned with JSON serialization
+ * - **is_empty**: object has no own string or symbol keys
+ * - **is_extensible**: object is extensible
+ * - **is_frozen**: object is frozen
+ * - **is_homogeneous**: all own values have the same type
+ * - **is_iterable**: object exposes Symbol.iterator
+ * - **is_json_serializable**: object can be JSON serialized
+ * - **is_not_empty**: object has at least one own string or symbol key
+ * - **is_plain**: object is a plain object or null-prototype object
+ * - **is_sealed**: object is sealed
+ * - **is_typed_object**: object prototype is Map, Set, or Date prototype
  */
 export function objectState(source: object, oper: ObjectStateOper): boolean {
   const operators: Record<ObjectStateEnum, (o: object) => boolean> = {

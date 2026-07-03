@@ -10,10 +10,20 @@ import { ObjectInstanceRelationEnum, ObjectInstanceRelationOper } from '../../en
  *
  * @throws {Error} If the operation is not recognized.
  *
+ * @example
+ * class User {}
+ * const sourceA = new User();
+ * const targetA = User;
+ * const proto = { kind: 'base' };
+ * const child = Object.create(proto);
+ *
+ * objectInstanceRelation(sourceA, 'instance_of', targetA); // true
+ * objectInstanceRelation(proto, 'prototype_of', child); // true
+ *
  * @remarks
  * Supported Operators:
- * - **INSTANCE_OF**: value instanceof target
- * - **PROTOTYPE_OF**: value is prototype of target
+ * - **instance_of**: value instanceof target
+ * - **prototype_of**: value is prototype of target
  */
 export function objectInstanceRelation(source: any, oper: ObjectInstanceRelationOper, target: any): boolean {
   const operators: Record<ObjectInstanceRelationEnum, (v: any, t: any) => boolean> = {

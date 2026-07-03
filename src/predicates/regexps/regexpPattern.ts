@@ -9,6 +9,22 @@ import { RegExpPatternEnum, RegExpPatternOper } from '../../enums/regexps.js';
  * @returns True if the pattern check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const pattern = /^user_[a-z]+$/;
+ * const targetA = '^user_';
+ * const targetB = 'admin';
+ *
+ * regexpPattern(pattern, 'starts_with', targetA); // true
+ * regexpPattern(pattern, 'excludes', targetB); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **equals**
+ * - **starts_with**
+ * - **ends_with**
+ * - **includes**
+ * - **excludes**
  */
 export function regexpPattern(pattern: RegExp, oper: RegExpPatternOper, target: string): boolean {
   const operators: Record<RegExpPatternEnum, (a: RegExp, b: string) => boolean> = {

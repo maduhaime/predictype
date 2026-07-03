@@ -19,10 +19,10 @@ import { StringComparisonEnum, StringComparisonOper } from '../../enums/strings.
  *
  * @remarks
  * Supported Operators:
- * - **EQUALS**: a === b
- * - **NOT_EQUALS**: a !== b
- * - **GREATER_THAN**: a > b
- * - **LESS_THAN**: a < b
+ * - **equals**: source equals target
+ * - **not_equals**: source differs from target
+ * - **greater_than**: source is greater than target
+ * - **less_than**: source is less than target
  */
 export function stringComparison(source: string, oper: StringComparisonOper, target: string): boolean {
   const operators: Record<StringComparisonEnum, (a: string, b: string) => boolean> = {

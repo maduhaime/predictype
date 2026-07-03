@@ -14,6 +14,21 @@ function clonePattern(pattern: RegExp): RegExp {
  * @returns True if the result operation is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const pattern = /cat/i;
+ * const targetA = 'My Cat is sleeping';
+ * const targetB = 'dog only';
+ *
+ * regexpResult(pattern, 'tests', targetA); // true
+ * regexpResult(pattern, 'not_matches', targetB); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **tests**
+ * - **not_tests**
+ * - **matches**
+ * - **not_matches**
  */
 export function regexpResult(pattern: RegExp, oper: RegExpResultOper, target: string): boolean {
   const operators: Record<RegExpResultEnum, (a: RegExp, b: string) => boolean> = {

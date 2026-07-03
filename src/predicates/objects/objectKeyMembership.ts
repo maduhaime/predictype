@@ -10,10 +10,19 @@ import { ObjectKeyMembershipEnum, ObjectKeyMembershipOper } from '../../enums/ob
  *
  * @throws {Error} If the operation is not recognized or keys is missing.
  *
+ * @example
+ * const idSymbol = Symbol('id');
+ * const source = { name: 'Ada', [idSymbol]: 1 };
+ * const keysA = ['name', 'missing'];
+ * const keysB = ['missing'];
+ *
+ * objectKeyMembership(source, 'in', keysA); // true
+ * objectKeyMembership(source, 'not_in', keysB); // true
+ *
  * @remarks
  * Supported Operators:
- * - **IN**: At least one key is present
- * - **NOT_IN**: No keys are present
+ * - **in**: at least one key from keys is present
+ * - **not_in**: no key from keys is present
  */
 export function objectKeyMembership(source: object, oper: ObjectKeyMembershipOper, keys: (string | symbol)[]): boolean {
   const allKeys = [...Object.getOwnPropertyNames(source), ...Object.getOwnPropertySymbols(source)];
