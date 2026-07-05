@@ -1,0 +1,116 @@
+# predictype
+
+> Predictype is a modern, type-safe, highly structured, and uniform predicate library for TypeScript.
+
+## Project Links
+
+- Home: https://maduhaime.github.io/predictype/
+- API reference: https://maduhaime.github.io/predictype/modules
+- Changelog: https://github.com/maduhaime/predictype/blob/main/CHANGELOG.md
+- Package: https://www.npmjs.com/package/predictype
+- Source: https://github.com/maduhaime/predictype
+
+## Design Philosophy & Architecture
+
+Unlike function-first libraries such as Lodash (isEmpty, isEqual, includes), Underscore, or validator.js (isEmail, isURL, isUUID), Predictype enforces a strict, predictable 3-level matrix architecture: **Family ➔ Category ➔ Operator**, so operators are typed and discoverable.
+
+This structure ensures **maximum consistency** across all data types. You must always respect this pattern and avoid inventing direct/flat function names (e.g., do NOT invent `isEmpty(arr)`, use `P.arr.state(arr, 'is_empty')`).
+
+### Code Concept & Parameter Order
+
+All predicate functions follow a strict argument signature:
+
+1. `source`: The primary value or collection being tested.
+2. `oper`: The operation to apply (as an explicit snake_case string literal or Enum).
+3. `target/bounds`: Extra parameters required for comparison (e.g., target, min, max, pattern).
+
+---
+
+## Usage & The `P` Alias
+
+For concise and productive code, always prefer using the short alias `P`.
+
+```typescript
+import { P } from 'predictype';
+
+// Examples
+P.arr.comparison([1, 2], 'equals', [1, 2]); // true
+P.str.state('foo', 'is_not_empty'); // true
+P.num.range(5, 'between', 1, 10); // true
+```
+
+---
+
+## API Reference Matrix
+
+Use this precise mapping to find categories and operators. Never mix categories.
+
+| Family (Full) | Alias     | Categories Available                                                                                    |
+| ------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| `array`       | `P.arr`   | comparison, indexComparison, indexMembership, intersection, membership, relation, sequence, size, state |
+| `bigint`      | `P.big`   | comparison, membership, range, state                                                                    |
+| `boolean`     | `P.bool`  | comparison, state                                                                                       |
+| `date`        | `P.date`  | calendar, comparison, range, state                                                                      |
+| `error`       | `P.err`   | message, messagePattern, name, namePattern, state                                                       |
+| `function`    | `P.func`  | arity, name, namePattern, state                                                                         |
+| `map`         | `P.map`   | entry, key, size, state, value                                                                          |
+| `number`      | `P.num`   | comparison, range, state                                                                                |
+| `object`      | `P.obj`   | attributes, instance, key, keyMembership, keys, keysState, property, prototype, prototypeState, state   |
+| `promise`     | `P.prom`  | state, type                                                                                             |
+| `query`       | `P.query` | entry, key, size, state, value _(Targets URLSearchParams)_                                              |
+| `regexp`      | `P.reg`   | pattern, result, resultRange, resultSize, state                                                         |
+| `set`         | `P.set`   | arrayMembership, comparison, intersection, membership, relation, size, state                            |
+| `string`      | `P.str`   | comparison, membership, pattern, size, state, substring                                                 |
+| `url`         | `P.url`   | hash, host, href, hostname, origin, pathname, port, protocol, search, state                             |
+| `symbol`      | `P.sym`   | comparison, state                                                                                       |
+
+---
+
+## Strict Operator Matching (`oper`)
+
+Predictype has a frozen, highly consistent semantic naming convention. As an AI, **do not invent or guess operators**. You must strictly use the exact string literal values or the formal Enums provided by the library types.
+
+Understanding the semantic prefixes will help you find the right operator in the documentation or autocompletion:
+
+- **`is_` / `has\_`**: State or property checks that do not require a target value (e.g., `'is_empty'`, `'has_stack'`).
+- **`contains_` / `lacks\_`**: Explicit membership or inclusion checks (e.g., `'contains_key'`, `'lacks_entry'`).
+- **`strict_`**: Exclusive ranges or strict relations (e.g., `'strict_between'` means `<` and `>`, whereas `'between'` means `<=` and `>=`).
+- **`_of`**: Directional relations (e.g., `'subset_of'`, `'superset_of'`).
+- **`matches`**: Reserved exclusively for RegExp or pattern tests.
+- **`size_`**: Unified prefix used to measure dimensions across ALL families (Array, String, Set, Map, Query, RegExp), ignoring native JavaScript variations like `.length`.
+
+### Critical AI Constraint
+
+Every category method expects a strict string union or its corresponding Enum (e.g., `ArrayMembershipEnum`). If you are unsure of the exact spelling, always prioritize checking the TypeScript definition file (`.d.ts`) of the family category to read the allowed string literals.
+
+---
+
+## Core Examples for AI Code Generation
+
+### Date Operations
+
+```typescript
+import { P } from 'predictype';
+
+P.date.calendar(new Date(), 'is_weekend');
+P.date.comparison(dateA, 'same_day', dateB);
+```
+
+### Object Infiltration
+
+```typescript
+import { P } from 'predictype';
+
+P.obj.state(myObj, 'is_plain');
+P.obj.keys(myObj, 'contains_all_keys', ['id', 'name']);
+```
+
+### Strict Type Verification
+
+Always rely on the TypeScript compilation errors. If a string literal operator raises a type error, do not bypass it with `any`; look up the precise Enum value in the corresponding category.
+
+---
+
+## Scope
+
+This package is a library, not a hosted service. The public surfaces are npm, GitHub, GitHub Pages documentation, and the TypeScript source itself.
