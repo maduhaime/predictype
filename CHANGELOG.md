@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.12.0] - 2026-07-05
+
+### Enhanced
+
+- **AI-oriented documentation**: Reworked AI-facing guidance to make Predictype easier to parse by assistants and code-generation tools.
+- **API structure clarity**: Clarified the Family -> Category -> Operator model, with stricter wording around expected call patterns.
+- **Operator semantics**: Strengthened explanations around operator naming conventions (is*, has*, contains*, lacks*, strict*, size*) to reduce guesswork and hallucinations.
+- **Type contract clarity**: Documented more explicitly that oper is a string-literal contract derived from enum values, and aligned with category-level typing expectations.
+
+### Added
+
+- **AI quick-reference file**: Added llms.txt as a dedicated machine-readable guide describing API navigation, alias usage, and strict operator matching behavior.
+- **Comparative positioning**: Added concise references to function-first libraries to clarify what Predictype’s structured matrix approach replaces in practice.
+
+### Changed
+
+- **Language harmonization**: Updated phrasing across AI-focused docs for consistency, precision, and better tool interpretability.
+- **Examples**: Refined usage examples to emphasize strict operator spelling and category-accurate method selection.
+
 # [0.11.0] - 2026-06-30
 
 ### Added
