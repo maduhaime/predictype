@@ -3,6 +3,7 @@ import { SetIntersectionEnum, SetIntersectionOper } from '../../enums/sets.js';
 /**
  * Checks intersection properties between two sets using the specified operation.
  *
+ * @template T Type of the Set elements.
  * @param source The first set.
  * @param oper The intersection operation to perform (e.g. 'disjoint', 'intersects').
  * @param target The second set.

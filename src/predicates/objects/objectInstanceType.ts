@@ -9,12 +9,21 @@ import { ObjectInstanceTypeEnum, ObjectInstanceTypeOper } from '../../enums/obje
  *
  * @throws {Error} If the operation is not recognized.
  *
+ * @example
+ * class User {}
+ * const classCtor = User;
+ * const plain = { id: 1 };
+ *
+ * objectInstanceType(classCtor, 'instance_of_class'); // true
+ * objectInstanceType(classCtor, 'instance_of_function'); // true
+ * objectInstanceType(plain, 'instance_of_object'); // true
+ *
  * @remarks
  * Supported Operators:
- * - **INSTANCE_OF_CLASS**: Is a class constructor
- * - **INSTANCE_OF_CONSTRUCTOR**: Is a constructor function
- * - **INSTANCE_OF_FUNCTION**: Is a function
- * - **INSTANCE_OF_OBJECT**: Is an object
+ * - **instance_of_class**: value is a class constructor
+ * - **instance_of_constructor**: value is a constructor/function
+ * - **instance_of_function**: value is a function
+ * - **instance_of_object**: value is a non-null object
  */
 export function objectInstanceType(source: any, oper: ObjectInstanceTypeOper): boolean {
   const operators: Record<ObjectInstanceTypeEnum, (v: any) => boolean> = {

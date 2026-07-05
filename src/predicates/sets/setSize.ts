@@ -3,6 +3,7 @@ import { SetSizeEnum, SetSizeOper } from '../../enums/sets.js';
 /**
  * Checks the size of a set using the specified operation.
  *
+ * @template T Type of the Set elements.
  * @param source The set to check.
  * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
  * @param target The size to compare against.

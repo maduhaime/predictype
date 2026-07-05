@@ -5,7 +5,33 @@ function hasValue(value: string): boolean {
 }
 
 /**
- * Checks the state of a URL using the specified operation.
+ * Checks state flags of a URL (presence and protocol checks).
+ *
+ * @param source The URL to inspect.
+ * @param oper The state operation to perform (e.g. 'has_hash', 'is_https').
+ * @returns True if the state check is valid according to the operator, otherwise false.
+ *
+ * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const source = new URL('https://user:pass@example.com:8443/docs?q=1#intro');
+ *
+ * urlState(source, 'has_hash'); // true
+ * urlState(source, 'has_search'); // true
+ * urlState(source, 'has_port'); // true
+ * urlState(source, 'is_https'); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **has_hash**
+ * - **has_search**
+ * - **has_port**
+ * - **has_username**
+ * - **has_password**
+ * - **is_http**
+ * - **is_https**
+ * - **is_ws**
+ * - **is_wss**
  */
 export function urlState(source: URL, oper: UrlStateOper): boolean {
   const operators: Record<UrlStateEnum, (a: URL) => boolean> = {

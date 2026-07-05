@@ -21,12 +21,12 @@ import { BigIntComparisonEnum, BigIntComparisonOper } from '../../enums/bigints.
  *
  * @remarks
  * Supported Operators:
- * - **EQUALS**: a === b
- * - **NOT_EQUALS**: a !== b
- * - **GREATER_THAN**: a > b
- * - **GREATER_THAN_OR_EQUALS**: a >= b
- * - **LESS_THAN**: a < b
- * - **LESS_THAN_OR_EQUALS**: a <= b
+ * - **equals**: source equals target
+ * - **not_equals**: source differs from target
+ * - **greater_than**: source is greater than target
+ * - **greater_than_or_equals**: source is greater than or equal to target
+ * - **less_than**: source is less than target
+ * - **less_than_or_equals**: source is less than or equal to target
  */
 export function bigintComparison(source: bigint, oper: BigIntComparisonOper, target: bigint): boolean {
   const operators: Record<BigIntComparisonEnum, (a: bigint, b: bigint) => boolean> = {

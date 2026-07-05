@@ -9,12 +9,20 @@ import { ObjectKeysStateEnum, ObjectKeysStateOper } from '../../enums/objects.js
  *
  * @throws {Error} If the operation is not recognized.
  *
+ * @example
+ * const sourceA = { userName: 'Ada', 42: 'x' };
+ * const sourceB = { a: 1, b: 2 };
+ *
+ * objectKeysState(sourceA, 'has_camelcase_keys'); // true
+ * objectKeysState(sourceA, 'has_numeric_keys'); // true
+ * objectKeysState(sourceB, 'has_homogeneous_keys'); // true
+ *
  * @remarks
  * Supported Operators:
- * - **HAS_SYMBOL_KEYS**: Object has at least one symbol key
- * - **HAS_NUMERIC_KEYS**: Object has at least one numeric key
- * - **HAS_CAMELCASE_KEYS**: Object has at least one camelCase key
- * - **HAS_HOMOGENEOUS_KEYS**: All keys are of the same type
+ * - **has_symbol_keys**: object has at least one symbol key
+ * - **has_numeric_keys**: object has at least one numeric key
+ * - **has_camelcase_keys**: object has at least one camelCase key
+ * - **has_homogeneous_keys**: all keys are of the same type
  */
 export function objectKeysState(obj: object, oper: ObjectKeysStateOper): boolean {
   const allKeys = [...Object.getOwnPropertyNames(obj), ...Object.getOwnPropertySymbols(obj)];

@@ -32,6 +32,7 @@ export function wrapPromise<T>(p: Promise<T>): PromiseWithState<T> {
 /**
  * Checks the state of a wrapped Promise using the specified operation.
  *
+ * @template T Type resolved by the Promise.
  * Note: This predicate requires a wrapper or custom Promise implementation that exposes state.
  * Standard JS Promises do not expose their state synchronously.
  *

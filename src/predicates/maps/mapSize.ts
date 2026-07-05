@@ -3,6 +3,8 @@ import { MapSizeEnum, MapSizeOper } from '../../enums/maps.js';
 /**
  * Checks the size of a Map using the specified operation.
  *
+ * @template K Type of the Map keys.
+ * @template V Type of the Map values.
  * @param source The Map to check.
  * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
  * @param target The size to compare against.

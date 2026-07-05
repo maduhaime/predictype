@@ -3,6 +3,8 @@ import { MapEntryEnum, MapEntryOper } from '../../enums/maps.js';
 /**
  * Checks if a Map contains (or lacks) a specific entry (key-value pair) using the specified operation.
  *
+ * @template K Type of the Map keys.
+ * @template V Type of the Map values.
  * @param source The Map to check.
  * @param oper The entry operation to perform (e.g. 'contains_entry', 'lacks_entry').
  * @param entry The [key, value] pair to check for.
@@ -20,8 +22,8 @@ import { MapEntryEnum, MapEntryOper } from '../../enums/maps.js';
  *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_ENTRY**: Map contains the [key, value] entry
- * - **LACKS_ENTRY**: Map does not contain the [key, value] entry
+ * - **contains_entry**: map contains the [key, value] entry
+ * - **lacks_entry**: map does not contain the [key, value] entry
  */
 export function mapEntry<K, V>(source: Map<K, V>, oper: MapEntryOper, entry: [K, V]): boolean {
   const operators: Record<MapEntryEnum, (a: Map<K, V>, b: [K, V]) => boolean> = {

@@ -20,12 +20,12 @@ import { NumberComparisonEnum, NumberComparisonOper } from '../../enums/numbers.
  *
  * @remarks
  * Supported Operators:
- * - **EQUALS**: a === b
- * - **NOT_EQUALS**: a !== b
- * - **GREATER_THAN**: a > b
- * - **GREATER_OR_EQUAL**: a >= b
- * - **LESS_THAN**: a < b
- * - **LESS_OR_EQUAL**: a <= b
+ * - **equals**: source equals target
+ * - **not_equals**: source differs from target
+ * - **greater_than**: source is greater than target
+ * - **greater_or_equal**: source is greater than or equal to target
+ * - **less_than**: source is less than target
+ * - **less_or_equal**: source is less than or equal to target
  */
 export function numberComparison(source: number, oper: NumberComparisonOper, target: number): boolean {
   const operators: Record<NumberComparisonEnum, (a: number, b: number) => boolean> = {

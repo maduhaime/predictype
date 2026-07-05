@@ -10,6 +10,25 @@ type RegExpWithIndices = RegExp & { hasIndices?: boolean };
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const sourceA = /foo/gi;
+ * const sourceB = new RegExp('');
+ *
+ * regexpState(sourceA, 'is_global'); // true
+ * regexpState(sourceA, 'is_ignore_case'); // true
+ * regexpState(sourceB, 'is_empty_pattern'); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **is_global**
+ * - **is_ignore_case**
+ * - **is_multiline**
+ * - **is_dot_all**
+ * - **is_unicode**
+ * - **is_sticky**
+ * - **has_indices**
+ * - **is_empty_pattern**
  */
 export function regexpState(source: RegExp, oper: RegExpStateOper): boolean {
   const operators: Record<RegExpStateEnum, (a: RegExp) => boolean> = {

@@ -3,6 +3,8 @@ import { MapStateEnum, MapStateOper } from '../../enums/maps.js';
 /**
  * Checks the state of a Map (empty or not) using the specified operation.
  *
+ * @template K Type of the Map keys.
+ * @template V Type of the Map values.
  * @param source The Map to check.
  * @param oper The state operation to perform (e.g. 'is_empty', 'is_not_empty').
  * @returns True if the state check is valid according to the operator, otherwise false.
@@ -18,8 +20,8 @@ import { MapStateEnum, MapStateOper } from '../../enums/maps.js';
  *
  * @remarks
  * Supported Operators:
- * - **IS_EMPTY**: Map is empty
- * - **IS_NOT_EMPTY**: Map is not empty
+ * - **is_empty**: map size is 0
+ * - **is_not_empty**: map size is greater than 0
  */
 export function mapState<K, V>(source: Map<K, V>, oper: MapStateOper): boolean {
   const operators: Record<MapStateEnum, (a: Map<K, V>) => boolean> = {

@@ -3,6 +3,8 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
 /**
  * Checks if a Map contains (or lacks) a specific value using the specified operation.
  *
+ * @template K Type of the Map keys.
+ * @template V Type of the Map values.
  * @param source The Map to check.
  * @param oper The value operation to perform (e.g. 'contains_value', 'lacks_value').
  * @param target The value to check for.
@@ -21,8 +23,8 @@ import { MapValueEnum, MapValueOper } from '../../enums/maps.js';
  *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_VALUE**: Map contains the value
- * - **LACKS_VALUE**: Map does not contain the value
+ * - **contains_value**: map contains the value
+ * - **lacks_value**: map does not contain the value
  */
 export function mapValue<K, V>(source: Map<K, V>, oper: MapValueOper, target: V): boolean {
   const operators: Record<MapValueEnum, (a: Map<K, V>, b: V) => boolean> = {

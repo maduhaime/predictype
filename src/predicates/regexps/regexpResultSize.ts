@@ -31,6 +31,23 @@ function countMatches(pattern: RegExp, target: string): number {
  * @returns True if the count comparison is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const pattern = /foo/g;
+ * const target = 'foo-bar-foo';
+ * const countA = 2;
+ * const countB = 1;
+ *
+ * regexpResultSize(pattern, 'size_equals', target, countA); // true
+ * regexpResultSize(pattern, 'size_greater_than', target, countB); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **size_equals**
+ * - **size_greater_than**
+ * - **size_greater_than_or_equals**
+ * - **size_less_than**
+ * - **size_less_than_or_equals**
  */
 export function regexpResultSize(pattern: RegExp, oper: RegExpResultSizeOper, target: string, count: number): boolean {
   const operators: Record<RegExpResultSizeEnum, (a: number, b: number) => boolean> = {

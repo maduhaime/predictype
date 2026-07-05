@@ -5,6 +5,7 @@ import { SetStateEnum, SetStateOper } from '../../enums/sets.js';
  *
  * @param source The set to check.
  * @param oper The state operation to perform (e.g. 'is_empty', 'has_primitives').
+ * @template T Type of the Set elements.
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
  * @throws {Error} If the operation is not recognized.

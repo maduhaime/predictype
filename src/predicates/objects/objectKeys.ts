@@ -10,16 +10,25 @@ import { ObjectKeysEnum, ObjectKeysOper } from '../../enums/objects.js';
  *
  * @throws {Error} If the operation is not recognized or keys is missing.
  *
+ * @example
+ * const source = { a: 1, b: 2, c: 3 };
+ * const keysA = ['a', 'b'];
+ * const keysB = ['a', 'b', 'c'];
+ *
+ * objectKeysCompare(source, 'contains_all_keys', keysA); // true
+ * objectKeysCompare(source, 'equals_keys', keysB); // true
+ * objectKeysCompare(source, 'lacks_all_keys', ['z']); // true
+ *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_ALL_KEYS**: Object contains all the given keys
- * - **CONTAINS_ANY_KEY**: Object contains at least one of the keys
- * - **CONTAINS_ONLY_KEYS**: Object contains only the given keys
- * - **CONTAINS_SYMBOL_KEYS**: Object contains at least one symbol key
- * - **EQUALS_KEYS**: Object keys equal the given keys
- * - **LACKS_ALL_KEYS**: Object lacks all the given keys
- * - **ONLY_KEYS**: All object keys are in the given set
- * - **STRICT_EQUALS_KEYS**: Object keys strictly equal the given keys
+ * - **contains_all_keys**: object contains all given keys
+ * - **contains_any_key**: object contains at least one given key
+ * - **contains_only_keys**: object keys and given keys contain the same members
+ * - **contains_symbol_keys**: object has at least one symbol key
+ * - **equals_keys**: object keys equal given keys (order ignored)
+ * - **lacks_all_keys**: object contains none of the given keys
+ * - **only_keys**: every object key belongs to given keys
+ * - **strict_equals_keys**: object keys equal given keys in same order
  */
 export function objectKeysCompare(source: object, oper: ObjectKeysOper, keys: string[] | symbol[]): boolean {
   const allKeys = [...Object.getOwnPropertyNames(source), ...Object.getOwnPropertySymbols(source)];

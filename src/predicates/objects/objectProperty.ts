@@ -10,12 +10,20 @@ import { ObjectPropertyEnum, ObjectPropertyOper } from '../../enums/objects.js';
  *
  * @throws {Error} If the operation is not recognized.
  *
+ * @example
+ * const source = Object.create({ inherited: true });
+ * source.own = 42;
+ *
+ * objectProperty(source, 'contains_property', 'inherited'); // true
+ * objectProperty(source, 'contains_own_property', 'own'); // true
+ * objectProperty(source, 'lacks_own_property', 'inherited'); // true
+ *
  * @remarks
  * Supported Operators:
- * - **CONTAINS_PROPERTY**: Object has the property (own or inherited)
- * - **LACKS_PROPERTY**: Object lacks the property (own or inherited)
- * - **CONTAINS_OWN_PROPERTY**: Object has the property as own property
- * - **LACKS_OWN_PROPERTY**: Object lacks the property as own property
+ * - **contains_property**: object has the property (own or inherited)
+ * - **lacks_property**: object lacks the property (own or inherited)
+ * - **contains_own_property**: object has the property as own property
+ * - **lacks_own_property**: object lacks the property as own property
  */
 export function objectProperty(source: object, oper: ObjectPropertyOper, key: string | symbol): boolean {
   const operators: Record<ObjectPropertyEnum, (k: string | symbol) => boolean> = {

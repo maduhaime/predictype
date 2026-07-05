@@ -5,6 +5,7 @@ import { SetArrayMembershipEnum, SetArrayMembershipOper } from '../../enums/sets
  *
  * @param source The set to check.
  * @param oper The membership operation to perform (e.g. 'contains_all', 'contains_any').
+ * @template T Type of the Set elements.
  * @param target The array of values to check for membership.
  * @returns True if the membership check is valid according to the operator, otherwise false.
  *

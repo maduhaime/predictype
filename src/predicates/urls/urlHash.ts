@@ -1,7 +1,31 @@
 import { UrlHashEnum, UrlHashOper } from '../../enums/urls.js';
 
 /**
- * Checks the hash string of a URL using the specified operation.
+ * Checks the hash component of a URL against a string operation.
+ *
+ * @param source The URL to inspect.
+ * @param oper The hash operation to perform (e.g. 'equals', 'starts_with').
+ * @param target The string to compare against source.hash.
+ * @returns True if the hash comparison is valid according to the operator, otherwise false.
+ *
+ * @throws {Error} If the operation is not recognized.
+ *
+ * @example
+ * const source = new URL('https://example.com/docs#install');
+ * const targetA = '#install';
+ * const targetB = '#guide';
+ *
+ * urlHash(source, 'equals', targetA); // true
+ * urlHash(source, 'not_equals', targetB); // true
+ *
+ * @remarks
+ * Supported Operators:
+ * - **equals**
+ * - **not_equals**
+ * - **starts_with**
+ * - **ends_with**
+ * - **includes**
+ * - **excludes**
  */
 export function urlHash(source: URL, oper: UrlHashOper, target: string): boolean {
   const operators: Record<UrlHashEnum, (a: URL, b: string) => boolean> = {

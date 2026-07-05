@@ -18,10 +18,10 @@ import { StringStateEnum, StringStateOper } from '../../enums/strings.js';
  *
  * @remarks
  * Supported Operators:
- * - **IS_EMPTY**: String is empty
- * - **IS_NOT_EMPTY**: String is not empty
- * - **IS_BLANK**: String is blank (only whitespace)
- * - **IS_NOT_BLANK**: String is not blank
+ * - **is_empty**: string length is 0
+ * - **is_not_empty**: string length is greater than 0
+ * - **is_blank**: string contains only whitespace
+ * - **is_not_blank**: string contains at least one non-whitespace character
  */
 export function stringState(source: string, oper: StringStateOper): boolean {
   const operators: Record<StringStateEnum, (a: string) => boolean> = {
