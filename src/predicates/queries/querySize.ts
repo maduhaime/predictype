@@ -10,9 +10,9 @@ function countEntries(source: URLSearchParams): number {
 }
 
 /**
- * Checks the number of entries in URLSearchParams against a numeric threshold.
+ * Checks the number of query entries against a numeric threshold.
  *
- * @param source The URLSearchParams instance to inspect.
+ * @param source The query source to inspect (URL or URLSearchParams).
  * @param oper The size operation to perform (e.g. 'size_equals', 'size_greater_than').
  * @param size The numeric threshold to compare against.
  * @returns True if the size comparison is valid according to the operator, otherwise false.
@@ -35,7 +35,7 @@ function countEntries(source: URLSearchParams): number {
  * - **size_less_than**
  * - **size_less_than_or_equals**
  */
-export function querySize(source: URLSearchParams, oper: QuerySizeOper, size: number): boolean {
+export function querySize(source: URL | URLSearchParams, oper: QuerySizeOper, size: number): boolean {
   const operators: Record<QuerySizeEnum, (a: number, b: number) => boolean> = {
     [QuerySizeEnum.SIZE_EQUALS]: (a, b) => a === b,
     [QuerySizeEnum.SIZE_GREATER_THAN]: (a, b) => a > b,
@@ -45,7 +45,8 @@ export function querySize(source: URLSearchParams, oper: QuerySizeOper, size: nu
   };
 
   const fn = operators[oper];
+  const searchParams = source instanceof URL ? source.searchParams : source;
 
   if (!fn) throw new Error(`Unknown QuerySize operation: ${oper}`);
-  return fn(countEntries(source), size);
+  return fn(countEntries(searchParams), size);
 }

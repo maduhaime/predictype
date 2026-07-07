@@ -10,9 +10,9 @@ function countEntries(source: URLSearchParams): number {
 }
 
 /**
- * Checks whether URLSearchParams is empty or not empty.
+ * Checks whether query parameters are empty or not empty.
  *
- * @param source The URLSearchParams instance to inspect.
+ * @param source The query source to inspect (URL or URLSearchParams).
  * @param oper The state operation to perform ('is_empty' or 'is_not_empty').
  * @returns True if the state check is valid according to the operator, otherwise false.
  *
@@ -30,14 +30,15 @@ function countEntries(source: URLSearchParams): number {
  * - **is_empty**
  * - **is_not_empty**
  */
-export function queryState(source: URLSearchParams, oper: QueryStateOper): boolean {
+export function queryState(source: URL | URLSearchParams, oper: QueryStateOper): boolean {
   const operators: Record<QueryStateEnum, (a: URLSearchParams) => boolean> = {
     [QueryStateEnum.IS_EMPTY]: (a) => countEntries(a) === 0,
     [QueryStateEnum.IS_NOT_EMPTY]: (a) => countEntries(a) > 0,
   };
 
   const fn = operators[oper];
+  const searchParams = source instanceof URL ? source.searchParams : source;
 
   if (!fn) throw new Error(`Unknown QueryState operation: ${oper}`);
-  return fn(source);
+  return fn(searchParams);
 }

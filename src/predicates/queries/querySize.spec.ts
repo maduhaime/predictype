@@ -5,6 +5,7 @@ import { querySize } from './querySize.js';
 
 describe('querySize', () => {
   const params = new URLSearchParams('foo=bar&foo=baz&zap=zip');
+  const url = new URL('https://example.com?foo=bar&foo=baz&zap=zip');
 
   it('should return true for size_equals', () => {
     expect(querySize(params, 'size_equals', 3)).toBe(true);
@@ -24,6 +25,15 @@ describe('querySize', () => {
 
   it('should return true for size_less_than_or_equals', () => {
     expect(querySize(params, 'size_less_than_or_equals', 3)).toBe(true);
+  });
+
+  it('should accept URLSearchParams as source', () => {
+    const source = new URLSearchParams('alpha=one&beta=two');
+    expect(querySize(source, 'size_equals', 2)).toBe(true);
+  });
+
+  it('should accept URL as source and use searchParams', () => {
+    expect(querySize(url, 'size_equals', 3)).toBe(true);
   });
 
   it('should accept enum operators directly', () => {
