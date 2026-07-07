@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.13.0] - 2026-07-07
+
+### Enhanced
+
+- **Query predicates input support**: `query` family predicates now accept both `URL` and `URLSearchParams`; when given a `URL`, they evaluate `url.searchParams`.
+
 # [0.12.0] - 2026-07-05
 
 ### Enhanced

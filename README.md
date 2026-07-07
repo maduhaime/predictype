@@ -215,7 +215,7 @@ Below is a comprehensive table of all predicate families, their categories, enum
 | state    | QueryStateEnum | IS_EMPTY, IS_NOT_EMPTY                                                                                | 2     |
 | value    | QueryValueEnum | CONTAINS_VALUE, LACKS_VALUE                                                                           | 2     |
 
-Note: Query predicates are designed to operate on URL query parameters through URLSearchParams (for example, `url.searchParams`).
+Note: Query predicates accept either `URLSearchParams` or a `URL`; when given a `URL`, they operate on `url.searchParams`.
 
 #### RegExp (26)
 
