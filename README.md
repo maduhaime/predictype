@@ -1,8 +1,8 @@
 # PredicType: TypeScript Predicates for Productivity
 
-PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
+A predicate is a function that examines a value and returns `true` or `false` to determine whether that value matches a condition. PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
 
-Its goal is to make working with predicates and validation as productive and reliable as possible, with full type safety and a clean, extensible API.
+Its goal is to make working with predicates and validation as productive and reliable as possible, with full type safety and a clean, extensible API. Predicates are useful for Guard Clauses, filtering collections, validating input, narrowing types, and composing business rules.
 
 ---
 
