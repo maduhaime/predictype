@@ -1,8 +1,21 @@
 # PredicType: TypeScript Predicates for Productivity
 
-PredicType is a modern, type-safe predicate library for TypeScript. It provides a comprehensive set of reusable predicate functions for validating values, building expressive filters, and composing complex logic for arrays and objects.
+PredicType is a type-safe TypeScript library of reusable predicates. A predicate determines whether a value meets a condition and returns `true` or `false`.
 
-Its goal is to make working with predicates and validation as productive and reliable as possible, with full type safety and a clean, extensible API.
+Instead of rewriting common checks, you can use PredicType's consistent API to keep your code concise and follow the **DRY (Don't Repeat Yourself)** principle.
+
+Use these functions in your code to add guard clauses, filter collections, validate input, narrow types, and compose business rules.
+
+> **Note:** PredicType is the predicate engine powering [Collectype](https://maduhaime.github.io/collectype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
+
+---
+
+## Features
+
+- **348 distinct operations**: Covers arrays, numbers, strings, dates, booleans, objects, and many other types.
+- **Type-safe composition**: Combine predicates to express more complex checks while preserving TypeScript types.
+- **Pure functions**: Use predicates directly with array methods such as `filter`, `every`, and `some`.
+- **Consistent API**: Predicate families follow unified naming and signatures.
 
 ---
 
@@ -14,38 +27,51 @@ Its goal is to make working with predicates and validation as productive and rel
 
 ---
 
-## Features
-
-- **348 distinct predicate operations**: One of the most complete predicate libraries for TypeScript, covering all major types and use cases.
-- **Rich predicate collection**: Includes predicates for arrays, numbers, strings, dates, booleans, objects, and more.
-- **Type-safe and composable**: All predicates are fully typed and can be composed to build complex validation or filtering logic.
-- **Reusable**: Use predicates for validation, filtering arrays, or as building blocks in your own libraries.
-- **Consistent API**: Unified naming and signatures for all predicates.
-- **Ready for functional programming**: All predicates are pure functions and can be used with array methods like `filter`, `every`, `some`, etc.
-
----
-
 ## Installation
 
 ```bash
 npm install predictype
 ```
 
-> **Note:** PredicType is the predicate engine powering [Collectype](https://maduhaime.github.io/collectype/), a modern TypeScript Collection library. If you want advanced, type-safe collections with built-in predicate support, check out Collectype!
-
 ---
 
 ## Usage
 
-### Families and Predicate Categories
-
 PredicType organizes its predicates into **families**, each corresponding to a major TypeScript data type: array, bigint, boolean, date, error, function, map, number, object, promise, query, regexp, set, string, symbol, or url.
 
-Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for example: size, membership, comparison, state, etc.).
+Each family exposes several **predicate categories** (also called "methods" or "operators"). Each category targets a specific aspect of the type (for
+
+example: size, membership, comparison, state, etc.).
 
 For URL query parameters, PredicType uses the shorter `query` family name instead of `URLSearchParams`. The intent stays clear for the user while keeping the API concise.
 
-#### General Example
+### The `P` Alias (Recommended)
+
+For convenience, PredicType exports a short alias `P` that mirrors the full API. This allows for more concise code, especially in validation chains or functional programming contexts.
+
+#### Example
+
+```ts
+import { P } from 'predictype';
+
+P.arr.comparison([1, 2], 'equals', [1, 2]); // true
+P.str.state('foo', 'is_not_empty'); // true
+P.num.range(5, 'between', 1, 10); // true
+```
+
+Using the enum :
+
+```ts
+import { P, ArrayMembershipEnum } from 'predictype';
+
+P.arr.membership([1, 2, 3], ArrayMembershipEnum.INCLUDES, 2); // true
+```
+
+### The `PredicType` API (Long Form)
+
+For those who prefer a more descriptive approach, the full API remains available.
+
+#### Example
 
 ```ts
 import { PredicType } from 'predictype';
@@ -61,20 +87,6 @@ PredicType.error.messagePattern(new Error('boom'), 'matches', /boom/); // true
 PredicType.error.namePattern(new TypeError('boom'), 'matches', /Type/); // true
 
 PredicType.number.range(5, 'between', 1, 10); // true
-```
-
-### The `P` Alias
-
-For convenience, PredicType also exports a short alias `P` that mirrors the full API. This allows for more concise code, especially in validation chains or functional programming contexts.
-
-#### Example
-
-```ts
-import { P } from 'predictype';
-
-P.arr.comparison([1, 2], 'equals', [1, 2]); // true
-P.str.state('foo', 'is_not_empty'); // true
-P.num.range(5, 'between', 1, 10); // true
 ```
 
 The alias mapping is as follows:
