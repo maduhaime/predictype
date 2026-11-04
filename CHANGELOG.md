@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.14.0] - 2026-11-04
+
+### Added
+
+- **GitHub Actions**: Added `ci.yml` (continuous integration), `docs.yml` (documentation deployment to GitHub Pages) and `publish.yml` (npm publication on tag, verifying that the tag matches the `package.json` version).
+
+### Enhanced
+
+- **README**: Rewrote the introduction around the DRY principle, moved the Collectype note to the top, condensed the features list and reorganized sections.
+
+### Changed
+
+- **Dependencies**: Updated dev dependencies (`eslint`, `@typescript-eslint/*`, `prettier`, `eslint-plugin-prettier`, `typedoc`, `typedoc-plugin-markdown`, `vitest`, `@vitest/coverage-v8`).
+- **Tooling**: Bumped Node.js to 26.13.0 (`.nvmrc`) and pinned `packageManager` to `npm@12.2.1`.
+
+### Removed
+
+- **Manual deploy scripts**: Removed `code:publish` and `docs:deploy` scripts and the `gh-pages` dependency, now replaced by GitHub Actions.
+
+### Internal
+
+- **Merges integrated**: Included PR #6 (`docs-and-p`) and PR #7 (`package-updates-and-github-actions`).
+
 # [0.13.0] - 2026-07-07
 
 ### Enhanced
