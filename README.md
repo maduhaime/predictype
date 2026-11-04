@@ -1,5 +1,12 @@
 # PredicType: TypeScript Predicates for Productivity
 
+[![npm version](https://img.shields.io/npm/v/predictype)](https://www.npmjs.com/package/predictype)
+[![npm downloads](https://img.shields.io/npm/dm/predictype)](https://www.npmjs.com/package/predictype)
+[![CI](https://github.com/maduhaime/predictype/actions/workflows/ci.yml/badge.svg)](https://github.com/maduhaime/predictype/actions/workflows/ci.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-typed-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/npm/l/predictype)](https://github.com/maduhaime/predictype/blob/main/LICENSE)
+[![Docs](https://img.shields.io/badge/docs-github.io-blue)](https://maduhaime.github.io/predictype/)
+
 PredicType is a type-safe TypeScript library of reusable predicates. A predicate determines whether a value meets a condition and returns `true` or `false`.
 
 Instead of rewriting common checks, you can use PredicType's consistent API to keep your code concise and follow the **DRY (Don't Repeat Yourself)** principle.
