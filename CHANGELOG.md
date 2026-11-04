@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# [0.15.0] - 2026-11-04
+
+### Added
+
+- **README badges**: Added npm version, npm downloads, CI status, TypeScript, license, documentation and Codecov coverage badges.
+- **Coverage reporting**: The CI now runs `test:coverage` and uploads the `lcov` report to Codecov (`CODECOV_TOKEN` secret required).
+
+### Changed
+
+- **CI workflow**: `ci.yml` now runs `code:check`, tests with coverage, the Codecov upload and the build as separate steps.
+- **Vitest coverage**: Added the `lcov` reporter alongside `text` and `html`.
+
+### Fixed
+
+- **Vitest config**: Removed unused `url` imports from `vitest.config.ts` that caused a type error.
+
 # [0.14.0] - 2026-11-04
 
 ### Added
