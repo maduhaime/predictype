@@ -12,12 +12,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: npm
-          registry-url: https://registry.npmjs.org
       - name: Use the npm version pinned in package.json
         run: npm install --global "$(node -p "require('./package.json').packageManager")"
       - name: Check that the tag matches package.json
