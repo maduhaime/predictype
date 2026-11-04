@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
-import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     environment: 'node',
     coverage: {
+      reporter: ['text', 'html', 'lcov'],
       exclude: [
         '**/index.ts', // Index files
         '**/*.config.ts', // Configuration files
